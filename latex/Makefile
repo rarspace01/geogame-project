@@ -1,16 +1,16 @@
 TEXFILES := $(wildcard *.tex)
 
-all: Pflichtenheft.pdf
+all: Masterarbeit.pdf
 	
 
-Pflichtenheft.pdf:  $(TEXFILES)
-	pdflatex Pflichtenheft
-	bibtex Pflichtenheft
-	pdflatex Pflichtenheft
-	pdflatex Pflichtenheft
+Masterarbeit.pdf:  $(TEXFILES)
+	pdflatex Masterarbeit
+	bibtex Masterarbeit
+	pdflatex Masterarbeit
+	pdflatex Masterarbeit
 
 
 clean:
-	rm *.aux *.bbl *.blg *.log *.toc Pflichtenheft.pdf
+	rm *.aux *.bbl *.blg *.log *.toc Masterarbeit.pdf
 
 
