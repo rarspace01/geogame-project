@@ -1,0 +1,102 @@
+\documentclass[pdftex, a4paper, 12pt]{article}
+\usepackage[ngerman]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{listings}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{here}
+\usepackage{url}
+\usepackage{capt-of}
+\usepackage{multirow}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{color}
+\usepackage{titlesec}
+\usepackage{hyperref}
+\usepackage[scaled]{helvet}
+\usepackage{fancyhdr}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{geometry}
+\usepackage{lscape}
+%% acronyme
+\usepackage{acronym}
+
+%% Zeilenabstand einstellen:
+\usepackage{setspace}
+
+
+%%last packages DONT MODIFY - ask first
+
+
+\geometry{a4paper,left=20mm,right=20mm, top=20mm, bottom=30mm}
+
+%%fix für paragraph einrückung
+\setlength{\parindent}{0in}
+
+\renewcommand{\baselinestretch}{1.5}\normalsize
+
+%spacing 
+\onehalfspacing
+
+\fancyhf{}
+%Header
+%\fancyhead[R]{}
+\fancyhead[L]{Masterarbeit}
+%
+%bottom
+\fancyfoot[R]{Seite: \thepage}
+
+\renewcommand{\footrulewidth}{0.4pt}
+\pagestyle{fancy}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks ,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+}
+
+%    \hypersetup{
+%      colorlinks=false,
+%      pdfborder={0 0 0}
+%   }
+
+\begin{document}
+\bibliographystyle{alphadin}
+
+% include titlepage 00
+\input{section/00_deckblatt}
+\newpage
+\input{section/0_danksagung}
+\newpage
+
+\textcolor{MidnightBlue}{\tableofcontents}
+%\tableofcontents
+
+\textcolor{MidnightBlue}{\listoffigures}
+
+\newpage
+%Sections in separate files
+\input{section/1_einleitung}
+\newpage
+\input{section/2_problemstellung}
+\newpage
+\input{section/3_foschungsstand}
+\newpage
+\input{section/4_loesungsansatz}
+\newpage
+\input{section/5_umsetzung}
+\newpage
+\input{section/6_evaluierung}
+\newpage
+\input{section/7_diskussion}
+\newpage
+\input{section/8_glossar}
+\newpage
+\input{section/9_code_of_conduct}
+\newpage
+%% - alphadin
+\bibliography{references}
+\end{document}
