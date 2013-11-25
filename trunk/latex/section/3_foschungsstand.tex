@@ -2,6 +2,7 @@
 \label{sec:S3_Forschungsstand}
 
 \subsection{Gamification}
+\label{subsec:S3_Gamification}
 
 Der Begriff Gamification geht auf Nick Pelling 2002 zurück (Marczewski, Andrzej (April 2012). "Forward". Gamification: A Simple Introduction (1st ed.). p. 46., http://nanodome.wordpress.com/2011/08/09/the-short-prehistory-of-gamification/)
 
@@ -23,7 +24,8 @@ Kapp "Gamification is using game based mechanics, aesthetics and game thinking t
 Kapp, 2012, S.10
 
 
-"Title" - (SEBASTIAN, DAN, RILLA and LENNART 2011)
+"From Game Design Elements to Gamefulness: Defining Gamification" - (SEBASTIAN, DAN, RILLA and LENNART 2011):
+
 
 ODOBSAIC et. al Gamificatoin of geographic data collection (2013):
 
@@ -31,6 +33,14 @@ ODOBSAIC et. al Gamificatoin of geographic data collection (2013):
 \begin{center}
 \includegraphics[width=80mm]{images/ch3_img01_LBG_SN_etc.png}
 \caption{Einordnung Definition}
+\label{img:ch3_img01_LBG_SN_etc}
+\end{center}
+\end{figure}
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width=80mm]{images/ch3_img02_gamification.png}
+\caption{Gamification @ Deterding et. al}
 \label{img:ch3_img01_LBG_SN_etc}
 \end{center}
 \end{figure}
@@ -55,7 +65,7 @@ Lernförderung, Anregung zum Handeln
 
 
 Zichermann \& Cunningham (2011):
-Mensch hat hang zum Spielen.
+Mensch hat Hang zum Spielen.
 
 SAPS (do not give something for free, but something for status etc.)
 
@@ -85,20 +95,27 @@ Game Mechanics:
       \item engagement loops
 \end{itemize}
 
+Der Begriff Gamification wird aktiv seit ca. 2010 genutzt. Die Ansätze sind bereits seit den 80ern in Verwendung und per se nichts neues.
+Es gibt unterschiedliche Definitionen für diese Arbeit wird ein Fokus auf die Terminologie von Zichermann gelegt, da dieser darüber hinaus ein strukturiertes Modell für einzelene Elemente der Gamification bietet.
+
 \subsection{Geogames}
+\label{subsec:S3_Geogames}
 
 Game/Spiel:
 
-According to  Katie  Salen  and  Eric  Zimmerman  (2004):
-"Magic circle"
+According to  Katie  Salen  and  Eric  Zimmerman  (2004): "Magic circle"
 
 Mobilegames
--games played on mobile devices
+-games played on mobile devices (Bell et al. 2006)
 
 Locationbased Games
 games played in a location context
+Kiefer et al. 2006, Benford et al. 2003
+"Extending Cyberspace: Location Based Games Using Cellular Phones":
+Rashid 2006
 
-"Extending Cyberspace:Location Based Games Using Cellular Phones"
+Geogames:
+Schlieder et al. 2006
 
 Pervasive Games
 
@@ -117,16 +134,55 @@ Human Pacman, realised by Choek et al. (2004)
 
 Unterscheidung zwischen LBG, AR MR etc:
 
-Concepts and Technologies for Pervasive Games
+Concepts and Technologies for Pervasive Games (A reader for pervasive gaming research) 2007
+
+Es gibt viele verschiedene umgesetzte Spiele im Geogames/Pervasive Gaming Bereich
 
 \subsection{Relokalisierungsansätze}
 
-Literatur von Kinf, sonst keine in diesem Umfeld.
-Relocalisierungsansätze werden zwar angesprochen, z.:B in 
+Generell was ist eine Location?
+Wodurch wird diese definiert?
+
+
+Literatur von KInf, sonst keine in diesem Umfeld.
+Relocalisierungsansätze werden zwar angesprochen, z.B. in 
 Exploring the Edge of the Magic Circle: 
 Defining Pervasive Games 
 Markus Montola 
 
-es wird auf eventuelle Implikationen hingewiesen aber nciht im detail weiter verfolgt.
+es wird auf eventuelle Implikationen hingewiesen aber nicht im Detail weiter verfolgt.
+
+Mannara 2012 ist ein erster Ansatz für ein Framework zu Relokalisierung von Spielfeldern basierend auf OSM Daten aber mit Fokus auf Eclipse EMF
 
 \subsection{Verwendung offener Geodaten}
+\label{subsec:S3_offeneGeodaten}
+
+Hier: Was ist unter offen zu verstehen?
+
+Es gibt zwei Bezugsquellen von öffentlichen Daten.
+Zunächst die Daten welche von bestimmten Städten (vgl. Wien, Berlin, München) oder Ländern (Dänemark) den Bürgern zur Verfügung gestellt werden. Die Art, Qualität, sowie Umfang der Daten unterscheiden sich jedoch erheblich.
+
+Eine zweite Option sind von offene (Geo-)Datenbanken, welche von privaten Personen durch Mapping oder externe lizenzierte Quellen zusammen gesammelt wurdne. Eine dieser Datenbanken ist OpenStreetMap (OSM).
+
+
+Haklay, Mordechai. "How good is volunteered geographical information? A comparative study of OpenStreetMap and Ordnance Survey datasets." Environment and planning. B, Planning \& design 37.4 (2010): 682.
+
+\&
+
+"Quality Assessment of the French OpenStreetMap Dataset" Girres et al. (2010)
+
+Ergebnis:
+
+Qualität der Daten von OSM hat seit dem Start (2004) enorm zugenommen, je nach Land besteht eine höhere Abdeckungsrate. Zur Zeit gibt es ca 20.000 aktive Mapper.
+
+Mapping in Städten deutlich genauer wie "auf dem Land/außerhalb".  avg. distance ~1 vs ~30m.
+
+Es gibt eine generelle Ungenauigkeit bei den Namen der Objekte.
+
+Logische Konsistenz im Modell von OSM nicht verhanden.
+
+Hecht 2013:
+-Abdeckung/Coverage relativ gering, allerdings Genauigkeit proportional zu Stadtgröße
+
+Pfoser et al. 2013:
+-zwar teilweise gernige coverage, aber sehr hohe Klassifikationsrate, bei dennoch hoher Fehlerate von bis zu 23%
