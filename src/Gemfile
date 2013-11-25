@@ -30,6 +30,7 @@ gem 'jbuilder', '~> 1.2'
 gem 'pry-full'
 
 gem 'rgeo'
+gem 'rgeo-geojson'
 
 gem 'leaflet-rails'
 
