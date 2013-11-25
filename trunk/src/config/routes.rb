@@ -1,4 +1,7 @@
 GeogameProject::Application.routes.draw do
+  get "gameboard/show"
+  get "overpass_api/getLocation"
+  get "overpass_api/checkID"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

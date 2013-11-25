@@ -156,6 +156,8 @@ GEM
     rdoc (3.12.2)
       json (~> 1.4)
     rgeo (0.3.20)
+    rgeo-geojson (0.2.3)
+      rgeo (>= 0.3.7)
     sass (3.2.12)
     sass-rails (4.0.1)
       railties (>= 4.0.0, < 5.0)
@@ -202,6 +204,7 @@ DEPENDENCIES
   pry-full
   rails (= 4.0.0)
   rgeo
+  rgeo-geojson
   sass-rails (~> 4.0.0)
   sdoc
   sqlite3
