@@ -1,4 +1,4 @@
-\documentclass[pdftex, a4paper, 12pt]{article}
+\documentclass[pdftex, a4paper, 12pt]{scrreprt}
 \usepackage[ngerman]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -25,6 +25,20 @@
 %% Zeilenabstand einstellen:
 \usepackage{setspace}
 
+%% Bibtext stuff
+
+\usepackage[%
+        backend=biber,
+        style=authoryear-icomp,
+    	sortlocale=de_DE,
+        natbib=true,
+        backref=false,
+        backrefstyle=all+,
+        hyperref=true,
+    ]{biblatex}
+    
+    
+\addbibresource{references.bib}
 
 %%last packages DONT MODIFY - ask first
 
@@ -64,13 +78,17 @@
 %   }
 
 \begin{document}
-\bibliographystyle{alphadin}
+
+% Seitennummerierung -------------------------------------------------------
+%		Vor dem Hauptteil werden die Seiten in groen rmischen Ziffern 
+%		nummeriert...
+% --------------------------------------------------------------------------
+\pagenumbering{Roman}
 
 % include titlepage 00
-\input{section/00_deckblatt}
+\input{chapter/00_deckblatt}
 \newpage
-\input{section/0_danksagung}
-\newpage
+\input{chapter/0_danksagung}
 
 \textcolor{MidnightBlue}{\tableofcontents}
 %\tableofcontents
@@ -78,25 +96,32 @@
 \textcolor{MidnightBlue}{\listoffigures}
 
 \newpage
+
+\pagenumbering{arabic}
+
 %Sections in separate files
-\input{section/1_einleitung}
+\input{chapter/1_einleitung}
 \newpage
-\input{section/2_problemstellung}
+\input{chapter/2_problemstellung}
 \newpage
-\input{section/3_foschungsstand}
+\input{chapter/3_foschungsstand}
 \newpage
-\input{section/4_loesungsansatz}
+\input{chapter/4_loesungsansatz}
 \newpage
-\input{section/5_umsetzung}
+\input{chapter/5_umsetzung}
 \newpage
-\input{section/6_evaluierung}
+\input{chapter/6_evaluierung}
 \newpage
-\input{section/7_diskussion}
+\input{chapter/7_diskussion}
 \newpage
-\input{section/8_glossar}
+\input{chapter/8_glossar}
 \newpage
-\input{section/9_code_of_conduct}
+\input{chapter/9_code_of_conduct}
 \newpage
 %% - alphadin
-\bibliography{references}
+%%\bibliography{references}
+\nocite{*} 
+
+\printbibliography
+
 \end{document}
