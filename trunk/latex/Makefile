@@ -11,7 +11,7 @@ Masterarbeit.pdf:  $(TEXFILES)
 
 
 clean:
-	rm *.aux *.bbl *.blg *.log *.toc Masterarbeit.pdf
-	del *.aux *.bbl *.blg *.log *.toc Masterarbeit.pdf
+	rm *.aux *.bbl *.blg *.log *.toc *.out *.lot *.lof *.bcf Masterarbeit.pdf
+	del *.aux *.bbl *.blg *.log *.toc *.out *.lot *.lof *.bcf Masterarbeit.pdf
 
 
