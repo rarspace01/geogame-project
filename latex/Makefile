@@ -1,7 +1,6 @@
 TEXFILES := $(wildcard *.tex)
 
-all: Masterarbeit.pdf
-	
+all: Masterarbeit.pdf showpdf
 
 Masterarbeit.pdf:  $(TEXFILES)
 	pdflatex Masterarbeit
@@ -9,6 +8,8 @@ Masterarbeit.pdf:  $(TEXFILES)
 	pdflatex Masterarbeit
 	pdflatex Masterarbeit
 
+showpdf:
+	gnome-open Masterarbeit.pdf
 
 clean:
 	rm *.aux *.bbl *.blg *.log *.toc *.out *.lot *.lof *.bcf Masterarbeit.pdf
