@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  value: 1
+  player_id: 1
+  lastdecay: 2013-11-27 14:17:42
+
+two:
+  value: 1
+  player_id: 1
+  lastdecay: 2013-11-27 14:17:42
