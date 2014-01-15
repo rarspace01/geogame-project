@@ -1,4 +1,4 @@
 <h1>Gameboard#show</h1>
 <p>Find me in app/views/gameboard/show.html.erb</p>
-<div id="gameboardmap" class="leafletmap" data-lat="49" data-lon="10" data-zoom="4" />
+<%= map(:center => { :latlng => [51.52238797921441, -0.08366235665359283], :zoom => 18 }, :markers => [ { :latlng => [51.52238797921441, -0.08366235665359283], } ] ) %>
 <%= @result %>
