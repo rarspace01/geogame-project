@@ -34,6 +34,8 @@ gem 'rgeo-geojson'
 
 gem 'leaflet-rails'
 
+gem 'jquery-turbolinks'
+
 gem 'json'
 
 group :doc do
