@@ -2,7 +2,9 @@
 // All this logic will automatically be available in application.js.
 
 $(document).ready(function(){
-map.invalidateSize(false);
-alert('test');
+
+$("#map").height($(window).height()).width($(window).width());
+map.invalidateSize();
+
 });
 
