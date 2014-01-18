@@ -24,7 +24,7 @@ module OverpassApiHelper
 			feature["type"] = "Feature"
 			geometry = Hash.new
 			geometry["type"] = "Point"
-			geometry["coordinates"] = [element["lat"],element["lon"]]
+			geometry["coordinates"] = [element["lon"],element["lat"]]
 			properties = Hash.new
 			properties["popupContent"] = "Test"
 			feature["geometry"] = geometry

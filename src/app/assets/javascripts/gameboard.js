@@ -3,6 +3,18 @@
 
 $(document).ready(function(){
 
+function onEachFeature(feature, layer) {
+	var popupContent = "<p>I started out as a GeoJSON " +
+			feature.geometry.type + ", but now I'm a Leaflet vector!</p>";
+
+	if (feature.properties && feature.properties.popupContent) {
+		popupContent += feature.properties.popupContent;
+	}
+
+	layer.bindPopup(popupContent);
+}
+
+
 function getLocation()
 {
   if (navigator.geolocation)
@@ -25,11 +37,27 @@ function showPosition(position)
 
 function loadGeoJsonData(){
 
-L.geoJson(geoJsonList, {
-    filter: function(feature, layer) {
-        return feature.properties.show_on_map;
-    }
-}).addTo(map);
+		L.geoJson(geoJsonList, {
+
+			style: function (feature) {
+				return feature.properties && feature.properties.style;
+			},
+
+			onEachFeature: onEachFeature,
+
+			pointToLayer: function (feature, latlng) {
+				return L.circleMarker(latlng, {
+					radius: 8,
+					fillColor: "#ff7800",
+					color: "#000",
+					weight: 1,
+					opacity: 1,
+					fillOpacity: 0.8
+				});
+			}
+		}).addTo(map);
+
+
 
 }
 
