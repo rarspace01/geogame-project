@@ -4692,3 +4692,724 @@ Started GET "/assets/marker-icon.png" for 127.0.0.1 at 2014-01-18 18:05:26 +0100
 
 
 Started GET "/assets/marker-shadow.png" for 127.0.0.1 at 2014-01-18 18:05:26 +0100
+
+
+Started GET "/gameboard/show" for 127.0.0.1 at 2014-01-18 20:15:14 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by GameboardController#show as HTML
+  Rendered gameboard/show.html.erb within layouts/application (1376.5ms)
+Completed 200 OK in 6952ms (Views: 1909.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-01-18 20:15:22 +0100
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /home/denis/.rvm/gems/ruby-2.0.0-p353/gems/railties-4.0.0/lib/rails/templates/rails/welcome/index.html.erb (6.0ms)
+Completed 200 OK in 21ms (Views: 16.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/gameboard/show" for 127.0.0.1 at 2014-01-18 20:15:22 +0100
+Processing by GameboardController#show as HTML
+  Rendered gameboard/show.html.erb within layouts/application (1310.2ms)
+Completed 200 OK in 3486ms (Views: 1347.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-01-18 20:15:25 +0100
+
+
+Started GET "/assets/gameboard.css?body=1" for 127.0.0.1 at 2014-01-18 20:15:25 +0100
+
+
+Started GET "/assets/overpass_api.css?body=1" for 127.0.0.1 at 2014-01-18 20:15:25 +0100
+
+
+Started GET "/assets/leaflet.css?body=1" for 127.0.0.1 at 2014-01-18 20:15:25 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-01-18 20:15:25 +0100
+
+
+Started GET "/assets/overpass_api.js?body=1" for 127.0.0.1 at 2014-01-18 20:15:25 +0100
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 127.0.0.1 at 2014-01-18 20:15:25 +0100
+
+
+Started GET "/assets/gameboard.js?body=1" for 127.0.0.1 at 2014-01-18 20:15:25 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-01-18 20:15:25 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-01-18 20:15:25 +0100
+
+
+Started GET "/assets/leaflet.js?body=1" for 127.0.0.1 at 2014-01-18 20:15:26 +0100
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-01-18 20:15:26 +0100
+
+
+Started GET "/assets/marker-icon.png" for 127.0.0.1 at 2014-01-18 20:15:26 +0100
+
+
+Started GET "/assets/marker-shadow.png" for 127.0.0.1 at 2014-01-18 20:15:26 +0100
+
+
+Started GET "/gameboard/show" for 127.0.0.1 at 2014-01-18 20:16:18 +0100
+Processing by GameboardController#show as HTML
+  Rendered gameboard/show.html.erb within layouts/application (953.8ms)
+Completed 200 OK in 4636ms (Views: 976.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-01-18 20:16:23 +0100
+
+
+Started GET "/assets/gameboard.css?body=1" for 127.0.0.1 at 2014-01-18 20:16:23 +0100
+
+
+Started GET "/assets/overpass_api.css?body=1" for 127.0.0.1 at 2014-01-18 20:16:23 +0100
+
+
+Started GET "/assets/leaflet.css?body=1" for 127.0.0.1 at 2014-01-18 20:16:23 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-01-18 20:16:23 +0100
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 127.0.0.1 at 2014-01-18 20:16:23 +0100
+
+
+Started GET "/assets/gameboard.js?body=1" for 127.0.0.1 at 2014-01-18 20:16:23 +0100
+
+
+Started GET "/assets/overpass_api.js?body=1" for 127.0.0.1 at 2014-01-18 20:16:23 +0100
+
+
+Started GET "/assets/leaflet.js?body=1" for 127.0.0.1 at 2014-01-18 20:16:23 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-01-18 20:16:23 +0100
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-01-18 20:16:23 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-01-18 20:16:23 +0100
+
+
+Started GET "/assets/marker-icon.png" for 127.0.0.1 at 2014-01-18 20:16:23 +0100
+
+
+Started GET "/assets/marker-shadow.png" for 127.0.0.1 at 2014-01-18 20:16:23 +0100
+
+
+Started GET "/gameboard/show" for 127.0.0.1 at 2014-01-18 20:21:07 +0100
+Processing by GameboardController#show as HTML
+  Rendered gameboard/show.html.erb within layouts/application (917.2ms)
+Completed 200 OK in 2903ms (Views: 1105.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-01-18 20:21:10 +0100
+
+
+Started GET "/assets/gameboard.css?body=1" for 127.0.0.1 at 2014-01-18 20:21:10 +0100
+
+
+Started GET "/assets/overpass_api.css?body=1" for 127.0.0.1 at 2014-01-18 20:21:10 +0100
+
+
+Started GET "/assets/leaflet.css?body=1" for 127.0.0.1 at 2014-01-18 20:21:10 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-01-18 20:21:10 +0100
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 127.0.0.1 at 2014-01-18 20:21:10 +0100
+
+
+Started GET "/assets/gameboard.js?body=1" for 127.0.0.1 at 2014-01-18 20:21:10 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-01-18 20:21:10 +0100
+
+
+Started GET "/assets/overpass_api.js?body=1" for 127.0.0.1 at 2014-01-18 20:21:10 +0100
+
+
+Started GET "/assets/leaflet.js?body=1" for 127.0.0.1 at 2014-01-18 20:21:10 +0100
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-01-18 20:21:10 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-01-18 20:21:10 +0100
+
+
+Started GET "/assets/marker-icon.png" for 127.0.0.1 at 2014-01-18 20:21:10 +0100
+
+
+Started GET "/assets/marker-shadow.png" for 127.0.0.1 at 2014-01-18 20:21:10 +0100
+
+
+Started GET "/gameboard/show" for 127.0.0.1 at 2014-01-18 20:22:35 +0100
+Processing by GameboardController#show as HTML
+  Rendered gameboard/show.html.erb within layouts/application (974.1ms)
+Completed 200 OK in 2696ms (Views: 1142.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-01-18 20:22:37 +0100
+
+
+Started GET "/assets/gameboard.css?body=1" for 127.0.0.1 at 2014-01-18 20:22:37 +0100
+
+
+Started GET "/assets/overpass_api.css?body=1" for 127.0.0.1 at 2014-01-18 20:22:38 +0100
+
+
+Started GET "/assets/leaflet.css?body=1" for 127.0.0.1 at 2014-01-18 20:22:38 +0100
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 127.0.0.1 at 2014-01-18 20:22:38 +0100
+
+
+Started GET "/assets/overpass_api.js?body=1" for 127.0.0.1 at 2014-01-18 20:22:38 +0100
+
+
+Started GET "/assets/gameboard.js?body=1" for 127.0.0.1 at 2014-01-18 20:22:38 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-01-18 20:22:38 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-01-18 20:22:38 +0100
+
+
+Started GET "/assets/leaflet.js?body=1" for 127.0.0.1 at 2014-01-18 20:22:38 +0100
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-01-18 20:22:38 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-01-18 20:22:38 +0100
+
+
+Started GET "/assets/marker-icon.png" for 127.0.0.1 at 2014-01-18 20:22:38 +0100
+
+
+Started GET "/assets/marker-shadow.png" for 127.0.0.1 at 2014-01-18 20:22:38 +0100
+
+
+Started GET "/assets/marker-icon.png" for 127.0.0.1 at 2014-01-18 20:22:40 +0100
+
+
+Started GET "/assets/marker-shadow.png" for 127.0.0.1 at 2014-01-18 20:22:40 +0100
+
+
+Started GET "/assets/marker-icon.png" for 127.0.0.1 at 2014-01-18 20:27:13 +0100
+
+
+Started GET "/assets/marker-shadow.png" for 127.0.0.1 at 2014-01-18 20:27:13 +0100
+
+
+Started GET "/gameboard/show" for 127.0.0.1 at 2014-01-18 20:28:07 +0100
+Processing by GameboardController#show as HTML
+  Rendered gameboard/show.html.erb within layouts/application (1007.3ms)
+Completed 200 OK in 3021ms (Views: 1021.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-01-18 20:28:10 +0100
+
+
+Started GET "/assets/overpass_api.css?body=1" for 127.0.0.1 at 2014-01-18 20:28:10 +0100
+
+
+Started GET "/assets/gameboard.css?body=1" for 127.0.0.1 at 2014-01-18 20:28:10 +0100
+
+
+Started GET "/assets/leaflet.css?body=1" for 127.0.0.1 at 2014-01-18 20:28:10 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-01-18 20:28:10 +0100
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 127.0.0.1 at 2014-01-18 20:28:10 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-01-18 20:28:10 +0100
+
+
+Started GET "/assets/overpass_api.js?body=1" for 127.0.0.1 at 2014-01-18 20:28:10 +0100
+
+
+Started GET "/assets/leaflet.js?body=1" for 127.0.0.1 at 2014-01-18 20:28:10 +0100
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-01-18 20:28:10 +0100
+
+
+Started GET "/assets/gameboard.js?body=1" for 127.0.0.1 at 2014-01-18 20:28:10 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-01-18 20:28:10 +0100
+
+
+Started GET "/assets/marker-icon.png" for 127.0.0.1 at 2014-01-18 20:28:11 +0100
+
+
+Started GET "/assets/marker-shadow.png" for 127.0.0.1 at 2014-01-18 20:28:11 +0100
+
+
+Started GET "/assets/marker-icon.png" for 127.0.0.1 at 2014-01-18 20:28:13 +0100
+
+
+Started GET "/assets/marker-shadow.png" for 127.0.0.1 at 2014-01-18 20:28:13 +0100
+
+
+Started GET "/gameboard/show" for 127.0.0.1 at 2014-01-18 20:29:52 +0100
+Processing by GameboardController#show as HTML
+  Rendered gameboard/show.html.erb within layouts/application (974.6ms)
+Completed 200 OK in 2853ms (Views: 1172.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-01-18 20:29:55 +0100
+
+
+Started GET "/assets/gameboard.css?body=1" for 127.0.0.1 at 2014-01-18 20:29:55 +0100
+
+
+Started GET "/assets/overpass_api.css?body=1" for 127.0.0.1 at 2014-01-18 20:29:55 +0100
+
+
+Started GET "/assets/leaflet.css?body=1" for 127.0.0.1 at 2014-01-18 20:29:55 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-01-18 20:29:55 +0100
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 127.0.0.1 at 2014-01-18 20:29:55 +0100
+
+
+Started GET "/assets/gameboard.js?body=1" for 127.0.0.1 at 2014-01-18 20:29:55 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-01-18 20:29:55 +0100
+
+
+Started GET "/assets/overpass_api.js?body=1" for 127.0.0.1 at 2014-01-18 20:29:55 +0100
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-01-18 20:29:55 +0100
+
+
+Started GET "/assets/leaflet.js?body=1" for 127.0.0.1 at 2014-01-18 20:29:55 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-01-18 20:29:55 +0100
+
+
+Started GET "/assets/marker-icon.png" for 127.0.0.1 at 2014-01-18 20:29:55 +0100
+
+
+Started GET "/assets/marker-shadow.png" for 127.0.0.1 at 2014-01-18 20:29:55 +0100
+
+
+Started GET "/assets/marker-icon.png" for 127.0.0.1 at 2014-01-18 20:29:58 +0100
+
+
+Started GET "/assets/marker-shadow.png" for 127.0.0.1 at 2014-01-18 20:29:58 +0100
+
+
+Started GET "/gameboard/show" for 127.0.0.1 at 2014-01-18 20:30:18 +0100
+Processing by GameboardController#show as HTML
+  Rendered gameboard/show.html.erb within layouts/application (993.7ms)
+Completed 200 OK in 2536ms (Views: 1014.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-01-18 20:30:21 +0100
+
+
+Started GET "/assets/gameboard.css?body=1" for 127.0.0.1 at 2014-01-18 20:30:21 +0100
+
+
+Started GET "/assets/overpass_api.css?body=1" for 127.0.0.1 at 2014-01-18 20:30:21 +0100
+
+
+Started GET "/assets/leaflet.css?body=1" for 127.0.0.1 at 2014-01-18 20:30:21 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-01-18 20:30:21 +0100
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 127.0.0.1 at 2014-01-18 20:30:21 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-01-18 20:30:21 +0100
+
+
+Started GET "/assets/gameboard.js?body=1" for 127.0.0.1 at 2014-01-18 20:30:21 +0100
+
+
+Started GET "/assets/leaflet.js?body=1" for 127.0.0.1 at 2014-01-18 20:30:21 +0100
+
+
+Started GET "/assets/overpass_api.js?body=1" for 127.0.0.1 at 2014-01-18 20:30:21 +0100
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-01-18 20:30:21 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-01-18 20:30:21 +0100
+
+
+Started GET "/assets/marker-icon.png" for 127.0.0.1 at 2014-01-18 20:30:22 +0100
+
+
+Started GET "/assets/marker-shadow.png" for 127.0.0.1 at 2014-01-18 20:30:22 +0100
+
+
+Started GET "/assets/marker-icon.png" for 127.0.0.1 at 2014-01-18 20:30:24 +0100
+
+
+Started GET "/assets/marker-shadow.png" for 127.0.0.1 at 2014-01-18 20:30:24 +0100
+
+
+Started GET "/gameboard/show" for 127.0.0.1 at 2014-01-18 20:32:01 +0100
+Processing by GameboardController#show as HTML
+  Rendered gameboard/show.html.erb within layouts/application (1073.0ms)
+Completed 200 OK in 2950ms (Views: 1253.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-01-18 20:32:04 +0100
+
+
+Started GET "/assets/gameboard.css?body=1" for 127.0.0.1 at 2014-01-18 20:32:04 +0100
+
+
+Started GET "/assets/overpass_api.css?body=1" for 127.0.0.1 at 2014-01-18 20:32:04 +0100
+
+
+Started GET "/assets/leaflet.css?body=1" for 127.0.0.1 at 2014-01-18 20:32:04 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-01-18 20:32:04 +0100
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 127.0.0.1 at 2014-01-18 20:32:04 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-01-18 20:32:04 +0100
+
+
+Started GET "/assets/gameboard.js?body=1" for 127.0.0.1 at 2014-01-18 20:32:04 +0100
+
+
+Started GET "/assets/overpass_api.js?body=1" for 127.0.0.1 at 2014-01-18 20:32:04 +0100
+
+
+Started GET "/assets/leaflet.js?body=1" for 127.0.0.1 at 2014-01-18 20:32:04 +0100
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-01-18 20:32:04 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-01-18 20:32:04 +0100
+
+
+Started GET "/assets/marker-icon.png" for 127.0.0.1 at 2014-01-18 20:32:05 +0100
+
+
+Started GET "/assets/marker-shadow.png" for 127.0.0.1 at 2014-01-18 20:32:05 +0100
+
+
+Started GET "/assets/marker-icon.png" for 127.0.0.1 at 2014-01-18 20:32:07 +0100
+
+
+Started GET "/assets/marker-shadow.png" for 127.0.0.1 at 2014-01-18 20:32:07 +0100
+
+
+Started GET "/" for 192.168.1.27 at 2014-01-18 20:32:53 +0100
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /home/denis/.rvm/gems/ruby-2.0.0-p353/gems/railties-4.0.0/lib/rails/templates/rails/welcome/index.html.erb (0.2ms)
+Completed 200 OK in 45ms (Views: 44.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/gameboard/show" for 192.168.1.27 at 2014-01-18 20:32:59 +0100
+Processing by GameboardController#show as HTML
+  Rendered gameboard/show.html.erb within layouts/application (434.2ms)
+Completed 200 OK in 1529ms (Views: 440.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 192.168.1.27 at 2014-01-18 20:33:01 +0100
+
+
+Started GET "/assets/gameboard.css?body=1" for 192.168.1.27 at 2014-01-18 20:33:01 +0100
+
+
+Started GET "/assets/overpass_api.css?body=1" for 192.168.1.27 at 2014-01-18 20:33:01 +0100
+
+
+Started GET "/assets/leaflet.css?body=1" for 192.168.1.27 at 2014-01-18 20:33:01 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 192.168.1.27 at 2014-01-18 20:33:01 +0100
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 192.168.1.27 at 2014-01-18 20:33:01 +0100
+
+
+Started GET "/assets/gameboard.js?body=1" for 192.168.1.27 at 2014-01-18 20:33:01 +0100
+
+
+Started GET "/assets/overpass_api.js?body=1" for 192.168.1.27 at 2014-01-18 20:33:01 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 192.168.1.27 at 2014-01-18 20:33:01 +0100
+
+
+Started GET "/assets/leaflet.js?body=1" for 192.168.1.27 at 2014-01-18 20:33:01 +0100
+
+
+Started GET "/assets/turbolinks.js?body=1" for 192.168.1.27 at 2014-01-18 20:33:01 +0100
+
+
+Started GET "/assets/application.js?body=1" for 192.168.1.27 at 2014-01-18 20:33:01 +0100
+
+
+Started GET "/assets/marker-shadow.png" for 192.168.1.27 at 2014-01-18 20:33:01 +0100
+
+
+Started GET "/assets/marker-icon.png" for 192.168.1.27 at 2014-01-18 20:33:01 +0100
+
+
+Started GET "/gameboard/show" for 192.168.1.27 at 2014-01-18 20:33:37 +0100
+Processing by GameboardController#show as HTML
+  Rendered gameboard/show.html.erb within layouts/application (449.4ms)
+Completed 200 OK in 1460ms (Views: 456.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 192.168.1.27 at 2014-01-18 20:33:39 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 192.168.1.27 at 2014-01-18 20:33:39 +0100
+
+
+Started GET "/assets/leaflet.css?body=1" for 192.168.1.27 at 2014-01-18 20:33:39 +0100
+
+
+Started GET "/assets/overpass_api.css?body=1" for 192.168.1.27 at 2014-01-18 20:33:39 +0100
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 192.168.1.27 at 2014-01-18 20:33:39 +0100
+
+
+Started GET "/assets/gameboard.css?body=1" for 192.168.1.27 at 2014-01-18 20:33:39 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 192.168.1.27 at 2014-01-18 20:33:39 +0100
+
+
+Started GET "/assets/gameboard.js?body=1" for 192.168.1.27 at 2014-01-18 20:33:39 +0100
+
+
+Started GET "/assets/overpass_api.js?body=1" for 192.168.1.27 at 2014-01-18 20:33:39 +0100
+
+
+Started GET "/assets/leaflet.js?body=1" for 192.168.1.27 at 2014-01-18 20:33:39 +0100
+
+
+Started GET "/assets/turbolinks.js?body=1" for 192.168.1.27 at 2014-01-18 20:33:39 +0100
+
+
+Started GET "/assets/application.js?body=1" for 192.168.1.27 at 2014-01-18 20:33:39 +0100
+
+
+Started GET "/assets/marker-shadow.png" for 192.168.1.27 at 2014-01-18 20:33:39 +0100
+
+
+Started GET "/assets/marker-icon.png" for 192.168.1.27 at 2014-01-18 20:33:39 +0100
+
+
+Started GET "/assets/marker-shadow.png" for 192.168.1.27 at 2014-01-18 20:33:40 +0100
+
+
+Started GET "/assets/marker-icon.png" for 192.168.1.27 at 2014-01-18 20:33:40 +0100
+
+
+Started GET "/assets/marker-icon.png" for 192.168.1.27 at 2014-01-18 20:37:42 +0100
+
+
+Started GET "/assets/marker-shadow.png" for 192.168.1.27 at 2014-01-18 20:37:42 +0100
+
+
+Started GET "/assets/marker-icon.png" for 192.168.1.27 at 2014-01-18 20:43:17 +0100
+
+
+Started GET "/assets/marker-shadow.png" for 192.168.1.27 at 2014-01-18 20:43:17 +0100
+
+
+Started GET "/assets/marker-shadow.png" for 192.168.1.27 at 2014-01-18 20:43:55 +0100
+
+
+Started GET "/assets/marker-icon.png" for 192.168.1.27 at 2014-01-18 20:43:55 +0100
+
+
+Started GET "/assets/marker-icon.png" for 192.168.1.27 at 2014-01-18 20:46:26 +0100
+
+
+Started GET "/assets/marker-shadow.png" for 192.168.1.27 at 2014-01-18 20:46:26 +0100
+
+
+Started GET "/gameboard/show" for 127.0.0.1 at 2014-01-18 20:53:00 +0100
+Processing by GameboardController#show as HTML
+  Rendered gameboard/show.html.erb within layouts/application (1219.1ms)
+Completed 200 OK in 6415ms (Views: 1230.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-01-18 20:53:07 +0100
+
+
+Started GET "/assets/gameboard.css?body=1" for 127.0.0.1 at 2014-01-18 20:53:07 +0100
+
+
+Started GET "/assets/overpass_api.css?body=1" for 127.0.0.1 at 2014-01-18 20:53:07 +0100
+
+
+Started GET "/assets/leaflet.css?body=1" for 127.0.0.1 at 2014-01-18 20:53:07 +0100
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 127.0.0.1 at 2014-01-18 20:53:07 +0100
+
+
+Started GET "/assets/gameboard.js?body=1" for 127.0.0.1 at 2014-01-18 20:53:07 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-01-18 20:53:07 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-01-18 20:53:07 +0100
+
+
+Started GET "/assets/leaflet.js?body=1" for 127.0.0.1 at 2014-01-18 20:53:07 +0100
+
+
+Started GET "/assets/overpass_api.js?body=1" for 127.0.0.1 at 2014-01-18 20:53:07 +0100
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-01-18 20:53:07 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-01-18 20:53:07 +0100
+
+
+Started GET "/assets/marker-icon.png" for 127.0.0.1 at 2014-01-18 20:53:07 +0100
+
+
+Started GET "/assets/marker-shadow.png" for 127.0.0.1 at 2014-01-18 20:53:07 +0100
+
+
+Started GET "/gameboard/show" for 192.168.1.27 at 2014-01-18 20:53:08 +0100
+Processing by GameboardController#show as HTML
+  Rendered gameboard/show.html.erb within layouts/application (1049.2ms)
+Completed 200 OK in 3103ms (Views: 1088.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/marker-icon.png" for 127.0.0.1 at 2014-01-18 20:53:11 +0100
+
+
+Started GET "/assets/marker-shadow.png" for 127.0.0.1 at 2014-01-18 20:53:11 +0100
+
+
+Started GET "/assets/gameboard.css?body=1" for 192.168.1.27 at 2014-01-18 20:53:12 +0100
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 192.168.1.27 at 2014-01-18 20:53:12 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 192.168.1.27 at 2014-01-18 20:53:12 +0100
+
+
+Started GET "/assets/overpass_api.css?body=1" for 192.168.1.27 at 2014-01-18 20:53:12 +0100
+
+
+Started GET "/assets/application.css?body=1" for 192.168.1.27 at 2014-01-18 20:53:12 +0100
+
+
+Started GET "/assets/leaflet.css?body=1" for 192.168.1.27 at 2014-01-18 20:53:12 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 192.168.1.27 at 2014-01-18 20:53:12 +0100
+
+
+Started GET "/assets/gameboard.js?body=1" for 192.168.1.27 at 2014-01-18 20:53:12 +0100
+
+
+Started GET "/assets/overpass_api.js?body=1" for 192.168.1.27 at 2014-01-18 20:53:12 +0100
+
+
+Started GET "/assets/leaflet.js?body=1" for 192.168.1.27 at 2014-01-18 20:53:12 +0100
+
+
+Started GET "/assets/turbolinks.js?body=1" for 192.168.1.27 at 2014-01-18 20:53:12 +0100
+
+
+Started GET "/assets/application.js?body=1" for 192.168.1.27 at 2014-01-18 20:53:12 +0100
+
+
+Started GET "/assets/marker-icon.png" for 192.168.1.27 at 2014-01-18 20:53:12 +0100
+
+
+Started GET "/assets/marker-shadow.png" for 192.168.1.27 at 2014-01-18 20:53:12 +0100
+
+
+Started GET "/" for 192.168.1.100 at 2014-01-18 20:54:51 +0100
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /home/denis/.rvm/gems/ruby-2.0.0-p353/gems/railties-4.0.0/lib/rails/templates/rails/welcome/index.html.erb (0.3ms)
+Completed 200 OK in 4ms (Views: 3.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/gameboard/show" for 192.168.1.100 at 2014-01-18 20:54:52 +0100
+Processing by GameboardController#show as HTML
+  Rendered gameboard/show.html.erb within layouts/application (414.3ms)
+Completed 200 OK in 1452ms (Views: 421.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/leaflet.css?body=1" for 192.168.1.100 at 2014-01-18 20:54:54 +0100
+
+
+Started GET "/assets/gameboard.css?body=1" for 192.168.1.100 at 2014-01-18 20:54:54 +0100
+
+
+Started GET "/assets/overpass_api.css?body=1" for 192.168.1.100 at 2014-01-18 20:54:54 +0100
+
+
+Started GET "/assets/application.css?body=1" for 192.168.1.100 at 2014-01-18 20:54:54 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 192.168.1.100 at 2014-01-18 20:54:54 +0100
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 192.168.1.100 at 2014-01-18 20:54:54 +0100
+
+
+Started GET "/assets/gameboard.js?body=1" for 192.168.1.100 at 2014-01-18 20:54:54 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 192.168.1.100 at 2014-01-18 20:54:54 +0100
+
+
+Started GET "/assets/overpass_api.js?body=1" for 192.168.1.100 at 2014-01-18 20:54:54 +0100
+
+
+Started GET "/assets/leaflet.js?body=1" for 192.168.1.100 at 2014-01-18 20:54:54 +0100
+
+
+Started GET "/assets/turbolinks.js?body=1" for 192.168.1.100 at 2014-01-18 20:54:54 +0100
+
+
+Started GET "/assets/application.js?body=1" for 192.168.1.100 at 2014-01-18 20:54:54 +0100
+
+
+Started GET "/assets/marker-shadow.png" for 192.168.1.100 at 2014-01-18 20:54:54 +0100
+
+
+Started GET "/assets/marker-icon-2x.png" for 192.168.1.100 at 2014-01-18 20:54:54 +0100
