@@ -23,11 +23,23 @@ function showPosition(position)
 	
 }
 
+function loadGeoJsonData(){
+
+L.geoJson(geoJsonList, {
+    filter: function(feature, layer) {
+        return feature.properties.show_on_map;
+    }
+}).addTo(map);
+
+}
+
 getLocation();
 
 $("#map").height($(window).height()).width($(window).width());
 
 map.invalidateSize();
+
+loadGeoJsonData();
 
 });
 

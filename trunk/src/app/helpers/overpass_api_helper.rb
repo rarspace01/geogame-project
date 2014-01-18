@@ -12,14 +12,29 @@ module OverpassApiHelper
 		jsondom = JSON.parse(pageresult)
 
 		result = ""
+		
+		featureList = Hash.new
+
+		featureList["type"] = "FeatureCollection"
+		featureList["features"] = Array.new 
 
 		jsondom["elements"].each do |element|
 			if(element["type"] == "node")
-			  location = [element["lat"],element["lon"]]
-			  result = result + location.inspect	
+			feature = Hash.new
+			feature["type"] = "Feature"
+			geometry = Hash.new
+			geometry["type"] = "Point"
+			geometry["coordinates"] = [element["lat"],element["lon"]]
+			properties = Hash.new
+			properties["popupContent"] = "Test"
+			feature["geometry"] = geometry
+			feature["properties"] = properties
+			feature["id"] = element["id"]
+			featureList["features"].push(feature)
 			end
 	       end
-		result
+		# result = JSON.generate(featureList)
+		result = JSON.parse(featureList.to_json)
 	end
 
 end
