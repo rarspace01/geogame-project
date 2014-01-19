@@ -11,12 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140119111710) do
+ActiveRecord::Schema.define(version: 20140119121936) do
 
   create_table "flags", force: true do |t|
-    t.integer  "value"
-    t.integer  "player_id"
-    t.datetime "lastdecay"
+    t.integer  "owner"
+    t.integer  "prestige"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -71,7 +71,7 @@ function loadGeoJsonData(){
 
 getLocation();
 
-$("#map").height($(window).height()).width($(window).width());
+$("#map").height($(window).height()*0.8).width($(window).width());
 
 map.invalidateSize();
 

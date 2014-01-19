@@ -1,4 +1,6 @@
 GeogameProject::Application.routes.draw do
+  resources :flags
+
   get "gameboard/show"
   get "overpass_api/getLocation"
   get "overpass_api/checkID"
