@@ -1,9 +1,8 @@
 class CreateFlags < ActiveRecord::Migration
   def change
     create_table :flags do |t|
-      t.integer :value
-      t.integer :player_id
-      t.timestamp :lastdecay
+      t.integer :owner
+      t.integer :prestige
 
       t.timestamps
     end
