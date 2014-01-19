@@ -5,7 +5,7 @@ module OverpassApiHelper
 	def get_geojson(geolocation, locationtype)
 
 		# build request url
-		access_url = "http://overpass-api.de/api/interpreter?data="+URI.escape("[out:json];(node(around:5000.0,49.90383,10.86108)[\"amenity\"=\"parking\"];way(around:5000.0,49.90383,10.86108)[\"amenity\"=\"parking\"];._;>;);out body;")
+		access_url = "http://overpass-api.de/api/interpreter?data="+URI.escape("[out:json];(node(around:5000.0,49.90383,10.86108)[\"highway\"=\"bus_stop\"];way(around:5000.0,49.90383,10.86108)[\"highway\"=\"bus_stop\"];._;>;);out body;")
 		
 		pageresult = open(access_url).read
 
