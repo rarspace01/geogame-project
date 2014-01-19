@@ -4,6 +4,14 @@
 $(document).ready(function(){
 
 function onEachFeature(feature, layer) {
+
+    	layer.on('click', function (e) {
+		alert(feature.properties.popupContent+" - "+feature.id);
+		//or
+		//alert(feature.properties.id);
+	});
+	
+	/*
 	var popupContent = "<p>I started out as a GeoJSON " +
 			feature.geometry.type + ", but now I'm a Leaflet vector!</p>";
 
@@ -11,7 +19,7 @@ function onEachFeature(feature, layer) {
 		popupContent += feature.properties.popupContent;
 	}
 
-	layer.bindPopup(popupContent);
+	layer.bindPopup(popupContent);*/
 }
 
 
