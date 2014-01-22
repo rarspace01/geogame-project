@@ -16,7 +16,7 @@ class OverpassApiController < ApplicationController
     end	
 
     location = [lat,long]
-    locationtype = ("\"amenity\"=\"parking\"")
+    locationtype = ("\"highway\"=\"bus_stop\"")
 
     @result = get_geojson(location, locationtype)
 
