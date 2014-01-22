@@ -6,6 +6,8 @@ $(document).ready(function(){
 var location_lat = 49;
 var location_lng = 10;
 
+var geoJsonList;
+
 function onEachFeature(feature, layer) {
 
     	layer.on('click', function (e) {
@@ -47,7 +49,13 @@ function showPosition(position)
 
 	map.setView(latlng, 16)
 
-	
+	var url = "/overpass_api/getLocation.json?lat=" + location_lat + "&long=" + location_lng
+
+	$.getJSON(url,
+		function(data){
+			geoJsonList = data;
+			loadGeoJsonData();
+		});
 	
 }
 
@@ -79,14 +87,14 @@ function loadGeoJsonData(){
 
 getLocation();
 
-$.getScript('/overpass_api/getLocation.js?lat=' + location_lat + '&long=' + location_lng + ', function()
-{
-    $("#map").height($(window).height()*0.8).width($(window).width());
-
-loadGeoJsonData();
-});
+$("#map").height($(window).height()*0.8).width($(window).width());
 
 map.invalidateSize();
+
+/* setting the max/min zoom */
+
+map._layersMinZoom=15;
+map._layersMaxZoom=19;
 
 });
 

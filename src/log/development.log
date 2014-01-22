@@ -7816,3 +7816,1161 @@ Started GET "/assets/marker-icon.png" for 127.0.0.1 at 2014-01-21 23:37:40 +0100
 
 
 Started GET "/assets/marker-shadow.png" for 127.0.0.1 at 2014-01-21 23:37:40 +0100
+
+
+Started GET "/gameboard/show" for 127.0.0.1 at 2014-01-22 12:37:29 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by GameboardController#show as HTML
+  Rendered gameboard/show.html.erb within layouts/application (4.4ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'c534391d5809d81aa0f48707bb11949fe622e05c' ORDER BY "users"."id" ASC LIMIT 1
+Completed 200 OK in 2571ms (Views: 628.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-01-22 12:37:32 +0100
+
+
+Started GET "/assets/flags.css?body=1" for 127.0.0.1 at 2014-01-22 12:37:32 +0100
+
+
+Started GET "/assets/gameboard.css?body=1" for 127.0.0.1 at 2014-01-22 12:37:32 +0100
+
+
+Started GET "/assets/overpass_api.css?body=1" for 127.0.0.1 at 2014-01-22 12:37:32 +0100
+
+
+Started GET "/assets/leaflet.css?body=1" for 127.0.0.1 at 2014-01-22 12:37:32 +0100
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-01-22 12:37:32 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-01-22 12:37:32 +0100
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 127.0.0.1 at 2014-01-22 12:37:32 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-01-22 12:37:32 +0100
+
+
+Started GET "/assets/flags.js?body=1" for 127.0.0.1 at 2014-01-22 12:37:32 +0100
+
+
+Started GET "/assets/gameboard.js?body=1" for 127.0.0.1 at 2014-01-22 12:37:32 +0100
+
+
+Started GET "/assets/overpass_api.js?body=1" for 127.0.0.1 at 2014-01-22 12:37:32 +0100
+
+
+Started GET "/assets/leaflet.js?body=1" for 127.0.0.1 at 2014-01-22 12:37:32 +0100
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-01-22 12:37:32 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-01-22 12:37:32 +0100
+
+
+Started GET "/assets/marker-icon.png" for 127.0.0.1 at 2014-01-22 12:37:33 +0100
+
+
+Started GET "/assets/marker-shadow.png" for 127.0.0.1 at 2014-01-22 12:37:33 +0100
+
+
+Started GET "/assets/gameboard.js?body=1" for 127.0.0.1 at 2014-01-22 12:37:38 +0100
+
+
+Started GET "/gameboard/show" for 127.0.0.1 at 2014-01-22 13:01:49 +0100
+Processing by GameboardController#show as HTML
+  Rendered gameboard/show.html.erb within layouts/application (0.2ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'c534391d5809d81aa0f48707bb11949fe622e05c' ORDER BY "users"."id" ASC LIMIT 1[0m
+Completed 200 OK in 2066ms (Views: 138.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-01-22 13:01:51 +0100
+
+
+Started GET "/assets/flags.css?body=1" for 127.0.0.1 at 2014-01-22 13:01:51 +0100
+
+
+Started GET "/assets/gameboard.css?body=1" for 127.0.0.1 at 2014-01-22 13:01:51 +0100
+
+
+Started GET "/assets/overpass_api.css?body=1" for 127.0.0.1 at 2014-01-22 13:01:51 +0100
+
+
+Started GET "/assets/leaflet.css?body=1" for 127.0.0.1 at 2014-01-22 13:01:51 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-01-22 13:01:51 +0100
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 127.0.0.1 at 2014-01-22 13:01:51 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-01-22 13:01:51 +0100
+
+
+Started GET "/assets/flags.js?body=1" for 127.0.0.1 at 2014-01-22 13:01:51 +0100
+
+
+Started GET "/assets/gameboard.js?body=1" for 127.0.0.1 at 2014-01-22 13:01:51 +0100
+
+
+Started GET "/assets/overpass_api.js?body=1" for 127.0.0.1 at 2014-01-22 13:01:51 +0100
+
+
+Started GET "/assets/leaflet.js?body=1" for 127.0.0.1 at 2014-01-22 13:01:51 +0100
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-01-22 13:01:51 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-01-22 13:01:51 +0100
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-01-22 13:01:51 +0100
+
+
+Started GET "/assets/marker-icon.png" for 127.0.0.1 at 2014-01-22 13:01:51 +0100
+
+
+Started GET "/assets/marker-shadow.png" for 127.0.0.1 at 2014-01-22 13:01:51 +0100
+
+
+Started GET "/overpass_api/getLocation.json?lat=49&long=10" for 127.0.0.1 at 2014-01-22 13:01:52 +0100
+Processing by OverpassApiController#getLocation as JSON
+  Parameters: {"lat"=>"49", "long"=>"10"}
+  Rendered overpass_api/getLocation.json.erb (9.8ms)
+Completed 200 OK in 903ms (Views: 28.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/marker-icon.png" for 127.0.0.1 at 2014-01-22 13:01:52 +0100
+
+
+Started GET "/assets/marker-shadow.png" for 127.0.0.1 at 2014-01-22 13:01:52 +0100
+
+
+Started GET "/gameboard/show" for 127.0.0.1 at 2014-01-22 13:02:57 +0100
+Processing by GameboardController#show as HTML
+  Rendered gameboard/show.html.erb within layouts/application (0.3ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'c534391d5809d81aa0f48707bb11949fe622e05c' ORDER BY "users"."id" ASC LIMIT 1
+Completed 200 OK in 467ms (Views: 14.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-01-22 13:02:57 +0100
+
+
+Started GET "/assets/flags.css?body=1" for 127.0.0.1 at 2014-01-22 13:02:57 +0100
+
+
+Started GET "/assets/gameboard.css?body=1" for 127.0.0.1 at 2014-01-22 13:02:57 +0100
+
+
+Started GET "/assets/overpass_api.css?body=1" for 127.0.0.1 at 2014-01-22 13:02:57 +0100
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-01-22 13:02:57 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-01-22 13:02:57 +0100
+
+
+Started GET "/assets/leaflet.css?body=1" for 127.0.0.1 at 2014-01-22 13:02:57 +0100
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 127.0.0.1 at 2014-01-22 13:02:57 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-01-22 13:02:57 +0100
+
+
+Started GET "/assets/flags.js?body=1" for 127.0.0.1 at 2014-01-22 13:02:57 +0100
+
+
+Started GET "/assets/gameboard.js?body=1" for 127.0.0.1 at 2014-01-22 13:02:57 +0100
+
+
+Started GET "/assets/overpass_api.js?body=1" for 127.0.0.1 at 2014-01-22 13:02:57 +0100
+
+
+Started GET "/assets/leaflet.js?body=1" for 127.0.0.1 at 2014-01-22 13:02:57 +0100
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-01-22 13:02:57 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-01-22 13:02:57 +0100
+
+
+Started GET "/assets/marker-icon.png" for 127.0.0.1 at 2014-01-22 13:02:58 +0100
+
+
+Started GET "/assets/marker-shadow.png" for 127.0.0.1 at 2014-01-22 13:02:58 +0100
+
+
+Started GET "/overpass_api/getLocation.json?lat=49&long=10" for 127.0.0.1 at 2014-01-22 13:02:58 +0100
+Processing by OverpassApiController#getLocation as JSON
+  Parameters: {"lat"=>"49", "long"=>"10"}
+  Rendered overpass_api/getLocation.json.erb (2.2ms)
+Completed 200 OK in 354ms (Views: 16.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/marker-icon.png" for 127.0.0.1 at 2014-01-22 13:02:58 +0100
+
+
+Started GET "/assets/marker-shadow.png" for 127.0.0.1 at 2014-01-22 13:02:58 +0100
+
+
+Started GET "/gameboard/show" for 127.0.0.1 at 2014-01-22 13:02:59 +0100
+Processing by GameboardController#show as HTML
+  Rendered gameboard/show.html.erb within layouts/application (0.2ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'c534391d5809d81aa0f48707bb11949fe622e05c' ORDER BY "users"."id" ASC LIMIT 1[0m
+Completed 200 OK in 372ms (Views: 62.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-01-22 13:03:00 +0100
+
+
+Started GET "/assets/flags.css?body=1" for 127.0.0.1 at 2014-01-22 13:03:00 +0100
+
+
+Started GET "/assets/gameboard.css?body=1" for 127.0.0.1 at 2014-01-22 13:03:00 +0100
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-01-22 13:03:00 +0100
+
+
+Started GET "/assets/overpass_api.css?body=1" for 127.0.0.1 at 2014-01-22 13:03:00 +0100
+
+
+Started GET "/assets/leaflet.css?body=1" for 127.0.0.1 at 2014-01-22 13:03:00 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-01-22 13:03:00 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-01-22 13:03:00 +0100
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 127.0.0.1 at 2014-01-22 13:03:00 +0100
+
+
+Started GET "/assets/flags.js?body=1" for 127.0.0.1 at 2014-01-22 13:03:00 +0100
+
+
+Started GET "/assets/gameboard.js?body=1" for 127.0.0.1 at 2014-01-22 13:03:00 +0100
+
+
+Started GET "/assets/overpass_api.js?body=1" for 127.0.0.1 at 2014-01-22 13:03:00 +0100
+
+
+Started GET "/assets/leaflet.js?body=1" for 127.0.0.1 at 2014-01-22 13:03:00 +0100
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-01-22 13:03:00 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-01-22 13:03:00 +0100
+
+
+Started GET "/assets/marker-icon.png" for 127.0.0.1 at 2014-01-22 13:03:00 +0100
+
+
+Started GET "/assets/marker-shadow.png" for 127.0.0.1 at 2014-01-22 13:03:00 +0100
+
+
+Started GET "/overpass_api/getLocation.json?lat=49&long=10" for 127.0.0.1 at 2014-01-22 13:03:01 +0100
+Processing by OverpassApiController#getLocation as JSON
+  Parameters: {"lat"=>"49", "long"=>"10"}
+  Rendered overpass_api/getLocation.json.erb (2.1ms)
+Completed 200 OK in 333ms (Views: 8.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/marker-icon.png" for 127.0.0.1 at 2014-01-22 13:03:01 +0100
+
+
+Started GET "/assets/marker-shadow.png" for 127.0.0.1 at 2014-01-22 13:03:01 +0100
+
+
+Started GET "/gameboard/show" for 127.0.0.1 at 2014-01-22 13:03:03 +0100
+Processing by GameboardController#show as HTML
+  Rendered gameboard/show.html.erb within layouts/application (0.1ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'c534391d5809d81aa0f48707bb11949fe622e05c' ORDER BY "users"."id" ASC LIMIT 1
+Completed 200 OK in 308ms (Views: 22.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-01-22 13:03:03 +0100
+
+
+Started GET "/assets/flags.css?body=1" for 127.0.0.1 at 2014-01-22 13:03:03 +0100
+
+
+Started GET "/assets/gameboard.css?body=1" for 127.0.0.1 at 2014-01-22 13:03:03 +0100
+
+
+Started GET "/assets/overpass_api.css?body=1" for 127.0.0.1 at 2014-01-22 13:03:03 +0100
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-01-22 13:03:03 +0100
+
+
+Started GET "/assets/leaflet.css?body=1" for 127.0.0.1 at 2014-01-22 13:03:03 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-01-22 13:03:03 +0100
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 127.0.0.1 at 2014-01-22 13:03:03 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-01-22 13:03:03 +0100
+
+
+Started GET "/assets/flags.js?body=1" for 127.0.0.1 at 2014-01-22 13:03:03 +0100
+
+
+Started GET "/assets/gameboard.js?body=1" for 127.0.0.1 at 2014-01-22 13:03:03 +0100
+
+
+Started GET "/assets/overpass_api.js?body=1" for 127.0.0.1 at 2014-01-22 13:03:03 +0100
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-01-22 13:03:03 +0100
+
+
+Started GET "/assets/leaflet.js?body=1" for 127.0.0.1 at 2014-01-22 13:03:03 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-01-22 13:03:03 +0100
+
+
+Started GET "/assets/marker-icon.png" for 127.0.0.1 at 2014-01-22 13:03:04 +0100
+
+
+Started GET "/assets/marker-shadow.png" for 127.0.0.1 at 2014-01-22 13:03:04 +0100
+
+
+Started GET "/overpass_api/getLocation.json?lat=49&long=10" for 127.0.0.1 at 2014-01-22 13:03:04 +0100
+Processing by OverpassApiController#getLocation as JSON
+  Parameters: {"lat"=>"49", "long"=>"10"}
+  Rendered overpass_api/getLocation.json.erb (7.1ms)
+Completed 200 OK in 298ms (Views: 14.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/marker-icon.png" for 127.0.0.1 at 2014-01-22 13:03:04 +0100
+
+
+Started GET "/assets/marker-shadow.png" for 127.0.0.1 at 2014-01-22 13:03:04 +0100
+
+
+Started GET "/overpass_api/getLocation.json?lat=49&long=10" for 127.0.0.1 at 2014-01-22 13:04:03 +0100
+Processing by OverpassApiController#getLocation as JSON
+  Parameters: {"lat"=>"49", "long"=>"10"}
+  Rendered overpass_api/getLocation.json.erb (12.9ms)
+Completed 200 OK in 543ms (Views: 17.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/gameboard/show" for 127.0.0.1 at 2014-01-22 13:04:57 +0100
+Processing by GameboardController#show as HTML
+  Rendered gameboard/show.html.erb within layouts/application (0.2ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'c534391d5809d81aa0f48707bb11949fe622e05c' ORDER BY "users"."id" ASC LIMIT 1[0m
+Completed 200 OK in 106ms (Views: 97.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-01-22 13:04:58 +0100
+
+
+Started GET "/assets/flags.css?body=1" for 127.0.0.1 at 2014-01-22 13:04:58 +0100
+
+
+Started GET "/assets/leaflet.css?body=1" for 127.0.0.1 at 2014-01-22 13:04:58 +0100
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-01-22 13:04:58 +0100
+
+
+Started GET "/assets/overpass_api.css?body=1" for 127.0.0.1 at 2014-01-22 13:04:58 +0100
+
+
+Started GET "/assets/gameboard.css?body=1" for 127.0.0.1 at 2014-01-22 13:04:58 +0100
+
+
+Started GET "/assets/flags.js?body=1" for 127.0.0.1 at 2014-01-22 13:04:58 +0100
+
+
+Started GET "/assets/gameboard.js?body=1" for 127.0.0.1 at 2014-01-22 13:04:58 +0100
+
+
+Started GET "/assets/overpass_api.js?body=1" for 127.0.0.1 at 2014-01-22 13:04:58 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-01-22 13:04:58 +0100
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 127.0.0.1 at 2014-01-22 13:04:58 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-01-22 13:04:58 +0100
+
+
+Started GET "/assets/leaflet.js?body=1" for 127.0.0.1 at 2014-01-22 13:04:58 +0100
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-01-22 13:04:58 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-01-22 13:04:58 +0100
+
+
+Started GET "/assets/marker-icon.png" for 127.0.0.1 at 2014-01-22 13:04:58 +0100
+
+
+Started GET "/assets/marker-shadow.png" for 127.0.0.1 at 2014-01-22 13:04:58 +0100
+
+
+Started GET "/overpass_api/getLocation.json?lat=49&long=10" for 127.0.0.1 at 2014-01-22 13:04:58 +0100
+Processing by OverpassApiController#getLocation as JSON
+  Parameters: {"lat"=>"49", "long"=>"10"}
+  Rendered overpass_api/getLocation.json.erb (7.7ms)
+Completed 200 OK in 280ms (Views: 22.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/marker-icon.png" for 127.0.0.1 at 2014-01-22 13:04:59 +0100
+
+
+Started GET "/assets/marker-shadow.png" for 127.0.0.1 at 2014-01-22 13:04:59 +0100
+
+
+Started GET "/gameboard/show" for 127.0.0.1 at 2014-01-22 13:05:38 +0100
+Processing by GameboardController#show as HTML
+  Rendered gameboard/show.html.erb within layouts/application (0.1ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'c534391d5809d81aa0f48707bb11949fe622e05c' ORDER BY "users"."id" ASC LIMIT 1
+Completed 200 OK in 181ms (Views: 180.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-01-22 13:05:38 +0100
+
+
+Started GET "/assets/flags.css?body=1" for 127.0.0.1 at 2014-01-22 13:05:38 +0100
+
+
+Started GET "/assets/gameboard.css?body=1" for 127.0.0.1 at 2014-01-22 13:05:38 +0100
+
+
+Started GET "/assets/overpass_api.css?body=1" for 127.0.0.1 at 2014-01-22 13:05:38 +0100
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-01-22 13:05:38 +0100
+
+
+Started GET "/assets/leaflet.css?body=1" for 127.0.0.1 at 2014-01-22 13:05:38 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-01-22 13:05:38 +0100
+
+
+Started GET "/assets/flags.js?body=1" for 127.0.0.1 at 2014-01-22 13:05:38 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-01-22 13:05:38 +0100
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 127.0.0.1 at 2014-01-22 13:05:38 +0100
+
+
+Started GET "/assets/gameboard.js?body=1" for 127.0.0.1 at 2014-01-22 13:05:38 +0100
+
+
+Started GET "/assets/overpass_api.js?body=1" for 127.0.0.1 at 2014-01-22 13:05:38 +0100
+
+
+Started GET "/assets/leaflet.js?body=1" for 127.0.0.1 at 2014-01-22 13:05:38 +0100
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-01-22 13:05:38 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-01-22 13:05:38 +0100
+
+
+Started GET "/assets/marker-shadow.png" for 127.0.0.1 at 2014-01-22 13:05:39 +0100
+
+
+Started GET "/assets/marker-icon.png" for 127.0.0.1 at 2014-01-22 13:05:39 +0100
+
+
+Started GET "/overpass_api/getLocation.json?lat=49&long=10" for 127.0.0.1 at 2014-01-22 13:05:39 +0100
+Processing by OverpassApiController#getLocation as JSON
+  Parameters: {"lat"=>"49", "long"=>"10"}
+  Rendered overpass_api/getLocation.json.erb (14.7ms)
+Completed 200 OK in 340ms (Views: 30.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/gameboard/show" for 127.0.0.1 at 2014-01-22 13:05:46 +0100
+Processing by GameboardController#show as HTML
+  Rendered gameboard/show.html.erb within layouts/application (0.2ms)
+  [1m[36mUser Load (6.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'c534391d5809d81aa0f48707bb11949fe622e05c' ORDER BY "users"."id" ASC LIMIT 1[0m
+Completed 200 OK in 27ms (Views: 19.8ms | ActiveRecord: 6.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-01-22 13:05:46 +0100
+
+
+Started GET "/assets/flags.css?body=1" for 127.0.0.1 at 2014-01-22 13:05:46 +0100
+
+
+Started GET "/assets/gameboard.css?body=1" for 127.0.0.1 at 2014-01-22 13:05:46 +0100
+
+
+Started GET "/assets/overpass_api.css?body=1" for 127.0.0.1 at 2014-01-22 13:05:46 +0100
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-01-22 13:05:46 +0100
+
+
+Started GET "/assets/leaflet.css?body=1" for 127.0.0.1 at 2014-01-22 13:05:46 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-01-22 13:05:46 +0100
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 127.0.0.1 at 2014-01-22 13:05:46 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-01-22 13:05:46 +0100
+
+
+Started GET "/assets/flags.js?body=1" for 127.0.0.1 at 2014-01-22 13:05:46 +0100
+
+
+Started GET "/assets/gameboard.js?body=1" for 127.0.0.1 at 2014-01-22 13:05:46 +0100
+
+
+Started GET "/assets/overpass_api.js?body=1" for 127.0.0.1 at 2014-01-22 13:05:46 +0100
+
+
+Started GET "/assets/leaflet.js?body=1" for 127.0.0.1 at 2014-01-22 13:05:46 +0100
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-01-22 13:05:46 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-01-22 13:05:46 +0100
+
+
+Started GET "/assets/marker-icon.png" for 127.0.0.1 at 2014-01-22 13:05:46 +0100
+
+
+Started GET "/assets/marker-shadow.png" for 127.0.0.1 at 2014-01-22 13:05:46 +0100
+
+
+Started GET "/overpass_api/getLocation.json?lat=49&long=10" for 127.0.0.1 at 2014-01-22 13:05:46 +0100
+Processing by OverpassApiController#getLocation as JSON
+  Parameters: {"lat"=>"49", "long"=>"10"}
+  Rendered overpass_api/getLocation.json.erb (2.4ms)
+Completed 200 OK in 4710ms (Views: 10.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/overpass_api/getLocation.json?lat=49&long=10" for 127.0.0.1 at 2014-01-22 13:06:23 +0100
+Processing by OverpassApiController#getLocation as JSON
+  Parameters: {"lat"=>"49", "long"=>"10"}
+  Rendered overpass_api/getLocation.json.erb (13.3ms)
+Completed 200 OK in 396ms (Views: 18.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/gameboard/show" for 127.0.0.1 at 2014-01-22 13:07:45 +0100
+Processing by GameboardController#show as HTML
+  Rendered gameboard/show.html.erb within layouts/application (0.2ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'c534391d5809d81aa0f48707bb11949fe622e05c' ORDER BY "users"."id" ASC LIMIT 1
+Completed 200 OK in 165ms (Views: 164.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-01-22 13:07:45 +0100
+
+
+Started GET "/assets/flags.css?body=1" for 127.0.0.1 at 2014-01-22 13:07:45 +0100
+
+
+Started GET "/assets/gameboard.css?body=1" for 127.0.0.1 at 2014-01-22 13:07:45 +0100
+
+
+Started GET "/assets/overpass_api.css?body=1" for 127.0.0.1 at 2014-01-22 13:07:45 +0100
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-01-22 13:07:46 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-01-22 13:07:46 +0100
+
+
+Started GET "/assets/flags.js?body=1" for 127.0.0.1 at 2014-01-22 13:07:46 +0100
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 127.0.0.1 at 2014-01-22 13:07:46 +0100
+
+
+Started GET "/assets/leaflet.css?body=1" for 127.0.0.1 at 2014-01-22 13:07:46 +0100
+
+
+Started GET "/assets/gameboard.js?body=1" for 127.0.0.1 at 2014-01-22 13:07:46 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-01-22 13:07:46 +0100
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-01-22 13:07:46 +0100
+
+
+Started GET "/assets/overpass_api.js?body=1" for 127.0.0.1 at 2014-01-22 13:07:46 +0100
+
+
+Started GET "/assets/leaflet.js?body=1" for 127.0.0.1 at 2014-01-22 13:07:46 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-01-22 13:07:46 +0100
+
+
+Started GET "/assets/marker-icon.png" for 127.0.0.1 at 2014-01-22 13:07:46 +0100
+
+
+Started GET "/assets/marker-shadow.png" for 127.0.0.1 at 2014-01-22 13:07:46 +0100
+
+
+Started GET "/overpass_api/getLocation.json?lat=49.898813&long=10.902764" for 127.0.0.1 at 2014-01-22 13:07:47 +0100
+Processing by OverpassApiController#getLocation as JSON
+  Parameters: {"lat"=>"49.898813", "long"=>"10.902764"}
+  Rendered overpass_api/getLocation.json.erb (649.8ms)
+Completed 200 OK in 5291ms (Views: 652.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/gameboard/show" for 127.0.0.1 at 2014-01-22 13:07:59 +0100
+Processing by GameboardController#show as HTML
+  Rendered gameboard/show.html.erb within layouts/application (0.1ms)
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'c534391d5809d81aa0f48707bb11949fe622e05c' ORDER BY "users"."id" ASC LIMIT 1[0m
+Completed 200 OK in 28ms (Views: 26.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/flags.css?body=1" for 127.0.0.1 at 2014-01-22 13:07:59 +0100
+
+
+Started GET "/assets/leaflet.css?body=1" for 127.0.0.1 at 2014-01-22 13:07:59 +0100
+
+
+Started GET "/assets/gameboard.css?body=1" for 127.0.0.1 at 2014-01-22 13:07:59 +0100
+
+
+Started GET "/assets/overpass_api.css?body=1" for 127.0.0.1 at 2014-01-22 13:07:59 +0100
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-01-22 13:07:59 +0100
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-01-22 13:07:59 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-01-22 13:07:59 +0100
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 127.0.0.1 at 2014-01-22 13:07:59 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-01-22 13:07:59 +0100
+
+
+Started GET "/assets/flags.js?body=1" for 127.0.0.1 at 2014-01-22 13:07:59 +0100
+
+
+Started GET "/assets/gameboard.js?body=1" for 127.0.0.1 at 2014-01-22 13:07:59 +0100
+
+
+Started GET "/assets/overpass_api.js?body=1" for 127.0.0.1 at 2014-01-22 13:07:59 +0100
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-01-22 13:07:59 +0100
+
+
+Started GET "/assets/leaflet.js?body=1" for 127.0.0.1 at 2014-01-22 13:07:59 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-01-22 13:07:59 +0100
+
+
+Started GET "/assets/marker-icon.png" for 127.0.0.1 at 2014-01-22 13:08:00 +0100
+
+
+Started GET "/assets/marker-shadow.png" for 127.0.0.1 at 2014-01-22 13:08:00 +0100
+
+
+Started GET "/overpass_api/getLocation.json?lat=49.898813&long=10.902764" for 127.0.0.1 at 2014-01-22 13:08:00 +0100
+Processing by OverpassApiController#getLocation as JSON
+  Parameters: {"lat"=>"49.898813", "long"=>"10.902764"}
+  Rendered overpass_api/getLocation.json.erb (345.3ms)
+Completed 200 OK in 1389ms (Views: 347.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/gameboard/show" for 127.0.0.1 at 2014-01-22 13:10:01 +0100
+Processing by GameboardController#show as HTML
+  Rendered gameboard/show.html.erb within layouts/application (0.1ms)
+  [1m[35mUser Load (0.8ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'c534391d5809d81aa0f48707bb11949fe622e05c' ORDER BY "users"."id" ASC LIMIT 1
+Completed 200 OK in 290ms (Views: 288.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/flags.css?body=1" for 127.0.0.1 at 2014-01-22 13:10:02 +0100
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-01-22 13:10:02 +0100
+
+
+Started GET "/assets/gameboard.css?body=1" for 127.0.0.1 at 2014-01-22 13:10:02 +0100
+
+
+Started GET "/assets/overpass_api.css?body=1" for 127.0.0.1 at 2014-01-22 13:10:02 +0100
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-01-22 13:10:02 +0100
+
+
+Started GET "/assets/leaflet.css?body=1" for 127.0.0.1 at 2014-01-22 13:10:02 +0100
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 127.0.0.1 at 2014-01-22 13:10:02 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-01-22 13:10:02 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-01-22 13:10:02 +0100
+
+
+Started GET "/assets/flags.js?body=1" for 127.0.0.1 at 2014-01-22 13:10:02 +0100
+
+
+Started GET "/assets/gameboard.js?body=1" for 127.0.0.1 at 2014-01-22 13:10:02 +0100
+
+
+Started GET "/assets/overpass_api.js?body=1" for 127.0.0.1 at 2014-01-22 13:10:02 +0100
+
+
+Started GET "/assets/leaflet.js?body=1" for 127.0.0.1 at 2014-01-22 13:10:02 +0100
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-01-22 13:10:02 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-01-22 13:10:02 +0100
+
+
+Started GET "/assets/marker-icon.png" for 127.0.0.1 at 2014-01-22 13:10:02 +0100
+
+
+Started GET "/assets/marker-shadow.png" for 127.0.0.1 at 2014-01-22 13:10:02 +0100
+
+
+Started GET "/assets/marker-icon.png" for 127.0.0.1 at 2014-01-22 13:10:03 +0100
+
+
+Started GET "/assets/marker-shadow.png" for 127.0.0.1 at 2014-01-22 13:10:03 +0100
+
+
+Started GET "/overpass_api/getLocation.json?lat=49.898813&long=10.902764" for 127.0.0.1 at 2014-01-22 13:10:03 +0100
+Processing by OverpassApiController#getLocation as JSON
+  Parameters: {"lat"=>"49.898813", "long"=>"10.902764"}
+  Rendered overpass_api/getLocation.json.erb (654.5ms)
+Completed 200 OK in 1753ms (Views: 665.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/gameboard/show" for 127.0.0.1 at 2014-01-22 13:10:16 +0100
+Processing by GameboardController#show as HTML
+  Rendered gameboard/show.html.erb within layouts/application (4.3ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'c534391d5809d81aa0f48707bb11949fe622e05c' ORDER BY "users"."id" ASC LIMIT 1[0m
+Completed 200 OK in 74ms (Views: 72.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-01-22 13:10:16 +0100
+
+
+Started GET "/assets/flags.css?body=1" for 127.0.0.1 at 2014-01-22 13:10:16 +0100
+
+
+Started GET "/assets/gameboard.css?body=1" for 127.0.0.1 at 2014-01-22 13:10:16 +0100
+
+
+Started GET "/assets/overpass_api.css?body=1" for 127.0.0.1 at 2014-01-22 13:10:16 +0100
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-01-22 13:10:16 +0100
+
+
+Started GET "/assets/leaflet.css?body=1" for 127.0.0.1 at 2014-01-22 13:10:16 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-01-22 13:10:16 +0100
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 127.0.0.1 at 2014-01-22 13:10:16 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-01-22 13:10:16 +0100
+
+
+Started GET "/assets/flags.js?body=1" for 127.0.0.1 at 2014-01-22 13:10:16 +0100
+
+
+Started GET "/assets/gameboard.js?body=1" for 127.0.0.1 at 2014-01-22 13:10:16 +0100
+
+
+Started GET "/assets/overpass_api.js?body=1" for 127.0.0.1 at 2014-01-22 13:10:16 +0100
+
+
+Started GET "/assets/leaflet.js?body=1" for 127.0.0.1 at 2014-01-22 13:10:16 +0100
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-01-22 13:10:16 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-01-22 13:10:17 +0100
+
+
+Started GET "/assets/marker-icon.png" for 127.0.0.1 at 2014-01-22 13:10:17 +0100
+
+
+Started GET "/assets/marker-shadow.png" for 127.0.0.1 at 2014-01-22 13:10:17 +0100
+
+
+Started GET "/overpass_api/getLocation.json?lat=49.898813&long=10.902764" for 127.0.0.1 at 2014-01-22 13:10:17 +0100
+Processing by OverpassApiController#getLocation as JSON
+  Parameters: {"lat"=>"49.898813", "long"=>"10.902764"}
+  Rendered overpass_api/getLocation.json.erb (331.1ms)
+Completed 200 OK in 1244ms (Views: 334.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/gameboard/show" for 127.0.0.1 at 2014-01-22 13:10:42 +0100
+Processing by GameboardController#show as HTML
+  Rendered gameboard/show.html.erb within layouts/application (0.1ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'c534391d5809d81aa0f48707bb11949fe622e05c' ORDER BY "users"."id" ASC LIMIT 1
+Completed 200 OK in 243ms (Views: 241.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-01-22 13:10:43 +0100
+
+
+Started GET "/assets/flags.css?body=1" for 127.0.0.1 at 2014-01-22 13:10:43 +0100
+
+
+Started GET "/assets/gameboard.css?body=1" for 127.0.0.1 at 2014-01-22 13:10:43 +0100
+
+
+Started GET "/assets/overpass_api.css?body=1" for 127.0.0.1 at 2014-01-22 13:10:43 +0100
+
+
+Started GET "/assets/leaflet.css?body=1" for 127.0.0.1 at 2014-01-22 13:10:43 +0100
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-01-22 13:10:43 +0100
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 127.0.0.1 at 2014-01-22 13:10:43 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-01-22 13:10:43 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-01-22 13:10:43 +0100
+
+
+Started GET "/assets/flags.js?body=1" for 127.0.0.1 at 2014-01-22 13:10:43 +0100
+
+
+Started GET "/assets/gameboard.js?body=1" for 127.0.0.1 at 2014-01-22 13:10:43 +0100
+
+
+Started GET "/assets/overpass_api.js?body=1" for 127.0.0.1 at 2014-01-22 13:10:43 +0100
+
+
+Started GET "/assets/leaflet.js?body=1" for 127.0.0.1 at 2014-01-22 13:10:43 +0100
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-01-22 13:10:43 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-01-22 13:10:43 +0100
+
+
+Started GET "/assets/marker-icon.png" for 127.0.0.1 at 2014-01-22 13:10:43 +0100
+
+
+Started GET "/assets/marker-shadow.png" for 127.0.0.1 at 2014-01-22 13:10:43 +0100
+
+
+Started GET "/assets/marker-icon.png" for 127.0.0.1 at 2014-01-22 13:10:44 +0100
+
+
+Started GET "/assets/marker-shadow.png" for 127.0.0.1 at 2014-01-22 13:10:44 +0100
+
+
+Started GET "/overpass_api/getLocation.json?lat=49.898813&long=10.902764" for 127.0.0.1 at 2014-01-22 13:10:44 +0100
+Processing by OverpassApiController#getLocation as JSON
+  Parameters: {"lat"=>"49.898813", "long"=>"10.902764"}
+  Rendered overpass_api/getLocation.json.erb (373.6ms)
+Completed 200 OK in 1335ms (Views: 376.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/gameboard/show" for 127.0.0.1 at 2014-01-22 13:12:00 +0100
+Processing by GameboardController#show as HTML
+  Rendered gameboard/show.html.erb within layouts/application (0.1ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'c534391d5809d81aa0f48707bb11949fe622e05c' ORDER BY "users"."id" ASC LIMIT 1[0m
+Completed 200 OK in 56ms (Views: 54.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-01-22 13:12:00 +0100
+
+
+Started GET "/assets/flags.css?body=1" for 127.0.0.1 at 2014-01-22 13:12:00 +0100
+
+
+Started GET "/assets/gameboard.css?body=1" for 127.0.0.1 at 2014-01-22 13:12:00 +0100
+
+
+Started GET "/assets/overpass_api.css?body=1" for 127.0.0.1 at 2014-01-22 13:12:00 +0100
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-01-22 13:12:00 +0100
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 127.0.0.1 at 2014-01-22 13:12:00 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-01-22 13:12:00 +0100
+
+
+Started GET "/assets/leaflet.css?body=1" for 127.0.0.1 at 2014-01-22 13:12:00 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-01-22 13:12:00 +0100
+
+
+Started GET "/assets/flags.js?body=1" for 127.0.0.1 at 2014-01-22 13:12:00 +0100
+
+
+Started GET "/assets/gameboard.js?body=1" for 127.0.0.1 at 2014-01-22 13:12:00 +0100
+
+
+Started GET "/assets/overpass_api.js?body=1" for 127.0.0.1 at 2014-01-22 13:12:00 +0100
+
+
+Started GET "/assets/leaflet.js?body=1" for 127.0.0.1 at 2014-01-22 13:12:00 +0100
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-01-22 13:12:01 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-01-22 13:12:01 +0100
+
+
+Started GET "/assets/marker-icon.png" for 127.0.0.1 at 2014-01-22 13:12:01 +0100
+
+
+Started GET "/assets/marker-shadow.png" for 127.0.0.1 at 2014-01-22 13:12:01 +0100
+
+
+Started GET "/overpass_api/getLocation.json?lat=49.898813&long=10.902764" for 127.0.0.1 at 2014-01-22 13:12:01 +0100
+Processing by OverpassApiController#getLocation as JSON
+  Parameters: {"lat"=>"49.898813", "long"=>"10.902764"}
+  Rendered overpass_api/getLocation.json.erb (301.6ms)
+Completed 200 OK in 869ms (Views: 309.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/gameboard/show" for 127.0.0.1 at 2014-01-22 13:15:56 +0100
+Processing by GameboardController#show as HTML
+  Rendered gameboard/show.html.erb within layouts/application (0.2ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'c534391d5809d81aa0f48707bb11949fe622e05c' ORDER BY "users"."id" ASC LIMIT 1
+Completed 200 OK in 14ms (Views: 12.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-01-22 13:15:56 +0100
+
+
+Started GET "/assets/flags.css?body=1" for 127.0.0.1 at 2014-01-22 13:15:56 +0100
+
+
+Started GET "/assets/gameboard.css?body=1" for 127.0.0.1 at 2014-01-22 13:15:56 +0100
+
+
+Started GET "/assets/overpass_api.css?body=1" for 127.0.0.1 at 2014-01-22 13:15:56 +0100
+
+
+Started GET "/assets/leaflet.css?body=1" for 127.0.0.1 at 2014-01-22 13:15:56 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-01-22 13:15:56 +0100
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-01-22 13:15:56 +0100
+
+
+Started GET "/assets/flags.js?body=1" for 127.0.0.1 at 2014-01-22 13:15:56 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-01-22 13:15:56 +0100
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 127.0.0.1 at 2014-01-22 13:15:56 +0100
+
+
+Started GET "/assets/gameboard.js?body=1" for 127.0.0.1 at 2014-01-22 13:15:56 +0100
+
+
+Started GET "/assets/overpass_api.js?body=1" for 127.0.0.1 at 2014-01-22 13:15:56 +0100
+
+
+Started GET "/assets/leaflet.js?body=1" for 127.0.0.1 at 2014-01-22 13:15:56 +0100
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-01-22 13:15:56 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-01-22 13:15:56 +0100
+
+
+Started GET "/assets/marker-icon.png" for 127.0.0.1 at 2014-01-22 13:15:56 +0100
+
+
+Started GET "/assets/marker-shadow.png" for 127.0.0.1 at 2014-01-22 13:15:56 +0100
+
+
+Started GET "/overpass_api/getLocation.json?lat=49.90442097577931&long=10.85895449206555" for 127.0.0.1 at 2014-01-22 13:15:56 +0100
+Processing by OverpassApiController#getLocation as JSON
+  Parameters: {"lat"=>"49.90442097577931", "long"=>"10.85895449206555"}
+  Rendered overpass_api/getLocation.json.erb (97.0ms)
+Completed 200 OK in 974ms (Views: 99.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/gameboard/show" for 127.0.0.1 at 2014-01-22 13:16:32 +0100
+Processing by GameboardController#show as HTML
+  Rendered gameboard/show.html.erb within layouts/application (6.6ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'c534391d5809d81aa0f48707bb11949fe622e05c' ORDER BY "users"."id" ASC LIMIT 1[0m
+Completed 200 OK in 28ms (Views: 24.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-01-22 13:16:32 +0100
+
+
+Started GET "/assets/flags.css?body=1" for 127.0.0.1 at 2014-01-22 13:16:32 +0100
+
+
+Started GET "/assets/overpass_api.css?body=1" for 127.0.0.1 at 2014-01-22 13:16:32 +0100
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 127.0.0.1 at 2014-01-22 13:16:32 +0100
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-01-22 13:16:32 +0100
+
+
+Started GET "/assets/leaflet.css?body=1" for 127.0.0.1 at 2014-01-22 13:16:32 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-01-22 13:16:32 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-01-22 13:16:32 +0100
+
+
+Started GET "/assets/flags.js?body=1" for 127.0.0.1 at 2014-01-22 13:16:32 +0100
+
+
+Started GET "/assets/gameboard.js?body=1" for 127.0.0.1 at 2014-01-22 13:16:32 +0100
+
+
+Started GET "/assets/overpass_api.js?body=1" for 127.0.0.1 at 2014-01-22 13:16:32 +0100
+
+
+Started GET "/assets/gameboard.css?body=1" for 127.0.0.1 at 2014-01-22 13:16:32 +0100
+
+
+Started GET "/assets/leaflet.js?body=1" for 127.0.0.1 at 2014-01-22 13:16:32 +0100
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-01-22 13:16:32 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-01-22 13:16:32 +0100
+
+
+Started GET "/assets/marker-icon.png" for 127.0.0.1 at 2014-01-22 13:16:32 +0100
+
+
+Started GET "/assets/marker-shadow.png" for 127.0.0.1 at 2014-01-22 13:16:32 +0100
+
+
+Started GET "/overpass_api/getLocation.json?lat=53.62936053985098&long=10.012711145477283" for 127.0.0.1 at 2014-01-22 13:16:32 +0100
+Processing by OverpassApiController#getLocation as JSON
+  Parameters: {"lat"=>"53.62936053985098", "long"=>"10.012711145477283"}
+  Rendered overpass_api/getLocation.json.erb (77.9ms)
+Completed 200 OK in 5784ms (Views: 81.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/gameboard/show" for 127.0.0.1 at 2014-01-22 13:18:42 +0100
+Processing by GameboardController#show as HTML
+  Rendered gameboard/show.html.erb within layouts/application (0.8ms)
+  [1m[35mUser Load (3.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'c534391d5809d81aa0f48707bb11949fe622e05c' ORDER BY "users"."id" ASC LIMIT 1
+Completed 200 OK in 25ms (Views: 20.9ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-01-22 13:18:42 +0100
+
+
+Started GET "/assets/flags.css?body=1" for 127.0.0.1 at 2014-01-22 13:18:42 +0100
+
+
+Started GET "/assets/overpass_api.css?body=1" for 127.0.0.1 at 2014-01-22 13:18:42 +0100
+
+
+Started GET "/assets/gameboard.css?body=1" for 127.0.0.1 at 2014-01-22 13:18:42 +0100
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-01-22 13:18:42 +0100
+
+
+Started GET "/assets/leaflet.css?body=1" for 127.0.0.1 at 2014-01-22 13:18:42 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-01-22 13:18:42 +0100
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 127.0.0.1 at 2014-01-22 13:18:42 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-01-22 13:18:42 +0100
+
+
+Started GET "/assets/gameboard.js?body=1" for 127.0.0.1 at 2014-01-22 13:18:42 +0100
+
+
+Started GET "/assets/flags.js?body=1" for 127.0.0.1 at 2014-01-22 13:18:42 +0100
+
+
+Started GET "/assets/overpass_api.js?body=1" for 127.0.0.1 at 2014-01-22 13:18:42 +0100
+
+
+Started GET "/assets/leaflet.js?body=1" for 127.0.0.1 at 2014-01-22 13:18:42 +0100
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-01-22 13:18:42 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-01-22 13:18:42 +0100
+
+
+Started GET "/assets/marker-icon.png" for 127.0.0.1 at 2014-01-22 13:18:43 +0100
+
+
+Started GET "/assets/marker-shadow.png" for 127.0.0.1 at 2014-01-22 13:18:43 +0100
+
+
+Started GET "/overpass_api/getLocation.json?lat=53.54516750681282&long=9.968894579009998" for 127.0.0.1 at 2014-01-22 13:18:43 +0100
+Processing by OverpassApiController#getLocation as JSON
+  Parameters: {"lat"=>"53.54516750681282", "long"=>"9.968894579009998"}
+  Rendered overpass_api/getLocation.json.erb (117.8ms)
+Completed 200 OK in 3023ms (Views: 121.1ms | ActiveRecord: 0.0ms)
