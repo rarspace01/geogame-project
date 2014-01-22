@@ -3,6 +3,9 @@
 
 $(document).ready(function(){
 
+var location_lat = 49;
+var location_lng = 10;
+
 function onEachFeature(feature, layer) {
 
     	layer.on('click', function (e) {
@@ -35,11 +38,16 @@ function getLocation()
 function showPosition(position)
 {
 
+	location_lat = position.coords.latitude;
+	location_lng = position.coords.longitude;
+
 	var latlng = L.latLng(position.coords.latitude, position.coords.longitude);
 
 	var curMarker = L.marker(latlng).addTo(map);
 
 	map.setView(latlng, 16)
+
+	
 	
 }
 
@@ -71,11 +79,14 @@ function loadGeoJsonData(){
 
 getLocation();
 
-$("#map").height($(window).height()*0.8).width($(window).width());
-
-map.invalidateSize();
+$.getScript('/overpass_api/getLocation.js?lat=' + location_lat + '&long=' + location_lng + ', function()
+{
+    $("#map").height($(window).height()*0.8).width($(window).width());
 
 loadGeoJsonData();
+});
+
+map.invalidateSize();
 
 });
 

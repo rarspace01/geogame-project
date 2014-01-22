@@ -6,7 +6,7 @@ class GameboardController < ApplicationController
 	
 
     location = [49.10,10.10]
-    locationtype = ("\"amenity\"=\"parking\"")
+    locationtype = ("\"highway\"=\"bus_stop\"")
 
     @result = get_geojson(location, locationtype)
 
