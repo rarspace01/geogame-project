@@ -9723,3 +9723,1019 @@ Processing by OverpassApiController#getLocation as JSON
   Parameters: {"lat"=>"49.904093113329374", "long"=>"10.859504933007884"}
   Rendered overpass_api/getLocation.json.erb (71.1ms)
 Completed 200 OK in 3470ms (Views: 73.5ms | ActiveRecord: 0.0ms)
+  [1m[36mUser Load (1.5ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1
+
+
+Started GET "/gameboard/show" for 127.0.0.1 at 2014-01-22 15:51:43 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by GameboardController#show as HTML
+  Rendered gameboard/show.html.erb within layouts/application (2.9ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '53f771969e455274baa000ab480b70de9d9144b5' ORDER BY "users"."id" ASC LIMIT 1
+Completed 200 OK in 432ms (Views: 399.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-01-22 15:51:45 +0100
+
+
+Started GET "/assets/flags.css?body=1" for 127.0.0.1 at 2014-01-22 15:51:45 +0100
+
+
+Started GET "/assets/gameboard.css?body=1" for 127.0.0.1 at 2014-01-22 15:51:45 +0100
+
+
+Started GET "/assets/overpass_api.css?body=1" for 127.0.0.1 at 2014-01-22 15:51:45 +0100
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-01-22 15:51:45 +0100
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 127.0.0.1 at 2014-01-22 15:51:45 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-01-22 15:51:45 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-01-22 15:51:45 +0100
+
+
+Started GET "/assets/leaflet.css?body=1" for 127.0.0.1 at 2014-01-22 15:51:45 +0100
+
+
+Started GET "/assets/gameboard.js?body=1" for 127.0.0.1 at 2014-01-22 15:51:45 +0100
+
+
+Started GET "/assets/flags.js?body=1" for 127.0.0.1 at 2014-01-22 15:51:45 +0100
+
+
+Started GET "/assets/overpass_api.js?body=1" for 127.0.0.1 at 2014-01-22 15:51:45 +0100
+
+
+Started GET "/assets/leaflet.js?body=1" for 127.0.0.1 at 2014-01-22 15:51:45 +0100
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-01-22 15:51:45 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-01-22 15:51:45 +0100
+
+
+Started GET "/assets/marker-icon.png" for 127.0.0.1 at 2014-01-22 15:51:45 +0100
+
+
+Started GET "/assets/marker-shadow.png" for 127.0.0.1 at 2014-01-22 15:51:45 +0100
+
+
+Started GET "/overpass_api/getLocation.json?lat=49.904296277804086&long=10.858886986970901" for 127.0.0.1 at 2014-01-22 15:51:45 +0100
+Processing by OverpassApiController#getLocation as JSON
+  Parameters: {"lat"=>"49.904296277804086", "long"=>"10.858886986970901"}
+  Rendered overpass_api/getLocation.json.erb (64.4ms)
+Completed 200 OK in 1982ms (Views: 67.6ms | ActiveRecord: 0.0ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mFlag Load (0.2ms)[0m  [1mSELECT "flags".* FROM "flags" WHERE "flags"."user_id" = ?[0m  [[nil, 1]]
+SQLite3::SQLException: no such column: flags.user_id: SELECT "flags".* FROM "flags"  WHERE "flags"."user_id" = ?
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mFlag Load (0.2ms)[0m  [1mSELECT "flags".* FROM "flags" WHERE "flags"."user_id" = ?[0m  [[nil, 1]]
+SQLite3::SQLException: no such column: flags.user_id: SELECT "flags".* FROM "flags"  WHERE "flags"."user_id" = ?
+  [1m[35mFlag Load (0.2ms)[0m  SELECT "flags".* FROM "flags"
+  [1m[36mFlag Load (0.2ms)[0m  [1mSELECT "flags".* FROM "flags" WHERE "flags"."user_id" = ?[0m  [[nil, 1]]
+SQLite3::SQLException: no such column: flags.user_id: SELECT "flags".* FROM "flags"  WHERE "flags"."user_id" = ?
+  [1m[36m (5.4ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (7.8ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreatePlayers (20131127131411)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.3ms)[0m  [1mCREATE TABLE "players" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "nickname" varchar(255), "email" varchar(255), "level" integer, "xp" integer, "ap" integer, "app" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20131127131411"]]
+  [1m[36m (21.5ms)[0m  [1mcommit transaction[0m
+Migrating to CreateItemtypes (20131127131504)
+  [1m[35m (1.7ms)[0m  begin transaction
+  [1m[36m (0.9ms)[0m  [1mCREATE TABLE "itemtypes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "xp" integer, "app" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20131127131504"]]
+  [1m[36m (6.1ms)[0m  [1mcommit transaction[0m
+Migrating to CreateUsers (20140119111710)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.3ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "email" varchar(255) NOT NULL, "encrypted_password" varchar(128) NOT NULL, "confirmation_token" varchar(128), "remember_token" varchar(128) NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  CREATE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36m (0.1ms)[0m  [1mCREATE INDEX "index_users_on_remember_token" ON "users" ("remember_token")[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20140119111710"]]
+  [1m[36m (13.9ms)[0m  [1mcommit transaction[0m
+Migrating to CreateFlags (20140119121936)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mCREATE TABLE "flags" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "users_id" integer, "prestige" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20140119121936"]]
+  [1m[36m (10.0ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+
+
+Started GET "/gameboard/show" for 127.0.0.1 at 2014-01-22 16:38:55 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by GameboardController#show as HTML
+  Rendered gameboard/show.html.erb within layouts/application (1.4ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '53f771969e455274baa000ab480b70de9d9144b5' ORDER BY "users"."id" ASC LIMIT 1
+Completed 200 OK in 300ms (Views: 277.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-01-22 16:38:56 +0100
+
+
+Started GET "/assets/flags.css?body=1" for 127.0.0.1 at 2014-01-22 16:38:57 +0100
+
+
+Started GET "/assets/gameboard.css?body=1" for 127.0.0.1 at 2014-01-22 16:38:57 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-01-22 16:38:57 +0100
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 127.0.0.1 at 2014-01-22 16:38:57 +0100
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-01-22 16:38:57 +0100
+
+
+Started GET "/assets/leaflet.css?body=1" for 127.0.0.1 at 2014-01-22 16:38:57 +0100
+
+
+Started GET "/assets/overpass_api.css?body=1" for 127.0.0.1 at 2014-01-22 16:38:57 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-01-22 16:38:57 +0100
+
+
+Started GET "/assets/flags.js?body=1" for 127.0.0.1 at 2014-01-22 16:38:57 +0100
+
+
+Started GET "/assets/gameboard.js?body=1" for 127.0.0.1 at 2014-01-22 16:38:57 +0100
+
+
+Started GET "/assets/overpass_api.js?body=1" for 127.0.0.1 at 2014-01-22 16:38:57 +0100
+
+
+Started GET "/assets/leaflet.js?body=1" for 127.0.0.1 at 2014-01-22 16:38:57 +0100
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-01-22 16:38:57 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-01-22 16:38:57 +0100
+
+
+Started GET "/assets/marker-icon.png" for 127.0.0.1 at 2014-01-22 16:38:57 +0100
+
+
+Started GET "/assets/marker-shadow.png" for 127.0.0.1 at 2014-01-22 16:38:57 +0100
+
+
+Started GET "/overpass_api/getLocation.json?lat=49.904296277804086&long=10.858886986970901" for 127.0.0.1 at 2014-01-22 16:38:57 +0100
+Processing by OverpassApiController#getLocation as JSON
+  Parameters: {"lat"=>"49.904296277804086", "long"=>"10.858886986970901"}
+  Rendered overpass_api/getLocation.json.erb (125.3ms)
+Completed 200 OK in 3419ms (Views: 133.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/sign_in" for 127.0.0.1 at 2014-01-22 16:39:02 +0100
+Processing by Clearance::SessionsController#new as HTML
+  Rendered /home/denis/.rvm/gems/ruby-2.0.0-p353/gems/clearance-1.1.0/app/views/sessions/_form.html.erb (5.0ms)
+  Rendered /home/denis/.rvm/gems/ruby-2.0.0-p353/gems/clearance-1.1.0/app/views/sessions/new.html.erb within layouts/application (12.0ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '53f771969e455274baa000ab480b70de9d9144b5' ORDER BY "users"."id" ASC LIMIT 1[0m
+Completed 200 OK in 86ms (Views: 84.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/marker-icon.png" for 127.0.0.1 at 2014-01-22 16:39:02 +0100
+
+
+Started GET "/assets/marker-shadow.png" for 127.0.0.1 at 2014-01-22 16:39:02 +0100
+
+
+Started GET "/overpass_api/getLocation.json?lat=49.904296277804086&long=10.858886986970901" for 127.0.0.1 at 2014-01-22 16:39:02 +0100
+Processing by OverpassApiController#getLocation as JSON
+  Parameters: {"lat"=>"49.904296277804086", "long"=>"10.858886986970901"}
+  Rendered overpass_api/getLocation.json.erb (58.5ms)
+Completed 200 OK in 593ms (Views: 62.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/sign_up" for 127.0.0.1 at 2014-01-22 16:39:04 +0100
+Processing by Clearance::UsersController#new as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '53f771969e455274baa000ab480b70de9d9144b5' ORDER BY "users"."id" ASC LIMIT 1
+  Rendered /home/denis/.rvm/gems/ruby-2.0.0-p353/gems/clearance-1.1.0/app/views/users/_form.html.erb (4.6ms)
+  Rendered /home/denis/.rvm/gems/ruby-2.0.0-p353/gems/clearance-1.1.0/app/views/users/new.html.erb within layouts/application (14.2ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '53f771969e455274baa000ab480b70de9d9144b5' ORDER BY "users"."id" ASC LIMIT 1[0m
+Completed 200 OK in 120ms (Views: 92.4ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/marker-icon.png" for 127.0.0.1 at 2014-01-22 16:39:05 +0100
+
+
+Started GET "/assets/marker-shadow.png" for 127.0.0.1 at 2014-01-22 16:39:05 +0100
+
+
+Started GET "/overpass_api/getLocation.json?lat=49.904296277804086&long=10.858886986970901" for 127.0.0.1 at 2014-01-22 16:39:05 +0100
+Processing by OverpassApiController#getLocation as JSON
+  Parameters: {"lat"=>"49.904296277804086", "long"=>"10.858886986970901"}
+  Rendered overpass_api/getLocation.json.erb (96.0ms)
+Completed 200 OK in 541ms (Views: 99.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2014-01-22 16:39:12 +0100
+Processing by Clearance::UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"denishamann@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '53f771969e455274baa000ab480b70de9d9144b5' ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.7ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."email" = 'denishamann@gmail.com' LIMIT 1
+Binary data inserted for `string` type on column `encrypted_password`
+  [1m[36mSQL (24.1ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "encrypted_password", "remember_token", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Wed, 22 Jan 2014 15:39:12 UTC +00:00], ["email", "denishamann@gmail.com"], ["encrypted_password", "$2a$10$hMs4eOZ7ESX/nsc2nYer3e8xqRdLGWsW.1tjrme277HlU.VLNb/Ya"], ["remember_token", "00b3abbd66fed2e1f17d9d07608073f9d6a579b8"], ["updated_at", Wed, 22 Jan 2014 15:39:12 UTC +00:00]]
+  [1m[35m (4.7ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 251ms (ActiveRecord: 29.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-01-22 16:39:12 +0100
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /home/denis/.rvm/gems/ruby-2.0.0-p353/gems/railties-4.0.0/lib/rails/templates/rails/welcome/index.html.erb (4.2ms)
+Completed 200 OK in 12ms (Views: 10.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/gameboard/show" for 127.0.0.1 at 2014-01-22 16:39:17 +0100
+Processing by GameboardController#show as HTML
+  Rendered gameboard/show.html.erb within layouts/application (0.2ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '00b3abbd66fed2e1f17d9d07608073f9d6a579b8' ORDER BY "users"."id" ASC LIMIT 1[0m
+Completed 200 OK in 22ms (Views: 20.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-01-22 16:39:17 +0100
+
+
+Started GET "/assets/flags.css?body=1" for 127.0.0.1 at 2014-01-22 16:39:17 +0100
+
+
+Started GET "/assets/gameboard.css?body=1" for 127.0.0.1 at 2014-01-22 16:39:17 +0100
+
+
+Started GET "/assets/overpass_api.css?body=1" for 127.0.0.1 at 2014-01-22 16:39:17 +0100
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-01-22 16:39:17 +0100
+
+
+Started GET "/assets/leaflet.css?body=1" for 127.0.0.1 at 2014-01-22 16:39:17 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-01-22 16:39:18 +0100
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 127.0.0.1 at 2014-01-22 16:39:18 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-01-22 16:39:18 +0100
+
+
+Started GET "/assets/flags.js?body=1" for 127.0.0.1 at 2014-01-22 16:39:18 +0100
+
+
+Started GET "/assets/gameboard.js?body=1" for 127.0.0.1 at 2014-01-22 16:39:18 +0100
+
+
+Started GET "/assets/overpass_api.js?body=1" for 127.0.0.1 at 2014-01-22 16:39:18 +0100
+
+
+Started GET "/assets/leaflet.js?body=1" for 127.0.0.1 at 2014-01-22 16:39:18 +0100
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-01-22 16:39:18 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-01-22 16:39:18 +0100
+
+
+Started GET "/assets/marker-icon.png" for 127.0.0.1 at 2014-01-22 16:39:18 +0100
+
+
+Started GET "/assets/marker-shadow.png" for 127.0.0.1 at 2014-01-22 16:39:18 +0100
+
+
+Started GET "/overpass_api/getLocation.json?lat=49.904296277804086&long=10.858886986970901" for 127.0.0.1 at 2014-01-22 16:39:18 +0100
+Processing by OverpassApiController#getLocation as JSON
+  Parameters: {"lat"=>"49.904296277804086", "long"=>"10.858886986970901"}
+  Rendered overpass_api/getLocation.json.erb (143.0ms)
+Completed 200 OK in 635ms (Views: 146.1ms | ActiveRecord: 0.0ms)
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mFlag Load (0.2ms)[0m  [1mSELECT "flags".* FROM "flags" WHERE "flags"."user_id" = ?[0m  [[nil, 1]]
+SQLite3::SQLException: no such column: flags.user_id: SELECT "flags".* FROM "flags"  WHERE "flags"."user_id" = ?
+  [1m[35mFlag Load (0.2ms)[0m  SELECT "flags".* FROM "flags" WHERE "flags"."user_id" = ?  [[nil, 1]]
+SQLite3::SQLException: no such column: flags.user_id: SELECT "flags".* FROM "flags"  WHERE "flags"."user_id" = ?
+  [1m[36m (5.5ms)[0m  [1mCREATE TABLE "flags" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "users_id" integer, "prestige" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (11.0ms)[0m  CREATE TABLE "itemtypes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "xp" integer, "app" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (7.4ms)[0m  [1mCREATE TABLE "players" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "nickname" varchar(255), "email" varchar(255), "level" integer, "xp" integer, "ap" integer, "app" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (10.3ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "email" varchar(255) NOT NULL, "encrypted_password" varchar(128) NOT NULL, "confirmation_token" varchar(128), "remember_token" varchar(128) NOT NULL) 
+  [1m[36m (5.8ms)[0m  [1mCREATE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (5.5ms)[0m  CREATE INDEX "index_users_on_remember_token" ON "users" ("remember_token")
+  [1m[36m (8.1ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (9.1ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.5ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (14.9ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140119121936')
+  [1m[36m (6.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140119111710')[0m
+  [1m[35m (8.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20131127131504')
+  [1m[36m (7.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20131127131411')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateFlags (20140122154658)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mCREATE TABLE "flags" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "users_id" integer, "prestige" integer, "created_at" datetime, "updated_at" datetime) [0m
+SQLite3::SQLException: table "flags" already exists: CREATE TABLE "flags" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "users_id" integer, "prestige" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (4.6ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (3.7ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreatePlayers (20131127131411)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.3ms)[0m  [1mCREATE TABLE "players" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "nickname" varchar(255), "email" varchar(255), "level" integer, "xp" integer, "ap" integer, "app" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20131127131411"]]
+  [1m[36m (18.3ms)[0m  [1mcommit transaction[0m
+Migrating to CreateItemtypes (20131127131504)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mCREATE TABLE "itemtypes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "xp" integer, "app" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20131127131504"]]
+  [1m[36m (9.9ms)[0m  [1mcommit transaction[0m
+Migrating to CreateUsers (20140119111710)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.3ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "email" varchar(255) NOT NULL, "encrypted_password" varchar(128) NOT NULL, "confirmation_token" varchar(128), "remember_token" varchar(128) NOT NULL) [0m
+  [1m[35m (0.9ms)[0m  CREATE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36m (0.2ms)[0m  [1mCREATE INDEX "index_users_on_remember_token" ON "users" ("remember_token")[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20140119111710"]]
+  [1m[36m (11.1ms)[0m  [1mcommit transaction[0m
+Migrating to CreateFlags (20140122154658)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mCREATE TABLE "flags" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "users_id" integer, "prestige" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20140122154658"]]
+  [1m[36m (14.1ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (5.9ms)[0m  [1mCREATE TABLE "flags" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "users_id" integer, "prestige" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (18.6ms)[0m  CREATE TABLE "itemtypes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "xp" integer, "app" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (17.2ms)[0m  [1mCREATE TABLE "players" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "nickname" varchar(255), "email" varchar(255), "level" integer, "xp" integer, "ap" integer, "app" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (12.7ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "email" varchar(255) NOT NULL, "encrypted_password" varchar(128) NOT NULL, "confirmation_token" varchar(128), "remember_token" varchar(128) NOT NULL) 
+  [1m[36m (13.9ms)[0m  [1mCREATE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (15.7ms)[0m  CREATE INDEX "index_users_on_remember_token" ON "users" ("remember_token")
+  [1m[36m (8.3ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (16.5ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (13.9ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140122154658')
+  [1m[36m (10.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140119111710')[0m
+  [1m[35m (8.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20131127131504')
+  [1m[36m (4.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20131127131411')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mFlag Load (0.2ms)[0m  SELECT "flags".* FROM "flags"
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users"[0m
+
+
+Started GET "/gameboard/show" for 127.0.0.1 at 2014-01-22 17:55:01 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by GameboardController#show as HTML
+  Rendered gameboard/show.html.erb within layouts/application (8.2ms)
+  [1m[35mUser Load (1.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '00b3abbd66fed2e1f17d9d07608073f9d6a579b8' ORDER BY "users"."id" ASC LIMIT 1
+Completed 200 OK in 555ms (Views: 526.5ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-01-22 17:55:02 +0100
+
+
+Started GET "/assets/gameboard.css?body=1" for 127.0.0.1 at 2014-01-22 17:55:02 +0100
+
+
+Started GET "/assets/overpass_api.css?body=1" for 127.0.0.1 at 2014-01-22 17:55:03 +0100
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-01-22 17:55:03 +0100
+
+
+Started GET "/assets/leaflet.css?body=1" for 127.0.0.1 at 2014-01-22 17:55:03 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-01-22 17:55:03 +0100
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 127.0.0.1 at 2014-01-22 17:55:03 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-01-22 17:55:03 +0100
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-01-22 17:55:03 +0100
+
+
+Started GET "/assets/gameboard.js?body=1" for 127.0.0.1 at 2014-01-22 17:55:03 +0100
+
+
+Started GET "/assets/leaflet.js?body=1" for 127.0.0.1 at 2014-01-22 17:55:03 +0100
+
+
+Started GET "/assets/overpass_api.js?body=1" for 127.0.0.1 at 2014-01-22 17:55:03 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-01-22 17:55:03 +0100
+
+
+Started GET "/assets/marker-icon.png" for 127.0.0.1 at 2014-01-22 17:55:03 +0100
+
+
+Started GET "/assets/marker-shadow.png" for 127.0.0.1 at 2014-01-22 17:55:03 +0100
+
+
+Started GET "/overpass_api/getLocation.json?lat=49.904296277804086&long=10.858886986970901" for 127.0.0.1 at 2014-01-22 17:55:03 +0100
+Processing by OverpassApiController#getLocation as JSON
+  Parameters: {"lat"=>"49.904296277804086", "long"=>"10.858886986970901"}
+  Rendered overpass_api/getLocation.json.erb (225.2ms)
+Completed 200 OK in 6851ms (Views: 237.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/gameboard/show" for 127.0.0.1 at 2014-01-22 17:55:36 +0100
+Processing by GameboardController#show as HTML
+  Rendered gameboard/show.html.erb within layouts/application (0.1ms)
+  [1m[36mUser Load (2.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '00b3abbd66fed2e1f17d9d07608073f9d6a579b8' ORDER BY "users"."id" ASC LIMIT 1[0m
+Completed 200 OK in 20ms (Views: 14.9ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-01-22 17:55:36 +0100
+
+
+Started GET "/assets/gameboard.css?body=1" for 127.0.0.1 at 2014-01-22 17:55:36 +0100
+
+
+Started GET "/assets/overpass_api.css?body=1" for 127.0.0.1 at 2014-01-22 17:55:36 +0100
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-01-22 17:55:37 +0100
+
+
+Started GET "/assets/leaflet.css?body=1" for 127.0.0.1 at 2014-01-22 17:55:37 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-01-22 17:55:37 +0100
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 127.0.0.1 at 2014-01-22 17:55:37 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-01-22 17:55:37 +0100
+
+
+Started GET "/assets/gameboard.js?body=1" for 127.0.0.1 at 2014-01-22 17:55:37 +0100
+
+
+Started GET "/assets/overpass_api.js?body=1" for 127.0.0.1 at 2014-01-22 17:55:37 +0100
+
+
+Started GET "/assets/leaflet.js?body=1" for 127.0.0.1 at 2014-01-22 17:55:37 +0100
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-01-22 17:55:37 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-01-22 17:55:37 +0100
+
+
+Started GET "/assets/marker-icon.png" for 127.0.0.1 at 2014-01-22 17:55:37 +0100
+
+
+Started GET "/assets/marker-shadow.png" for 127.0.0.1 at 2014-01-22 17:55:37 +0100
+
+
+Started GET "/overpass_api/getLocation.json?lat=49.904296277804086&long=10.858886986970901" for 127.0.0.1 at 2014-01-22 17:55:37 +0100
+Processing by OverpassApiController#getLocation as JSON
+  Parameters: {"lat"=>"49.904296277804086", "long"=>"10.858886986970901"}
+  Rendered overpass_api/getLocation.json.erb (129.9ms)
+Completed 200 OK in 3299ms (Views: 143.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/gameboard/show" for 127.0.0.1 at 2014-01-22 17:58:13 +0100
+Processing by GameboardController#show as HTML
+  Rendered gameboard/show.html.erb within layouts/application (0.1ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '00b3abbd66fed2e1f17d9d07608073f9d6a579b8' ORDER BY "users"."id" ASC LIMIT 1
+Completed 200 OK in 16ms (Views: 14.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-01-22 17:58:13 +0100
+
+
+Started GET "/assets/gameboard.css?body=1" for 127.0.0.1 at 2014-01-22 17:58:13 +0100
+
+
+Started GET "/assets/overpass_api.css?body=1" for 127.0.0.1 at 2014-01-22 17:58:13 +0100
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-01-22 17:58:13 +0100
+
+
+Started GET "/assets/leaflet.css?body=1" for 127.0.0.1 at 2014-01-22 17:58:13 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-01-22 17:58:13 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-01-22 17:58:13 +0100
+
+
+Started GET "/assets/gameboard.js?body=1" for 127.0.0.1 at 2014-01-22 17:58:13 +0100
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 127.0.0.1 at 2014-01-22 17:58:13 +0100
+
+
+Started GET "/assets/overpass_api.js?body=1" for 127.0.0.1 at 2014-01-22 17:58:13 +0100
+
+
+Started GET "/assets/leaflet.js?body=1" for 127.0.0.1 at 2014-01-22 17:58:13 +0100
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-01-22 17:58:13 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-01-22 17:58:13 +0100
+
+
+Started GET "/assets/marker-icon.png" for 127.0.0.1 at 2014-01-22 17:58:13 +0100
+
+
+Started GET "/assets/marker-shadow.png" for 127.0.0.1 at 2014-01-22 17:58:13 +0100
+
+
+Started GET "/overpass_api/getLocation.json?lat=49.904296277804086&long=10.858886986970901" for 127.0.0.1 at 2014-01-22 17:58:14 +0100
+Processing by OverpassApiController#getLocation as JSON
+  Parameters: {"lat"=>"49.904296277804086", "long"=>"10.858886986970901"}
+  Rendered overpass_api/getLocation.json.erb (245.7ms)
+Completed 200 OK in 945ms (Views: 251.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/gameboard/show" for 127.0.0.1 at 2014-01-22 17:58:41 +0100
+Processing by GameboardController#show as HTML
+  Rendered gameboard/show.html.erb within layouts/application (2.4ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '00b3abbd66fed2e1f17d9d07608073f9d6a579b8' ORDER BY "users"."id" ASC LIMIT 1[0m
+Completed 200 OK in 20ms (Views: 19.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-01-22 17:58:42 +0100
+
+
+Started GET "/assets/gameboard.css?body=1" for 127.0.0.1 at 2014-01-22 17:58:42 +0100
+
+
+Started GET "/assets/overpass_api.css?body=1" for 127.0.0.1 at 2014-01-22 17:58:42 +0100
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-01-22 17:58:42 +0100
+
+
+Started GET "/assets/leaflet.css?body=1" for 127.0.0.1 at 2014-01-22 17:58:42 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-01-22 17:58:42 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-01-22 17:58:42 +0100
+
+
+Started GET "/assets/gameboard.js?body=1" for 127.0.0.1 at 2014-01-22 17:58:42 +0100
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 127.0.0.1 at 2014-01-22 17:58:42 +0100
+
+
+Started GET "/assets/overpass_api.js?body=1" for 127.0.0.1 at 2014-01-22 17:58:42 +0100
+
+
+Started GET "/assets/leaflet.js?body=1" for 127.0.0.1 at 2014-01-22 17:58:42 +0100
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-01-22 17:58:42 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-01-22 17:58:42 +0100
+
+
+Started GET "/assets/marker-icon.png" for 127.0.0.1 at 2014-01-22 17:58:43 +0100
+
+
+Started GET "/assets/marker-shadow.png" for 127.0.0.1 at 2014-01-22 17:58:43 +0100
+
+
+Started GET "/overpass_api/getLocation.json?lat=49.904296277804086&long=10.858886986970901" for 127.0.0.1 at 2014-01-22 17:58:43 +0100
+Processing by OverpassApiController#getLocation as JSON
+  Parameters: {"lat"=>"49.904296277804086", "long"=>"10.858886986970901"}
+  Rendered overpass_api/getLocation.json.erb (130.7ms)
+Completed 200 OK in 848ms (Views: 137.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/gameboard/show" for 127.0.0.1 at 2014-01-22 17:59:03 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by GameboardController#show as HTML
+  Rendered gameboard/show.html.erb within layouts/application (1.2ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '00b3abbd66fed2e1f17d9d07608073f9d6a579b8' ORDER BY "users"."id" ASC LIMIT 1
+Completed 200 OK in 366ms (Views: 333.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-01-22 17:59:05 +0100
+
+
+Started GET "/assets/gameboard.css?body=1" for 127.0.0.1 at 2014-01-22 17:59:05 +0100
+
+
+Started GET "/assets/overpass_api.css?body=1" for 127.0.0.1 at 2014-01-22 17:59:05 +0100
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-01-22 17:59:05 +0100
+
+
+Started GET "/assets/leaflet.css?body=1" for 127.0.0.1 at 2014-01-22 17:59:05 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-01-22 17:59:05 +0100
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 127.0.0.1 at 2014-01-22 17:59:05 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-01-22 17:59:05 +0100
+
+
+Started GET "/assets/gameboard.js?body=1" for 127.0.0.1 at 2014-01-22 17:59:05 +0100
+
+
+Started GET "/assets/overpass_api.js?body=1" for 127.0.0.1 at 2014-01-22 17:59:05 +0100
+
+
+Started GET "/assets/leaflet.js?body=1" for 127.0.0.1 at 2014-01-22 17:59:05 +0100
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-01-22 17:59:05 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-01-22 17:59:05 +0100
+
+
+Started GET "/assets/marker-icon.png" for 127.0.0.1 at 2014-01-22 17:59:06 +0100
+
+
+Started GET "/assets/marker-shadow.png" for 127.0.0.1 at 2014-01-22 17:59:06 +0100
+
+
+Started GET "/overpass_api/getLocation.json?lat=49.904296277804086&long=10.858886986970901" for 127.0.0.1 at 2014-01-22 17:59:06 +0100
+Processing by OverpassApiController#getLocation as JSON
+  Parameters: {"lat"=>"49.904296277804086", "long"=>"10.858886986970901"}
+  Rendered overpass_api/getLocation.json.erb (128.9ms)
+Completed 200 OK in 892ms (Views: 141.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/sign_in" for 127.0.0.1 at 2014-01-22 17:59:26 +0100
+Processing by Clearance::SessionsController#new as HTML
+  Rendered /home/denis/.rvm/gems/ruby-2.0.0-p353/gems/clearance-1.1.0/app/views/sessions/_form.html.erb (6.6ms)
+  Rendered /home/denis/.rvm/gems/ruby-2.0.0-p353/gems/clearance-1.1.0/app/views/sessions/new.html.erb within layouts/application (77.7ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '00b3abbd66fed2e1f17d9d07608073f9d6a579b8' ORDER BY "users"."id" ASC LIMIT 1[0m
+Completed 200 OK in 89ms (Views: 87.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/marker-icon.png" for 127.0.0.1 at 2014-01-22 17:59:26 +0100
+
+
+Started GET "/assets/marker-shadow.png" for 127.0.0.1 at 2014-01-22 17:59:26 +0100
+
+
+Started GET "/overpass_api/getLocation.json?lat=49.904296277804086&long=10.858886986970901" for 127.0.0.1 at 2014-01-22 17:59:26 +0100
+Processing by OverpassApiController#getLocation as JSON
+  Parameters: {"lat"=>"49.904296277804086", "long"=>"10.858886986970901"}
+  Rendered overpass_api/getLocation.json.erb (74.5ms)
+Completed 200 OK in 611ms (Views: 77.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/sign_up" for 127.0.0.1 at 2014-01-22 17:59:28 +0100
+Processing by Clearance::UsersController#new as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '00b3abbd66fed2e1f17d9d07608073f9d6a579b8' ORDER BY "users"."id" ASC LIMIT 1
+  Rendered /home/denis/.rvm/gems/ruby-2.0.0-p353/gems/clearance-1.1.0/app/views/users/_form.html.erb (9.8ms)
+  Rendered /home/denis/.rvm/gems/ruby-2.0.0-p353/gems/clearance-1.1.0/app/views/users/new.html.erb within layouts/application (13.9ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = '00b3abbd66fed2e1f17d9d07608073f9d6a579b8' ORDER BY "users"."id" ASC LIMIT 1[0m
+Completed 200 OK in 62ms (Views: 25.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/marker-icon.png" for 127.0.0.1 at 2014-01-22 17:59:28 +0100
+
+
+Started GET "/assets/marker-shadow.png" for 127.0.0.1 at 2014-01-22 17:59:28 +0100
+
+
+Started GET "/overpass_api/getLocation.json?lat=49.904296277804086&long=10.858886986970901" for 127.0.0.1 at 2014-01-22 17:59:28 +0100
+Processing by OverpassApiController#getLocation as JSON
+  Parameters: {"lat"=>"49.904296277804086", "long"=>"10.858886986970901"}
+  Rendered overpass_api/getLocation.json.erb (125.6ms)
+Completed 200 OK in 668ms (Views: 127.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2014-01-22 17:59:33 +0100
+Processing by Clearance::UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"denishamann@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35mUser Load (1.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '00b3abbd66fed2e1f17d9d07608073f9d6a579b8' ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."email" = 'denishamann@gmail.com' LIMIT 1
+Binary data inserted for `string` type on column `encrypted_password`
+  [1m[36mSQL (2.1ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "encrypted_password", "remember_token", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Wed, 22 Jan 2014 16:59:33 UTC +00:00], ["email", "denishamann@gmail.com"], ["encrypted_password", "$2a$10$q0WICfkzYb1IYA2fBBxR/e3AzHcLAmFs0fBhVu5svTj82s620OGue"], ["remember_token", "d0b67d197636cbee6412500827cbb47132376a91"], ["updated_at", Wed, 22 Jan 2014 16:59:33 UTC +00:00]]
+  [1m[35m (15.8ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 176ms (ActiveRecord: 19.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-01-22 17:59:33 +0100
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /home/denis/.rvm/gems/ruby-2.0.0-p353/gems/railties-4.0.0/lib/rails/templates/rails/welcome/index.html.erb (1.1ms)
+Completed 200 OK in 18ms (Views: 15.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/gameboard/show" for 127.0.0.1 at 2014-01-22 17:59:45 +0100
+Processing by GameboardController#show as HTML
+  Rendered gameboard/show.html.erb within layouts/application (0.1ms)
+  [1m[36mUser Load (3.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'd0b67d197636cbee6412500827cbb47132376a91' ORDER BY "users"."id" ASC LIMIT 1[0m
+Completed 200 OK in 14ms (Views: 10.4ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-01-22 17:59:45 +0100
+
+
+Started GET "/assets/gameboard.css?body=1" for 127.0.0.1 at 2014-01-22 17:59:45 +0100
+
+
+Started GET "/assets/overpass_api.css?body=1" for 127.0.0.1 at 2014-01-22 17:59:45 +0100
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-01-22 17:59:45 +0100
+
+
+Started GET "/assets/leaflet.css?body=1" for 127.0.0.1 at 2014-01-22 17:59:45 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-01-22 17:59:45 +0100
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 127.0.0.1 at 2014-01-22 17:59:45 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-01-22 17:59:45 +0100
+
+
+Started GET "/assets/gameboard.js?body=1" for 127.0.0.1 at 2014-01-22 17:59:45 +0100
+
+
+Started GET "/assets/overpass_api.js?body=1" for 127.0.0.1 at 2014-01-22 17:59:45 +0100
+
+
+Started GET "/assets/leaflet.js?body=1" for 127.0.0.1 at 2014-01-22 17:59:45 +0100
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-01-22 17:59:45 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-01-22 17:59:45 +0100
+
+
+Started GET "/assets/marker-icon.png" for 127.0.0.1 at 2014-01-22 17:59:45 +0100
+
+
+Started GET "/assets/marker-shadow.png" for 127.0.0.1 at 2014-01-22 17:59:45 +0100
+
+
+Started GET "/overpass_api/getLocation.json?lat=49.904296277804086&long=10.858886986970901" for 127.0.0.1 at 2014-01-22 17:59:45 +0100
+Processing by OverpassApiController#getLocation as JSON
+  Parameters: {"lat"=>"49.904296277804086", "long"=>"10.858886986970901"}
+  Rendered overpass_api/getLocation.json.erb (105.5ms)
+Completed 200 OK in 750ms (Views: 107.8ms | ActiveRecord: 0.0ms)
+  [1m[36mUser Load (1.4ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mFlag Load (0.2ms)[0m  SELECT "flags".* FROM "flags" WHERE "flags"."user_id" = ?  [[nil, 1]]
+SQLite3::SQLException: no such column: flags.user_id: SELECT "flags".* FROM "flags"  WHERE "flags"."user_id" = ?
+  [1m[36m (7.8ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (7.0ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreatePlayers (20131127131411)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.3ms)[0m  [1mCREATE TABLE "players" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "nickname" varchar(255), "email" varchar(255), "level" integer, "xp" integer, "ap" integer, "app" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20131127131411"]]
+  [1m[36m (7.1ms)[0m  [1mcommit transaction[0m
+Migrating to CreateItemtypes (20131127131504)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.4ms)[0m  [1mCREATE TABLE "itemtypes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "xp" integer, "app" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20131127131504"]]
+  [1m[36m (14.7ms)[0m  [1mcommit transaction[0m
+Migrating to CreateUsers (20140119111710)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.3ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "email" varchar(255) NOT NULL, "encrypted_password" varchar(128) NOT NULL, "confirmation_token" varchar(128), "remember_token" varchar(128) NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  CREATE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36m (0.1ms)[0m  [1mCREATE INDEX "index_users_on_remember_token" ON "users" ("remember_token")[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20140119111710"]]
+  [1m[36m (12.3ms)[0m  [1mcommit transaction[0m
+Migrating to CreateFlags (20140122154658)
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mCREATE TABLE "flags" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "prestige" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20140122154658"]]
+  [1m[36m (15.8ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+
+
+Started GET "/gameboard/show" for 127.0.0.1 at 2014-01-22 18:06:22 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by GameboardController#show as HTML
+  Rendered gameboard/show.html.erb within layouts/application (1.6ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'd0b67d197636cbee6412500827cbb47132376a91' ORDER BY "users"."id" ASC LIMIT 1
+Completed 200 OK in 371ms (Views: 316.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-01-22 18:06:23 +0100
+
+
+Started GET "/assets/gameboard.css?body=1" for 127.0.0.1 at 2014-01-22 18:06:23 +0100
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-01-22 18:06:24 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-01-22 18:06:24 +0100
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 127.0.0.1 at 2014-01-22 18:06:24 +0100
+
+
+Started GET "/assets/overpass_api.css?body=1" for 127.0.0.1 at 2014-01-22 18:06:24 +0100
+
+
+Started GET "/assets/leaflet.css?body=1" for 127.0.0.1 at 2014-01-22 18:06:24 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-01-22 18:06:24 +0100
+
+
+Started GET "/assets/gameboard.js?body=1" for 127.0.0.1 at 2014-01-22 18:06:24 +0100
+
+
+Started GET "/assets/overpass_api.js?body=1" for 127.0.0.1 at 2014-01-22 18:06:24 +0100
+
+
+Started GET "/assets/leaflet.js?body=1" for 127.0.0.1 at 2014-01-22 18:06:24 +0100
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-01-22 18:06:24 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-01-22 18:06:24 +0100
+
+
+Started GET "/assets/marker-icon.png" for 127.0.0.1 at 2014-01-22 18:06:24 +0100
+
+
+Started GET "/assets/marker-shadow.png" for 127.0.0.1 at 2014-01-22 18:06:24 +0100
+
+
+Started GET "/overpass_api/getLocation.json?lat=49.904296277804086&long=10.858886986970901" for 127.0.0.1 at 2014-01-22 18:06:24 +0100
+Processing by OverpassApiController#getLocation as JSON
+  Parameters: {"lat"=>"49.904296277804086", "long"=>"10.858886986970901"}
+  Rendered overpass_api/getLocation.json.erb (111.2ms)
+Completed 200 OK in 1502ms (Views: 116.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/sign_in" for 127.0.0.1 at 2014-01-22 18:06:26 +0100
+Processing by Clearance::SessionsController#new as HTML
+  Rendered /home/denis/.rvm/gems/ruby-2.0.0-p353/gems/clearance-1.1.0/app/views/sessions/_form.html.erb (5.4ms)
+  Rendered /home/denis/.rvm/gems/ruby-2.0.0-p353/gems/clearance-1.1.0/app/views/sessions/new.html.erb within layouts/application (63.3ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'd0b67d197636cbee6412500827cbb47132376a91' ORDER BY "users"."id" ASC LIMIT 1[0m
+Completed 200 OK in 74ms (Views: 73.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/marker-icon.png" for 127.0.0.1 at 2014-01-22 18:06:26 +0100
+
+
+Started GET "/assets/marker-shadow.png" for 127.0.0.1 at 2014-01-22 18:06:26 +0100
+
+
+Started GET "/overpass_api/getLocation.json?lat=49.904296277804086&long=10.858886986970901" for 127.0.0.1 at 2014-01-22 18:06:26 +0100
+Processing by OverpassApiController#getLocation as JSON
+  Parameters: {"lat"=>"49.904296277804086", "long"=>"10.858886986970901"}
+  Rendered overpass_api/getLocation.json.erb (118.8ms)
+Completed 200 OK in 693ms (Views: 128.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/sign_up" for 127.0.0.1 at 2014-01-22 18:06:27 +0100
+Processing by Clearance::UsersController#new as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'd0b67d197636cbee6412500827cbb47132376a91' ORDER BY "users"."id" ASC LIMIT 1
+  Rendered /home/denis/.rvm/gems/ruby-2.0.0-p353/gems/clearance-1.1.0/app/views/users/_form.html.erb (3.4ms)
+  Rendered /home/denis/.rvm/gems/ruby-2.0.0-p353/gems/clearance-1.1.0/app/views/users/new.html.erb within layouts/application (9.9ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'd0b67d197636cbee6412500827cbb47132376a91' ORDER BY "users"."id" ASC LIMIT 1[0m
+Completed 200 OK in 45ms (Views: 22.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/marker-icon.png" for 127.0.0.1 at 2014-01-22 18:06:27 +0100
+
+
+Started GET "/assets/marker-shadow.png" for 127.0.0.1 at 2014-01-22 18:06:27 +0100
+
+
+Started GET "/overpass_api/getLocation.json?lat=49.904296277804086&long=10.858886986970901" for 127.0.0.1 at 2014-01-22 18:06:27 +0100
+Processing by OverpassApiController#getLocation as JSON
+  Parameters: {"lat"=>"49.904296277804086", "long"=>"10.858886986970901"}
+  Rendered overpass_api/getLocation.json.erb (124.3ms)
+Completed 200 OK in 681ms (Views: 127.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2014-01-22 18:06:31 +0100
+Processing by Clearance::UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"denishamann@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'd0b67d197636cbee6412500827cbb47132376a91' ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."email" = 'denishamann@gmail.com' LIMIT 1
+Binary data inserted for `string` type on column `encrypted_password`
+  [1m[36mSQL (8.6ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "encrypted_password", "remember_token", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Wed, 22 Jan 2014 17:06:32 UTC +00:00], ["email", "denishamann@gmail.com"], ["encrypted_password", "$2a$10$Ny8meFoaBj4TlX9Uow6gruDFuKyR4a04joTyyPP0VTo6S1gZAg3r2"], ["remember_token", "d31204559411008451ca07c0acb920ea50ad47cd"], ["updated_at", Wed, 22 Jan 2014 17:06:32 UTC +00:00]]
+  [1m[35m (7.1ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 242ms (ActiveRecord: 16.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-01-22 18:06:32 +0100
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /home/denis/.rvm/gems/ruby-2.0.0-p353/gems/railties-4.0.0/lib/rails/templates/rails/welcome/index.html.erb (2.2ms)
+Completed 200 OK in 10ms (Views: 3.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/gameboard/show" for 127.0.0.1 at 2014-01-22 18:06:46 +0100
+Processing by GameboardController#show as HTML
+  Rendered gameboard/show.html.erb within layouts/application (0.1ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'd31204559411008451ca07c0acb920ea50ad47cd' ORDER BY "users"."id" ASC LIMIT 1[0m
+Completed 200 OK in 18ms (Views: 17.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-01-22 18:06:46 +0100
+
+
+Started GET "/assets/gameboard.css?body=1" for 127.0.0.1 at 2014-01-22 18:06:46 +0100
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-01-22 18:06:46 +0100
+
+
+Started GET "/assets/overpass_api.css?body=1" for 127.0.0.1 at 2014-01-22 18:06:46 +0100
+
+
+Started GET "/assets/leaflet.css?body=1" for 127.0.0.1 at 2014-01-22 18:06:46 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-01-22 18:06:46 +0100
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 127.0.0.1 at 2014-01-22 18:06:47 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-01-22 18:06:47 +0100
+
+
+Started GET "/assets/gameboard.js?body=1" for 127.0.0.1 at 2014-01-22 18:06:47 +0100
+
+
+Started GET "/assets/overpass_api.js?body=1" for 127.0.0.1 at 2014-01-22 18:06:47 +0100
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-01-22 18:06:47 +0100
+
+
+Started GET "/assets/leaflet.js?body=1" for 127.0.0.1 at 2014-01-22 18:06:47 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-01-22 18:06:47 +0100
+
+
+Started GET "/assets/marker-icon.png" for 127.0.0.1 at 2014-01-22 18:06:47 +0100
+
+
+Started GET "/assets/marker-shadow.png" for 127.0.0.1 at 2014-01-22 18:06:47 +0100
+
+
+Started GET "/overpass_api/getLocation.json?lat=49.904296277804086&long=10.858886986970901" for 127.0.0.1 at 2014-01-22 18:06:47 +0100
+Processing by OverpassApiController#getLocation as JSON
+  Parameters: {"lat"=>"49.904296277804086", "long"=>"10.858886986970901"}
+  Rendered overpass_api/getLocation.json.erb (117.9ms)
+Completed 200 OK in 936ms (Views: 121.9ms | ActiveRecord: 0.0ms)
+  [1m[36mUser Load (6.9ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mUser Load (1.1ms)[0m  SELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mFlag Load (1.4ms)[0m  SELECT "flags".* FROM "flags" WHERE "flags"."user_id" = ?  [["user_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (2.1ms)[0m  INSERT INTO "flags" ("created_at", "prestige", "updated_at", "user_id") VALUES (?, ?, ?, ?)  [["created_at", Wed, 22 Jan 2014 17:10:24 UTC +00:00], ["prestige", 1], ["updated_at", Wed, 22 Jan 2014 17:10:24 UTC +00:00], ["user_id", 1]]
+  [1m[36m (8.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "flags" ("created_at", "prestige", "updated_at", "user_id") VALUES (?, ?, ?, ?)[0m  [["created_at", Wed, 22 Jan 2014 17:10:48 UTC +00:00], ["prestige", 1], ["updated_at", Wed, 22 Jan 2014 17:10:48 UTC +00:00], ["user_id", 1]]
+  [1m[35m (5.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT 1 AS one FROM "users" WHERE ("users"."email" = 'denishamann@gmail.com' AND "users"."id" != 1) LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE ("users"."email" = 'denishamann@gmail.com' AND "users"."id" != 1) LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mFlag Load (0.1ms)[0m  SELECT "flags".* FROM "flags" WHERE "flags"."user_id" = ?  [["user_id", 1]]
