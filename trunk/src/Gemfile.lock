@@ -213,6 +213,7 @@ DEPENDENCIES
   jquery-turbolinks
   json
   leaflet-rails
+  pry
   pry-full
   rails (= 4.0.0)
   rgeo

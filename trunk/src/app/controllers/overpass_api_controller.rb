@@ -1,11 +1,24 @@
 require 'open-uri'
 
 class OverpassApiController < ApplicationController
-  def getLocation(position)
+  include GameboardHelper
+  include OverpassApiHelper
+  def getLocation
 
-    response = open("http://overpass-api.de/api/interpreter?data=[out:json];node(around:2500.0,#(position.x),#(position.y))[\"highway\"=\"bus_stop\"];out body;")
+    lat = params[:lat]
+    long = params[:long]
 
-    locations = JSON.parse(response)
+    if(lat == nil)
+      lat = "49"
+    end
+    if(long == nil)
+      lat = "10"
+    end	
+
+    location = [lat,long]
+    locationtype = ("\"amenity\"=\"parking\"")
+
+    @result = get_geojson(location, locationtype)
 
   end
 
