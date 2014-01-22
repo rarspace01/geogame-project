@@ -8974,3 +8974,752 @@ Processing by OverpassApiController#getLocation as JSON
   Parameters: {"lat"=>"53.54516750681282", "long"=>"9.968894579009998"}
   Rendered overpass_api/getLocation.json.erb (117.8ms)
 Completed 200 OK in 3023ms (Views: 121.1ms | ActiveRecord: 0.0ms)
+  [1m[36m (11.7ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (6.4ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreatePlayers (20131127131411)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.3ms)[0m  [1mCREATE TABLE "players" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "nickname" varchar(255), "email" varchar(255), "level" integer, "xp" integer, "ap" integer, "app" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20131127131411"]]
+  [1m[36m (15.9ms)[0m  [1mcommit transaction[0m
+Migrating to CreateItemtypes (20131127131504)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mCREATE TABLE "itemtypes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "xp" integer, "app" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20131127131504"]]
+  [1m[36m (16.4ms)[0m  [1mcommit transaction[0m
+Migrating to CreateUsers (20140119111710)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.3ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "email" varchar(255) NOT NULL, "encrypted_password" varchar(128) NOT NULL, "confirmation_token" varchar(128), "remember_token" varchar(128) NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  CREATE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36m (0.1ms)[0m  [1mCREATE INDEX "index_users_on_remember_token" ON "users" ("remember_token")[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20140119111710"]]
+  [1m[36m (5.6ms)[0m  [1mcommit transaction[0m
+Migrating to CreateFlags (20140119121936)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mCREATE TABLE "flags" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "owner" integer, "prestige" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20140119121936"]]
+  [1m[36m (10.6ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (25.0ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (16.2ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreatePlayers (20131127131411)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.3ms)[0m  [1mCREATE TABLE "players" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "nickname" varchar(255), "email" varchar(255), "level" integer, "xp" integer, "ap" integer, "app" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20131127131411"]]
+  [1m[36m (27.1ms)[0m  [1mcommit transaction[0m
+Migrating to CreateItemtypes (20131127131504)
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (1.1ms)[0m  [1mCREATE TABLE "itemtypes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "xp" integer, "app" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20131127131504"]]
+  [1m[36m (19.8ms)[0m  [1mcommit transaction[0m
+Migrating to CreateUsers (20140119111710)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "email" varchar(255) NOT NULL, "encrypted_password" varchar(128) NOT NULL, "confirmation_token" varchar(128), "remember_token" varchar(128) NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  CREATE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36m (0.1ms)[0m  [1mCREATE INDEX "index_users_on_remember_token" ON "users" ("remember_token")[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20140119111710"]]
+  [1m[36m (18.9ms)[0m  [1mcommit transaction[0m
+Migrating to CreateFlags (20140119121936)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.3ms)[0m  [1mCREATE TABLE "flags" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "users_id" integer, "prestige" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20140119121936"]]
+  [1m[36m (15.3ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+
+
+Started GET "/gameboard/show" for 127.0.0.1 at 2014-01-22 13:55:08 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by GameboardController#show as HTML
+  Rendered gameboard/show.html.erb within layouts/application (1.7ms)
+Completed 500 Internal Server Error in 471ms
+
+ActionView::Template::Error (wrong number of arguments (0 for 1)):
+     8: </head>
+     9: <body>
+    10: 
+    11:     <% if signed_in? %>
+    12:       Signed in as: <%= current_user.email %>
+    13:       <%= link_to 'Sign out', sign_out_path, :method => :delete %>
+    14:     <% else %>
+  app/models/user.rb:3:in `<class:User>'
+  app/models/user.rb:1:in `<top (required)>'
+  app/views/layouts/application.html.erb:11:in `_app_views_layouts_application_html_erb__2876733256334323486_69835166244640'
+
+
+  Rendered /home/denis/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (10.0ms)
+  Rendered /home/denis/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (8.8ms)
+  Rendered /home/denis/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (60.1ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.8ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (16.5ms)[0m  [1mCREATE TABLE "flags" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "users_id" integer, "prestige" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (14.6ms)[0m  CREATE TABLE "itemtypes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "xp" integer, "app" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (8.4ms)[0m  [1mCREATE TABLE "players" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "nickname" varchar(255), "email" varchar(255), "level" integer, "xp" integer, "ap" integer, "app" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (6.7ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "email" varchar(255) NOT NULL, "encrypted_password" varchar(128) NOT NULL, "confirmation_token" varchar(128), "remember_token" varchar(128) NOT NULL) 
+  [1m[36m (6.2ms)[0m  [1mCREATE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (5.8ms)[0m  CREATE INDEX "index_users_on_remember_token" ON "users" ("remember_token")
+  [1m[36m (4.6ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (10.2ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (4.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140119121936')
+  [1m[36m (4.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140119111710')[0m
+  [1m[35m (4.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20131127131504')
+  [1m[36m (5.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20131127131411')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+
+
+Started GET "/gameboard/show" for 127.0.0.1 at 2014-01-22 13:57:18 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by GameboardController#show as HTML
+  Rendered gameboard/show.html.erb within layouts/application (11.5ms)
+Completed 500 Internal Server Error in 312ms
+
+ActionView::Template::Error (wrong number of arguments (0 for 1)):
+     8: </head>
+     9: <body>
+    10: 
+    11:     <% if signed_in? %>
+    12:       Signed in as: <%= current_user.email %>
+    13:       <%= link_to 'Sign out', sign_out_path, :method => :delete %>
+    14:     <% else %>
+  app/models/user.rb:3:in `<class:User>'
+  app/models/user.rb:1:in `<top (required)>'
+  app/views/layouts/application.html.erb:11:in `_app_views_layouts_application_html_erb___4053150302870573887_46552880'
+
+
+  Rendered /home/denis/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.7ms)
+  Rendered /home/denis/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.5ms)
+  Rendered /home/denis/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (8.4ms)
+
+
+Started GET "/gameboard/show" for 127.0.0.1 at 2014-01-22 13:57:22 +0100
+Processing by GameboardController#show as HTML
+  Rendered gameboard/show.html.erb within layouts/application (0.3ms)
+Completed 500 Internal Server Error in 21ms
+
+ActionView::Template::Error (wrong number of arguments (0 for 1)):
+     8: </head>
+     9: <body>
+    10: 
+    11:     <% if signed_in? %>
+    12:       Signed in as: <%= current_user.email %>
+    13:       <%= link_to 'Sign out', sign_out_path, :method => :delete %>
+    14:     <% else %>
+  app/models/user.rb:3:in `<class:User>'
+  app/models/user.rb:1:in `<top (required)>'
+  app/views/layouts/application.html.erb:11:in `_app_views_layouts_application_html_erb___4053150302870573887_46552880'
+
+
+  Rendered /home/denis/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.6ms)
+  Rendered /home/denis/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.2ms)
+  Rendered /home/denis/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (31.1ms)
+
+
+Started GET "/gameboard/show" for 127.0.0.1 at 2014-01-22 14:13:03 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by GameboardController#show as HTML
+  Rendered gameboard/show.html.erb within layouts/application (2.3ms)
+Completed 500 Internal Server Error in 349ms
+
+ActionView::Template::Error (wrong number of arguments (0 for 1)):
+     8: </head>
+     9: <body>
+    10: 
+    11:     <% if signed_in? %>
+    12:       Signed in as: <%= current_user.email %>
+    13:       <%= link_to 'Sign out', sign_out_path, :method => :delete %>
+    14:     <% else %>
+  app/models/user.rb:3:in `<class:User>'
+  app/models/user.rb:1:in `<top (required)>'
+  app/views/layouts/application.html.erb:11:in `_app_views_layouts_application_html_erb__2511573419405775459_70208929065880'
+
+
+  Rendered /home/denis/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+  Rendered /home/denis/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.8ms)
+  Rendered /home/denis/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (29.1ms)
+
+
+Started GET "/gameboard/show" for 127.0.0.1 at 2014-01-22 14:19:52 +0100
+Processing by GameboardController#show as HTML
+  Rendered gameboard/show.html.erb within layouts/application (0.1ms)
+Completed 500 Internal Server Error in 64ms
+
+ActionView::Template::Error (wrong number of arguments (0 for 1)):
+     8: </head>
+     9: <body>
+    10: 
+    11:     <% if signed_in? %>
+    12:       Signed in as: <%= current_user.email %>
+    13:       <%= link_to 'Sign out', sign_out_path, :method => :delete %>
+    14:     <% else %>
+  app/models/user.rb:7:in `<class:User>'
+  app/models/user.rb:1:in `<top (required)>'
+  app/views/layouts/application.html.erb:11:in `_app_views_layouts_application_html_erb__2511573419405775459_70208929065880'
+
+
+  Rendered /home/denis/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.2ms)
+  Rendered /home/denis/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered /home/denis/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (41.0ms)
+
+
+Started GET "/gameboard/show" for 127.0.0.1 at 2014-01-22 14:19:55 +0100
+Processing by GameboardController#show as HTML
+  Rendered gameboard/show.html.erb within layouts/application (0.2ms)
+Completed 500 Internal Server Error in 44ms
+
+ActionView::Template::Error (wrong number of arguments (0 for 1)):
+     8: </head>
+     9: <body>
+    10: 
+    11:     <% if signed_in? %>
+    12:       Signed in as: <%= current_user.email %>
+    13:       <%= link_to 'Sign out', sign_out_path, :method => :delete %>
+    14:     <% else %>
+  app/models/user.rb:7:in `<class:User>'
+  app/models/user.rb:1:in `<top (required)>'
+  app/views/layouts/application.html.erb:11:in `_app_views_layouts_application_html_erb__2511573419405775459_70208929065880'
+
+
+  Rendered /home/denis/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.8ms)
+  Rendered /home/denis/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.2ms)
+  Rendered /home/denis/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (26.3ms)
+
+
+Started GET "/gameboard/show" for 127.0.0.1 at 2014-01-22 14:20:04 +0100
+Processing by GameboardController#show as HTML
+  Rendered gameboard/show.html.erb within layouts/application (0.4ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'c534391d5809d81aa0f48707bb11949fe622e05c' ORDER BY "users"."id" ASC LIMIT 1
+Completed 200 OK in 54ms (Views: 52.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-01-22 14:20:04 +0100
+
+
+Started GET "/assets/gameboard.css?body=1" for 127.0.0.1 at 2014-01-22 14:20:04 +0100
+
+
+Started GET "/assets/flags.css?body=1" for 127.0.0.1 at 2014-01-22 14:20:04 +0100
+
+
+Started GET "/assets/overpass_api.css?body=1" for 127.0.0.1 at 2014-01-22 14:20:04 +0100
+
+
+Started GET "/assets/leaflet.css?body=1" for 127.0.0.1 at 2014-01-22 14:20:04 +0100
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-01-22 14:20:04 +0100
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 127.0.0.1 at 2014-01-22 14:20:04 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-01-22 14:20:04 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-01-22 14:20:05 +0100
+
+
+Started GET "/assets/flags.js?body=1" for 127.0.0.1 at 2014-01-22 14:20:05 +0100
+
+
+Started GET "/assets/overpass_api.js?body=1" for 127.0.0.1 at 2014-01-22 14:20:05 +0100
+
+
+Started GET "/assets/leaflet.js?body=1" for 127.0.0.1 at 2014-01-22 14:20:05 +0100
+
+
+Started GET "/assets/gameboard.js?body=1" for 127.0.0.1 at 2014-01-22 14:20:05 +0100
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-01-22 14:20:05 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-01-22 14:20:05 +0100
+
+
+Started GET "/assets/marker-icon.png" for 127.0.0.1 at 2014-01-22 14:20:05 +0100
+
+
+Started GET "/assets/marker-shadow.png" for 127.0.0.1 at 2014-01-22 14:20:05 +0100
+
+
+Started GET "/overpass_api/getLocation.json?lat=49.89394800449625&long=10.873237843164134" for 127.0.0.1 at 2014-01-22 14:20:05 +0100
+Processing by OverpassApiController#getLocation as JSON
+  Parameters: {"lat"=>"49.89394800449625", "long"=>"10.873237843164134"}
+  Rendered overpass_api/getLocation.json.erb (102.1ms)
+Completed 200 OK in 2146ms (Views: 105.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/gameboard/show" for 127.0.0.1 at 2014-01-22 14:20:34 +0100
+Processing by GameboardController#show as HTML
+  Rendered gameboard/show.html.erb within layouts/application (0.1ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'c534391d5809d81aa0f48707bb11949fe622e05c' ORDER BY "users"."id" ASC LIMIT 1[0m
+Completed 200 OK in 11ms (Views: 9.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-01-22 14:20:34 +0100
+
+
+Started GET "/assets/flags.css?body=1" for 127.0.0.1 at 2014-01-22 14:20:34 +0100
+
+
+Started GET "/assets/gameboard.css?body=1" for 127.0.0.1 at 2014-01-22 14:20:34 +0100
+
+
+Started GET "/assets/overpass_api.css?body=1" for 127.0.0.1 at 2014-01-22 14:20:34 +0100
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-01-22 14:20:34 +0100
+
+
+Started GET "/assets/leaflet.css?body=1" for 127.0.0.1 at 2014-01-22 14:20:34 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-01-22 14:20:34 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-01-22 14:20:34 +0100
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 127.0.0.1 at 2014-01-22 14:20:34 +0100
+
+
+Started GET "/assets/flags.js?body=1" for 127.0.0.1 at 2014-01-22 14:20:34 +0100
+
+
+Started GET "/assets/gameboard.js?body=1" for 127.0.0.1 at 2014-01-22 14:20:34 +0100
+
+
+Started GET "/assets/leaflet.js?body=1" for 127.0.0.1 at 2014-01-22 14:20:34 +0100
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-01-22 14:20:34 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-01-22 14:20:34 +0100
+
+
+Started GET "/assets/overpass_api.js?body=1" for 127.0.0.1 at 2014-01-22 14:20:34 +0100
+
+
+Started GET "/assets/marker-icon.png" for 127.0.0.1 at 2014-01-22 14:20:35 +0100
+
+
+Started GET "/assets/marker-shadow.png" for 127.0.0.1 at 2014-01-22 14:20:35 +0100
+
+
+Started GET "/overpass_api/getLocation.json?lat=49.898813&long=10.902764" for 127.0.0.1 at 2014-01-22 14:20:35 +0100
+Processing by OverpassApiController#getLocation as JSON
+  Parameters: {"lat"=>"49.898813", "long"=>"10.902764"}
+  Rendered overpass_api/getLocation.json.erb (211.5ms)
+Completed 200 OK in 1014ms (Views: 214.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/gameboard/show" for 127.0.0.1 at 2014-01-22 14:20:53 +0100
+Processing by GameboardController#show as HTML
+  Rendered gameboard/show.html.erb within layouts/application (0.1ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'c534391d5809d81aa0f48707bb11949fe622e05c' ORDER BY "users"."id" ASC LIMIT 1
+Completed 200 OK in 26ms (Views: 25.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-01-22 14:20:53 +0100
+
+
+Started GET "/assets/flags.css?body=1" for 127.0.0.1 at 2014-01-22 14:20:53 +0100
+
+
+Started GET "/assets/gameboard.css?body=1" for 127.0.0.1 at 2014-01-22 14:20:53 +0100
+
+
+Started GET "/assets/overpass_api.css?body=1" for 127.0.0.1 at 2014-01-22 14:20:53 +0100
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-01-22 14:20:53 +0100
+
+
+Started GET "/assets/leaflet.css?body=1" for 127.0.0.1 at 2014-01-22 14:20:53 +0100
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 127.0.0.1 at 2014-01-22 14:20:53 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-01-22 14:20:53 +0100
+
+
+Started GET "/assets/flags.js?body=1" for 127.0.0.1 at 2014-01-22 14:20:53 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-01-22 14:20:53 +0100
+
+
+Started GET "/assets/gameboard.js?body=1" for 127.0.0.1 at 2014-01-22 14:20:53 +0100
+
+
+Started GET "/assets/overpass_api.js?body=1" for 127.0.0.1 at 2014-01-22 14:20:53 +0100
+
+
+Started GET "/assets/leaflet.js?body=1" for 127.0.0.1 at 2014-01-22 14:20:53 +0100
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-01-22 14:20:53 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-01-22 14:20:53 +0100
+
+
+Started GET "/assets/marker-icon.png" for 127.0.0.1 at 2014-01-22 14:20:53 +0100
+
+
+Started GET "/assets/marker-shadow.png" for 127.0.0.1 at 2014-01-22 14:20:54 +0100
+
+
+Started GET "/overpass_api/getLocation.json?lat=49.904093113329374&long=10.859504933007884" for 127.0.0.1 at 2014-01-22 14:20:54 +0100
+Processing by OverpassApiController#getLocation as JSON
+  Parameters: {"lat"=>"49.904093113329374", "long"=>"10.859504933007884"}
+  Rendered overpass_api/getLocation.json.erb (55.9ms)
+Completed 200 OK in 1200ms (Views: 58.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/gameboard/show" for 127.0.0.1 at 2014-01-22 14:21:10 +0100
+Processing by GameboardController#show as HTML
+  Rendered gameboard/show.html.erb within layouts/application (0.1ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'c534391d5809d81aa0f48707bb11949fe622e05c' ORDER BY "users"."id" ASC LIMIT 1[0m
+Completed 200 OK in 28ms (Views: 25.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-01-22 14:21:10 +0100
+
+
+Started GET "/assets/flags.css?body=1" for 127.0.0.1 at 2014-01-22 14:21:10 +0100
+
+
+Started GET "/assets/gameboard.css?body=1" for 127.0.0.1 at 2014-01-22 14:21:10 +0100
+
+
+Started GET "/assets/overpass_api.css?body=1" for 127.0.0.1 at 2014-01-22 14:21:10 +0100
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-01-22 14:21:10 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-01-22 14:21:10 +0100
+
+
+Started GET "/assets/flags.js?body=1" for 127.0.0.1 at 2014-01-22 14:21:10 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-01-22 14:21:10 +0100
+
+
+Started GET "/assets/leaflet.css?body=1" for 127.0.0.1 at 2014-01-22 14:21:10 +0100
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 127.0.0.1 at 2014-01-22 14:21:10 +0100
+
+
+Started GET "/assets/gameboard.js?body=1" for 127.0.0.1 at 2014-01-22 14:21:10 +0100
+
+
+Started GET "/assets/overpass_api.js?body=1" for 127.0.0.1 at 2014-01-22 14:21:10 +0100
+
+
+Started GET "/assets/leaflet.js?body=1" for 127.0.0.1 at 2014-01-22 14:21:10 +0100
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-01-22 14:21:10 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-01-22 14:21:10 +0100
+
+
+Started GET "/assets/marker-icon.png" for 127.0.0.1 at 2014-01-22 14:21:10 +0100
+
+
+Started GET "/assets/marker-shadow.png" for 127.0.0.1 at 2014-01-22 14:21:10 +0100
+
+
+Started GET "/overpass_api/getLocation.json?lat=49.904093113329374&long=10.859504933007884" for 127.0.0.1 at 2014-01-22 14:21:10 +0100
+Processing by OverpassApiController#getLocation as JSON
+  Parameters: {"lat"=>"49.904093113329374", "long"=>"10.859504933007884"}
+  Rendered overpass_api/getLocation.json.erb (93.9ms)
+Completed 200 OK in 662ms (Views: 96.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/gameboard/show" for 127.0.0.1 at 2014-01-22 14:21:27 +0100
+Processing by GameboardController#show as HTML
+  Rendered gameboard/show.html.erb within layouts/application (0.1ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'c534391d5809d81aa0f48707bb11949fe622e05c' ORDER BY "users"."id" ASC LIMIT 1
+Completed 200 OK in 29ms (Views: 22.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-01-22 14:21:27 +0100
+
+
+Started GET "/assets/flags.css?body=1" for 127.0.0.1 at 2014-01-22 14:21:27 +0100
+
+
+Started GET "/assets/overpass_api.css?body=1" for 127.0.0.1 at 2014-01-22 14:21:27 +0100
+
+
+Started GET "/assets/leaflet.css?body=1" for 127.0.0.1 at 2014-01-22 14:21:27 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-01-22 14:21:27 +0100
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-01-22 14:21:27 +0100
+
+
+Started GET "/assets/gameboard.css?body=1" for 127.0.0.1 at 2014-01-22 14:21:27 +0100
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 127.0.0.1 at 2014-01-22 14:21:27 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-01-22 14:21:27 +0100
+
+
+Started GET "/assets/flags.js?body=1" for 127.0.0.1 at 2014-01-22 14:21:27 +0100
+
+
+Started GET "/assets/gameboard.js?body=1" for 127.0.0.1 at 2014-01-22 14:21:27 +0100
+
+
+Started GET "/assets/overpass_api.js?body=1" for 127.0.0.1 at 2014-01-22 14:21:27 +0100
+
+
+Started GET "/assets/leaflet.js?body=1" for 127.0.0.1 at 2014-01-22 14:21:27 +0100
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-01-22 14:21:27 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-01-22 14:21:27 +0100
+
+
+Started GET "/assets/marker-icon.png" for 127.0.0.1 at 2014-01-22 14:21:27 +0100
+
+
+Started GET "/assets/marker-shadow.png" for 127.0.0.1 at 2014-01-22 14:21:27 +0100
+
+
+Started GET "/overpass_api/getLocation.json?lat=49.904093113329374&long=10.859504933007884" for 127.0.0.1 at 2014-01-22 14:21:27 +0100
+Processing by OverpassApiController#getLocation as JSON
+  Parameters: {"lat"=>"49.904093113329374", "long"=>"10.859504933007884"}
+  Rendered overpass_api/getLocation.json.erb (62.6ms)
+Completed 200 OK in 593ms (Views: 64.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/sign_in" for 127.0.0.1 at 2014-01-22 14:21:28 +0100
+Processing by Clearance::SessionsController#new as HTML
+  Rendered /home/denis/.rvm/gems/ruby-2.0.0-p353/gems/clearance-1.1.0/app/views/sessions/_form.html.erb (8.4ms)
+  Rendered /home/denis/.rvm/gems/ruby-2.0.0-p353/gems/clearance-1.1.0/app/views/sessions/new.html.erb within layouts/application (88.6ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'c534391d5809d81aa0f48707bb11949fe622e05c' ORDER BY "users"."id" ASC LIMIT 1[0m
+Completed 200 OK in 97ms (Views: 95.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/marker-icon.png" for 127.0.0.1 at 2014-01-22 14:21:28 +0100
+
+
+Started GET "/assets/marker-shadow.png" for 127.0.0.1 at 2014-01-22 14:21:28 +0100
+
+
+Started GET "/overpass_api/getLocation.json?lat=49.904093113329374&long=10.859504933007884" for 127.0.0.1 at 2014-01-22 14:21:28 +0100
+Processing by OverpassApiController#getLocation as JSON
+  Parameters: {"lat"=>"49.904093113329374", "long"=>"10.859504933007884"}
+  Rendered overpass_api/getLocation.json.erb (67.2ms)
+Completed 200 OK in 572ms (Views: 69.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/session" for 127.0.0.1 at 2014-01-22 14:21:38 +0100
+Processing by Clearance::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"[FILTERED]", "session"=>{"email"=>"denishamann@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Sign in"}
+  [1m[35mUser Load (0.9ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'denishamann@gmail.com' LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'c534391d5809d81aa0f48707bb11949fe622e05c' ORDER BY "users"."id" ASC LIMIT 1[0m
+  Rendered /home/denis/.rvm/gems/ruby-2.0.0-p353/gems/clearance-1.1.0/app/views/sessions/_form.html.erb (1.7ms)
+  Rendered /home/denis/.rvm/gems/ruby-2.0.0-p353/gems/clearance-1.1.0/app/views/sessions/new.html.erb within layouts/application (3.7ms)
+  [1m[35mCACHE (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'c534391d5809d81aa0f48707bb11949fe622e05c' ORDER BY "users"."id" ASC LIMIT 1
+Completed 401 Unauthorized in 13ms (Views: 9.7ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-01-22 14:21:38 +0100
+
+
+Started GET "/assets/flags.css?body=1" for 127.0.0.1 at 2014-01-22 14:21:39 +0100
+
+
+Started GET "/assets/gameboard.css?body=1" for 127.0.0.1 at 2014-01-22 14:21:39 +0100
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-01-22 14:21:39 +0100
+
+
+Started GET "/assets/leaflet.css?body=1" for 127.0.0.1 at 2014-01-22 14:21:39 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-01-22 14:21:39 +0100
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 127.0.0.1 at 2014-01-22 14:21:39 +0100
+
+
+Started GET "/assets/overpass_api.css?body=1" for 127.0.0.1 at 2014-01-22 14:21:39 +0100
+
+
+Started GET "/assets/flags.js?body=1" for 127.0.0.1 at 2014-01-22 14:21:39 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-01-22 14:21:39 +0100
+
+
+Started GET "/assets/gameboard.js?body=1" for 127.0.0.1 at 2014-01-22 14:21:39 +0100
+
+
+Started GET "/assets/overpass_api.js?body=1" for 127.0.0.1 at 2014-01-22 14:21:39 +0100
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-01-22 14:21:39 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-01-22 14:21:39 +0100
+
+
+Started GET "/assets/leaflet.js?body=1" for 127.0.0.1 at 2014-01-22 14:21:39 +0100
+
+
+Started GET "/sign_up" for 127.0.0.1 at 2014-01-22 14:21:41 +0100
+Processing by Clearance::UsersController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'c534391d5809d81aa0f48707bb11949fe622e05c' ORDER BY "users"."id" ASC LIMIT 1[0m
+  Rendered /home/denis/.rvm/gems/ruby-2.0.0-p353/gems/clearance-1.1.0/app/views/users/_form.html.erb (7.2ms)
+  Rendered /home/denis/.rvm/gems/ruby-2.0.0-p353/gems/clearance-1.1.0/app/views/users/new.html.erb within layouts/application (16.2ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = 'c534391d5809d81aa0f48707bb11949fe622e05c' ORDER BY "users"."id" ASC LIMIT 1
+Completed 200 OK in 200ms (Views: 43.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-01-22 14:21:41 +0100
+
+
+Started GET "/assets/flags.css?body=1" for 127.0.0.1 at 2014-01-22 14:21:41 +0100
+
+
+Started GET "/assets/gameboard.css?body=1" for 127.0.0.1 at 2014-01-22 14:21:41 +0100
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-01-22 14:21:41 +0100
+
+
+Started GET "/assets/overpass_api.css?body=1" for 127.0.0.1 at 2014-01-22 14:21:41 +0100
+
+
+Started GET "/assets/leaflet.css?body=1" for 127.0.0.1 at 2014-01-22 14:21:41 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-01-22 14:21:41 +0100
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 127.0.0.1 at 2014-01-22 14:21:41 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-01-22 14:21:41 +0100
+
+
+Started GET "/assets/flags.js?body=1" for 127.0.0.1 at 2014-01-22 14:21:41 +0100
+
+
+Started GET "/assets/gameboard.js?body=1" for 127.0.0.1 at 2014-01-22 14:21:41 +0100
+
+
+Started GET "/assets/overpass_api.js?body=1" for 127.0.0.1 at 2014-01-22 14:21:41 +0100
+
+
+Started GET "/assets/leaflet.js?body=1" for 127.0.0.1 at 2014-01-22 14:21:41 +0100
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-01-22 14:21:41 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-01-22 14:21:41 +0100
+
+
+Started POST "/users" for 127.0.0.1 at 2014-01-22 14:21:48 +0100
+Processing by Clearance::UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"denishamann@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mUser Load (2.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" = 'c534391d5809d81aa0f48707bb11949fe622e05c' ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (1.6ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'denishamann@gmail.com' LIMIT 1[0m
+Binary data inserted for `string` type on column `encrypted_password`
+  [1m[35mSQL (31.2ms)[0m  INSERT INTO "users" ("created_at", "email", "encrypted_password", "remember_token", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", Wed, 22 Jan 2014 13:21:49 UTC +00:00], ["email", "denishamann@gmail.com"], ["encrypted_password", "$2a$10$8D84Ly4RjwhGdaGeac5.X.w/3ES2IWmM5/ougcJAnRztQRqN.oBja"], ["remember_token", "53f771969e455274baa000ab480b70de9d9144b5"], ["updated_at", Wed, 22 Jan 2014 13:21:49 UTC +00:00]]
+  [1m[36m (6.0ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 234ms (ActiveRecord: 41.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-01-22 14:21:49 +0100
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /home/denis/.rvm/gems/ruby-2.0.0-p353/gems/railties-4.0.0/lib/rails/templates/rails/welcome/index.html.erb (0.7ms)
+Completed 200 OK in 6ms (Views: 4.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/gameboard/show" for 127.0.0.1 at 2014-01-22 14:42:14 +0100
+Processing by GameboardController#show as HTML
+  Rendered gameboard/show.html.erb within layouts/application (0.1ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" = '53f771969e455274baa000ab480b70de9d9144b5' ORDER BY "users"."id" ASC LIMIT 1
+Completed 200 OK in 34ms (Views: 32.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-01-22 14:42:14 +0100
+
+
+Started GET "/assets/flags.css?body=1" for 127.0.0.1 at 2014-01-22 14:42:14 +0100
+
+
+Started GET "/assets/gameboard.css?body=1" for 127.0.0.1 at 2014-01-22 14:42:14 +0100
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-01-22 14:42:14 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-01-22 14:42:14 +0100
+
+
+Started GET "/assets/leaflet.css?body=1" for 127.0.0.1 at 2014-01-22 14:42:14 +0100
+
+
+Started GET "/assets/overpass_api.css?body=1" for 127.0.0.1 at 2014-01-22 14:42:14 +0100
+
+
+Started GET "/assets/gameboard.js?body=1" for 127.0.0.1 at 2014-01-22 14:42:15 +0100
+
+
+Started GET "/assets/overpass_api.js?body=1" for 127.0.0.1 at 2014-01-22 14:42:15 +0100
+
+
+Started GET "/assets/jquery.turbolinks.js?body=1" for 127.0.0.1 at 2014-01-22 14:42:15 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-01-22 14:42:15 +0100
+
+
+Started GET "/assets/flags.js?body=1" for 127.0.0.1 at 2014-01-22 14:42:15 +0100
+
+
+Started GET "/assets/leaflet.js?body=1" for 127.0.0.1 at 2014-01-22 14:42:15 +0100
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-01-22 14:42:15 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-01-22 14:42:15 +0100
+
+
+Started GET "/assets/marker-icon.png" for 127.0.0.1 at 2014-01-22 14:42:15 +0100
+
+
+Started GET "/assets/marker-shadow.png" for 127.0.0.1 at 2014-01-22 14:42:15 +0100
+
+
+Started GET "/overpass_api/getLocation.json?lat=49.904093113329374&long=10.859504933007884" for 127.0.0.1 at 2014-01-22 14:42:15 +0100
+Processing by OverpassApiController#getLocation as JSON
+  Parameters: {"lat"=>"49.904093113329374", "long"=>"10.859504933007884"}
+  Rendered overpass_api/getLocation.json.erb (71.1ms)
+Completed 200 OK in 3470ms (Views: 73.5ms | ActiveRecord: 0.0ms)

@@ -14,7 +14,7 @@
 ActiveRecord::Schema.define(version: 20140119121936) do
 
   create_table "flags", force: true do |t|
-    t.integer  "owner"
+    t.integer  "users_id"
     t.integer  "prestige"
     t.datetime "created_at"
     t.datetime "updated_at"
