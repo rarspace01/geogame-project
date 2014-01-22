@@ -1,7 +1,7 @@
 class CreateFlags < ActiveRecord::Migration
   def change
     create_table :flags do |t|
-      t.integer :owner
+      t.belongs_to :users
       t.integer :prestige
 
       t.timestamps
