@@ -7,6 +7,7 @@ var location_lat = 49;
 var location_lng = 10;
 
 var geoJsonList;
+var currentGeoJson;
 
 function onEachFeature(feature, layer) {
 
@@ -40,6 +41,12 @@ function showPosition(position)
 
 	map.setView(latlng, 16);
 
+	refreshData();
+	
+}
+
+function refreshData(){
+
 	currentMapBounds = map.getBounds().pad(0.5);
 
 	//The first is minimum latitude. The second is the minimum longitude. The third is the maximum latitude. The last is the maximum longitude
@@ -55,12 +62,17 @@ function showPosition(position)
 			geoJsonList = data;
 			loadGeoJsonData();
 		});
-	
+
 }
 
 function loadGeoJsonData(){
 
-		L.geoJson(geoJsonList, {
+		if(currentGeoJson != null)
+		{
+		map.removeLayer(currentGeoJson);
+		}
+
+		currentGeoJson = L.geoJson(geoJsonList, {
 
 			style: function (feature) {
 				return feature.properties && feature.properties.style;
@@ -78,7 +90,8 @@ function loadGeoJsonData(){
 					fillOpacity: 0.8
 				});
 			}
-		}).addTo(map);
+		});
+		currentGeoJson.addTo(map);
 
 
 
@@ -95,7 +108,9 @@ getLocation();
 map._layersMinZoom=15;
 map._layersMaxZoom=19;
 map.on('moveend',function(){
-alert('test');
+//alert('test');
+//check here if new bounds exeed the "safe zone"
+refreshData();
 })
 
 });
