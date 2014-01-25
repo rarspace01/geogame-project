@@ -5,20 +5,15 @@ class OverpassApiController < ApplicationController
   include OverpassApiHelper
   def getLocation
 
-    lat = params[:lat]
-    long = params[:long]
+    s = params[:s]
+    w = params[:w]
+    n = params[:n]
+    e = params[:e]
+    swne = [s,w,n,e]
 
-    if(lat == nil)
-      lat = "49"
-    end
-    if(long == nil)
-      lat = "10"
-    end	
-
-    location = [lat,long]
     locationtype = ("\"highway\"=\"bus_stop\"")
 
-    @result = get_geojson(location, locationtype)
+    @result = get_geojson(swne, locationtype)
 
   end
 
