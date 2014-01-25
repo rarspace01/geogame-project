@@ -16,15 +16,6 @@ function onEachFeature(feature, layer) {
 		//alert(feature.properties.id);
 	});
 	
-	/*
-	var popupContent = "<p>I started out as a GeoJSON " +
-			feature.geometry.type + ", but now I'm a Leaflet vector!</p>";
-
-	if (feature.properties && feature.properties.popupContent) {
-		popupContent += feature.properties.popupContent;
-	}
-
-	layer.bindPopup(popupContent);*/
 }
 
 
@@ -47,11 +38,19 @@ function showPosition(position)
 
 	var curMarker = L.marker(latlng).addTo(map);
 
-	map.setView(latlng, 16)
+	map.setView(latlng, 16);
 
-	var url = "/overpass_api/getLocation.json?lat=" + location_lat + "&long=" + location_lng
+	currentMapBounds = map.getBounds().pad(0.5);
 
-	$.getJSON(url,
+	//The first is minimum latitude. The second is the minimum longitude. The third is the maximum latitude. The last is the maximum longitude
+
+	var bburl = "/overpass_api/getLocation.json?s="+currentMapBounds.getSouth()+"&w="+currentMapBounds.getWest()+"&n="+currentMapBounds.getNorth()+"&e="+currentMapBounds.getEast();
+
+	//alert(bburl);
+
+	//var url = "/overpass_api/getLocation.json?lat=" + location_lat + "&long=" + location_lng
+
+	$.getJSON(bburl,
 		function(data){
 			geoJsonList = data;
 			loadGeoJsonData();
@@ -85,16 +84,19 @@ function loadGeoJsonData(){
 
 }
 
-getLocation();
-
 $("#map").height($(window).height()*0.8).width($(window).width());
 
 map.invalidateSize();
+
+getLocation();
 
 /* setting the max/min zoom */
 
 map._layersMinZoom=15;
 map._layersMaxZoom=19;
+map.on('moveend',function(){
+alert('test');
+})
 
 });
 
