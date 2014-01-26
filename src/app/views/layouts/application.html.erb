@@ -9,7 +9,7 @@
 <body>
 
     <% if signed_in? %>
-      Signed in as: <%= current_user.email %>
+      Signed in as: <%= current_user.email %> - Current Points: <%= current_user.getPoints %>
       <%= link_to 'Sign out', sign_out_path, :method => :delete %>
     <% else %>
 	  <script type="text/javascript">

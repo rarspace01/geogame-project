@@ -3,9 +3,16 @@
 Back to <%= link_to("Gameboard",root_path) %>
 <div id='flagcontent'>
 Flagge: <%= @id %><br/>
+Prestige: <%= @prestige %><br/>
+<% if(@isInteractable) %>
+<a href='#' onClick='attack(<%= @id %>);'>Attack</a><br/>
+<% end %>
 C_LAT: <%= @userlat %><br/>
 C_LNG: <%= @userlng %><br/>
 F_LAT: <%= @flaglat %><br/>
 F_LNG: <%= @flaglng %><br/>
-Distance C-> F [m]: <%= @distance %>
+Owner: <%= @ownerName %><br/>
+Distance C-> F: <%= number_with_precision(@distance, precision: 2) %>meters<br/>
+Interaction possible: <%= @isInteractable %><br/>
+Is flagowner: <%= @isowner %><br/>
 </div>
