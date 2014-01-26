@@ -1,5 +1,7 @@
 GeogameProject::Application.routes.draw do
+  root "gameboard#show"
   get "gameboard/show"
+  get "flag/show/:id" => "flag#show"
   get "overpass_api/getLocation"
   get "overpass_api/checkID"
   # The priority is based upon order of creation: first created -> highest priority.

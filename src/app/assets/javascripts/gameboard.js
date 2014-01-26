@@ -12,7 +12,8 @@ var currentGeoJson;
 function onEachFeature(feature, layer) {
 
     	layer.on('click', function (e) {
-		alert(feature.properties.popupContent+" - "+feature.id);
+		//alert(feature.properties.popupContent+" - "+feature.id);
+		window.location = '/flag/show/'+feature.id+"?lat="+location_lat+"&lng="+location_lng;
 		//or
 		//alert(feature.properties.id);
 	});
@@ -47,11 +48,17 @@ function showPosition(position)
 
 function refreshData(){
 
-	currentMapBounds = map.getBounds().pad(0.5);
+	currentMapBounds = map.getBounds();
+
+	//alert(currentMapBounds.toBBoxString());
+
+	paddedMapBounds = currentMapBounds.pad(1);
+
+	//alert(paddedMapBounds.toBBoxString());
 
 	//The first is minimum latitude. The second is the minimum longitude. The third is the maximum latitude. The last is the maximum longitude
 
-	var bburl = "/overpass_api/getLocation.json?s="+currentMapBounds.getSouth()+"&w="+currentMapBounds.getWest()+"&n="+currentMapBounds.getNorth()+"&e="+currentMapBounds.getEast();
+	var bburl = "/overpass_api/getLocation.json?s="+paddedMapBounds.getSouth()+"&w="+paddedMapBounds.getWest()+"&n="+paddedMapBounds.getNorth()+"&e="+paddedMapBounds.getEast();
 
 	//alert(bburl);
 
