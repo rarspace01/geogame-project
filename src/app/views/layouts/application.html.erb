@@ -13,7 +13,7 @@
       <%= link_to 'Sign out', sign_out_path, :method => :delete %>
     <% else %>
 	  <script type="text/javascript">
-	    if(window.location.href.indexOf('<%= sign_in_path %>') == -1){
+	    if(window.location.href.indexOf('<%= sign_in_path %>') == -1 && window.location.href.indexOf('<%= sign_up_path %>') == -1){
 	    	window.location.href="<%= sign_in_path %>";  // put your correct path in a string here
 	    }
 	    
