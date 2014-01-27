@@ -1,4 +1,20 @@
 <h1>Gameboard#show</h1>
 <div id='mapbox'>
-<%= map(:center => { :latlng => [51.52238797921441, -0.08366235665359283], :zoom => 18 }, :markers => [ { :latlng => [51.52238797921441, -0.08366235665359283], } ] ) %>
+<%= map(:center => { :latlng => [49, 10], :zoom => 18 }  ) %>
 </div>
+<!-- reload hack for backbutton - tested on chromium,, -->
+<form name="ignore_me">
+    <input type="hidden" id="page_is_dirty" name="page_is_dirty" value="0" />
+</form>
+<script>
+// reload hack for back button
+var dirty_bit = document.getElementById('page_is_dirty');
+if (dirty_bit.value == '1') window.location.reload();
+
+mark_page_dirty();
+
+function mark_page_dirty() {
+    dirty_bit.value = '1';
+}
+// end
+</script>
