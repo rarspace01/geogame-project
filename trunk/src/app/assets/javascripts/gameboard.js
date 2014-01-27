@@ -1,7 +1,9 @@
 // Place all the behaviors and hooks related to the matching controller here.
 // All this logic will automatically be available in application.js.
-
+//history.navigationMode = 'compatible';
 $(document).ready(function(){
+
+console.log("gamboard code executed");
 
 var location_lat = 49;
 var location_lng = 10;
@@ -23,16 +25,22 @@ function onEachFeature(feature, layer) {
 
 function getLocation()
 {
+  console.log("getLocation()");
   if (navigator.geolocation)
     {
-    navigator.geolocation.getCurrentPosition(showPosition);
+    console.log("setting callback function");
+    navigator.geolocation.getCurrentPosition(showPosition,null,{ maximumAge: 500, timeout: 6000, enableHighAccuracy: true});
     }
-  else{x.innerHTML="Geolocation is not supported by this browser.";}
+  else
+  {
+  console.log("no geolocation supported");
+  x.innerHTML="Geolocation is not supported by this browser.";
+  }
 }
 
 function showPosition(position)
 {
-
+	console.log("show Position");
 	location_lat = position.coords.latitude;
 	location_lng = position.coords.longitude;
 
@@ -106,13 +114,14 @@ function loadGeoJsonData(){
 
 if (typeof map != 'undefined') {
 
+console.log("running data functions");
 
 $("#map").height($(window).height()*0.8).width($(window).width());
 
 map.invalidateSize();
 
 getLocation();
-
+console.log("got location");
 /* setting the max/min zoom */
 
 map._layersMinZoom=15;
