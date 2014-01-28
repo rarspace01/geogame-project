@@ -15,7 +15,26 @@ class VendorsController < ApplicationController
   w = params[:w]
   e = params[:e]
 
-  @vendors = Vendor.find(:all, :conditions => ['(location_lat BETWEEN ? AND ?) AND (location_lng BETWEEN ? AND ?) ',n,s,w,e]);
+  @vendors = Vendor.where(location_lat: (s..n)).where(location_lng: (w..e))
+  featureList = Hash.new
+
+  featureList["type"] = "FeatureCollection"
+  featureList["features"] = Array.new 
+
+  @vendors.each do |vendor|
+  feature = Hash.new
+  feature["type"] = "Feature"
+  geometry = Hash.new
+  geometry["type"] = "Point"
+  geometry["coordinates"] = [vendor.location_lng,vendor.location_lat]
+  properties = Hash.new
+  properties["popupContent"] = vendor.name
+  feature["geometry"] = geometry
+  feature["properties"] = properties
+  feature["id"] = vendor.id
+  featureList["features"].push(feature)
+  end
+  @vendors_geojson = JSON.parse(featureList.to_json)
 
   end
 
