@@ -26,7 +26,7 @@ function onEachFeature(feature, layer) {
 
 function onEachFeatureVendor(feature, layer) {
 
-	layer.bindPopup(feature.properties.description);
+	layer.bindPopup(feature.properties.popupContent+"<br/>HTML <b>Test</b>");
 
 /**
     	layer.on('click', function (e) {
