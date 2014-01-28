@@ -1,4 +1,6 @@
 GeogameProject::Application.routes.draw do
+  resources :vendors
+
   root "gameboard#show"
   get "gameboard/show"
   get "flag/show/:id" => "flag#show"

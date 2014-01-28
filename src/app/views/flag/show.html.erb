@@ -2,7 +2,7 @@
 Back to <%= link_to("Gameboard",root_path) %>
 <div id='flagcontent'>
 Flagge: <%= @id %><br/>
-Prestige: <%= @prestige %><br/>
+Prestige: <span id='span_prestige'><%= @prestige %></div><br/>
 <% if(@isInteractable) %>
 <a href='#' onClick='attack(<%= @id %>);'>Attack</a><br/>
 <% end %>

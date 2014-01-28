@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140122154658) do
+ActiveRecord::Schema.define(version: 20140128101437) do
 
   create_table "flags", force: true do |t|
     t.integer  "user_id"
@@ -50,5 +50,13 @@ ActiveRecord::Schema.define(version: 20140122154658) do
 
   add_index "users", ["email"], name: "index_users_on_email"
   add_index "users", ["remember_token"], name: "index_users_on_remember_token"
+
+  create_table "vendors", force: true do |t|
+    t.string   "name"
+    t.float    "location_lat"
+    t.float    "location_lng"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end
