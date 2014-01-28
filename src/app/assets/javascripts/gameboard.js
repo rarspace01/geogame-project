@@ -9,7 +9,9 @@ var location_lat = 49;
 var location_lng = 10;
 
 var geoJsonList;
+var geoJsonVendorList;;
 var currentGeoJson;
+var currentGeoJsonVendor;
 
 function onEachFeature(feature, layer) {
 
@@ -20,6 +22,20 @@ function onEachFeature(feature, layer) {
 		//alert(feature.properties.id);
 	});
 	
+}
+
+function onEachFeatureVendor(feature, layer) {
+
+	layer.bindPopup(feature.properties.description);
+
+/**
+    	layer.on('click', function (e) {
+		alert(feature.properties.popupContent+" - "+feature.id);
+		//window.location = '/flag/show/'+feature.id+"?lat="+location_lat+"&lng="+location_lng;
+		//or
+		//alert(feature.properties.id);
+	});
+**/	
 }
 
 
@@ -67,21 +83,30 @@ function refreshData(){
 	//The first is minimum latitude. The second is the minimum longitude. The third is the maximum latitude. The last is the maximum longitude
 
 	var bburl = "/overpass_api/getLocation.json?s="+paddedMapBounds.getSouth()+"&w="+paddedMapBounds.getWest()+"&n="+paddedMapBounds.getNorth()+"&e="+paddedMapBounds.getEast();
+        var bbvendorurl = "/vendors/getVendors.json?s="+paddedMapBounds.getSouth()+"&w="+paddedMapBounds.getWest()+"&n="+paddedMapBounds.getNorth()+"&e="+paddedMapBounds.getEast();
 
 	//alert(bburl);
 
 	//var url = "/overpass_api/getLocation.json?lat=" + location_lat + "&long=" + location_lng
 
+
+	//load flag data
 	$.getJSON(bburl,
 		function(data){
 			geoJsonList = data;
 			loadGeoJsonData();
 		});
+        //load vendor data
+	$.getJSON(bbvendorurl,
+	function(data){
+		geoJsonVendorList = data;
+		loadGeoJsonVendorData();
+	});
 
 }
 
 function loadGeoJsonData(){
-
+		console.log("loading Flag Data");
 		if(currentGeoJson != null)
 		{
 		map.removeLayer(currentGeoJson);
@@ -107,16 +132,42 @@ function loadGeoJsonData(){
 			}
 		});
 		currentGeoJson.addTo(map);
-
-
-
 }
 
-if (typeof map != 'undefined') {
+function loadGeoJsonVendorData(){
+		console.log("loading Vendor Data");
+		if(currentGeoJsonVendor != null)
+		{
+		map.removeLayer(currentGeoJsonVendor);
+		}
 
-console.log("running data functions");
+		currentGeoJsonVendor = L.geoJson(geoJsonVendorList, {
 
-$("#map").height($(window).height()*0.8).width($(window).width());
+			style: function (feature) {
+				return feature.properties && feature.properties.style;
+			},
+
+			onEachFeature: onEachFeatureVendor,
+
+			pointToLayer: function (feature, latlng) {
+				return L.circleMarker(latlng, {
+					radius: 8,
+					fillColor: "#00ff00",
+					color: "#000",
+					weight: 1,
+					opacity: 1,
+					fillOpacity: 0.8
+				});
+			}
+		});
+		currentGeoJsonVendor.addTo(map);
+}
+
+
+if (typeof game_map != 'undefined') {
+console.log("game map found");
+
+$("#game_map").height($(window).height()*0.8).width($(window).width());
 
 map.invalidateSize();
 
@@ -132,6 +183,8 @@ map.on('moveend',function(){
 refreshData();
 });
 
+}else{
+console.log("no game map found");
 }
 
 });

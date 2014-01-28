@@ -5,15 +5,11 @@
   <%= @vendor.name %>
 </p>
 
-<p>
-  <strong>Location lat:</strong>
-  <%= @vendor.location_lat %>
-</p>
-
-<p>
-  <strong>Location lng:</strong>
-  <%= @vendor.location_lng %>
-</p>
+<%= map(:container_id => "vendor_map_read_only",:center => { :latlng => [@vendor.location_lat, @vendor.location_lng], :zoom => 18 }, :markers => [
+     {
+       :latlng => [@vendor.location_lat, @vendor.location_lng]
+     }]
+); %>
 
 <%= link_to 'Edit', edit_vendor_path(@vendor) %> |
 <%= link_to 'Back', vendors_path %>
