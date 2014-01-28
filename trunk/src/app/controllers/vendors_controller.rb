@@ -7,6 +7,18 @@ class VendorsController < ApplicationController
     @vendors = Vendor.all
   end
 
+  # GET /vendors/getVendors.json
+  def getVendors
+
+  n = params[:n]
+  s = params[:s]
+  w = params[:w]
+  e = params[:e]
+
+  @vendors = Vendor.find(:all, :conditions => ['(location_lat BETWEEN ? AND ?) AND (location_lng BETWEEN ? AND ?) ',n,s,w,e]);
+
+  end
+
   # GET /vendors/1
   # GET /vendors/1.json
   def show
@@ -64,11 +76,13 @@ class VendorsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_vendor
+      if(params[:id] != "getVendors")
       @vendor = Vendor.find(params[:id])
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def vendor_params
-      params.require(:vendor).permit(:name, :location_lat, :location_lng)
+      params.require(:vendor).permit(:name, :location_lat, :location_lng, :n, :s, :w, :e)
     end
 end

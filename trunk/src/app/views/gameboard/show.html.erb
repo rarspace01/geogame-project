@@ -1,6 +1,6 @@
 <h1>Gameboard#show</h1>
-<div id='mapbox'>
-<%= map(:center => { :latlng => [49, 10], :zoom => 18 }  ) %>
+<div id='gamemapbox'>
+<%= map(:container_id => "game_map",:center => { :latlng => [49, 10], :zoom => 18 }  ) %>
 </div>
 <!-- reload hack for backbutton - tested on chromium,, -->
 <form name="ignore_me">

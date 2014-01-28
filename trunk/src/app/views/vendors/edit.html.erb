@@ -1,6 +1,15 @@
 <h1>Editing vendor</h1>
 
-<%= render 'form' %>
+<%= form_for @vendor do |f| %>
+Name: <%= f.text_field :name %>
+  <%= f.hidden_field :location_lat %>
+  <%= f.hidden_field :location_lng %>
+  <%= f.submit "Save" %>
+<% end %>
+
+<div id='vendormapbox'>
+<%= map(:container_id => "vendor_map_edit",:center => { :latlng => [49, 10], :zoom => 18 }  ) %>
+</div>
 
 <%= link_to 'Show', @vendor %> |
 <%= link_to 'Back', vendors_path %>
