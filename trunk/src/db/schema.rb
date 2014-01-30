@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140128101437) do
+ActiveRecord::Schema.define(version: 20140130204219) do
 
   create_table "flags", force: true do |t|
     t.integer  "user_id"
@@ -20,10 +20,12 @@ ActiveRecord::Schema.define(version: 20140128101437) do
     t.datetime "updated_at"
   end
 
-  create_table "itemtypes", force: true do |t|
+  create_table "items", force: true do |t|
     t.string   "name"
-    t.integer  "xp"
-    t.integer  "app"
+    t.integer  "itemowner_id"
+    t.string   "itemowner_type"
+    t.integer  "itemtype"
+    t.integer  "price"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
