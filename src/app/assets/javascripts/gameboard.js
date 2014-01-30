@@ -167,7 +167,7 @@ function loadGeoJsonVendorData(){
 if (typeof game_map != 'undefined') {
 console.log("game map found");
 
-$("#game_map").height($(window).height()*0.8).width($(window).width());
+$("#game_map").height($(window).height()*0.85).width($(window).width()*0.99);
 
 map.invalidateSize();
 

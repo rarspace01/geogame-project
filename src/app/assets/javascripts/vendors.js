@@ -59,7 +59,7 @@ map.invalidateSize();
 
 if(typeof vendor_map_edit != 'undefined'){
 
-$("#vendor_map_edit").height($(window).height()*0.8).width($(window).width());
+$("#vendor_map_edit").height($(window).height()*0.85).width($(window).width()*0.99);
 map.invalidateSize();
 
 oldLat = document.getElementById('vendor_location_lat').value;
@@ -81,7 +81,7 @@ oldLng = document.getElementById('vendor_location_lng').value;
 if (typeof vendor_map != 'undefined') {
 console.log("vendor map found");
 
-$("#vendor_map").height($(window).height()*0.8).width($(window).width());
+$("#vendor_map").height($(window).height()*0.85).width($(window).width()*0.99);
 map.invalidateSize();
 
 getLocation();
