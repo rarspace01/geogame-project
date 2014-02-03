@@ -5,6 +5,22 @@
   <%= @vendor.name %>
 </p>
 
+<p>
+  <strong>Items:</strong>
+  <ul>
+  <% @vendor.items.each do |item| %>
+  <li><%= "#{item.name} - #{item.itemtype} - #{item.price}" %> <%= link_to 'Destroy', item_path(item),
+            :confirm => 'Are you sure?', :method => :delete %></li>
+  <% end %>
+  <strong>Add items:</strong>
+  <% @unassignedItems.each do |item| %>
+  <li><%= "#{item.name} - #{item.itemtype} - #{item.price}" %> <%= link_to 'Add to vendor', "/vendors/addItem/#{@vendor.id}/#{item.id}" %></li>
+  <% end %>
+
+  </ul>
+  
+</p>
+
 <%= map(:container_id => "vendor_map_read_only",:center => { :latlng => [@vendor.location_lat, @vendor.location_lng], :zoom => 18 }, :markers => [
      {
        :latlng => [@vendor.location_lat, @vendor.location_lng]

@@ -1,10 +1,21 @@
 class VendorsController < ApplicationController
-  before_action :set_vendor, only: [:show, :edit, :update, :destroy]
+  before_action :set_vendor, only: [:show, :edit, :update, :destroy, :addItem]
 
   # GET /vendors
   # GET /vendors.json
   def index
     @vendors = Vendor.all
+  end
+
+  # GET /vendors/addItem/vendorid/itemid
+  def addItem
+  @itemToBeAdded = Item.find_by_id(params[:itemid])
+  @vendor.items.push(@itemToBeAdded)
+
+  respond_to do |format|
+  format.html { redirect_to vendors_url }
+  format.json { head :no_content }
+
   end
 
   # GET /vendors/getVendors.json
@@ -41,6 +52,8 @@ class VendorsController < ApplicationController
   # GET /vendors/1
   # GET /vendors/1.json
   def show
+    @unassignedItems = Item.find_all_by_itemowner_id(nil)
+    end
   end
 
   # GET /vendors/new
