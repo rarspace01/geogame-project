@@ -1,7 +1,9 @@
 GeogameProject::Application.routes.draw do
+
   resources :items
 
   get "vendors/getVendors"
+  get "vendors/addItem/:id/:itemid" => "vendors#addItem"
 
   resources :vendors
 
