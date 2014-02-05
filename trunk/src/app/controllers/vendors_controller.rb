@@ -7,17 +7,6 @@ class VendorsController < ApplicationController
     @vendors = Vendor.all
   end
 
-  # GET /vendors/addItem/vendorid/itemid
-  def addItem
-  @itemToBeAdded = Item.find_by_id(params[:itemid])
-  @vendor.items.push(@itemToBeAdded)
-
-  respond_to do |format|
-  format.html { redirect_to vendors_url }
-  format.json { head :no_content }
-
-  end
-
   # GET /vendors/getVendors.json
   def getVendors
 
@@ -46,6 +35,17 @@ class VendorsController < ApplicationController
   featureList["features"].push(feature)
   end
   @vendors_geojson = JSON.parse(featureList.to_json)
+
+  end
+
+  # GET /vendors/addItem/vendorid/itemid
+  def addItem
+  @itemToBeAdded = Item.find_by_id(params[:itemid])
+  @vendor.items.push(@itemToBeAdded)
+
+  respond_to do |format|
+  format.html { redirect_to vendors_url }
+  format.json { head :no_content }
 
   end
 
