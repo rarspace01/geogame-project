@@ -1,6 +1,9 @@
 // Place all the behaviors and hooks related to the matching controller here.
 // All this logic will automatically be available in application.js.
 //history.navigationMode = 'compatible';
+
+//var debugvar;
+
 $(document).ready(function(){
 
 console.log("gamboard code executed");
@@ -26,16 +29,30 @@ function onEachFeature(feature, layer) {
 
 function onEachFeatureVendor(feature, layer) {
 
-	layer.bindPopup(feature.properties.popupContent+"<br/>HTML <b>Test</b>");
+	layer.bindPopup(feature.properties.popupContent+"<br/><div id='vendoritems'></div></b>");
 
-/**
+
     	layer.on('click', function (e) {
-		alert(feature.properties.popupContent+" - "+feature.id);
-		//window.location = '/flag/show/'+feature.id+"?lat="+location_lat+"&lng="+location_lng;
-		//or
-		//alert(feature.properties.id);
+	// load vendoritems onto vendoritem div
+        var vendorurl = '/vendors/'+feature.id+'.json';
+	$.getJSON(vendorurl,
+	function(data){
+                console.log("got json:"+data);
+                vendoritems = data['items'];
+		//build html here
+                innerHtml = "<ul>";
+		$.each(vendoritems, function(index, item) {
+                innerHtml = innerHtml + "<li>"+item['name']+" - Price: "+item['price']+" - <a href='/vendors/buyItem/"+feature.id+"/"+item['id']+"'>Buy</a></li>";
+		console.log("ID: "+item['id']+" "+item['name']);
+                
+		});
+                innerHtml = innerHtml + "</ul>";
+		//replace div here
+		document.getElementById("vendoritems").innerHTML = innerHtml;
 	});
-**/	
+
+	});
+
 }
 
 
