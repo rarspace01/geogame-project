@@ -1,5 +1,5 @@
 class VendorsController < ApplicationController
-  before_action :set_vendor, only: [:show, :edit, :update, :destroy, :addItem]
+  before_action :set_vendor, only: [:show, :edit, :update, :destroy, :addItem, :buyItem]
 
   # GET /vendors
   # GET /vendors.json
@@ -49,11 +49,28 @@ class VendorsController < ApplicationController
 
   end
 
+  end
+
+  # GET /vendors/buyItem/vendorid/itemid
+  def buyItem
+  @itemToBeBuyed = Item.find_by_id(params[:itemid])
+  #check if use has enough money
+  #push & remove
+  current_user.items.push(@itemToBeBuyed)
+  @vendor.items.delete(@itemToBeBuyed)
+
+  respond_to do |format|
+  format.html { redirect_to root_path }
+  format.json { head :no_content }
+
+  end
+
+  end
+
   # GET /vendors/1
   # GET /vendors/1.json
   def show
     @unassignedItems = Item.find_all_by_itemowner_id(nil)
-    end
   end
 
   # GET /vendors/new

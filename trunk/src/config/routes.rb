@@ -4,8 +4,8 @@ GeogameProject::Application.routes.draw do
 
   get "vendors/getVendors"
   get "vendors/addItem/:id/:itemid" => "vendors#addItem"
-  # handle when user buys a item fomr a shop
-  # get "vendors/buyItem/:id/:itemid" => "vendors#buyItem"
+  # handle when user buys a item from a shop
+  get "vendors/buyItem/:id/:itemid" => "vendors#buyItem"
 
   resources :vendors
 
