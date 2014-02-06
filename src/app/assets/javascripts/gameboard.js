@@ -4,6 +4,18 @@
 
 //var debugvar;
 
+function buy(vendorid, itemid){
+
+var buyurl = '/vendors/buyItem/'+vendorid+'/'+itemid+'.json';
+
+	$.getJSON(buyurl,
+		function(data){
+			//set prestige span to prestige result
+			//refreshData();
+		});
+
+}
+
 $(document).ready(function(){
 
 console.log("gamboard code executed");
@@ -42,7 +54,8 @@ function onEachFeatureVendor(feature, layer) {
 		//build html here
                 innerHtml = "<ul>";
 		$.each(vendoritems, function(index, item) {
-                innerHtml = innerHtml + "<li>"+item['name']+" - Price: "+item['price']+" - <a href='/vendors/buyItem/"+feature.id+"/"+item['id']+"'>Buy</a></li>";
+                //innerHtml = innerHtml + "<li>"+item['name']+" - Price: "+item['price']+" - <a href='/vendors/buyItem/"+feature.id+"/"+item['id']+"'>Buy</a></li>";
+		innerHtml = innerHtml + "<li>"+item['name']+" - Price: "+item['price']+" - <a href='#' onClick='buy("+feature.id+","+item['id']+");'>Buy</a></li>";
 		console.log("ID: "+item['id']+" "+item['name']);
                 
 		});
