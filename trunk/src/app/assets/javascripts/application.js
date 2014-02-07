@@ -15,4 +15,30 @@
 //= require jquery_ujs
 //= require_tree .
 //= require leaflet
+//= require jquery.ui.all
+// Loads all Bootstrap javascripts
+//= require bootstrap
 //= require turbolinks
+
+function showItems(){
+
+$( "#dialog-items" ).dialog({
+      height: 140,
+      modal: true
+    });
+}
+
+function useItem(itemid){
+console.log("used item:"+itemid);
+
+var useItemurl = "/items/useItem/"+itemid+".json";
+
+$.getJSON(useItemurl,
+		function(data){
+			//set prestige span to prestige result
+			$( "#dialog-items" ).dialog("close");
+		});
+
+}
+
+

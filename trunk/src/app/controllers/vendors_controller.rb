@@ -54,10 +54,20 @@ class VendorsController < ApplicationController
   # GET /vendors/buyItem/vendorid/itemid
   def buyItem
   @itemToBeBuyed = Item.find_by_id(params[:itemid])
+
+  # check if use is in range
+
   #check if use has enough money
+  if(current_user.ap >= @itemToBeBuyed.price)
   #push & remove
   current_user.items.push(@itemToBeBuyed)
   @vendor.items.delete(@itemToBeBuyed)
+
+  current_user.ap = current_user.ap - @itemToBeBuyed.price
+
+  current_user.save
+
+  end
 
   respond_to do |format|
   format.html { redirect_to root_path }

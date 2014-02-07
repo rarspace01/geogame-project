@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:show, :edit, :update, :destroy]
+  before_action :set_item, only: [:show, :edit, :update, :destroy, :useItem]
 
   # GET /items
   # GET /items.json
@@ -19,6 +19,29 @@ class ItemsController < ApplicationController
 
   # GET /items/1/edit
   def edit
+  end
+
+  # GET /items/useItem/1
+  def useItem
+  
+  # evaluate item
+  if(@item.itemtype == 1)
+  current_user.ap = current_user.ap+10;
+
+  current_user.save
+
+  end
+
+  # remove item from user
+  current_user.items.delete(@item)
+
+  @item.destroy
+  
+    respond_to do |format|
+      format.html { redirect_to items_url }
+      format.json { head :no_content }
+    end
+
   end
 
   # POST /items

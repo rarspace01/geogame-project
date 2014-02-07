@@ -9,12 +9,21 @@
 <body>
 
     <% if signed_in? %>
-      Signed in as: <%= current_user.email %> - Current Points: <%= current_user.getPoints %> Items: <%= current_user.items.length %>
+      Signed in as: <%= current_user.email %> - Points: <%= current_user.getPoints %> AP: <%= current_user.getAp %> <a href='#' data-no-turbolink onClick="showItems();">Items: <%= current_user.items.length %></a>
       <%= link_to 'Sign out', sign_out_path, :method => :delete %>
+
+	<div id="dialog-items" title="Items">
+	<ul>
+	<% current_user.items.each do |item| %>
+	<li> <%= item.name %> - <a href='#' data-no-turbolink onClick="useItem(<%= item.id %>);">Use</a></li>
+	<% end %>
+	</ul>
+	</div>
+
     <% else %>
 	  <script type="text/javascript">
 	    if(window.location.href.indexOf('<%= sign_in_path %>') == -1 && window.location.href.indexOf('<%= sign_up_path %>') == -1){
-	    	window.location.href="<%= sign_in_path %>";  // put your correct path in a string here
+	    	window.location.href="<%= sign_in_path %>";
 	    }
 	    
 	  </script>
@@ -25,6 +34,7 @@
         <div class="flash <%= key %>"><%= value %></div>
       <% end %>
     </div>
+
 
 <%= yield %>
 
