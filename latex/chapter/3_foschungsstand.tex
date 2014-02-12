@@ -184,22 +184,44 @@ Eine gewisse Heterogenität macht die Herausforderung für die Spieler interessa
 Generell gibt es zwei Arten von location-based Games. Zum einen örtlich begrenzte (spatial discrete) Spiele und zum anderen örtlich fortsetzende (spatial
 continuous) Spiele.
 Bei ersterem handelt es sich um Spiele die auf einem abgegrenzte Spielfeld durchgeführt werden und die Position des Geocontents fest auf der Karte definiert ist. Letztere sind Spielfelder, welche unbegrenzte Spielfelder haben und die Spielinteraktion zu jeder Position stattfinden kann.
-Im Falle der spatial continuous Spiele ist ein bijectives Mapping der Ort nötig. Dies funktioniert gut bei offenen Flächen, bei der Verwendung von Straßen und innerhalb von Städten führt dies aber zu einer starken Verzerrung der Spielfelder und zu einem Mismatch zwischen Spielerfortbewegung und Locomotion im Spiel selbst.
+Im Falle der spatial continuous Spiele ist ein bijectives Mapping der Ort nötig. Dies funktioniert gut bei offenen Flächen, bei der Verwendung von Straßen und innerhalb von Städten führt dies aber zu einer starken Verzerrung der Spielfelder und zu einem Mismatch zwischen Spielerfortbewegung und Lokomotion im Spiel selbst.
 Dies und die Tatsache, dass vorwiegend Geogames untersucht wurden führte dazu, dass  spatial discrete Spiele im Detail untersucht wurden.
+Konkret wurde ein das Spiel CityPoker (cite) in zwei verschiedenen Städten gleichzeitig gespielt. Dabei konnten beide Team der jeweiligen Städte über vordefinierte POIs miteinander interagieren. Untersucht wurde dabei die optimale Gestaltung der Spielfelder, damit diese zwischen den Städten den kleinsten Unterschied zueinander darstellen. Zunächst wurden die POIs manuell gesetzt für beide Städte. Im Anschluss auf die Spielsitzung wurde untersucht, wie die unterschiedlichen Spielfelder optimal gelegt werden müssten um ein möglichst optimales Feld zu erhalten. Hierbei ist zu beachten, dass die Reihenfolge der POIs bei Citypoker eine Rolle spielt. Am Punkt 1 können nur Karten getauscht werden, welche beim anderen Team ebenfalls auf 1 liegen.  \cite{PeterKiefer.2007} stellt für den Vergleich eine Entfernungsmatrix auf, welche er über ein Ähnlichkeitdmaß gegenüber gestellt werden.
+Hierzu wird nachfolgendes Ähnlichkeitsmaß angewandt:
 
+\begin{equation}
+similarity = \frac{1}{n} \sum_{row=1}^{n} \sqrt{ \sum_{col=1}^{n} (c_{1,row,col} - c_{2,row,col})^2 }
+\end{equation}
 
+Hierbei stellen c1 und c2 jeweils die Entfernungsmatrizen der jeweiligen Spielfelder dar.
+Zu beachten ist, dass die Entfernungen als direkte euklidische Luftlinie gemessen werden. Etwaige Höhenunterschiede, sowie örtliche Gegebenheiten werden hierbei aus gründen der Vereinfachung nicht beachtet. Anschließend wird das arithmetische Mittel der Durchschnittswerte der einzelnen Reihen gebildet.
+Als Ergebnis wird angenommen, dass spatial discrete Spiele eine einfachere Konfiguration erlauben wie unter anderem \cite{Benford.2005} angemerkt hat.
 
-Mannara 2012 ist ein erster Ansatz für ein Framework zu Relokalisierung von Spielfeldern basierend auf OSM Daten aber mit Fokus auf Eclipse EMF
+\citep{Benford.2005} identifizieren mehrere Herausforderungen im Bezug auf spatial continous games.
+
+\begin{itemize}
+      \item Hefting domains
+      \item Configuration
+      \item Orchestration
+\end{itemize}
+
+Hefting domains stellen die Problematik dar, dass Spielelemente in Computerspielen fokusiert sind auf derren virtuellen Spielwelt, daher müssen bei pervasive games besonderen Wert auf die Designentscheidungen bezüglich der virtuellen, reellen und hybridne Spieleelemeten gelegt werden.
+Unter der Configuration ist die Adaption von pervasive games an verschiedene lokale Gegebenheiten zu sehen, d.h. die (generierte) Erstellung von Spielfeldern an anderen Orten.
+Die Orchestration stellt das Management des Spiels während der Laufzeit dar. Hierbei soll sichergestellt werden, dass ein Eingriff in das Spielgeschehen zu Gunsten der Sicherheit der Spieler als auch des Spielerlebnisses möglich ist.
+
+Erste Ansätze für Relokalisierung von Spielfelder lassen sich in der Literatur finden. Allerdings behandeln diese nur erste Ansätze, wie z.B. \citep{Mannara.2012}, welcher eine DSL entwirft zur Nutzung von OSM Daten für das Auffinden gleicher Spielelemente (Uni Campi).
+
+Daher lässt sich abschließend feststellen, dass in der Literatur keine konkreten Lösungen für die (teil-)automatisierte Erstellung von Spielfeldern existiert.
+An dieser Stelle soll die Arbeit des Autors ansetzten und eine Lösungsmöglichkeit präsentieren.
 
 \section{Verwendung offener Geodaten}
 \label{subsec:S3_offeneGeodaten}
 
-Hier: Was ist unter offen zu verstehen?
-
-Es gibt zwei Bezugsquellen von öffentlichen Daten.
-Zunächst die Daten welche von bestimmten Städten (vgl. Wien, Berlin, München) oder Ländern (Dänemark) den Bürgern zur Verfügung gestellt werden. Die Art, Qualität, sowie Umfang der Daten unterscheiden sich jedoch erheblich.
-
-Eine zweite Option sind von offene (Geo-)Datenbanken, welche von privaten Personen durch Mapping oder externe lizenzierte Quellen zusammen gesammelt wurden. Eine dieser Datenbanken ist OpenStreetMap (OSM).
+Zunächst ist der Begriff offene (Geo-)Daten zu definieren.
+Unter offenen Daten sollen im folgenden Daten zu verstehen sein, welche unter freier Lizenz zur Verfügung stehen und somit ohne Lizenzgebühren verwendet werden können. Hierbei soll im Idealfall sowohl eine kommerzielle Nutzung als auch eine private Verwendung erfolgen können.
+Es lassen sich generell zwei verschiedene Quellen von öffentlichen Geodaten identifizieren.
+Einerseits gibt es Daten von öffentlichen Behörden. Hierbei gibt es aktuell im Zuge der Open Data Bewegung \cite{Oreilly.2007} den Anspruch Daten dieser Behörden zu den Bürgern zur Verfügung zu stellen, da diese durch Steuern gesammelt erstellt wurden. Erste Ansätze lassen sich sowohl in Großstädten wie Wien \cite{Wien.2014}, Hamburg \cite{Hamburg.2014} und Berlin \cite{Berlin.2014} finden, als auch für ganze Länder wie Dänemark \cite{Denmark.2014}.\footnote{Eine Übersicht ist unter \url{http://www.engagedata.eu/opendatasites} (Abgerufen am 11.02.2014) zu finden. } Die Art, Qualität, sowie Umfang der Daten unterscheiden sich jedoch erheblich. 
+Eine weitere Option sind offene (Geo-)Datenbanken, welche von privaten Personen durch Mapping oder externe lizenzierte Quellen zusammen gesammelt wurden. Eine dieser Datenbanken ist OpenStreetMap (OSM).
 
 
 Haklay, Mordechai. "How good is volunteered geographical information? A comparative study of OpenStreetMap and Ordnance Survey datasets." Environment and planning. B, Planning \& design 37.4 (2010): 682.
