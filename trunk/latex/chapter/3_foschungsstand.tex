@@ -90,7 +90,7 @@ Hierbei handelt es sich um einen von \cite{Csikszentmihalyi.1991} eingeführten 
 \begin{figure}[H]
 \begin{center}
 \includegraphics[width=120mm]{images/ch03_img02_flow.jpg}
-\caption{Flow Zustand nach  nach \cite{Csikszentmihalyi.1991}}
+\caption{Flow Zustand nach  nach \cite{Csikszentmihalyi.1991} - Bild ersetzten}
 \label{img:ch03_img02_flow}
 \end{center}
 \end{figure}
@@ -195,7 +195,13 @@ similarity = \frac{1}{n} \sum_{row=1}^{n} \sqrt{ \sum_{col=1}^{n} (c_{1,row,col}
 
 Hierbei stellen c1 und c2 jeweils die Entfernungsmatrizen der jeweiligen Spielfelder dar.
 Zu beachten ist, dass die Entfernungen als direkte euklidische Luftlinie gemessen werden. Etwaige Höhenunterschiede, sowie örtliche Gegebenheiten werden hierbei aus gründen der Vereinfachung nicht beachtet. Anschließend wird das arithmetische Mittel der Durchschnittswerte der einzelnen Reihen gebildet.
-Als Ergebnis wird angenommen, dass spatial discrete Spiele eine einfachere Konfiguration erlauben wie unter anderem \cite{Benford.2005} angemerkt hat.
+Als Ergebnis wird angenommen, dass spatial discrete Spiele eine einfache\begin{figure}[H]
+\begin{center}
+\includegraphics[width=120mm]{images/ch03_img02_flow.jpg}
+\caption{Flow Zustand nach  nach \cite{Csikszentmihalyi.1991}}
+\label{img:ch03_img02_flow}
+\end{center}
+\end{figure}re Konfiguration erlauben wie unter anderem \cite{Benford.2005} angemerkt hat.
 
 \citep{Benford.2005} identifizieren mehrere Herausforderungen im Bezug auf spatial continous games.
 
@@ -221,27 +227,35 @@ Zunächst ist der Begriff offene (Geo-)Daten zu definieren.
 Unter offenen Daten sollen im folgenden Daten zu verstehen sein, welche unter freier Lizenz zur Verfügung stehen und somit ohne Lizenzgebühren verwendet werden können. Hierbei soll im Idealfall sowohl eine kommerzielle Nutzung als auch eine private Verwendung erfolgen können.
 Es lassen sich generell zwei verschiedene Quellen von öffentlichen Geodaten identifizieren.
 Einerseits gibt es Daten von öffentlichen Behörden. Hierbei gibt es aktuell im Zuge der Open Data Bewegung \cite{Oreilly.2007} den Anspruch Daten dieser Behörden zu den Bürgern zur Verfügung zu stellen, da diese durch Steuern gesammelt erstellt wurden. Erste Ansätze lassen sich sowohl in Großstädten wie Wien \cite{Wien.2014}, Hamburg \cite{Hamburg.2014} und Berlin \cite{Berlin.2014} finden, als auch für ganze Länder wie Dänemark \cite{Denmark.2014}.\footnote{Eine Übersicht ist unter \url{http://www.engagedata.eu/opendatasites} (Abgerufen am 11.02.2014) zu finden. } Die Art, Qualität, sowie Umfang der Daten unterscheiden sich jedoch erheblich. 
-Eine weitere Option sind offene (Geo-)Datenbanken, welche von privaten Personen durch Mapping oder externe lizenzierte Quellen zusammen gesammelt wurden. Eine dieser Datenbanken ist OpenStreetMap (OSM).
+Eine weitere Option sind offene (Geo-)Datenbanken, welche von privaten Personen durch Mapping oder externe lizenzierte Quellen zusammen getragen werden.
+Beispiele entsprechender Datenbanken sind OpenStreetMap (OSM)\footnote{\url{http://openstreetmap.org}} und Wikimapia\footnote{\url{http://wikimapia.org}}.
+Hierbei stellt sich vor allem die Frage der Qualität der Daten im Vergleich zu kommerziellen bzw. Daten von Behörden.
+
+// Kurze generelle Info zum Aufbau von OSM? Bild  von Relations Ways und Nodes?
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width=120mm]{images/ch3_img03_OSM1.png}
+\caption{OSM Elemente}
+\label{img:ch03_img03_OSM1}
+\end{center}
+\end{figure}
+
+In der Literatur haben sich bereits viele Autoren mit der Qualität von OSM beschäftigt.
+\cite{Haklay.2010}, \cite{Flanagin.2008} und \cite{Goodchild.2007} beschreiben, die Motivation der Personen und Problematiken, die in solchen Datenbanken entstehen. Es wird angemerkt, dass je nach Ziel des Mappers eine unterschiedliche Qualitätsstufe erreicht wird.
+\cite{Girres.2010} beschreibt in einem Vergleich von französischer Daten, dass die Qualität der Daten von OSM seit dem Start in 2004 enorm zugenommen hat, je nach Land gibt es unterschiedliche Abdeckungssraten. Auch haben Naturkatastrophen, einen Einfluss auf die Qualität der Daten \cite{Zook.2010}.
+Zur Zeit gibt es bei OSM ca. 25.000 aktive Mapper \cite{OSM.2013}, dass Mapping in Städten ist deutlich genauer wie in den ländlichen Regionen. Generell gibt es eine Korrelation zwischen Einwohnerdichte und Datenqualität.
+Die durchschnittliche Abweichung beim Vergleich von OSM zu Kartenherstellern beträgt zwischen 1 bis 30 Metern.
+Darüber hinaus gibt es auch eine Ungenauigkeit der Namen einzelner Objekte. Diese entstehen zum einen durch die Nutzung unterschiedlicher Sprachen, aber auch durch lokale Gegebenheiten.
+Die Einfachheit von OSM durch die Reduktion der Daten auf Nodes, Ways und Relations mit den dazugehörigen Tags hat den Nachteil, dass im Modell selbst keine logische Konsistenz sichergestellt wird. Dies muss in der Verarbeitung der Daten stets berücksichtigt werden.
+\cite{Hecht.2013} beschreibt eine relativ geringe Covergage im Vergleich zu profesionellen Daten gibt 10\%. Dies wird auch von \cite{Pfoser.2013} angemerkt, jedoch wird darauf hingewiesen, dass OSM eine hohe Klassifikationsrate besitzt. Zwar stellt der Autor eine relativ hohe Fehlerrate von 23\% fest, jedoch ist diese zu für den vernachlässigen.
+
+Für OSM gibt es im Vergleich zu Wikmapia ausgereifte Schnittstellen. Zunächst gibt es zwei Schnittstellen direkt von OSM.
+Die OSM API ermöglicht lediglich den export der Geoinformatioenen bezogen auf eine Bounding Box. Während unter dem Namen OSM XAPI (Extended Api), es möglich ist Abfragen in Verbindung mit den zugehörigen Tags zu erstellen \cite{Meyer.2013}. Die Ergebnisse der Abfrage werden in einer XML Datei zusammengefasst.
 
 
-Haklay, Mordechai. "How good is volunteered geographical information? A comparative study of OpenStreetMap and Ordnance Survey datasets." Environment and planning. B, Planning \& design 37.4 (2010): 682.
 
-\&
+\section{Geostatistik}
+\label{subsec:S3_geostatistik}
 
-"Quality Assessment of the French OpenStreetMap Dataset" Girres et al. (2010)
-
-Ergebnis:
-
-Qualität der Daten von OSM hat seit dem Start (2004) enorm zugenommen, je nach Land besteht eine höhere Abdeckungsrate. Zur Zeit gibt es ca 20.000 aktive Mapper.
-
-Mapping in Städten deutlich genauer wie "auf dem Land/außerhalb".  avg. distance ~1 vs ~30m.
-
-Es gibt eine generelle Ungenauigkeit bei den Namen der Objekte.
-
-Logische Konsistenz im Modell von OSM nicht verhanden.
-
-Hecht 2013:
--Abdeckung/Coverage relativ gering, allerdings Genauigkeit proportional zu Stadtgröße
-
-Pfoser et al. 2013:
--zwar teilweise gernige coverage, aber sehr hohe Klassifikationsrate, bei dennoch hoher Fehlerate von bis zu 23%
+-Kapitel folgt später
