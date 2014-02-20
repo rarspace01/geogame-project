@@ -2,7 +2,7 @@
 // All this logic will automatically be available in application.js.
 //history.navigationMode = 'compatible';
 
-//var debugvar;
+var debugvar;
 
 function buy(vendorid, itemid){
 
@@ -31,8 +31,13 @@ var currentGeoJsonVendor;
 function onEachFeature(feature, layer) {
 
     	layer.on('click', function (e) {
-		//alert(feature.properties.popupContent+" - "+feature.id);
-		window.location = '/flag/show/'+feature.id+"?lat="+location_lat+"&lng="+location_lng;
+		alert(feature.properties.id);
+
+		//debugvar = feature
+
+                //alert(feature.properties);
+
+		window.location = '/flag/show/'+feature.properties.id+"?lat="+location_lat+"&lng="+location_lng;
 		//or
 		//alert(feature.properties.id);
 	});

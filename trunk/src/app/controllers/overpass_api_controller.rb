@@ -11,7 +11,9 @@ class OverpassApiController < ApplicationController
     e = params[:e]
     swne = [s,w,n,e]
 
-    locationtype = ("\"highway\"=\"bus_stop\"")
+    #locationtype = ("\"highway\"=\"bus_stop\"")
+
+    locationtype = "shop"
 
     @result = get_geojson(swne, locationtype)
 
