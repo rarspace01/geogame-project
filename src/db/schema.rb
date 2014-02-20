@@ -13,7 +13,8 @@
 
 ActiveRecord::Schema.define(version: 20140130204219) do
 
-  create_table "flags", force: true do |t|
+  create_table "flags", id: false, force: true do |t|
+    t.integer  "id",         limit: 8
     t.integer  "user_id"
     t.integer  "prestige"
     t.datetime "created_at"
