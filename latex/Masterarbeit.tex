@@ -59,7 +59,7 @@
 \fancyhf{}
 %Header
 %\fancyhead[R]{}
-\fancyhead[L]{Masterarbeit }
+\fancyhead[L]{Masterarbeit}
 %
 %bottom
 \fancyfoot[R]{Seite: \thepage}
@@ -83,7 +83,7 @@
 \begin{document}
 
 % Seitennummerierung -------------------------------------------------------
-%		Vor dem Hauptteil werden die Seiten in groen rmischen Ziffern 
+%		Vor dem Hauptteil werden die Seiten in groen römischen Ziffern 
 %		nummeriert...
 % --------------------------------------------------------------------------
 \pagenumbering{Roman}
@@ -121,12 +121,13 @@
 \newpage
 \input{chapter/8_glossar}
 \newpage
-\input{chapter/9_code_of_conduct}
-\newpage
 %% - alphadin
 %%\bibliography{references}
 \nocite{*} 
+\printbibliography[heading=bibintoc]
+\newpage
 
-\printbibliography
+\input{chapter/9_code_of_conduct}
+\newpage
 
 \end{document}
