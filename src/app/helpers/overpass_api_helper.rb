@@ -20,6 +20,8 @@ module OverpassApiHelper
 
 		nodesList = Hash.new
 
+		nodesBlacklist = Array.new
+
 		# get nodes and save them in a hash
 		jsondom["elements"].each do |element|
 			# save nodes in nodesList
@@ -74,9 +76,9 @@ module OverpassApiHelper
 			middlelat = (maxlat+minlat)/2
 			middlelon = (maxlon+minlon)/2
 
-			# remove nodes from List
+			# blacklist nodes from List
 			nodes.each do |node|
-				nodesList.delete(node)
+				nodesBlacklist.push(node)
 			end
 
 			# create node with way id
@@ -87,6 +89,7 @@ module OverpassApiHelper
 
 		# on each node
 		nodesList.each do |nodeid,location|
+                        if(!nodesBlacklist.include?(nodeid))
 			feature = Hash.new
 			feature["type"] = "Feature"
 			geometry = Hash.new
@@ -98,6 +101,7 @@ module OverpassApiHelper
 			feature["geometry"] = geometry
 			feature["properties"] = properties
 			featureList["features"].push(feature)
+			end
 	       end
 		# bulid json dom
 
