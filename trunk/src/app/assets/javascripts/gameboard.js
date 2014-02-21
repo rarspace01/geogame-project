@@ -31,7 +31,7 @@ var currentGeoJsonVendor;
 function onEachFeature(feature, layer) {
 
     	layer.on('click', function (e) {
-		alert(feature.properties.id);
+		//alert(feature.properties.id);
 
 		//debugvar = feature
 

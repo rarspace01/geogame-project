@@ -111,7 +111,8 @@ class FlagController < ApplicationController
   end
 
   #save currentFlag to db
-        @currentFlag.save
+	@currentFlag.save
+	#@currentFlag.update_attributes(:id => @currentFlag.id, :prestige => @currentFlag.prestige, :user_id => @currentFlag.user_id)
   end
 
   end
