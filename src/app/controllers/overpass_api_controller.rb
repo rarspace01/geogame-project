@@ -20,7 +20,7 @@ class OverpassApiController < ApplicationController
 
     puts "falling back to default tag"
 
-    locationtype = "shop"
+    locationtype = "amenity=school"
     else
     locationtype = tag
     end

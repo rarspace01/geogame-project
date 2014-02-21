@@ -7,6 +7,8 @@ module OverpassApiHelper
 		# build request url
 		access_url = "http://overpass-api.de/api/interpreter?data="+URI.escape("[out:json];(node(#{geolocation[0]},#{geolocation[1]},#{geolocation[2]},#{geolocation[3]})[#{locationtype}];way(#{geolocation[0]},#{geolocation[1]},#{geolocation[2]},#{geolocation[3]})[#{locationtype}];._;>;);out body;")
 		
+		puts(access_url)
+
 		pageresult = open(access_url).read
 
 		jsondom = JSON.parse(pageresult)
@@ -50,8 +52,8 @@ module OverpassApiHelper
 			nodes = element["nodes"]
 			
 			#minlat, maxlat, minlon, maxlon
-
-			firstelement = nodesList.first[1]
+			
+			firstelement = nodesList[nodes.first]
 
 			minlat=firstelement[0]
 			maxlat=firstelement[0]
@@ -75,6 +77,10 @@ module OverpassApiHelper
 
 			middlelat = (maxlat+minlat)/2
 			middlelon = (maxlon+minlon)/2
+
+			#round to 7 decimals
+			middlelat = middlelat.round(7)
+			middlelon = middlelon.round(7)
 
 			# blacklist nodes from List
 			nodes.each do |node|
@@ -160,6 +166,9 @@ module OverpassApiHelper
 			middlelat = (maxlat+minlat)/2
 			middlelon = (maxlon+minlon)/2
 
+			#round to 7 decimals
+			middlelat = middlelat.round(7)
+			middlelon = middlelon.round(7)
 			# bulid json
 
 			feature["type"] = "Feature"
