@@ -9,11 +9,21 @@ class OverpassApiController < ApplicationController
     w = params[:w]
     n = params[:n]
     e = params[:e]
+
+    tag = params[:tag]
+
     swne = [s,w,n,e]
 
     #locationtype = ("\"highway\"=\"bus_stop\"")
 
+    if(params[:tag] == nil)
+
+    puts "falling back to default tag"
+
     locationtype = "shop"
+    else
+    locationtype = tag
+    end
 
     @result = get_geojson(swne, locationtype)
 
