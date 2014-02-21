@@ -1,0 +1,108 @@
+<html>
+<head>
+	<!-- Source: http://wiki.openstreetmap.org/wiki/Openlayers_Track_example -->
+	<title>Simple OSM GPX Track</title>
+	<!--  OpenLayers javascript library
+	 	 Wir binden die  Bibliothek direkt aus dem Internet ein, 
+	 	 die Datei kann bei Bedarf aber auch lokal abgespeichert werden)
+	 -->
+	<script src="http://www.openlayers.org/api/OpenLayers.js"></script>
+	<!-- OpenStreetMap OpenLayers layers.
+		Diese Datei bevorzugt aus dem Internet laden um sie aktuell zu halten 
+		<script src="http://www.openstreetmap.org/openlayers/OpenStreetMap.js"></script>
+	 -->
+	<script src="http://www.openstreetmap.org/openlayers/OpenStreetMap.js"></script>
+ 
+	<script type="text/javascript">
+		var map; //complex object of type OpenLayers.Map
+ 
+		function init() {
+			map = new OpenLayers.Map ("map", {
+				controls:[
+					new OpenLayers.Control.Navigation(),
+					new OpenLayers.Control.PanZoomBar(),
+					new OpenLayers.Control.LayerSwitcher(),
+					new OpenLayers.Control.Attribution()],
+				maxExtent: new OpenLayers.Bounds(-20037508.34,-20037508.34,20037508.34,20037508.34),
+				maxResolution: 156543.0399,
+				numZoomLevels: 19,
+				units: 'm',
+				projection: new OpenLayers.Projection("EPSG:900913"),
+				displayProjection: new OpenLayers.Projection("EPSG:4326")
+			} );
+			
+			// Define the map layer
+			// Here we use a predefined layer that will be kept up to date with URL changes
+			layerCycle = new OpenLayers.Layer.OSM.CycleMap("Fahrradkarte");
+			layerMapnik = new OpenLayers.Layer.OSM.Mapnik("OSM Standard");
+			layerTransport = new OpenLayers.Layer.OSM.TransportMap("Verkehr");
+			layerToner = new OpenLayers.Layer.OSM("Toner",["http://tile.stamen.com/toner/${z}/${x}/${y}.png"]);
+			layerToner.opacity = 0.3;
+			map.addLayer(layerToner);
+			map.addLayer(layerMapnik);
+			map.addLayer(layerCycle);
+			map.addLayer(layerTransport);
+			
+			// layerMarkers = new OpenLayers.Layer.Markers("Marker");
+			// map.addLayer(layerMarkers);
+			
+			
+			//Vector Graphics
+			var renderer = OpenLayers.Util.getParameters(window.location.href).renderer;
+            renderer = (renderer) ? [renderer] : OpenLayers.Layer.Vector.prototype.renderers;
+			
+			var vectorLayer1 = new OpenLayers.Layer.Vector("Place locations", {
+                styleMap: new OpenLayers.StyleMap({'default':{
+                    strokeColor: "${favColor}",
+                    strokeOpacity: 1,
+                    strokeWidth: 3,
+                    label : "${name}",
+                    
+                    fontColor: "${favColor}",
+                    fontSize: "12px",
+                    fontFamily: "Arial",
+                    labelOutlineColor: "white",
+                    labelOutlineWidth: 3
+                }}),
+                renderers: renderer
+            });
+			
+			var vectorLayer2 = new OpenLayers.Layer.Vector("Place locations", {
+                styleMap: new OpenLayers.StyleMap({'default':{
+                    strokeColor: "${favColor}",
+                    strokeOpacity: 1,
+                    strokeWidth: 3,
+                    label : "${name}",
+                    
+                    fontColor: "${favColor}",
+                    fontSize: "12px",
+                    fontFamily: "Arial",
+                    labelOutlineColor: "white",
+                    labelOutlineWidth: 3
+                }}),
+                renderers: renderer
+            });
+			
+var points_outline0 = [new OpenLayers.Geometry.LineString([new OpenLayers.Geometry.Point(10.888550673914343,49.89051148050677).transform(new OpenLayers.Projection("EPSG:4326"),map.getProjectionObject() ),new OpenLayers.Geometry.Point(10.888532419991472,49.89049844199043).transform(new OpenLayers.Projection("EPSG:4326"),map.getProjectionObject() ),new OpenLayers.Geometry.Point(10.888505784165243,49.89048987382255).transform(new OpenLayers.Projection("EPSG:4326"),map.getProjectionObject() ),new OpenLayers.Geometry.Point(10.888475795577671,49.89048819744188).transform(new OpenLayers.Projection("EPSG:4326"),map.getProjectionObject() ),new OpenLayers.Geometry.Point(10.888448042164327,49.890493412848414).transform(new OpenLayers.Projection("EPSG:4326"),map.getProjectionObject() ),new OpenLayers.Geometry.Point(10.888423641512325,49.89050607883571).transform(new OpenLayers.Projection("EPSG:4326"),map.getProjectionObject() ),new OpenLayers.Geometry.Point(10.888410975525028,49.89051967614561).transform(new OpenLayers.Projection("EPSG:4326"),map.getProjectionObject() ),new OpenLayers.Geometry.Point(10.888161194804933,49.890436415905576).transform(new OpenLayers.Projection("EPSG:4326"),map.getProjectionObject() ),new OpenLayers.Geometry.Point(10.888062660874336,49.8905537625526).transform(new OpenLayers.Projection("EPSG:4326"),map.getProjectionObject() ),new OpenLayers.Geometry.Point(10.888040681661085,49.89057779067556).transform(new OpenLayers.Projection("EPSG:4326"),map.getProjectionObject() ),new OpenLayers.Geometry.Point(10.888038819015893,49.89057983958527).transform(new OpenLayers.Projection("EPSG:4326"),map.getProjectionObject() ),new OpenLayers.Geometry.Point(10.887967852234121,49.89066477620597).transform(new OpenLayers.Projection("EPSG:4326"),map.getProjectionObject() ),new OpenLayers.Geometry.Point(10.887882729348899,49.89075977111071).transform(new OpenLayers.Projection("EPSG:4326"),map.getProjectionObject() ),new OpenLayers.Geometry.Point(10.887790155882913,49.890862961654285).transform(new OpenLayers.Projection("EPSG:4326"),map.getProjectionObject() ),new OpenLayers.Geometry.Point(10.88765418278398,49.891002473779075).transform(new OpenLayers.Projection("EPSG:4326"),map.getProjectionObject() ),new OpenLayers.Geometry.Point(10.887593274286239,49.89106468612845).transform(new OpenLayers.Projection("EPSG:4326"),map.getProjectionObject() ),new OpenLayers.Geometry.Point(10.887418930696374,49.891064313599415).transform(new OpenLayers.Projection("EPSG:4326"),map.getProjectionObject() ),new OpenLayers.Geometry.Point(10.886796807202625,49.891015326030896).transform(new OpenLayers.Projection("EPSG:4326"),map.getProjectionObject() ),new OpenLayers.Geometry.Point(10.886629355399966,49.89098384732717).transform(new OpenLayers.Projection("EPSG:4326"),map.getProjectionObject() ),new OpenLayers.Geometry.Point(10.886386652731597,49.89092033112616).transform(new OpenLayers.Projection("EPSG:4326"),map.getProjectionObject() ),new OpenLayers.Geometry.Point(10.886127931314586,49.891227108789096).transform(new OpenLayers.Projection("EPSG:4326"),map.getProjectionObject() ),new OpenLayers.Geometry.Point(10.886224043806434,49.89126492048647).transform(new OpenLayers.Projection("EPSG:4326"),map.getProjectionObject() ),new OpenLayers.Geometry.Point(10.886289050123596,49.891290438725584).transform(new OpenLayers.Projection("EPSG:4326"),map.getProjectionObject() ),new OpenLayers.Geometry.Point(10.886661020368212,49.891400707320884).transform(new OpenLayers.Projection("EPSG:4326"),map.getProjectionObject() ),new OpenLayers.Geometry.Point(10.886816923770686,49.89145230259267).transform(new OpenLayers.Projection("EPSG:4326"),map.getProjectionObject() ),new OpenLayers.Geometry.Point(10.887016785599666,49.891518426496944).transform(new OpenLayers.Projection("EPSG:4326"),map.getProjectionObject() )])]
+
+var lineFeature_outline0 = new OpenLayers.Feature.Vector(new OpenLayers.Geometry.MultiLineString(points_outline0),{name: "",favColor: 'blue'})
+
+vectorLayer1.addFeatures(lineFeature_outline0);
+ map.addLayer(vectorLayer1);
+var markers = new OpenLayers.Layer.Markers( "Markers");var cache0 = new OpenLayers.LonLat(10.888561, 49.890508).transform(new OpenLayers.Projection("EPSG:4326"),map.getProjectionObject());markers.addMarker(new OpenLayers.Marker(cache0));var cache1 = new OpenLayers.LonLat(10.886935, 49.891479).transform(new OpenLayers.Projection("EPSG:4326"),map.getProjectionObject());markers.addMarker(new OpenLayers.Marker(cache1));map.addLayer(markers);map.setCenter(new OpenLayers.LonLat(10.887156774582111, 49.89099527799374).transform(new OpenLayers.Projection("EPSG:4326"),	map.getProjectionObject()), 16);			
+			<!-- Augsburg -->
+            <!-- map.setCenter(new OpenLayers.LonLat(10.90088,48.368966).transform( -->
+							<!-- new OpenLayers.Projection("EPSG:4326"), // Transformation aus dem Koordinatensystem WGS 1984 -->
+							<!-- map.getProjectionObject() // in das Koordinatensystem 'Spherical Mercator Projection' -->
+							<!-- ), 17); -->						
+		                
+		}
+	</script>
+ 
+</head>
+<!-- body.onload is called once the page is loaded (call the 'init' function) -->
+<body onload="init();">
+	<!-- define a DIV into which the map will appear. Make it take up the whole window -->
+	<div style="width:100%; height:100%" id="map"></div>
+</body>
+</html>

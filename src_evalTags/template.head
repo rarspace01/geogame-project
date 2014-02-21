@@ -1,0 +1,85 @@
+<html>
+<head>
+	<!-- Source: http://wiki.openstreetmap.org/wiki/Openlayers_Track_example -->
+	<title>Simple OSM GPX Track</title>
+	<!--  OpenLayers javascript library
+	 	 Wir binden die  Bibliothek direkt aus dem Internet ein, 
+	 	 die Datei kann bei Bedarf aber auch lokal abgespeichert werden)
+	 -->
+	<script src="http://www.openlayers.org/api/OpenLayers.js"></script>
+	<!-- OpenStreetMap OpenLayers layers.
+		Diese Datei bevorzugt aus dem Internet laden um sie aktuell zu halten 
+		<script src="http://www.openstreetmap.org/openlayers/OpenStreetMap.js"></script>
+	 -->
+	<script src="http://www.openstreetmap.org/openlayers/OpenStreetMap.js"></script>
+ 
+	<script type="text/javascript">
+		var map; //complex object of type OpenLayers.Map
+ 
+		function init() {
+			map = new OpenLayers.Map ("map", {
+				controls:[
+					new OpenLayers.Control.Navigation(),
+					new OpenLayers.Control.PanZoomBar(),
+					new OpenLayers.Control.LayerSwitcher(),
+					new OpenLayers.Control.Attribution()],
+				maxExtent: new OpenLayers.Bounds(-20037508.34,-20037508.34,20037508.34,20037508.34),
+				maxResolution: 156543.0399,
+				numZoomLevels: 19,
+				units: 'm',
+				projection: new OpenLayers.Projection("EPSG:900913"),
+				displayProjection: new OpenLayers.Projection("EPSG:4326")
+			} );
+			
+			// Define the map layer
+			// Here we use a predefined layer that will be kept up to date with URL changes
+			layerCycle = new OpenLayers.Layer.OSM.CycleMap("Fahrradkarte");
+			layerMapnik = new OpenLayers.Layer.OSM.Mapnik("OSM Standard");
+			layerTransport = new OpenLayers.Layer.OSM.TransportMap("Verkehr");
+			layerToner = new OpenLayers.Layer.OSM("Toner",["http://tile.stamen.com/toner/${z}/${x}/${y}.png"]);
+			layerToner.opacity = 0.3;
+			map.addLayer(layerToner);
+			map.addLayer(layerMapnik);
+			map.addLayer(layerCycle);
+			map.addLayer(layerTransport);
+			
+			// layerMarkers = new OpenLayers.Layer.Markers("Marker");
+			// map.addLayer(layerMarkers);
+			
+			
+			//Vector Graphics
+			var renderer = OpenLayers.Util.getParameters(window.location.href).renderer;
+            renderer = (renderer) ? [renderer] : OpenLayers.Layer.Vector.prototype.renderers;
+			
+			var vectorLayer1 = new OpenLayers.Layer.Vector("Place locations", {
+                styleMap: new OpenLayers.StyleMap({'default':{
+                    strokeColor: "${favColor}",
+                    strokeOpacity: 1,
+                    strokeWidth: 3,
+                    label : "${name}",
+                    
+                    fontColor: "${favColor}",
+                    fontSize: "12px",
+                    fontFamily: "Arial",
+                    labelOutlineColor: "white",
+                    labelOutlineWidth: 3
+                }}),
+                renderers: renderer
+            });
+			
+			var vectorLayer2 = new OpenLayers.Layer.Vector("Place locations", {
+                styleMap: new OpenLayers.StyleMap({'default':{
+                    strokeColor: "${favColor}",
+                    strokeOpacity: 1,
+                    strokeWidth: 3,
+                    label : "${name}",
+                    
+                    fontColor: "${favColor}",
+                    fontSize: "12px",
+                    fontFamily: "Arial",
+                    labelOutlineColor: "white",
+                    labelOutlineWidth: 3
+                }}),
+                renderers: renderer
+            });
+			
