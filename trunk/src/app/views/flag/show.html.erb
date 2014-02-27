@@ -4,7 +4,7 @@ Back to <%= link_to("Gameboard",root_path) %>
 Flagge: <%= @id %><br/>
 Prestige: <span id='span_prestige'><%= @prestige %></div><br/>
 <% if(@isInteractable) %>
-<a href='#' onClick='attack(<%= @id %>);'>Attack</a><br/>
+<a href='#' onClick='attack("<%= @id %>");'>Attack</a><br/>
 <% end %>
 C_LAT: <%= @userlat %><br/>
 C_LNG: <%= @userlng %><br/>

@@ -17,7 +17,7 @@ class FlagController < ApplicationController
   currentFlag = dbflag;
   currentFlag.user_id
   @owner = User.find_by_id(currentFlag.user_id)
-        if(@owner != nil)
+  if(@owner != nil)
   @ownerName = @owner.email
   else 
   @ownerName = "Neutral"  
@@ -82,8 +82,33 @@ class FlagController < ApplicationController
     @owner = User.find_by_id(@currentFlag.user_id)
     end
 
+  currentgeojson = get_geojson_byid(cid)
+
+  @flaglat = currentgeojson["geometry"]["coordinates"][1]
+  @flaglng = currentgeojson["geometry"]["coordinates"][0]
+
+  #check for distance
+  @userlat = params[:lat]
+  @userlng = params[:lng]
+
+  # Geographic factory that projects to a world mercator projection.
+  # Note the ellps and datum set to WGS84.
+  factory = ::RGeo::Geographic.simple_mercator_factory()
+
+  userlocation = factory.point(@userlng, @userlat)
+  flaglocation = factory.point(@flaglng, @flaglat)
+
+  @distance = userlocation.distance(flaglocation)
+
+  #interaction possible?
+  if(@distance <40)
+    @isInteractable = true;
+  else
+    @isInteractable = false;    
+  end
+
   #has actionpoints left
-  if(current_user.ap>0)
+  if(current_user.ap>0&&@isInteractable)
 
       #is owner?
     if(current_user == @owner)
@@ -108,10 +133,15 @@ class FlagController < ApplicationController
   # lower ap from user
         current_user.ap = current_user.ap-1
         current_user.save
+  else
+    puts "DEBUG: not enough AP/ not reachable #{@distance}"      
   end
 
   #save currentFlag to db
+  
+  if(@currentFlag.user_id != nil)
 	@currentFlag.save
+	end
 	#@currentFlag.update_attributes(:id => @currentFlag.id, :prestige => @currentFlag.prestige, :user_id => @currentFlag.user_id)
   end
 
