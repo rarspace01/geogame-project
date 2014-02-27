@@ -6,6 +6,12 @@ import java.util.Locale;
 
 import edu.unibamberg.hamann.evalTags.io.GeoUtil;
 
+/**
+ * represents a BoundingBox
+ * 
+ * @author denis
+ * 
+ */
 public class BoundingBox {
 
 	private double n, s, w, e;
@@ -30,6 +36,8 @@ public class BoundingBox {
 	}
 
 	/**
+	 * internal method to bulid a bounding box based on a Lat & Lon value and a
+	 * radius
 	 * 
 	 * @param pLatitude
 	 * @param pLongitude
@@ -142,16 +150,25 @@ public class BoundingBox {
 		return sb.toString();
 	}
 
+	/**
+	 * expands the bounding box on given meters
+	 * 
+	 * @param meters
+	 * @return
+	 */
 	BoundingBox expand(double meters) {
 
 		double middlelat = (n + s) / 2;
 		double middlelon = (w + e) / 2;
-		
-		double basicDistance = GeoUtil.distance(new GeoCoordinate(middlelat, middlelon), new GeoCoordinate(n, middlelon));
 
-		System.out.println("Expanding from: "+basicDistance+"m to "+(basicDistance+meters)+"m");
-		
-		double result[] = getBoundingBox(middlelat, middlelon, (basicDistance+meters));
+		double basicDistance = GeoUtil.distance(new GeoCoordinate(middlelat,
+				middlelon), new GeoCoordinate(n, middlelon));
+
+		System.out.println("Expanding from: " + basicDistance + "m to "
+				+ (basicDistance + meters) + "m");
+
+		double result[] = getBoundingBox(middlelat, middlelon,
+				(basicDistance + meters));
 
 		/*
 		 * boundingBox[0] = minLat; boundingBox[1] = minLong; boundingBox[2] =
