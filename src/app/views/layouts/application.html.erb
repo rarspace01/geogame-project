@@ -20,13 +20,6 @@
 	</ul>
 	</div>
 
-    <% else %>
-	  <script type="text/javascript">
-	    if(window.location.href.indexOf('<%= sign_in_path %>') == -1 && window.location.href.indexOf('<%= sign_up_path %>') == -1 && window.location.href.indexOf('/users') == -1 && window.location.href.indexOf('/passwords') == -1){
-	    	window.location.href="<%= sign_in_path %>";
-	    }
-	    
-	  </script>
     <% end %>
 
     <div id="flash">

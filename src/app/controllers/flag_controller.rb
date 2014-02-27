@@ -14,8 +14,8 @@ class FlagController < ApplicationController
   #get owner
   dbflag = Flag.find_by_id(cid)
   if(dbflag != nil)
-  currentFlag = dbflag;
-  currentFlag.user_id
+  currentFlag = dbflag
+  
   @owner = User.find_by_id(currentFlag.user_id)
   if(@owner != nil)
   @ownerName = @owner.email
@@ -65,11 +65,10 @@ class FlagController < ApplicationController
   #check for interaction distance
 
   #is user logged in?
-  if(signed_in? && params[:id] != nil)
+  if(signed_in? && (cid = params[:id]))
   
     # get current flag from db
     #Flag
-    cid = params[:id]
     @owner = User.new
     # default Flag
     @currentFlag = Flag.new
@@ -108,7 +107,7 @@ class FlagController < ApplicationController
   end
 
   #has actionpoints left
-  if(current_user.ap>0&&@isInteractable)
+  if(current_user.ap>0 && @isInteractable)
 
       #is owner?
     if(current_user == @owner)
@@ -119,7 +118,7 @@ class FlagController < ApplicationController
       @isowner = false
       # prestige >0
       if(@currentFlag.prestige>0)
-        @currentFlag.prestige = @currentFlag.prestige-1
+        @currentFlag.prestige -= 1
         #if new prestige == 0 then delete owner
         if(@currentFlag.prestige == 0)
         @currentFlag.user_id = nil
