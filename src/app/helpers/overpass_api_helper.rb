@@ -93,9 +93,21 @@ module OverpassApiHelper
 			end
 	      	end						
 
+		#retrieve matched flags
+		matchedFlags = Flag.where(id: nodesList.keys)
+
+		matchedNodeList = Hash.new
+
+		matchedFlags.each do |flag|
+		
+		matchedNodeList.store(flag.id, flag)
+		
+		end
+
 		# on each node
 		nodesList.each do |nodeid,location|
-                        if(!nodesBlacklist.include?(nodeid))
+			if(!nodesBlacklist.include?(nodeid))
+
 			feature = Hash.new
 			feature["type"] = "Feature"
 			geometry = Hash.new
@@ -104,6 +116,45 @@ module OverpassApiHelper
 			properties = Hash.new
 			properties["popupContent"] = "Test"
 			properties["id"] = "#{nodeid}"
+
+			matchedFlag = matchedNodeList[nodeid]
+
+			if(matchedFlag != nil)
+
+			user_id =  matchedFlag.user_id
+            prestige = matchedFlag.prestige
+
+			if(current_user != nil)
+
+			if(current_user.id == user_id)
+			
+			properties["user_id"] = "owner"
+			
+			else
+			
+			properties["user_id"] = "foe"
+			
+			end
+			
+			else
+			
+			properties["user_id"] = "foe"
+						
+			end
+			
+			properties["prestige"] = "#{prestige}"
+			
+			else
+			
+			properties["user_id"] = "neutral"
+			
+
+			
+			properties["prestige"] = 0
+			
+			end
+
+			
 			feature["geometry"] = geometry
 			feature["properties"] = properties
 			featureList["features"].push(feature)

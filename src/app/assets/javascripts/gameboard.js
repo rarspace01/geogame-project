@@ -4,6 +4,9 @@
 
 var debugvar;
 
+var location_lat = 49;
+var location_lng = 10;
+
 function buy(vendorid, itemid){
 
 var buyurl = '/vendors/buyItem/'+vendorid+'/'+itemid+'.json';
@@ -11,7 +14,20 @@ var buyurl = '/vendors/buyItem/'+vendorid+'/'+itemid+'.json';
 	$.getJSON(buyurl,
 		function(data){
 			//set prestige span to prestige result
-			//refreshData();
+			refreshData();
+		});
+
+}
+
+function attack(id){
+
+var url = '/flag/attack.json?id='+id+"&lat="+location_lat+"&lng="+location_lng;
+
+	$.getJSON(url,
+		function(data){
+			//set prestige span to prestige result
+			document.getElementById("flaginfoprestige").innerHTML = data;
+			refreshData();
 		});
 
 }
@@ -20,8 +36,8 @@ $(document).ready(function(){
 
 console.log("gamboard code executed");
 
-var location_lat = 49;
-var location_lng = 10;
+var curMarker;
+var lastUpdate=0;
 
 var geoJsonList;
 var geoJsonVendorList;;
@@ -30,6 +46,8 @@ var currentGeoJsonVendor;
 
 function onEachFeature(feature, layer) {
 
+		layer.bindPopup("Prestige: <span id='flaginfoprestige'>"+feature.properties.prestige+"</span><br/><a href='#' onClick='attack("+feature.properties.id+");' data-no-turbolink>Attack</a>");
+
     	layer.on('click', function (e) {
 		//alert(feature.properties.id);
 
@@ -37,7 +55,7 @@ function onEachFeature(feature, layer) {
 
                 //alert(feature.properties);
 
-		window.location = '/flag/show/'+feature.properties.id+"?lat="+location_lat+"&lng="+location_lng;
+		//window.location = '/flag/show/'+feature.properties.id+"?lat="+location_lat+"&lng="+location_lng;
 		//or
 		//alert(feature.properties.id);
 	});
@@ -46,7 +64,7 @@ function onEachFeature(feature, layer) {
 
 function onEachFeatureVendor(feature, layer) {
 
-	layer.bindPopup(feature.properties.popupContent+"<br/><div id='vendoritems'></div></b>");
+	layer.bindPopup(feature.properties.popupContent+"<br/><div id='vendoritems'></div>");
 
 
     	layer.on('click', function (e) {
@@ -60,7 +78,7 @@ function onEachFeatureVendor(feature, layer) {
                 innerHtml = "<ul>";
 		$.each(vendoritems, function(index, item) {
                 //innerHtml = innerHtml + "<li>"+item['name']+" - Price: "+item['price']+" - <a href='/vendors/buyItem/"+feature.id+"/"+item['id']+"'>Buy</a></li>";
-		innerHtml = innerHtml + "<li>"+item['name']+" - Price: "+item['price']+" - <a href='#' onClick='buy("+feature.id+","+item['id']+");'>Buy</a></li>";
+		innerHtml = innerHtml + "<li>"+item['name']+" - Price: "+item['price']+" - <a href='#' onClick='buy("+feature.id+","+item['id']+");' data-no-turbolink>Buy</a></li>";
 		console.log("ID: "+item['id']+" "+item['name']);
                 
 		});
@@ -80,7 +98,9 @@ function getLocation()
   if (navigator.geolocation)
     {
     console.log("setting callback function");
-    navigator.geolocation.getCurrentPosition(showPosition,null,{ maximumAge: 500, timeout: 6000, enableHighAccuracy: true});
+    //navigator.geolocation.getCurrentPosition(showPosition,null,{ maximumAge: 500, timeout: 6000, enableHighAccuracy: true});
+    // enable permanent watching
+    navigator.geolocation.watchPosition(showPosition,null, { maximumAge: 500, timeout: 6000, enableHighAccuracy: true});
     }
   else
   {
@@ -91,17 +111,28 @@ function getLocation()
 
 function showPosition(position)
 {
-	console.log("show Position");
-	location_lat = position.coords.latitude;
-	location_lng = position.coords.longitude;
+	var minWaitSec = 10;
+	if(lastUpdate + (minWaitSec*1000)< new Date().getTime())
+	{
+	
+		console.log("show Position");
+		location_lat = position.coords.latitude;
+		location_lng = position.coords.longitude;
 
-	var latlng = L.latLng(position.coords.latitude, position.coords.longitude);
+		var latlng = L.latLng(position.coords.latitude, position.coords.longitude);
 
-	var curMarker = L.marker(latlng).addTo(map);
+		if(lastUpdate != 0)
+		{
+		map.removeLayer(curMarker);
+		}
+		
+		curMarker = L.marker(latlng, {clickable: false}).addTo(map);
 
-	map.setView(latlng, 16);
+		map.setView(latlng, 16);
 
-	refreshData();
+		refreshData();
+	    lastUpdate = new Date().getTime();
+	}	
 	
 }
 
@@ -142,6 +173,7 @@ function refreshData(){
 
 function loadGeoJsonData(){
 		console.log("loading Flag Data");
+		
 		if(currentGeoJson != null)
 		{
 		map.removeLayer(currentGeoJson);
@@ -156,14 +188,42 @@ function loadGeoJsonData(){
 			onEachFeature: onEachFeature,
 
 			pointToLayer: function (feature, latlng) {
-				return L.circleMarker(latlng, {
+				
+				neutralMarker = L.circleMarker(latlng, {
 					radius: 8,
-					fillColor: "#ff7800",
+					fillColor: "#696969",
 					color: "#000",
 					weight: 1,
 					opacity: 1,
-					fillOpacity: 0.8
+					fillOpacity: 0.8,
+					riseOnHover: true
 				});
+						
+				ownerMarker = L.circleMarker(latlng, {
+					radius: 8,
+					fillColor: "#00FF00",
+					color: "#000",
+					weight: 1,
+					opacity: 1,
+					fillOpacity: 0.8,
+					riseOnHover: true
+				});
+				
+				foeMarker = L.circleMarker(latlng, {
+					radius: 8,
+					fillColor: "#FF0000",
+					color: "#000",
+					weight: 1,
+					opacity: 1,
+					fillOpacity: 0.8,
+					riseOnHover: true
+				});
+				
+				switch(feature.properties.user_id){
+					case 'owner': return ownerMarker;
+					case 'foe': return foeMarker;
+					case 'neutral': return neutralMarker;
+				}
 			}
 		});
 		currentGeoJson.addTo(map);
@@ -187,11 +247,12 @@ function loadGeoJsonVendorData(){
 			pointToLayer: function (feature, latlng) {
 				return L.circleMarker(latlng, {
 					radius: 8,
-					fillColor: "#00ff00",
+					fillColor: "#FF00FF",
 					color: "#000",
 					weight: 1,
 					opacity: 1,
-					fillOpacity: 0.8
+					fillOpacity: 0.8,
+					riseOnHover: true
 				});
 			}
 		});
