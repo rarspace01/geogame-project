@@ -40,19 +40,22 @@ gem 'rgeo-geojson'
 
 gem 'leaflet-rails'
 
+# Turbolinks Events jquery
 gem 'jquery-turbolinks'
 
 gem 'json'
 
+# Nutzerverwaltung
 gem 'clearance'
 
 # JS runtime stuff
 gem 'therubyracer'
 gem 'execjs'
 
+
 group :development do
-  gem "better_errors"
-  gem "binding_of_caller"
+  gem "better_errors" # Better Error View
+  gem "binding_of_caller" # binding.pry
 end
 
 group :doc do

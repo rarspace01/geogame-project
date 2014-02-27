@@ -27,33 +27,19 @@ include Clearance::User
   end
 
   #updateintervall
-  updateintervall = 60 # minutes
+  updateintervall = 60*60 # seconds
 
   # check if update is needed
-  if(Time.now.to_i > (self.aplastupdate + 60*updateintervall))
-
-    #do update when ap under 24
-    if(self.ap<24)
-
-    # calc update diff
-     diff = ((Time.now.to_i - (self.aplastupdate + 60*updateintervall) )/60).round
-
-     if(self.ap + diff>24)
-       self.ap = 24
-     else
-       self.ap = self.ap + diff
-     end
-
-    end
-
-    #
-    self.aplastupdate = Time.now.to_i
-
-    self.save
-
   
+    timeNow = Time.now
+    timeLast = self.aplastupdate
 
-  end
+    # calc 
+    deltaAp = ((timeNow-timeLast)/updateintervall).to_i
+    self.aplastupdate = timeLast+(deltaAp)*updateintervall
+    [(deltaAp+self.ap),24].min if(self.ap<=24)
+     
+    self.save
 
     return self.ap
 

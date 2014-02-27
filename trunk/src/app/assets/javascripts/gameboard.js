@@ -140,21 +140,12 @@ function refreshData(){
 
 	currentMapBounds = map.getBounds();
 
-	//alert(currentMapBounds.toBBoxString());
-
 	paddedMapBounds = currentMapBounds.pad(1);
-
-	//alert(paddedMapBounds.toBBoxString());
 
 	//The first is minimum latitude. The second is the minimum longitude. The third is the maximum latitude. The last is the maximum longitude
 
 	var bburl = "/overpass_api/getLocation.json?s="+paddedMapBounds.getSouth()+"&w="+paddedMapBounds.getWest()+"&n="+paddedMapBounds.getNorth()+"&e="+paddedMapBounds.getEast();
         var bbvendorurl = "/vendors/getVendors.json?s="+paddedMapBounds.getSouth()+"&w="+paddedMapBounds.getWest()+"&n="+paddedMapBounds.getNorth()+"&e="+paddedMapBounds.getEast();
-
-	//alert(bburl);
-
-	//var url = "/overpass_api/getLocation.json?lat=" + location_lat + "&long=" + location_lng
-
 
 	//load flag data
 	$.getJSON(bburl,
