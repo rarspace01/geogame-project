@@ -1,9 +1,15 @@
 package edu.unibamberg.hamann.evalTags;
 
+
+/**
+ * represents a GeoCoordinate with a lat & long, as well as a UID
+ * @author denis
+ *
+ */
 public class GeoCoordinate {
 
-	double longitude;
 	double latitude;
+	double longitude;
 
 	long uid; 
 	

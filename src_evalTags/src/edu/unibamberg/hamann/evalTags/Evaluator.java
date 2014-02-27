@@ -1,26 +1,23 @@
 package edu.unibamberg.hamann.evalTags;
 
-import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
-
-import javax.xml.parsers.ParserConfigurationException;
-
-import org.xml.sax.SAXException;
 
 import com.graphhopper.GHRequest;
 import com.graphhopper.GHResponse;
 import com.graphhopper.GraphHopper;
 import com.graphhopper.routing.util.EncodingManager;
 import com.vividsolutions.jts.geom.Coordinate;
-import com.vividsolutions.jts.geom.Geometry;
 
-import edu.unibamberg.hamann.evalTags.dominik.util.GeometryHelper;
-import edu.unibamberg.hamann.evalTags.dominik.util.TimeGeographicSpaceOfPossibilites;
-
+/**
+ * evaluator class
+ * @author denis
+ *
+ */
 public class Evaluator {
 
 	final double MAX_WALK_DISTANCE = 700.0;
+	public static final String TAG = "Evaluator";
 	final static double BBOX_MIN_RADIUS = 2500.0;
 
 	public static void main(String[] args) {
@@ -32,12 +29,29 @@ public class Evaluator {
 		// tag list
 		tagList.add("highway=bus_stop");
 		tagList.add("highway=crossing");
+		tagList.add("highway=traffic_signals");
+		tagList.add("highway=steps");
+		tagList.add("highway=cycleway");
+		tagList.add("bridge=yes");
+		tagList.add("power=pole");
+		// tagList.add("building=house");
+		// tagList.add("building=residential");
+		tagList.add("building=garage");
+		// tagList.add("building=apartments");
+		tagList.add("landuse=farmland");
+		tagList.add("landuse=cemetery");
 		tagList.add("amenity=parking");
 		tagList.add("amenity=school");
 		tagList.add("amenity=place_of_worship");
 		tagList.add("shop=supermarket");
 		tagList.add("shop=bakery");
-		tagList.add("shop");
+		tagList.add("natural=water");
+		tagList.add("natural=tree");
+		tagList.add("natural=wood");
+		tagList.add("natural=grassland");
+		// tagList.add("shop");
+		// tagList.add("building");
+		// tagList.add("amenity");
 
 		// basic setup
 
@@ -54,15 +68,17 @@ public class Evaluator {
 		for (String tag : tagList) {
 			result = eval.evaluateBoundingBox(bbox, tag);
 			resultList.add(result);
-			System.out.println("Result: " + result + " Took: "
-					+ (System.currentTimeMillis() - startWatch));
+			Helper.msgLog(
+					TAG,
+					"Result: " + result + " Took: "
+							+ (System.currentTimeMillis() - startWatch));
 			startWatch = System.currentTimeMillis();
 		}
 
 		// print results
 
 		for (int i = 0; i < tagList.size(); i++) {
-			System.out.println("[" + tagList.get(i) + "]@[" + resultList.get(i)
+			Helper.msgLog(TAG, "[" + tagList.get(i) + "]@[" + resultList.get(i)
 					+ "]");
 		}
 
@@ -82,15 +98,15 @@ public class Evaluator {
 		long iteratemax = gcListToBeChecked.size();
 		long iteratecur = 0;
 
-		System.out.println("Node Count: " + iteratemax + " (Using workNodes: "
-				+ gcListToBeUsed.size() + " MAXDIST@" + MAX_WALK_DISTANCE
-				+ "m)");
+		Helper.msgLog(TAG, "[" + tag + "]Node Count: " + iteratemax
+				+ " (Using workNodes: " + gcListToBeUsed.size() + " MAXDIST@"
+				+ MAX_WALK_DISTANCE + "m)");
 
 		// iterate over each currentNode
 		for (GeoCoordinate gc : gcListToBeChecked) {
 			iteratecur++;
 
-			//System.out.println(gc);
+			// System.out.println(gc);
 			long startWatch = System.currentTimeMillis();
 
 			currentResult = getNodesCountInReachGraphhopper(gcListToBeUsed, gc);
@@ -102,7 +118,7 @@ public class Evaluator {
 			System.out.println("[" + iteratecur + "/" + iteratemax + "]@"
 					+ (int) (iteratecur * 100 / iteratemax) + "% - took: ["
 					+ (System.currentTimeMillis() - startWatch) + "]ms C:"
-					+ currentResult+" DEBUG:<<"+gc+">>");
+					+ currentResult + " DEBUG:<<" + gc + ">>");
 		}
 
 		// iterated over all elemenmts
@@ -118,29 +134,29 @@ public class Evaluator {
 		return resultValue;
 	}
 
-	private long getNodesCountInReachTimeGraph(List<OSMAPINode> osmNodeList,
-			OSMAPINode currentNode) {
-
-		// start on -1 as A->A is included
-		long count = -1;
-
-		// Zeitgeographisches Netzwerk
-		TimeGeographicSpaceOfPossibilites networkPossibilites = new TimeGeographicSpaceOfPossibilites(
-				10, 1.0);
-
-		networkPossibilites.deriveFootprint(getCoordinateFromNode(currentNode),
-				null, null);
-
-		for (OSMAPINode listNode : osmNodeList) {
-			// Punkt erreichbar?
-			Geometry g = GeometryHelper.gf
-					.createPoint(getCoordinateFromNode(listNode));
-			if (networkPossibilites.isReachable(g)) {
-				count++;
-			}
-		}
-		return count;
-	}
+//	private long getNodesCountInReachTimeGraph(List<OSMAPINode> osmNodeList,
+//			OSMAPINode currentNode) {
+//
+//		// start on -1 as A->A is included
+//		long count = -1;
+//
+//		// Zeitgeographisches Netzwerk
+//		TimeGeographicSpaceOfPossibilites networkPossibilites = new TimeGeographicSpaceOfPossibilites(
+//				10, 1.0);
+//
+//		networkPossibilites.deriveFootprint(getCoordinateFromNode(currentNode),
+//				null, null);
+//
+//		for (OSMAPINode listNode : osmNodeList) {
+//			// Punkt erreichbar?
+//			Geometry g = GeometryHelper.gf
+//					.createPoint(getCoordinateFromNode(listNode));
+//			if (networkPossibilites.isReachable(g)) {
+//				count++;
+//			}
+//		}
+//		return count;
+//	}
 
 	Coordinate getCoordinateFromNode(OSMAPINode node) {
 		double lat = 0.0;
@@ -195,7 +211,7 @@ public class Evaluator {
 		for (GeoCoordinate listNode : osmNodeList) {
 
 			if (listNode.equals(currentNode)) {
-				//System.out.println("found myself");
+				// System.out.println("found myself");
 			} else {
 
 				GeoCoordinate toNode = listNode;

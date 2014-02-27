@@ -6,7 +6,6 @@ import org.slf4j.LoggerFactory;
 import com.graphhopper.GHRequest;
 import com.graphhopper.GHResponse;
 import com.graphhopper.GraphHopper;
-import com.graphhopper.GraphHopperAPI;
 import com.graphhopper.routing.util.EncodingManager;
 
 public class Main {

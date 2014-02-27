@@ -3,6 +3,12 @@ package edu.unibamberg.hamann.evalTags;
 import java.util.HashMap;
 import java.util.Map;
 
+
+/**
+ * holds the OSM Nodes for the OSM Api Wrapper
+ * @author denis
+ *
+ */
 public class OSMAPINode {
 	
 	private String id;
