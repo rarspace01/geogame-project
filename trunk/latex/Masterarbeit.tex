@@ -20,6 +20,7 @@
 \usepackage[usenames,dvipsnames]{xcolor}
 \usepackage{geometry}
 \usepackage{lscape}
+\usepackage{datetime}
 %% acronyme
 \usepackage{acronym}
 
@@ -38,6 +39,7 @@
         citestyle=alphabetic,
         bibstyle=alphabetic,
         hyperref=true,
+        maxbibnames=99
     ]{biblatex}
 
 %% sepcial biblatex setup
@@ -99,14 +101,12 @@
 \input{chapter/00_deckblatt}
 \newpage
 \input{chapter/0_danksagung}
-
 \textcolor{MidnightBlue}{\tableofcontents}
 %\tableofcontents
-
 \textcolor{MidnightBlue}{\listoffigures}
-
+\addcontentsline{toc}{chapter}{\listfigurename}
 \textcolor{MidnightBlue}{\listoftables}
-
+\addcontentsline{toc}{chapter}{\listtablename}
 \newpage
 
 \pagenumbering{arabic}
