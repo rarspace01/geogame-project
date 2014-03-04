@@ -28,8 +28,6 @@
 
 %% Bibtext stuff
 
-
-
 \usepackage[%
         backend=biber,
         style=authoryear-icomp,
@@ -51,7 +49,7 @@
 %%last packages DONT MODIFY - ask first
 
 
-\geometry{a4paper,left=25mm,right=25mm, top=25mm, bottom=30mm}
+\geometry{a4paper,left=30mm,right=20mm, top=25mm, bottom=30mm}
 
 %%fix für paragraph einrückung
 \setlength{\parindent}{0in}
@@ -61,10 +59,14 @@
 %spacing 
 \onehalfspacing
 
+\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
+
 \fancyhf{}
 %Header
 %\fancyhead[R]{}
-\fancyhead[L]{Masterarbeit}
+\fancyhead[L]{Masterarbeit - \nouppercase{\rightmark}}
+
+%\fancyhead[L]{Masterarbeit}
 %
 %bottom
 \fancyfoot[R]{Seite: \thepage}
