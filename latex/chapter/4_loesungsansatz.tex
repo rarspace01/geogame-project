@@ -46,11 +46,35 @@ Ein Aspekt der nicht außer Acht gelassen werden darf, ist dass bei Spielen, bei
 \textcite{Yan.2005} identifiziert mehrere Möglichkeiten des Cheatings. Für diese gibt es jeweils entsprechende Gegenmaßnahmen. Als Grundsatz kristallisiert sich daher heraus, dass der Schutz eines Spiels analog zum investierten Aufwand gegen entsprechende Versuche der Manipulation verhält und dass kein System sicher gegen eine Manipulation ist.
 Jeder Spielebetreiber muss basierenden auf seinen verfügbaren Resourcen entscheiden, welche Methoden dieser einsetzten möchte. 
 Auch ortsbezogene Spiele bleiben von Manipulationen nicht verschont wie \textcite{He.2011} untersucht.
-In diesem Fall ist ein erster Ansatzpunkt die maximale Fortbewegungsgeschwindigkeit. Kombiniert man diese mit der Spielmechanik wie z.b. einer mindest Interaktiondauer von 30 Sekunden pro POI, so reduziert sich auch der "Vorteil" durch das Cheaten.
-
+In diesem Fall ist ein erster Ansatzpunkt die maximale Fortbewegungsgeschwindigkeit. Kombiniert man diese mit der Spielmechanik wie z.b. einer Pflicht Interaktiondauer von 30 Sekunden pro POI, so reduziert sich auch der "Vorteil" durch das Cheaten.
 
 %
 \subsection*{Anforderungen an ein Geogameframework}
+
+Für die Umsetzung eines Geogameframeworks muss zunächst untersucht werden welche Anforderungen an ein solches gestellt werden.
+Im Hinblick auf die in Kapitel \ref{ch2:Problemstellunug} beschriebene Problemstellung ist es zunächst sinnvoll die Anforderungen zu identifizieren und im Anschluss zu analysieren. Werden diese Abstrahiert auf die Aspekte eines Gameframeworks so ergeben sich daraus entsprechende Vorgehensweisen.
+\\\\
+Ziel ist es ein ortbezogenes Spiel zu entwickeln, welches dazu führt, dass die Spieler lokale Dienstleister/Einzelhändler vermehrt aufsuchen. Ein Gameframework muss in diesem Fall einem Spielleiter es ermöglichen unter möglichst wenig Aufwand ein entsprechendes Spiel durchzuführen.
+Dem Spielleiter sollen die Arbeitsschritte für die Selektion der Spielelemente anhand von  Geodaten als auch die Durchführung abgenommen werden. Ziel ist es, dass der Spielleiter selbst mit möglichst geringen Technischen Kenntnissen ein entsprechendes Spiel durchführen kann. Daher halten wir als ersten Aspekt das einfache Staging der Spiele fest.
+\\\\
+Für die Steigerung der Interaktion von potentieller Kunden wurde die Gamification und letztendlich die konkrete Spielemechanik in Kpaitel \ref{ch3:s:Gamification} identifiziert. Um diese entsprechend umsetzten zu können, muss ein entsprechendes Framework nicht nur entsprechende Logik, sondern auch die entsprechenden Daten inne halten. Abhängig wie hoch der Flexibilitäts Anspruch des Frameworks selbst ist, macht es Sinn Spiel-Logik und Spiel-Daten weiter zu trennen. Soll das Framework nur für eine geringe Zahl ähnlicher Spiele verwendet werden, so kann es Sinn machen die Funktionen und Datenstruktur direkt in das Framework einzuplanen. Ist es allerdings der Plan ein Framework zu entwickeln, welches möglichst generisch arbeitet und später eine Vielzahl an unterschiedlichen Spielen unterstützten soll, so ist eine entsprechende Modularisierung der einzelnen Funktionen unerlässlich.
+\\\\
+Bei der Durchführung eines ortsbezogenen Spiels muss ein Framework mit Geodaten arbeiten.
+Dabei ist es unerlässlich, dass ein entsprechendes System nicht mit einem einfachen kartesischen Koordinaten System arbeitet, sondern ein entsprechendes Referenzsystem wie WGS 84 \cite{Grafarend.1998} und das UTM Koordinaten System \cite{Grafarend.1995}.
+Für das jeweilige zu nutzende System müssen entsprechende Bibliotheken integriert werden, damit entsprechende Operationen wie zum Beispiel Distanzmessung auf den Geodaten durchgeführt werden können.
+\\\\
+Eine Übersicht der einzelnen Anforderungen ist nachfolgend zu sehen:
+
+\begin{itemize}
+\item einfaches Staging der Spiele
+\item Modulasrisierung der Funktionen für Gamification/Spielmechanik
+\item Verarbeitung von Geodaten
+\item OSM
+\item Einfache Erweiterbarkeit der Spielmechanik
+\item Einbindung der lokalen Händlern
+\item Modularer Aufbau
+\end{itemize}
+
 
 \subsection*{Relokalisierbarkeit von ortsbezogenen Spielen}
 
