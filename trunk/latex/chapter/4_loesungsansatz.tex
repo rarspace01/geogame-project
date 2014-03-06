@@ -63,13 +63,20 @@ Bei der Durchführung eines ortsbezogenen Spiels muss ein Framework mit Geodaten
 Dabei ist es unerlässlich, dass ein entsprechendes System nicht mit einem einfachen kartesischen Koordinaten System arbeitet, sondern ein entsprechendes Referenzsystem wie WGS 84 \cite{Grafarend.1998} und das UTM Koordinaten System \cite{Grafarend.1995}.
 Für das jeweilige zu nutzende System müssen entsprechende Bibliotheken integriert werden, damit entsprechende Operationen wie zum Beispiel Distanzmessung auf den Geodaten durchgeführt werden können.
 \\\\
+Das Framework muss zudem die Integration vom externen GeoDaten ermöglichen. Bei diesen wird es sich Aufgrund der Ergebnisse in Kapitel \ref{ch3:s:offeneGeodaten} um OSM handeln. Das Framework muss auf Basis der OSM Daten entsprechende Spielfelder aufbereiten. Hierzu müssen die bestehenden Objekttypen (Nodes, Ways, Relatitoions) in Spielelemente transferiert werden. Hierfür gibt es mehrere Möglichkeiten.
+Zunächst gibt es Nodes. Diese können direkt als Spielelement dargestellt werden, da Sie analog zu den Spielelementen ein Objekt repräsentieren und ihnen eine direkte Koordinate auf dem Spielfeld zugeordnet werden kann. Nodes die jedoch Bestandteil eines Ways oder einer Relation sind sollten nicht als einzelnes Spielelement betrachtet werden.
+Gibt es ein Objekt, welches als Way in OSM repräsentiert wird, so muss dieses transformiert werden zu einem Spielement mit nur einer Koordinate. Hier müssen nun alle Nodes welche innerhalb eines Ways liegen zu quasi einem "virtuellen" Node zusammengefasst werden.
+Wichtig ist hierbei auch eine Adressierung der virtuellen Nodes zu ermöglichen. Damit diese entsprechend wieder gefunden werden können.
+Für die Transformation mehrere Nodes zu einem Element gibt es unterschiedliche Ansätze. Der erste und einfachste stellt ein einfaches Arethmetisches Mittel auf die äußersten Kanten des Ways dar. Konkret bedeutet das, dass um alle Nodes eines Ways quasi eine Bounding Box gebaut wird. Die beiden Koordinaten die die Bounding Box begrenzen werden anschließend mit einem arithmetischen Mittel miteinander kombiniert zu einem einzelnen Punkt. Diese Methode ist besonders einfach und der Punkt liegt immer innerhalb der Bounding box, allerdings spiegelt er nicht die Verteilung der einzelnen Objekte wieder bzw. nimmt auf die konkrete geografische Struktur des Ways keine Rücksicht. Eine weitere Methode die diese Unzulänglichkeit behebt stellt das geografische Mittel dar.
+
+
 Eine Übersicht der einzelnen Anforderungen ist nachfolgend zu sehen:
 
 \begin{itemize}
 \item einfaches Staging der Spiele
-\item Modulasrisierung der Funktionen für Gamification/Spielmechanik
+\item Modularisierung der Funktionen für Gamification/Spielmechanik
 \item Verarbeitung von Geodaten
-\item OSM
+\item OSM-Daten Trafnsformation/Aufbereitung
 \item Einfache Erweiterbarkeit der Spielmechanik
 \item Einbindung der lokalen Händlern
 \item Modularer Aufbau
