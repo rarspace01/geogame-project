@@ -67,8 +67,32 @@ Das Framework muss zudem die Integration vom externen GeoDaten ermöglichen. Bei
 Zunächst gibt es Nodes. Diese können direkt als Spielelement dargestellt werden, da Sie analog zu den Spielelementen ein Objekt repräsentieren und ihnen eine direkte Koordinate auf dem Spielfeld zugeordnet werden kann. Nodes die jedoch Bestandteil eines Ways oder einer Relation sind sollten nicht als einzelnes Spielelement betrachtet werden.
 Gibt es ein Objekt, welches als Way in OSM repräsentiert wird, so muss dieses transformiert werden zu einem Spielement mit nur einer Koordinate. Hier müssen nun alle Nodes welche innerhalb eines Ways liegen zu quasi einem "virtuellen" Node zusammengefasst werden.
 Wichtig ist hierbei auch eine Adressierung der virtuellen Nodes zu ermöglichen. Damit diese entsprechend wieder gefunden werden können.
-Für die Transformation mehrere Nodes zu einem Element gibt es unterschiedliche Ansätze. Der erste und einfachste stellt ein einfaches Arethmetisches Mittel auf die äußersten Kanten des Ways dar. Konkret bedeutet das, dass um alle Nodes eines Ways quasi eine Bounding Box gebaut wird. Die beiden Koordinaten die die Bounding Box begrenzen werden anschließend mit einem arithmetischen Mittel miteinander kombiniert zu einem einzelnen Punkt. Diese Methode ist besonders einfach und der Punkt liegt immer innerhalb der Bounding box, allerdings spiegelt er nicht die Verteilung der einzelnen Objekte wieder bzw. nimmt auf die konkrete geografische Struktur des Ways keine Rücksicht. Eine weitere Methode die diese Unzulänglichkeit behebt stellt das geografische Mittel dar.
+Für die Transformation mehrere Nodes zu einem Element gibt es unterschiedliche Ansätze. Der erste und einfachste stellt ein einfaches Arithmetisches Mittel auf die äußersten Kanten des Ways dar. Konkret bedeutet das, dass um alle Nodes eines Ways quasi eine Bounding Box gebaut wird. Die beiden Koordinaten die die Bounding Box begrenzen werden anschließend mit einem arithmetischen Mittel miteinander kombiniert zu einem einzelnen Punkt. Diese Methode ist besonders einfach und der Punkt liegt immer innerhalb der Bounding Box, allerdings spiegelt er nicht die Verteilung der einzelnen Objekte wieder bzw. nimmt auf die konkrete geografische Struktur des Ways keine Rücksicht.
 
+\begin{equation}
+x_{bb} = \frac{max_{i>0; i<=N}(x_i) + min_{i>0; i<=N}(x_i)}{2}
+\end{equation}
+\\
+\begin{equation}
+y_{bb} = \frac{max_{i>0; i<=N}(y_i) + min_{y>0; i<=N}(y_i)}{2}
+\end{equation}
+
+Eine weitere Methode die diese Unzulänglichkeit behebt stellt das geometrische Mittel dar.
+Bei diesem wird der Massemittelpunkt des Körpers bestimmt. Hierfür ist zunächst die Berechnung der Fläche nötig:
+
+\begin{equation}
+A = \frac{1}{2}\sum_{i=0}^{N-1} (x_i\ y_{i+1} - x_{i+1}\ y_i)
+\end{equation}
+
+Dieses kann wiederum verwendet werden um das geometrische Gewicht zu ermitteln:
+
+\begin{equation}
+x_s = \frac{1}{6A}\sum_{i=0}^{N-1}(x_i+x_{i+1})(x_i\ y_{i+1} - x_{i+1}\ y_i)
+\end{equation}
+
+\begin{equation}
+y_s = \frac{1}{6A}\sum_{i=0}^{N-1}(y_i+y_{i+1})(x_i\ y_{i+1} - x_{i+1}\ y_i)
+\end{equation}
 
 Eine Übersicht der einzelnen Anforderungen ist nachfolgend zu sehen:
 
