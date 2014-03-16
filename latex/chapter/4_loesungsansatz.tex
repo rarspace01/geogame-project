@@ -1,5 +1,5 @@
 \chapter{Lösungsansatz}
-\label{sec:S4_Lösungsansatz}
+\label{ch:S4_Lösungsansatz}
 
 \section{Mögliche Lösungen}
 
@@ -8,13 +8,13 @@
 Im Hinblick auf die Problemstellung in Kapitel \ref{ch2:Problemstellunug}, sowie der in der Literatur beschriebenen Ansätze in Kapitel \ref{ch3:s:Gamification}, ergeben sich mehrere Möglichkeiten für eine Lösung. Ziel ist es die Kunden zum einen zu motivieren neue Geschäfte aufzusuchen und auf der anderen Seite eine Bindung zu bestehenden Geschäften zu erreichen. Da es sich hierbei um um einen Prozess handelt, der für den Kunden im ersten Schritt nur einen geringen Benefit darstellt, ist dieser ideal für Gamification geeignet \cite{Leigh.2012}. Ziel ist es somit die Besuche des Spielers durch eine Gamification interessant zu machen. Dies kann durch die verschiedenen Aspekte wie das Vergeben von Punkten für einen Einkauf (siehe Miles \& More \cite{Wagner.2005}, Payback \cite{Roesl.2005}) erreicht werden. Allerdings sind reine, einfache Punkteprogramme weit verbreitet und deren Nutzen umstritten \cite{Schmitt.2001}.
 Daher ist es notwendig, das komplette Spektrum der Gamification zu betrachten.
 Über das reine Punkte System hinaus, mandatetimeifestiert sich in der Literatur die Grundmenge "Points, Badges und Leaderboards".
-Konkret bedeutet dies, neben der einfachen Ansammlung von Punkten, gibt es darüber hinaus Badges/Auszeichnungen welche das Engagement des einzelnen Nutzers widerspiegeln. Ein weiterer Aspekt sind die sogenannten Leaderboards bzw. Bestenlisten. Über diese wird wird ein Ansporn unter den jeweiligen Spielern erzeugt die anderen Spieler zu übertrumpfen. Vergleicht man diese Ansätze mit denen der typischen Spieler Profile nach \citep{Bartle.2004} so erkennt man, dass nicht alle dieser mit den Standard Elementen bedient werden.
+Konkret bedeutet dies, neben der einfachen Ansammlung von Punkten, gibt es darüber hinaus Badges/Auszeichnungen welche das Engagement des einzelnen Nutzers widerspiegeln. Ein weiterer Aspekt sind die sogenannten Leaderboards bzw. Bestenlisten. Über diese wird wird ein Ansporn unter den jeweiligen Spielern erzeugt die anderen Spieler zu übertrumpfen. Vergleicht man diese Ansätze mit denen der typischen Spieler Profile nach \citep{Bartle.2004}, wie in Abbildung \ref{img:ch4_img01_playertypes} zu sehen, so erkennt man, dass nicht alle dieser mit den Standard Elementen bedient werden.
 
 \begin{figure}[H]
 \begin{center}
 \includegraphics[width=120mm]{images/ch4_img01_playertypes.png}
 \caption{Spielertypen nach \textcite{Bartle.2004}}
-\label{img:ch03_img02_flow}
+\label{img:ch4_img01_playertypes}
 \end{center}
 \end{figure}
 
@@ -100,13 +100,42 @@ Der Gedanke eines Frameworks zielt auf eine einfache Erweiterbarkeit, Pflege sow
 Je nach Fokus auf Flexibilität, welche das Framework bieten soll und Umfang, müssen entsprechende Funktionen und Methoden generischer oder spezifischer implementiert werden.
 \\\\
 Der in Kapitel \ref{ch1:Einleitung} angestrebte Mehrwert des Frameworks, neue Kunden und bestehende Kunden an lokale Einzelhändler zu binden stellt ein wichtiger Aspekt dar. Generell gibt es verschiedene Möglichkeiten wie Lokalitäten in ein Spiel integriert werden können \cite{Nelson.2002}.
-Zunächst gibt es die Möglichkeit Werbebanner direkt in Spiele einzubinden \cite{Nelson.2004}. Diese Werbung gleicht der Printwerbung mit dem Unterschied, dass die Sichtbarkeit im Vergleich zu klassischen Medien oder Filmen deutlich erhöht ist und und sich analog zur durchschnittlichen Spielzeit verhält. Spiele die soziale Aspekte betrachten, haben im Schnitt höhere Spielzeiten \cite{Ducheneaut.2006}.
-Eine andere Möglichkeit stellen so genannte Advergames dar. Bei diesen handelt es sich um Spiele die rein auf dem zu bewerbenden Produkt bzw. der Dienstleistung selbst fokusiert sind. Diese haben einen deutlich größeren Einfluss auf die entsprechende Zielgruppe. Allerdings werden hierbei vor allem Personen angesprochen die Spielen gegenüber offen sind \cite{Winkler.2006}. \textcite{Chen.2001} und \textcite{Dahl.2009} beschreiben die dass jüngere Personen bis zu 100 mal mehr spielen als 
+Zunächst gibt es die Möglichkeit Werbebanner direkt in Spiele einzubinden \cite{Nelson.2004}. Diese Werbung gleicht der Printwerbung mit dem Unterschied, dass die Sichtbarkeit im Vergleich zu klassischen Medien oder Filmen deutlich erhöht ist und und sich analog zur durchschnittlichen Spielzeit verhält. Spiele die soziale Aspekte betrachten, haben im Schnitt höhere Spielzeiten \cite{Ducheneaut.2006}, bei älteren Spielern sind bis zu 30 Stunden pro Spiel der Durchschnitt.
 
+Eine andere Möglichkeit stellen so genannte Advergames dar. Bei diesen handelt es sich um Spiele die rein auf dem zu bewerbenden Produkt bzw. der Dienstleistung selbst fokusiert sind. Diese haben einen deutlich größeren Einfluss auf die entsprechende Zielgruppe. Allerdings werden hierbei vor allem Personen angesprochen die Spielen gegenüber offen sind \cite{Winkler.2006}. \textcite{Chen.2001} und \textcite{Dahl.2009} beschreiben, dass jüngere Personen bis zu 100 mal mehr spielen als ältere und der Kunde die Marke durch Advertgames deutlich mehr wahrnimmt im Vergleich zu anderer Werbung.
+Die Möglichkeiten für die Integration von Produkten sind vielfältig. Neben der passiven Einbindung des Produktes in die Spielumgebung, kann das Produkt auch selbst als Spielelement dienen (vgl. Colgate 1992: Harald Hårtand - kampen om de rene tænder).
+Darüber hinaus könnte im Fall eines ortsbezogenen Spieles der Händler/Dienstleister im Spiel selbst als Pendant seines Händlers in der Realität auftreten. D.h. ein Händler stellt im Spiel selbst einen Händler für Spielitems dar.
+Somit lässt sich die Einbindung generell in zwei Arten unterteilen. Einmal als aktiv für den Spielausgang entscheidendes Element (z.B: als POI für TicTacToe) oder aber als Vendor Element welches der Spieler aufsuchen kann.
+Im Hinblick auf die Spieleitems sollten diese vorzugsweise im Zusammenhang mit dem Händler und der Spielthematik stehen. Je besser sich diese in das Spiel integrieren, desto eher werden sie vom Spieler als plausibel wahrgenommen. Dies wiederum hat einen positiven Effekt für die Wahrnehmung.
+Ein Beispiel für die Integration könnte z.B. ein Supermarkt sein, welcher Essen anbietet. Dieses kann wiederum vom Spieler zur Auffrischung der Energie verwendet werden. Ein anderes Item könnte eine Schaufel darstellen, welche beim lokalen Baumarkt gekauft und im Spiel zum Bauen von eigenen Gebäuden verwendet werden kann.
+\\\\
+Abschließend muss das Framework entsprechend modular aufgebaut werden sein. Dies soll vor allem der Erweiterbarkeit und der Portabilität dienen. Da ein ortsbezogenes Spiel auf entsprechenden Endgeräten gespielt wird. Konkrekt Smartphones ist es darüber hinaus wichtig entsprechend die Spielelemente für den Spieler aufzubereiten. Hierzu gibt es verschiedene Möglichkeiten.
+Generell gibt es unterschiedliche Smartphone Betriebssysteme deren Marktanteile sich je nach Geografischer Location unterscheiden.
+Schaut man sich die globale aktuelle Verteilung der mobilen Betriebssysteme an, wie in Abbildung \ref{img:ch4_img02_marketshare} zu sehen.
 
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width=140mm]{images/ch4_img02_marketshare.png}
+\caption{Globale Mobile Betriebsysteme in Anlehnung an \textcite{Gartner.2013} - Bild: \cite{Wikipedia.2014}}
+\label{img:ch4_img02_marketshare}
+\end{center}
+\end{figure}
 
+Die aktuelle Verbreitung von ca. 80\% Android, 18\% iOS und 3\% Windows Phone bei Smartphones stellt die Frage, für welche der besagten Plattformen man Anwendungen erstellen möchte.
+Die erste Möglichkeit sind native Apps, zweitere sind Web App \cite{Charland.2011}.
+Der Unterschied beider liegt im Aufwand der Implementierung, der Ausführgeschwindigkeit, Zugriff auf die Hardware und dem unterschiedlichen Deployment.
+Native Apps erreichen in den entsprechenden Appstores und bieten Zugriff auf allerlei Hardware Features.
+Konkret für das Geogameframework sind zweierlei Dinge wichtig.
 
-Eine Übersicht der einzelnen Anforderungen ist nachfolgend zu sehen:
+\begin{itemize}
+\item Möglichst wenig Aufwand für das Deployment
+\item Zugriff auf GPS Korrdinaten
+\end{itemize}
+
+Dies kann sowohl über native  Apps als auch über eine Web Applikation bewerkstelligt werden. Entsprechende SDKs der jeweiligen Hersteller bieten per API Zugriff auf die GPS Schnittstelle. Für WebApps kann im Zuge von HTML5 ebenfalls auf eine GPS Ortung zurückgegriffen werden \cite{Holdener.2011}. Um den Entwicklungsaufwand für Webapps zu reduzieren kann es sinnvoll sein auf entsprechende Webframeworks aufzusetzten, damit nicht grundlegende Funktionalitäten erneut entwickelt werden müssen.
+Eine entsprechende Entscheidung ist in diesem Fall abhängig von den Anforderungen. Eine entsprechende Auswahl wird in Kapitel \ref{ch:S5_Umsetzung} getroffen.
+
+Abschließend lassen sich die einzelnen Anforderungen des Gameframeworks wiefolgt zusammenfassen:
 
 \begin{itemize}
 \item einfaches Staging der Spiele
@@ -121,7 +150,22 @@ Eine Übersicht der einzelnen Anforderungen ist nachfolgend zu sehen:
 
 \subsection*{Relokalisierbarkeit von ortsbezogenen Spielen}
 
+Für die Relokalisierbarkeit von Spiefeldern wurden in Kapitel \ref{ch3:s:Relokalisierung} erste Ansätze in der Literatur identifiziert. Diese beziehen sich allerdings speziell auf spatial discrete Spiele.
+Generell erfolgt die Unterteilung in die zuvor identifizierten Möglichkeiten.
+Es kann entweder keine Anpassung, eine vollständige Anpassung oder ein Hybrid Ansatz erfolgen. Der ideale Fall stellt eine vollständige Anpassung und damit Relokalisierbarkeit eines Spiels ohne das manuelle Anpassen eines Spielleiters dar. Hier für gibt es in der Literatur allerdings keine konkreten Ansätze. Vielmehr werden konkrete Spiele wie REXplorer \cite{Ballagas.2007} oder bestimmte Geogames \cite{Kiefer.2007} adaptiert durch eine vorgegebene Liste an POIs zu einem optimalen Spielfeld in einer anderen Stadt von der ebenfalls eine Liste von POIs existiert.
+Einen evaluierten nutzbaren Ansatz für die automatisierte Relokalisierung gibt es daher nicht.
+Ein Ansatz der sich aus der Hypothese herausbildet, ist der Versuch Aufgrund bestehender Geodatenbanken - konkret Openstreetmaps - eine Relokalisierung zu erreichen. Hierbei müssen allerdings neben der bereits angesprochenen Transformation der Relationen, Ways und Nodes auch eine Auswahl der entsprechenden Spielelemente stattfinden. Denkbar sind hierbei zwei Ansätze. Um ein \"gutes Spielfeld\" zu identifizieren und somit eine Relokalisierung für gut zu befinden muss entsprechend ein Evaluationsansatz existieren. Ansätze zur Evaluation von Spielfeldern sollen im Kapitel \ref{ch:S6_Evaluierung} näher betrachtet werden. Generell kann zwischen einer Echtzeit und einer prestaging Evalutation unterschieden werden. Je Form hat ihre eigenen Vor- und Nachteile.
+
+Bei einer Echzeitevaluation der Spielfelder liegt der Vorteil in völligen Automatisierung der Auswahl der Spielelemente und weniger Aufwand für den entsprechenden der ein Spiel ausrichten möchte. Allerdings muss gleichzeitig der zu verwendende Algorithmus in Echtzeit zu einem entsprechenden Ergebnis für die Auswahl der Spielelemente kommen. Da die ortbezogenen Pervasive Games selbst in Echtzeit laufen kann ein entsprechender Algorithmus keine größere Komplexität aufweisen und wird damit in der möglichen Qualität der Spielfelder eingeschränkt.
+
+Im Gegensatz dazu steht eine Evaluation und Auswahl der Spielelemente vor dem Staging. Die Vorteile sind die mögliche Komplexität des Algorithmus, sowie die damit verbundene Qualität der Spielfelder. Ein Nachteil ist allerdings, dass eine Evaluation der Spielfelder im Voraus erfolgen muss. Da bei einem Pervasive Game allerdings das Spielfeld die ganze Welt darstellt, ist eine Laufzeit stark abhängig vom Algorithmus sowie der Datenbasis.
+
+Eine andere Möglichkeit stellt ein hybrider Ansatz dar. Dabei wird ein Teil des Evaluation vorausgelagert und ein weniger komplexer Teil für die Echzeitberechnung übrig. Eine Möglichkeit wäre es z.B. Im Voraus eine Selektion der Spielelementtypen und die konkrete Auswahl in diesem Subset an Daten während der Laufzeit zu machen. Beispielsweise mit OSM könnte im Voraus zunächst eine Auswahl der Kategorisierung anhand eines key-value Paars erfolgen (highway=bustop) und im Anschluss wird während der Laufzeit entschieden ob entsprechende Objekte zu dicht beieinander liegen. Dann könnten die Elemente entsprechend außer acht gelassen werden oder bei zu geringer Verbreitung entsprechende dummy-Elemente eingefügt werden.
+
 \subsection*{Freie Geobasisdaten und Möglichkeiten der kommerziellen Nutzung}
+
+In Kapitel \ref{ch3:s:offeneGeodaten} wurden entsprechende öffentliche Geodatenbanken identifiziert welche Geodaten enthalten, die für eine Nutzung für ein ortsbezogenes Spiel in Frage kommen. Von diesen hat sich lediglich OSM als brauchbar und mit entsprechender Daten-Qualität erwiesen.
+Vergleicht man die Anforderungen eines Gameframeworks an die entsprechenden Geo
 
 \section{Gewählter Lösungsansatz}
 
