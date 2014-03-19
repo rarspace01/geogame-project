@@ -72,10 +72,32 @@ Für die Itemtypen kann der Spielleiter aller Voraussicht nach auf gewisse Grund
 
 \subsection*{Persistenz}
 
-Ein wichtiger Aspekt des Frameworks stellt die Persistenz dar. Zum einen müssen die Spielelemente als auch der Spielzustand selbst gespeichert werden.
+Ein wichtiger Aspekt des Frameworks stellt die Persistenz dar. Es müssen die Spielelemente, sowie der Spielzustand selbst gespeichert werden. Die Daten für die Spielelemente stammen aus OSM und von der lokalen Datenbank. Da die OSM Daten entsprechend transformiert werden stellt sich die Frage ob dieser Prozess beschleunigt werden kann, wenn die Daten entsprechend in der Datenbank lokal zwischengespeichert werden.
+In Kapitel \ref{ch4:s:choosen_solution} ist bereits auf diesen Aspekt eingegangen worden. Die Problematik die sich durch eine Zwischenspeicherung stellt ist zum einen die Aktualisierung der Daten. Die lokalen Daten müssten mit einem Zeitstempel versehen werden und gehalten werden, bis diese "verfallen". Darüber hinaus müssten diese nach dem Verfallszeitpunkt entsprechend gelöscht oder aktualisiert werden oder belassen werden. Ein Caching kann hier Sinn sofern das Framework für ein Spiel mit einer kritischen Masse an Spielern verwendet wird. Allerdings ist eine Evalutation und Untersuchung des Frameworks auf Hochskalierbarkeit nicht Bestandteil der ersten Ausbaustufe. Ein weiterer Aspekt stellt die Datenmenge dar. Sofern im Framework alle jemals abgefragten OSM Daten in virtuellen Nodes/Spielelementen in der Datenbank hinterlegt werden ohne dass diese eine Zustandsveränderung erfahren haben ist dies zwar Modelltechnisch korrekt, allerdings aus Performance und Platzgründen nicht zu empfehlen. Speziell in der Hinsicht, dass das Framework dem Spielleiter so wenig Aufwand wie möglich machen soll, sollte verhindert werden, dass der Spielleiter sich um Datenbank und Speicherplatz Probleme kümmern muss. Ein gutes Beispiel hierfür stellt auch das OSM Projekt selbst dar. Die bekannte Kartendarstellung verwendet zur Anzeige entsprechende Tiles. Diese Tiles werden auf Basis der OSM Daten gerendert. Ein erster Ansatz wäre es alle Tiles entsprechen dzu Rendenr. Allerdings dauert der Renderprozess dann Tage und Aktualisierungen auf der Karte würden immer nur mit mehreren Tagen Verzögerung angezeigt. Hinzu kommt die Tatsache, dass nur ein Bruchteil der Kartendaten auch tatsächlich angeschaut wird (<2\% - OSM Quelle?). Daher werden die Karten-Bilddaten in Echtzeit gerendert und und nach einer gewissen Zeit wieder verworfen.
+Daher ist es auch hier nicht sinnvoll alle Daten zu speichern sondern nur die Spielelemente mit denen ein Spieler aktiv interagiert hat.
+Die Daten der Händler werden separat gespeichert. Sie befinden sich ebenfalls in einer Datenbank, besitzen allerdings im Vergleich zu den Spielelementen eine Persistenz unabhängig von ihrer Interaktion.
 
 
 \subsection*{Schnittstellen}
+
+Ein Framework benötigt entsprechende Schnittstellen über die es Funktionen und Daten nach Außen hin zur Verfügung stellt. Zunächst muss geklärt werden, wie die Daten verwendet werden sollen. Für das Beispiel-Spiel ist die Darstellung der Karte über eine Website vorgesehen. Unabhängig von der später verwendeten Technologie müssen in diesem Fall sowohl die Spielelemente, als auch die Händlerdaten vom Framework zur Verfügung gestellt werden.
+
+Zur Verdeutlichung wird an dieser Stelle die Entscheidung für eine Technologie in Abbildung \ref{img:ch5_img04_interfaces} auf das nachfolgende Kapitel verlegt.
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width=140mm]{images/ch5_img04_interfaces.png}
+\caption{Visualisierte Schnittstellen des Frameworks}
+\label{img:ch5_img04_interfaces}
+\end{center}
+\end{figure}
+
+Dadurch, dass das Framework die Daten von OSM/Overpass als JSON erhält und das Format bestens geeignet ist für den Austausch, da eine Vielzahl der aktuellen Frameworks und Tools dieses unterstützen ist die Wahl auf den Export der Spielelemente und Händlerdaten auf GeoJSON gefallen. Während das offene Format WKT für die reine Repräsentation von Geodaten dient \cite{Stolze.2003}, bietet das GeoJSON FOrmat zusätzlich die Möglichkeit entsprechende Properties an ein Geo Objekt zu speichern \cite{Butler.2008}. Über diese kann wiederum das Framework Informationen wie z.B. die codierte OSM ID und Informationen zum Spielelement übertragen.
+
+Generell werden die Informationen des Frameworks für drei verschiedene Module benötigt.
+Zunächst einmal steht der Spielclient bzw. dessen Oberfläche. Dieser benötigt die Daten für das Staging des Spiels selbst.
+Über die Spieloberfläche interagiert der Spieler mit dem Spiel.
+
 
 \subsection*{Spiel Darstellung}
 
