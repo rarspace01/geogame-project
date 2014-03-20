@@ -128,7 +128,12 @@ Diese kann er analog zu den Items entsprechend modifizieren und löschen. Auch d
 
 Nachdem die Anforderungen beschrieben wurden, muss der Softwareteschnische Entwurf konkretisiert werden.
 Um die Software entsprechend abzubilden zu können muss zunächst ein Modell entworfen werden, welche die Software abbildet. Die Prozesse des Frameworks wurden bereits in Abbildung \ref{img:ch5_img01_framework_progress} sowie \ref{img:ch5_img04_interfaces} visualisiert.
+
+Zu Beginn einer Systementwicklung müssen die Usecases und die beteiligten Akteure identifiziert werden.
+Hierfür wird zu Beginn überlegt, welche Personen Zugang zum System haben und welche Aufgaben diese am System erfüllen werden.
+Dadurch wird sichergestellt, dass alle Aspekte behandelt werden, nicht nur die im initialen Lösungsansatz. Diese sind wichtig für den späteren Entwurf des Systems, sowie deren Umsetzung.
 Die Usecases lassen sich als Diagramm wie in Abbildung \ref{img:ch5_img06_usecases} sichtbar definieren.
+
 
 
 \begin{figure}[H]
@@ -139,13 +144,69 @@ Die Usecases lassen sich als Diagramm wie in Abbildung \ref{img:ch5_img06_usecas
 \end{center}
 \end{figure}
 
+Zunächst lässt sich feststellen, dass es drei Akteure gibt.
+Diese decken sich soweit mit dem Lösungsansatz.
+Der Spiele hat das Ziel das Spiel zu spielen. Der Spielleiter hingegen sieht es vor entsprechend das Staging des Spiels mit dem Framework zu bewerkstelligen.
+Hier muss er die Händler als auch Items pflegen. Darüber hinaus teilt er sich mit dem Händler die Metadatenpflege, da je nach Situation der Spielleiter mehr oder weniger in die individuelle Pflege der Händlerdaten eingebunden ist. Der Händler möchte zusätzlich seine Items, die er vom Spielleiter zugewiesen bekommen hat entsprechend auf seine virtuellen Läden verteilen. In der Grundfunktion des Framesworks sind nur diese Benutzer vorgesehen. In einem Ausbau des Frameworks macht es Sinn explizite Nutzerrollen einzuführen um eine detailliertere Rechtezuweisung zu ermöglichen.
+\\\\
+Durch die Verwendung einer objektorientierten Programmiersprache ist es notwendig entsprechende Klassen zu definieren.
+Diese dienen dazu, Objekte abzuleiten und die jeweiligen Methoden von diesen zu nutzen.
+Es muss sichergestellt werden, dass die Beziehungen zwischen den Klassen modular sind, damit ein einfacher Zugriff und eine Austauschbarkeit gegeben ist.
+Um ein Einblick in die Struktur des Frameworks zu erhalten wird in diesem Abschnitt kurz auf die wichtigsten Aspekte eingegangen.
 
 
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width=150mm]{images/ch5_img07_classes.png}
+\caption{Vereinfachtes Klassen Diagramm}
+\label{img:ch5_img07_classes}
+\end{center}
+\end{figure}
+
+In Abbildung \ref{img:ch5_img07_classes} ist ein vereinfachtes Klassendiagramm des Frameworks zu sehen. Das Framework als solches besteht aus drei Modulen. Zunächst gibt es den Bereich \textit{OverpassApi}. Hierbei handelt es sich nicht um die OverpassApi selbst, da Overpass selbst nur eine Webschnittstelle ist, sondern um die Implementierung einer entsprechenden Schnittstelle im Framework selbst, welches das Ergebnis der OverpassApi im Web transferiert auf die einzelnen Elemente Relations, Ways und Nodes. Diese werden wiederum durch den bereits beschriebenen Ansatz entsprechend transformiert in dem eine umcodierung in virtuelle Nodes erfolgt. Im gleichen Zug wird überprüft, ob es persistierte Daten für die virtuellen Nodes in der lokalen Datenbank gibt. Ist dem der Fall, so werden die virtuellen Nodes um die entsprechenden Properties ergänzt und anschließend als JSON bzw. GeoJSON gerendert.
+Im Anschluss werden diese über die Webschnittstelle des eigenen Frameworks ausgegeben.
+Für die Händler gibt es eine separate Schnittstelle im Framework, welche analog zur Overpass Implementierung fungiert, aber hierbei nicht die Daten von extern (OSM/Overpass) bezieht, sondern direkt in der fertigen Form aus der lokalen Datenbank auslesen kann. Hierbei ist zudem auch keine entsprechende Transformation notwendig, sondern diese liegen bereits als fertige Nodes vor. Dies ist möglich, da jeder Händler nur als einziger Punkt im Spiel repräsentiert wird.
+\\\\
+Das nächste Modul ist das \textit{Beispielspiel}. Das Beispielspiel selbst wurde einfach gehalten, da es zum einen als Proof of Conecept des Frameworks dienen soll, zum anderen der Fokus auf die Verteilung der Spielelemente auf dem Spielbrett untersucht werden soll.
+Generell gibt es 4 Objekte. \textit{Spieler}, \textit{Händler}, \textit{Flaggen} und \textit{Items}.
+Spieler und Händler stehen in einer polymorphen Verbindung zu Item. Ausgelöst, leiten beide Klassen von einer abstrakten Klasse \textit{ItemOwner} ab, welche entsprechende Methoden vorhält die für die Interaktion als ItemOwner essentiell sind. Beispielsweise der Verkauf oder die Benutzung eines Items. Ein Item kann nur einem Spieler oder einem Händler angehören, niemals aber beiden gleichzeitig. Des weiteren gibt es auch die Möglichkeit, dass ein Item ohne ItemOwner existiert. Ein Beispiel könnte es sein, dass der Spielleiter für ein Event bestimmte Items auf der Karte ablegt oder lokale zwei Spieler Items manuell tauschen möchten.
+\\\\
+Das letzte Modul stellt das sogenannte \textit{Evalutationstool} dar.
+Mit diesem sollen die erzeugten Spielfelder analysiert und bewertet werden. Eine genauere Erläuterung ist in Kapitel \ref{ch:CH6_qualtiy_of_gameboards} zu finden.
+Das Evaluationstool gereift zunächst auf die GeoJSON Schnittstelle des Frameworks zu. Dieses liefert bei entsprechender Abfrage mittels Bounding Box und entsprechendem OSM Tags die Spielelemente zurück. Die Boundingbox wird auf Basis einer initialen Koordinate berechnet. Somit kann der Spielleiter einfach zwei Koordinaten definieren zu denen er gerne eine entsprechende Auswertung interessanter Tags erhalten möchte. Das Evaluationstool startet im Anschluss den Vorgang und wandelt die Spielelemente in vereinfachte Objekte mit ID und Geo-Kooridnaten um. Diese wiederum werden der jeweiligen Evaluationsmethode als Liste übergeben und deren Rückgabewert beschreibt die Kombination aus Boundingbox und OSM Tag.
+
+\subsubsection*{Datenbank}
+
+Aufgrund der vorherigen Analysen wird normalerweise ein Enitity Relationship Model (ERM) erstellt. Allerdings soll der Einsatz eines Webframeworks erfolgen welches ein mindestens ein Objektrelationales Mapping unterstützt und somit die Manuelle Erstellung der Datenbankstruktur nicht mehr vorgesehen ist. Dies wird unter der Annahme gemacht, dass das Framework später im Produktiv Betrieb für die Datenspeicherung optional auf eine NoSQL Lösung umgestellt werden kann. Diese bieten eine bessere Performance bei einfachen Abfragen.
+Dies geschieht auch vor dem Hintergrund den in der Literatur häufig kritisierten Mismatch zwischen Objektorientierter Programmierung und der Verwendung von Relationalen Datenbanken um Objekte welche von Klassen abgeleitet wurden zu speichern \cite{Cattell.1991}.
+
+Die geringe Verbreitung der objektorientierten Datenbanken liegt darin, dass nicht
+versucht wurde die bestehenden Datenbanken zu ersetzten. Viel mehr sind die bereits existierenden Datenbanken in Unternehmen nicht in neue objektorientierte Datenbanken transferiert worden. Der Grund hierfür liegt in den historisch gewachsenen Applikationen und Datenbanken, dessen Umstellung einen sehr hohen Aufwand und Kosten darstellen würde \cite{Burleson.1994}.
+
+Ein weiter Aspekt ist die Tatsache, dass die objektorientierten Datenbanken nicht in jedem Aspekt
+besser sind als relationale Datenbanken. Es gibt Situationen in denen haben Objektorientierte
+Datenbank Management Systeme klare Vorteile gegenüber den relationalen Datenbanken besitzen.
+Die Objektorientierten Datenbanken spielen Ihre Vorteile speziell bei der Abbildung
+von Beziehungen von Objekten untereinander aus. Nicht nur bei Vererbungen sondern auch wenn
+die Objekte diverse Methoden besitzen. Bei einer Sequentiellen Abfrage mehrerer Datensätze sind
+jedoch die relationalen im Vorteil \cite{Van.2006}. Hier ist es notwendig den Zweck der zu speichernden Daten bzw. deren Verwendung zu untersuchen. Je nachdem kann der Einsatz von objektorientierten Datenbanken oder relationalen Datenbanken Sinn machen.
+
+Vergleicht man die Verbreitung von objektorientierten Datenbanken in gewissen Einsatzgebieten, so lässt sich feststellen, dass diese trotz der in Summe geringen Verbreitung ein berechtigtes Dasein haben. Speziell in Geoinformationssystemen spielen objektorientierte Datenbank Management Systeme ein wichtige Rolle,\cite{Brinkhoff.2005} da Sie deutlich einfacher ermöglichen komplexe Verbindungen zwischen den unterschiedlichen Objekten herzustellen und eine Veränderung dieser Beziehungen in einem Bruchteil der Zeit ermöglichen, welcher eine relationale Datenbank dafür aufwenden müsste. Die umfangreiche Literatur zum Thema Geoinformationsysteme gibt einen Ausblick für Möglichkeiten sich durch die Nutzung dieser ergeben können.
+
+\subsection*{Weitere Aspekte}
+
+Ein weiterer Aspekt stellt die Optimierung der Anfragen an die Overpass Api Schnittstelle des Frameworks seitens des Spielfeldes dar. In der Grundvariante des Frameworks, stellt das Spielfeld jeweils eine Anfrage als Bounding Box an die Schnittstelle um die aktuellen Spielelemente für den aktuellen Kartenausschnitt zu erhalten.
+
+%% performance messungen?
 
 \section{Bewertung der Technologien und Werkzeuge}
 
-Webframework
-
-Kartendarstellung
+-Webframework
+-Kartendarstellung
+-Schnittstellen
 
 \section{Implementierung des Geogameframeworks}
+
+
+
+\subsubsection*{Probleme}
