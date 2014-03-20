@@ -93,16 +93,59 @@ Zur Verdeutlichung wird an dieser Stelle die Entscheidung für eine Technologie 
 \end{figure}
 
 Dadurch, dass das Framework die Daten von OSM/Overpass als JSON erhält und das Format bestens geeignet ist für den Austausch, da eine Vielzahl der aktuellen Frameworks und Tools dieses unterstützen ist die Wahl auf den Export der Spielelemente und Händlerdaten auf GeoJSON gefallen. Während das offene Format WKT für die reine Repräsentation von Geodaten dient \cite{Stolze.2003}, bietet das GeoJSON FOrmat zusätzlich die Möglichkeit entsprechende Properties an ein Geo Objekt zu speichern \cite{Butler.2008}. Über diese kann wiederum das Framework Informationen wie z.B. die codierte OSM ID und Informationen zum Spielelement übertragen.
-
+\\\\
 Generell werden die Informationen des Frameworks für drei verschiedene Module benötigt.
-Zunächst einmal steht der Spielclient bzw. dessen Oberfläche. Dieser benötigt die Daten für das Staging des Spiels selbst.
-Über die Spieloberfläche interagiert der Spieler mit dem Spiel.
+Zunächst einmal gibt es den Spielclient bzw. dessen Oberfläche. Dieser benötigt die Daten für das Staging des Spiels selbst.
+Über die Spieloberfläche interagiert der Spieler mit dem Spiel. Er Sieht die aktuelle Karte, sowie die darauf platzierten Objekte. In diesem Fall sind dies die Spielelemente sowie die einzelnen Händler. Die Spielelemente selbst stellen im Beispielspiel die sogenannten Prestige Flaggen dar.
+Ein weiteres Moduls stellt die Administartionsoberfläche dar. DIese dient dazu dem Spielleiter sowie dem jeweiligen Händler eine Konfiguration des Spiels vorzunehmen. Im Detail kann der Spielleiter die entsprechenden Spielitems definieren, neue Händler anlegen und diese auf der Karte positionieren. Der Händler kann seine Metadaten pflegen und entsprechende Items, welche er in seinem virtuellen Laden anbieten möchte selektieren und anbieten. Bei Fehlern oder Aktualisierungen kann der jeweilige Administrator (Spieleiter oder Händler) diese problemlos anpassen. Für die Positionierung der virtuellen Läden auf der Karte wird ebenfalls analog zum Spielfeld eine GeoJSON Schnittstelle zum Einsatz kommen.
+Das letzte Modul stellt die Evaluierung der Spielfelder dar. Hier wird dem Spielleiter durch die Verwendung der gleichen Schnittstelle, wie für die Aufbereitung des Spielfeldes, die Möglichkeit geboten Daten in ein entsprechendes Evaluationstool mit entsprechendem Algorithmus  zu importieren. Dieses Tool wird entsprechend in Kapitel \ref{ch:CH6_qualtiy_of_gameboards} in vorgestellt. Über dieses wird das ideale Key-Value Paar für die OSM Tag Selektion der Daten evaluiert. Dies soll dem Spielleiter die Möglichkeit einer Objektiven Bewertung der Spielfelder ermöglichen.
+
+\subsection*{Darstellung}
+
+Da das Framework für ortsbezogene Spiele verwendet werden soll, ist es daher unerlässlich dem Spieler, sowie den Administratoren eine entsprechende Visualisierung zu bieten. Zunächst gibt es das Spielfeld. Das Spielfeld verwendet im Hintergrund Kartenmaterial von OSM, auf das die einzelnen Elemente platziert werden. Die Karte selbst wird initial auf die (GPS-)Korrdinaten der Spielerposition zentriert. Dadurch ist es dem Spieler möglich sich direkt von seiner Position aus zu Orientieren. Die auf der Karte eingezeichneten Eleemente wie Flaggen und Händler kann der Spieler somit problemlos identifizieren und zu Fuß aufsuchen. In Abbildung \ref{img:ch5_img05_dialog} ist ein Mockup der Kartenoberfläche zu sehen. Je nach Flaggestatus werden die Flaggen unterschiedlich farbig dargestellt. Das Ziel ist es Neutrale Flaggen grau, feindliche Rot und eigene grün darzustellen. Damit erhält der Spieler automatisch einen Überblick über die Situation und kann auch durch das Herauszoomen der Karte seine weiteren Spielzüge entsprechend planen.
+Über die Elemente hinaus werden dem Spieler sein aktueller Punktestand. Dieser wird im Beispielspiel durch das einfache Addieren der Prestige der Flaggen die im Spielerbesitz sind berechnet. Des weiteren wird dem Spieler eine Auswahl für sein Inventar angezeigt werden. Über dieses kann er nicht nur sich alle Items in seinem Besitz anzeigen lassen, sondern auch diese verwenden und in einem späteren Ausbau des Frameworks Items mit anderen Spielern tauschen.
+Sofern der Spieler mit einer Flagge interagiert, wird ihm die aktuelle Prestigezahl der Flagge angezeigt. Je nachdem ob ihm die Flagge bereits gehört oder diese einem fremden Spieler angehörig ist, kann der Spieler diese "angreifen". Durch den Angriff werden die Aktionspunkte des Spielers auf die Flagge transferiert. Ist die Flagge im Besitzt eines anderen Spielers so sieht der Spieler dies durch die aktuelle Farbgebung und kann durch den Einsatz seiner Aktionspunkte die Prestigezahl reduzieren, was direkt angezeigt wird. Für die Interaktion mit Händlern, steht dem Spieler ebenfalls ein Menü zur Verfügung, sobald er auf einen der Händler klickt. Danach öffnet sich ein Menü über das der Spieler eine Übersicht der verfügbarne Items sowie deren Spielpreise erhält. Sollte der Händler darüber hinaus Items wie in Kapitel \ref{ch4:s:choosen_solution} angedeutet mit Coupons arbeiten, so kann der Spieler diesen an gegebener Stelle eingeben.
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width=140mm]{images/ch5_img05_dialog.png}
+\caption{Spielfeld Mockup}
+\label{img:ch5_img05_dialog}
+\end{center}
+\end{figure}
+
+Der Administrationsbereich für den Spielleiter und den Händler arbeitet separat vom Spielfeld.
+Je nachdem, ob Items oder Händler in das System gepflegt werden sollen, wird der Benutzer mit einer Liste präsentiert.
+Im Fall der Items, erhält der Benutzer eine Übersicht über alle Items die dem Spiel zur Verfügung stehen. Hierbei handelt es sich allerdings nicht um Itemtypen sondern direkt um die instantiierten Items selbst. Die Idee dahinter ist es, dem Spiel die Möglichkeit zu bieten auch einzigartige Items zu enthalten und sicherzustellen, dass ein Item jeweils auch immer als solches im System behandelt wird. Über die Liste gibt es die Option die bestehenden Items zu modifizieren oder zu entfernen. Neue Items können übe reine Schaltfläche entsprechend angelegt werden. Dabei wird dem Benutzer eine entsprechende Oberfläche präsentiert und über Metadaten das Item genauer spezifiziert. Beispielsweise der Name, Itemtyp und der dafür  zu zahlende Preis.
+\\\\
+Möchte der Benutzer dahingegen Händler pflegen, so erhält er zunächst analog zu den Items eine Übersicht der einzelnen Händler.
+Diese kann er analog zu den Items entsprechend modifizieren und löschen. Auch das Anlegen eines neuen Händlers ist analog zu den Items. Der Unterschied liegt jedoch drin, dass es sich bei den Händlern nicht um einfache Formularfelde rhandelt, sondern auch zusätzlich eine Georepräsentation stattfinden muss. D.h. es muss die Position des Händlers auf einer Karte erfolgen. Hierzu wird eine Art "Picker" verwendet. Auf einer OSM Karte soll der Benutzer die Position des Händlers definieren. Für eine Korrektur der Position reicht es aus, wenn der Benutzer einfach den Marker auf der Karte mit der Maus ergreift und per drag n drop auf seine neue Position bewegt.
+
+%%\subsection*{Sonstige Funktionalitäten}
 
 
-\subsection*{Spiel Darstellung}
+\subsection*{Technischer Entwurf}
 
-\subsection*{Softwaretechnischer Entwurf}
+Nachdem die Anforderungen beschrieben wurden, muss der Softwareteschnische Entwurf konkretisiert werden.
+Um die Software entsprechend abzubilden zu können muss zunächst ein Modell entworfen werden, welche die Software abbildet. Die Prozesse des Frameworks wurden bereits in Abbildung \ref{img:ch5_img01_framework_progress} sowie \ref{img:ch5_img04_interfaces} visualisiert.
+Die Usecases lassen sich als Diagramm wie in Abbildung \ref{img:ch5_img06_usecases} sichtbar definieren.
+
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width=100mm]{images/ch5_img06_usecases.png}
+\caption{Usecase Diagramm}
+\label{img:ch5_img06_usecases}
+\end{center}
+\end{figure}
+
+
+
 
 \section{Bewertung der Technologien und Werkzeuge}
+
+Webframework
+
+Kartendarstellung
 
 \section{Implementierung des Geogameframeworks}
