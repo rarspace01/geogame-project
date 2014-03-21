@@ -195,11 +195,31 @@ Vergleicht man die Verbreitung von objektorientierten Datenbanken in gewissen Ei
 
 \subsection*{Weitere Aspekte}
 
-Ein weiterer Aspekt stellt die Optimierung der Anfragen an die Overpass Api Schnittstelle des Frameworks seitens des Spielfeldes dar. In der Grundvariante des Frameworks, stellt das Spielfeld jeweils eine Anfrage als Bounding Box an die Schnittstelle um die aktuellen Spielelemente für den jeweiligen Kartenausschnitt zu erhalten. Eine Optimierung dessen wäre es mit dynamischen erweiterten gecachten Bounding Boxen zu arbeiten. Das bedeutet, dass bei einer Abfrage zunächst die Boundingbox am Rand um jeweils 30\% erweitert wird. Die zusätzlichen abgefragten Spielelemente werden allerdings nicht direkt angezeigt. Bewegt der Spieler nun das Spielfeld wird überprüft ob der aktuelle Kartenausschnitt sich noch innerhalb der dynamisch erweiterten Bounding Box befindet. Ist dies der Fall, so spart sich der das Spiel einen zweiten Request. Dies hat zweierlei Vorteile der erste stellt eine Reduzierung der HTTP Request auf der Clientseite dar. Speziell bei ortsezogenen Spielen ist der Empfang beim Spielen öfters eingeschränkt und nur GPRS oder EDGE seitens Mobilfunkanbieter verfügbar. Durch die Reduzierung der Reuqests wird die Spielperformance verbessert. Ein anderer Aspekt ist die Reduzierung der Anfragen auf der Server Seite. Es verbessert deutlich die Skalierbarkeit und ermöglicht somit mehr Spieler mit einem einzigen Server bedienen zu können.
+Ein weiterer Aspekt stellt die Optimierung der Anfragen an die Overpass Api Schnittstelle des Frameworks seitens des Spielfeldes dar. In der Grundvariante des Frameworks, stellt das Spielfeld jeweils eine Anfrage als Bounding Box an die Schnittstelle um die aktuellen Spielelemente für den jeweiligen Kartenausschnitt zu erhalten. Eine Optimierung dessen wäre es mit dynamischen erweiterten gecachten Bounding Boxen zu arbeiten. Das bedeutet, dass bei einer Abfrage zunächst die Boundingbox am Rand um jeweils 30\% erweitert wird. Die zusätzlichen abgefragten Spielelemente werden allerdings nicht direkt angezeigt. Bewegt der Spieler nun das Spielfeld wird überprüft ob der aktuelle Kartenausschnitt sich noch innerhalb der dynamisch erweiterten Bounding Box befindet. Ist dies der Fall, so spart sich der das Spiel einen zweiten Request. Dies hat zweierlei Vorteile der erste stellt eine Reduzierung der HTTP Request auf der Clientseite dar. Speziell bei ortsbezogenen Spielen ist der Empfang beim Spielen öfters eingeschränkt und nur GPRS oder EDGE seitens Mobilfunkanbieter verfügbar. Durch die Reduzierung der Reuqests wird die Spielperformance verbessert. Ein anderer Aspekt ist die Reduzierung der Anfragen auf der Server Seite. Es verbessert deutlich die Skalierbarkeit und ermöglicht somit mehr Spieler mit einem einzigen Server bedienen zu können.
 
 %% performance messungen?
 
 \section{Bewertung der Technologien und Werkzeuge}
+
+Nachdem der Softwaretechnische Entwurf erstellt wurde, muss untersucht werden welche Technologien und Werkzeuge für die Umsetzung des Frameworks am besten geeignet sind.
+Zunächst stellt sich die Frage in welcher Programmiersprache das Framework umgesetzt werden soll. Diese Frage lässt sich anhand der Anforderungen eingrenzen. Zunächst muss eine Website erstellt werden, welche ein Staging des Beispielspiel erlaubt und gleichzeitig die Spieldaten über eine Webschnittstelle exportieren kann. Hiermit lässt die Auswahl auf entsprechende Sprachen reduzieren, welche eine Erstellung dynamischer Webseiten erlauben.
+Die nachfolgende Aufzählung nennt die aktuell verbreitetsten Sprachen \cite{WWWtechs.2014, Deitel.2008}:
+
+\begin{itemize}
+\item PHP (81.8\%)
+\item ASP.NET (17.8\%)
+\item Java (2.7\%)
+\item ColdFusion (0.8\%)
+\item Perl (0.6\%)
+\item Ruby (0.5\%)
+\item Python (0.2\%)
+\item JavaScript (0.1\%)
+\end{itemize}
+
+Das Framework kann auf allen der genannten Sprachen umgesetzt werden.
+Das Ziel ist es aber zum bevorzugt auf OpenSource Technologien zurückzugreifen, da diese ohne Lizenzkosten sind und meist guter Dokumentation bieten können. Damit fallen ASP.NET und ColdFusion aus der engeren Auswahl. Ein weiteres Kriterium stellt die Verwendung eines Web Frameworks dar. Ziel ist es das Framework zu implementieren und den Aufwand für andere Aspekte auf einem Minimum zu halten. Darüber hinaus reduzieren Web Frameworks auch die Gefahren im Hinblick auf Sicherheit \cite{Livshits.2007} und reduzieren den Implementierungsaufwand \cite{Schwabe.2001}. Für die restlichen Sprachen gibt es eine Vielzahl an entsprechender Web Frameworks \cite{Weinberger.2011}. Eine komplette Analyse über alle Sprachen hinweg, sowie deren Vor- und Nachteile ist nicht Bestandteil der Arbeit, daher wird ein Framework ausgewählt, welches dem Autor vertraut ist und eine möglichst effiziente und schnelle Umsetzung des Frameworks ermöglicht.
+In diesem Fall wurde sich daher für 'Ruby on Rails' entschieden, einem Webframework welches auf der Sprache Ruby basiert. Ruby bietet darüber hinaus eine Paketverwaltung analog zu den bekannten Paketverwaltungsystemem in etablierten Linux Distributionen \cite{Bachle.2007}. Durch eine Versionskoppelung der Pakete kann sichergestellt werden, dass ein Projekt problemlos auf allen Rechnern problemlos funktioniert, da fehlende Bibliotheken mit einem Befehl problemlos nachgeladen werden.
+
 
 -Webframework
 -Kartendarstellung
