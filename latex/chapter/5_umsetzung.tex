@@ -2,6 +2,7 @@
 \label{ch:S5_Umsetzung}
 
 \section{Erläuterung des Softwaretechnischen Entwurfs}
+\label{ch5:s:Entwurf}
 
 Für die Softwaretechnische Umsetzung wurden zunächst die Anforderungen an das Geogameframework in Kapitel \ref{ch4:s:Lösungen} sowie die gewählte Lösung aus Kapitel \ref{ch4:s:choosen_solution} im Detail evaluiert. Für die Umsetzung des Entwurfs wurde zunächst ein Entwurfs des Prozesses identifiziert, welcher die Geodaten aus OSM bis hin zur Darstellung im Beispielspiel darstellt. Eine Visualisierung ist in Abbildung \ref{img:ch5_img01_framework_progress} zu sehen.
 \\\\
@@ -218,15 +219,51 @@ Die nachfolgende Aufzählung nennt die aktuell verbreitetsten Sprachen \cite{WWW
 
 Das Framework kann auf allen der genannten Sprachen umgesetzt werden.
 Das Ziel ist es aber zum bevorzugt auf OpenSource Technologien zurückzugreifen, da diese ohne Lizenzkosten sind und meist guter Dokumentation bieten können. Damit fallen ASP.NET und ColdFusion aus der engeren Auswahl. Ein weiteres Kriterium stellt die Verwendung eines Web Frameworks dar. Ziel ist es das Framework zu implementieren und den Aufwand für andere Aspekte auf einem Minimum zu halten. Darüber hinaus reduzieren Web Frameworks auch die Gefahren im Hinblick auf Sicherheit \cite{Livshits.2007} und reduzieren den Implementierungsaufwand \cite{Schwabe.2001}. Für die restlichen Sprachen gibt es eine Vielzahl an entsprechender Web Frameworks \cite{Weinberger.2011}. Eine komplette Analyse über alle Sprachen hinweg, sowie deren Vor- und Nachteile ist nicht Bestandteil der Arbeit, daher wird ein Framework ausgewählt, welches dem Autor vertraut ist und eine möglichst effiziente und schnelle Umsetzung des Frameworks ermöglicht.
+\\\\
 In diesem Fall wurde sich daher für 'Ruby on Rails' entschieden, einem Webframework welches auf der Sprache Ruby basiert. Ruby bietet darüber hinaus eine Paketverwaltung analog zu den bekannten Paketverwaltungsystemem in etablierten Linux Distributionen \cite{Bachle.2007}. Durch eine Versionskoppelung der Pakete kann sichergestellt werden, dass ein Projekt problemlos auf allen Rechnern problemlos funktioniert, da fehlende Bibliotheken mit einem Befehl problemlos nachgeladen werden.
+Ein weiterer Vorteil ist die feste Verwendung des Model View Controller-Patterns \cite{Tate.2006}. Durch dieses wird sichergestellt, dass das Modell komplett unabhängig von der Darstellung ist. Dies ist auch für das Game Framework wichtig. Speziell um konkrete Funktionen über Schnittstellen über und Dialoge zur Verfügung zu stellen. Allerdings ist zu beachten, das es sich in Webframeworks, in diesem Fall auch bei Rails um eine abgewandelte Form des MVC namens \textit{Model2} handelt \cite{Qiuhui.2002}. Der Controller wird mit dem Seitenaufruf angestoßen und interagiert mit dem Model. Im Anschluss verwendet der View die Ergebnisse/Daten des Controllers und rendert entsprechend die Webseite.
+\\\\
+Nachdem die Wahl des Webframeworks auf Ruby on Rails gefallen ist wurden entsprechende Bibliotheken für die Verwendung gesucht, welche Funktionen die für das Framework benötigt werden.
+Die Vorteile fertiger Bibliotheken liegen darin, dass der Entwickler selbst nciht nur Zeit bei der Entwicklung spart, sondern auch durch die Reduzierung seines Codeumfangs auch eine Reduzierung von möglichen Fehlerquellen erreicht.
+
+Modere Bibliotheken wie JQuery für JavaScript und Compass für Sass bzw. CSS werden mit Rails direkt unterstützt. Auch die Unterstützung von Coffee Script und Sass sind bereits integriert.
+
+Das Game Framework muss auf auf spatiale Operationen zurückgreifen. Hierfür wird auf das Gem 'rgeo' zurückegriffen werden. Es handelt sich dabei um eine weit verbreitete Bibliothek die nicht nur mit geografischen Objekten umgehen kann, sondern auch direkt eine Anbindung von GIS-Datenbanken wie PostGIS, Spatialite und MySQL-Sptial erlaubt.\footnote{\url{http://dazuma.github.io/rgeo/}}
+
+Ein weiterer Aspekt stellt die Kartendarstellung dar. Für die Kartendarstellung selbst gibt es mehrere Ansätze. Die am weitesten verbreiteten sind die Google Maps API, Openlayers und leaflet \cite{Derrough.2013}. Mit der Google Maps API kann man zwar die Openstreetmap Tiles als Layer laden, jedoch sind der kommerziellen Nutzung gewsse Einschränkungen unterworfen und der Quellcode nicht frei verfügbar. Da sich ein potentieller Spielleiter nicht mit den rechtlichen Problematiken und Lizenzvereinbarungen auseinander setzten sollte sollte diese vorzugsweise vermieden werden. Openlayers hat im Vergleich zu Leaflet eine längere Versionsgeschichte \cite{Ohloh.2014}. Und bietet deutlich mehr Funktionen. Allerdings ist OpenLayers mit 800KB deutlich größer wie Leaflet mit 120KB. Da es das Ziel ist, das Framework speziell auch im Zusammenhang mit Smartphones zu nutzen ist es wichtig, dass nicht nur die Dateigröße minimal ist, sondern auch eine möglichst gute Funktionsweise auf Smartphones sichergestellt wird. Hier ist Leaflet deutlich moderner und besser angepasst. Beide Bibliotheken unterstützen GeoJSON und ermöglichen somit die einfache Einbindung von Geo-Objekten. Die Entscheidung aufgrund der Anforderungen und ausreichenden Reife auf Leaflet. Auch für dieses gibt es bereits für Ruby ein entsprechendes Gem, welches Leaflet direkt für Rails integriert 'leaflet-rails'.
+
+Neben der Kartendarstellung ist es auch wichtig, alle Spieler einzeln zu identifizieren und für jeden Spieler eine eigene "Spielsession" zu haben. Für die Benutzerverwaltung gibt es für Rails ebenfalls bereits fertige Lösungen. Diese kann man entsprechend für seine Bedürfnisse erweitern, muss trotz allem nicht komplett die Logik und Datenbankzugriffe für das Erstellen, Anlegen und Ändern von Benutzerdaten kümmern. Auch Funktionen, wie das zurücksetzten eines Passworts sind bereits integriert. An dieser Stelle wurde sich für das Gem 'Clearance' entschieden, da dies ausgereift ist und eine einfache Anpassung der Seitenbenutzer um zusätzliche Attribute ermöglicht, welche im Zuge des Frameworks entsprechend hinterlegt werden sollen.
+
+Für die Schnittstellen welche das Gameframework anbieten soll, werden keine explizite Bibliotheken benötigt. Rails bietet automatisch die Möglichkeit für bestimmte Routen die passenden Dateiformate zu hinterlegen. Bei Routen handelt es sich bei Rails um Seitenpfade. Durch das Anlegen der Route '/flag/show/{id}' wird nach dem Aufruf des FlagControllers mit der Methode show die View show aufgerufen. Durch die Defaulteinstellung werden automatisch zuerst die html Files gerendert sofern der Request nichts anderes Fordert. Der View show.html.erb erhält somit nach dem Aufruf der show Methode ein entsprechendes Objekt mit der angegeben Id aus der Datenbank zurück. Möchte man allerdings das Element nicht als Webseite darstellen sondern als JSON Objekt, so legt man lediglcih eine entsprechende show.json.erb Datei an und kann direkt über die vorhandene JSON Bibliothek das Ibjekt entsprechend als JSON serialisieren.
+Hier zeigt sich die Flexibilität und Einfachheit die sich durch die Kombination von Ruby und Rails ergibt. Dies macht das Webframework ideal für die Nutzung mit dem zu erstellendem Game Framework.
+
+Für die Erstellung des Quellcodes kommen entsprechende IDE zum Einsatz sowie eine Softwareversionskontrolle. Dies ist hilfreich um durch die die Verwendung von Code Snippets sowie einer visualisierte Fehler-Erkennung und Lösung sicherzustellen.
+Für das Schreiben des Java-Quellcodes des Evaluationstools wurde auf Eclipse zurückgegriffen. Eclipse ist ein bewärtes Tool und dem Autor bestens vertraut und  biete auch eine ausreichende Modularität durch die Installation von Erweiterungen über eine integrierte Verwaltung.
+Für die Entwicklung des Ruby on Rails-Codes wurde der grafische Text-Editor Geany verwendet. Da ein reiner Textdeitor mit Syntax Highlighting und Code Completion keine Debbing Möglichkeitne bietet wurde auf spezielle Rails Gems zurückgegriffen.
+Zunächst einmal wurde das bewerte 'Pry' Gem verwendet um ein einfaches Binding an entsprechender Code Stelle zu ermöglichen. Eine Parallele Rails Console ermöglicht dase das Überprüfen von entsprechender Active Record Abfragen, wie z.B. das Erfassen aller Punkte eines Spielers für die Status Übersicht. Für das direkte Debuggen von Fehlern zur Laufzeit  wurde das Gem 'better\_errors' in Verbindung mit 'binding\_of\_caller' verwendet. DIes ermöglicht es quasi Analog zum Debugmodus in Eclipse direkt an der Stelle an der ein unbehandelter Fehler auftritt in den Code einzusteigen. Das bedeutet es kann nicht nur einfach untersucht werden, an welcher Stelle und mit welchen Werten der Fehler auftritt, sondern direkt dort an der Stelle mit einer interaktiven Konsole aktiv debuggt werden. Eine Darstellung ist in Abbildung \ref{img:ch5_img08_livebinding} zu sehen. Dadurch ist es möglich ohne den Rails Prozess zu stoppen direkt hintereinander diverse Befehle zu testen und somit schneller die Ursache des Fehlers aufzufinden. Dies war vor allem im Zusammenhand der in Kapitel \ref{ch5:s:Implementierung} erläuterten Probleme bei der Entwicklung besonders hilfreich.
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width=155mm]{images/ch5_img08_livebinding.png}
+\caption{Interaktives Debugging mit 'better\_errors' und 'binding\_of\_caller'}
+\label{img:ch5_img08_livebinding}
+\end{center}
+\end{figure}
 
 
--Webframework
--Kartendarstellung
--Schnittstellen
+
+-Software versionkontrolle
+
+
+
 
 \section{Implementierung des Geogameframeworks}
+\label{ch5:s:Implementierung}
 
+\subsubsection*{Realisierung}
 
+\subsubsection*{Tests}
 
 \subsubsection*{Probleme}
+-turbolinks
+-geojson
