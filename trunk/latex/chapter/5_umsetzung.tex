@@ -250,12 +250,12 @@ Zunächst einmal wurde das bewerte 'Pry' Gem verwendet um ein einfaches Binding 
 \end{center}
 \end{figure}
 
-
-
--Software versionkontrolle
-
-
-
+Für die Entwicklung von Software ist es essentiell beliebig den Code wiederherstellen zu können und einfach neue Funktionen auszuprobieren. Diese Anforderung bedienen Software Systeme zur Versionsverwaltung. 
+Die Auswahl wurde auf ein Open-Source System gelegt. Am weitesten verbreitet sind zur Zeit Subversion und Git. Letzteres bietet Möglichkeit einer nicht linearen Entwicklung \cite{Bird.2009}.
+Die Wahl fiel speziell auf Subversion, da es im Gegenzug zu CVS das Versionsschema nicht auf einzelne Dateien sondern auf das ganze Projekt bezieht.
+Das hat den Vorteil, dass das Hinzufügen einer neuen Funktion nicht in der Hauptklasse Version 50 und in der Methodenklasse Version 70 gespeichert wird, sondern in einer gemeinsamen Version.
+Somit ist es für den Entwickler möglich den Zusammenhang zwischen den einzelnen Dateien direkt zu erkennen, da die neue Funktion z.B. in der Revision 60 in beiden Dateien erkennbar ist.
+Die Verwendung von Git wurde in Erwägung gezogen, aber Aufgrund der Tatsache, dass das Projekt nur einen Entwickler besitzt, wurde dies als unproblematisch angesehen. Ein späterer Transfer in ein Git-Projekt ist problemlos mit 'git-svn clone' und weiteren Anpassungen möglich. Dieser ist auch zu empfehlen, wenn das Framework später mit mehreren Entwicklern weiterentwickelt wird.
 
 \section{Implementierung des Geogameframeworks}
 \label{ch5:s:Implementierung}
