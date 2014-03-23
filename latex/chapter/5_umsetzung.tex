@@ -255,15 +255,120 @@ Die Auswahl wurde auf ein Open-Source System gelegt. Am weitesten verbreitet sin
 Die Wahl fiel speziell auf Subversion, da es im Gegenzug zu CVS das Versionsschema nicht auf einzelne Dateien sondern auf das ganze Projekt bezieht.
 Das hat den Vorteil, dass das Hinzufügen einer neuen Funktion nicht in der Hauptklasse Version 50 und in der Methodenklasse Version 70 gespeichert wird, sondern in einer gemeinsamen Version.
 Somit ist es für den Entwickler möglich den Zusammenhang zwischen den einzelnen Dateien direkt zu erkennen, da die neue Funktion z.B. in der Revision 60 in beiden Dateien erkennbar ist.
-Die Verwendung von Git wurde in Erwägung gezogen, aber Aufgrund der Tatsache, dass das Projekt nur einen Entwickler besitzt, wurde dies als unproblematisch angesehen. Ein späterer Transfer in ein Git-Projekt ist problemlos mit 'git-svn clone' und weiteren Anpassungen möglich. Dieser ist auch zu empfehlen, wenn das Framework später mit mehreren Entwicklern weiterentwickelt wird.
+Die Verwendung von Git wurde in Erwägung gezogen, aber Aufgrund der Tatsache, dass das Projekt nur einen Entwickler besitzt, wurde dies als unproblematisch angesehen. Ein späterer Transfer in ein Git-Projekt ist problemlos mit 'git-svn clone' und weiteren Anpassungen möglich. Der Transfer ist in jedem Fall zu empfehlen, gerade wenn das Framework später mit mehreren Entwicklern weiterentwickelt wird.
 
 \section{Implementierung des Geogameframeworks}
 \label{ch5:s:Implementierung}
 
-\subsubsection*{Realisierung}
+\subsection*{Realisierung}
 
-\subsubsection*{Tests}
+Nachdem alle Anforderungen, Schnittstellen und Werkzeuge des Frameworks festgelegt wurden, konnte mit der Umsetzung begonnen werden.
+Wie bereits in Kapitel XX beschrieben lässt sich das Framework in drei Module unterteilen auf die im nachfolgenden jeweils entsprechend eingegangen werden soll.
 
-\subsubsection*{Probleme}
--turbolinks
+\begin{itemize}
+
+\item GameAPI (Overpass API)
+\item Beispielspiel
+\item Evaluationstool
+
+\end{itemize}
+
+\subsubsection*{GameAPI}
+
+Die GameAPI stellt die API des GameFrameworks dar. Sie wird dazu verwendet um die Spielfelder entsprechend aufzubauen.
+Generell gibt es X unterschiedliche Funktionen die zur Verfügung gestellt werden.
+Es wird unterschieden zwischen den Locations (im Beispielspiel Flaggen) sowie den lokalen Händlern.
+Der Aufruf der Schnittstelle erfolgt mittels eines RestFULL Request mit folgenden Parametern:
+\\\\
+\url{SITE\_URL/overpass\_api/getLocation.json?s=49&w=10&n=50&e=11&tag=highway=bus\_stop}
+\\\\
+Der Aufruf kann sowohl als GET als auch als POST Request durchgeführt werden. Die Parameter s,n,w,e sind essentiell und der Parameter tag ist optional.
+Die Parameter sind zwei Werte. Die ersten vier Parameter beschreiben die angefragte Bounding Box ab. S steht hierbei für South (Bounding Box Minimum Latitude), N für North (Bounding Box Maximum Latitude), W für West (Bounding Box Minimum Longitude) und E für East (Bounding Box maximum Longitude). Der Letzte Parameter tag beschreibt den zu verwendenden OSM Tag. Wird der entsprechende Tag nicht angegeben so wird der im Framework hinterlegte Default tag verwendet. Ziel ist es hierbei den Standard Wert für das darauf aufbauende Beispielspiel zu verwenden und den optionalen Parameter tag für die Evaluation einzelner Tags - konkret der jeweiligen key-value-Paare zu ermöglichen. Nachdem der entsprechende Aufruf erfolgt ist. Wird das Ergebnis als GeoJSON mit entsprechender Properties zurückgeliefert.
+\\\\ %% settings for current code
+\lstset{
+   language=JavaScript,
+   backgroundcolor=\color{white},
+   extendedchars=true,
+   basicstyle=\scriptsize\ttfamily,
+   showstringspaces=false,
+   showspaces=false,
+   frame=single,
+   numbers=left,
+   numberstyle=\scriptsize,
+   numbersep=9pt,
+   tabsize=2,
+   breaklines=true,
+   showtabs=false,
+   captionpos=b
+}
+
+\begin{lstlisting}[caption=GeoJSON Response Location (Reduziert), label=code:ch5:geojson01]
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.8748794,
+          49.9002723
+        ]
+      },
+      "properties": {
+        "popupContent": "Test",
+        "id": "301967628",
+        "user_id": "neutral",
+        "prestige": 0
+      }
+    }
+  ]
+}
+\end{lstlisting}
+
+Wie in Code \ref{code:ch5:geojson01} zu sehen ist die Antwort der API analog zur GeoJSON Spezifikation \cite{Butler.2008}.
+In jedem Fall enthält ein GeoJSON ein Objekt. Enthält das GeoJSON mehr als ein Objekt so sind diese in einer FeatureCollection gesammelt. Diese wiederum enhält entsprechende Objekte.
+Jedes Objekt nimmt einen der nachfolgenden Objekttypen an:
+"Point", "MultiPoint", "LineString", "MultiLineString", "Polygon", "MultiPolygon" oder "FeatureCollection". Für die Implementierung des Frameworks wird allerdings nur Point und FeatureCollection genutzt. Reduzierung auf Points ist der Tatsache geschuldet, dass durch die Transformation in Virtuelel Nodes lediglich feste einzelne Spielelemente existieren die auf einen Punkt reduziert wurden. Daher ist das passendste Element im GeoJSON ebenfalls der Point. Neben den Koordinaten des Punktes können zusätzlich weitere Attribute frei definiert werden. Diese für das Gameframework unter anderem id, user\_id und prestige. Ersteres beschreibt die virtuelle Node Id des OSM Objekte von dem das Node abstammt. In diesem Fall lässt sich anhand der Zahl erkenne, dass es sich um ein Node handelt und kein Way oder Relation von dem der Punkt abstammt. Das Attribut user\_id beschreibt den Besitzer des Eleements. Für das Beispielspiel wurde hier keie konkreten Ids sondern die Stati "neutral","owner","foe" bestimmt. Mit einer einfachen Anpassung einer Zeile im Framework können hier auch direkt die Userid ausgegeben werden. Sofern die Schnittstelle ohne Session von extern aufgerufen wird, gibt es nur den Zustand "neutral" oder "foe", da ein Anonymer Zugriff keinem eingeloggtem User zugeordnet wird. Ist hingegen ein User authentifiziert über das Beispielspiel so erhält er zusätzlich die Information ob die aktuelle Flagge in seinem Besitz ist.
+Das Attribut Prestige gibt ganz normal den aktuelle n Prestige Wert der Flagge zurück. In diesem Fall handelt es sich um ein neutrales nicht bisher eingenommene Flagge die daher automatisch den Wert 0 hat und noch nicht in der Datenbank persistiert wurde. Eine Aussgae ob ein Objekt entsprechend persistiert wurde oder nicht kann derjenige der die API verwendet nicht erkennen. Dies ist aber auch nicht notwendig, da 
+die Persistierung transparent\footnote{im englischen Sinne} vor dem Spieler und gegenüber dem Schnittstellenbenutzer ist.
+
+Die nächste Schnittstelle stellt die Händlerschnittstelle dar. Über diese können die Händler in einer vorgegebenen Bounding Box abgefragt werden, analog zu den Flaggen.
+\\\\
+\url{SITE\_URL/vendors/getVendors.json?s=49&w=10&n=50&e=11}
+\\\\
+Im Gegensatz zu einem Spielelement enthält das GeoJSON des Händlers allerdings weniger Attribute, wie in Codebeispiel \ref{code:ch5:geojson02} zu sehen.
+\\\\
+\begin{lstlisting}[caption=GeoJSON Response Vendor (Reduziert), label=code:ch5:geojson02]
+{
+        "type": "Feature",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [10.869845151901245, 49.902191491264695]
+        },
+        "properties": {
+            "popupContent": "Insel 11"
+        },
+        "id": 2
+    }
+\end{lstlisting}
+
+\subsubsection*{Beispielspiel}
+\subsubsection*{Evaluationstool}
+
+
+
+-Module
+
+-Framework
+-Beispielspiel
+-Evaluationstool
+
+
+
+\subsection*{Tests}
+
+\subsection*{Probleme}
 -geojson
+-turbolinks
+-back button
