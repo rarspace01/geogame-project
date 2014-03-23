@@ -31,7 +31,7 @@ include Clearance::User
 
   # check if update is needed
   
-    timeNow = Time.now
+    timeNow = Time.now.to_i
     timeLast = self.aplastupdate
 
     # calc 
