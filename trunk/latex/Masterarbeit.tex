@@ -22,6 +22,36 @@
 \usepackage{lscape}
 \usepackage{datetime}
 
+%% source code stuff
+
+\usepackage{listings}
+\usepackage{color}
+
+%% overwrite caption name
+\renewcommand{\lstlistingname}{Code}
+
+\definecolor{white}{rgb}{1,1,1}
+\definecolor{lightgray}{rgb}{.9,.9,.9}
+\definecolor{darkgray}{rgb}{.4,.4,.4}
+\definecolor{purple}{rgb}{0.65, 0.12, 0.82}
+
+\lstdefinelanguage{JavaScript}{
+keywords={break, case, catch, continue, debugger, default, delete, do, else, finally, for, function, if, in, instanceof, new, return, switch, this, throw, try, typeof, var, void, while, with},
+  keywordstyle=\color{blue}\bfseries,
+  ndkeywords={class, export, boolean, throw, implements, import, this},
+  ndkeywordstyle=\color{darkgray}\bfseries,
+  identifierstyle=\color{black},
+  sensitive=false,
+  comment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  commentstyle=\color{purple}\ttfamily,
+  stringstyle=\color{red}\ttfamily,
+  morestring=[b]',
+  morestring=[b]"
+}
+
+
+
 %% euro symbol
 \usepackage[gen]{eurosym}
 \DeclareUnicodeCharacter{20AC}{\euro{}}
@@ -73,7 +103,7 @@
 %%last packages DONT MODIFY - ask first
 
 
-\geometry{a4paper,left=30mm,right=20mm, top=25mm, bottom=30mm}
+\geometry{a4paper,left=35mm,right=25mm, top=25mm, bottom=25mm}
 
 %%fix für paragraph einrückung
 \setlength{\parindent}{0in}
