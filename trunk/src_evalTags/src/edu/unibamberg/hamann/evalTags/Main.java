@@ -1,31 +1,57 @@
 package edu.unibamberg.hamann.evalTags;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import java.util.LinkedList;
+import java.util.List;
 
-import com.graphhopper.GHRequest;
-import com.graphhopper.GHResponse;
 import com.graphhopper.GraphHopper;
 import com.graphhopper.routing.util.EncodingManager;
 
 public class Main {
 
-	private final Logger logger = LoggerFactory.getLogger(getClass());
-
+	final static double BBOX_MIN_RADIUS = 2500.0;
+	public static final String TAG = "Main";
+	
+	private static int activeThreads =0;
+	
 	public static void main(String[] args) {
 
-		// // build graph files:
-		// // Creating and saving the graph
-		// EncodingManager em = new EncodingManager("FOOT");
-		// GraphBuilder gb = new
-		// GraphBuilder(em).setLocation("./data").setStore(true);
-		// GraphStorage graph = gb.create();
-		// // Make a weighted edge between two nodes. False means the edge is
-		// directed.
-		// //graph.edge(fromId, toId, cost, false);
-		// // Store to disc
-		// graph.flush();
+		long heapsize=Runtime.getRuntime().totalMemory();
+	    System.out.println("heapsize is::"+heapsize);
+		
+		List<String> tagList = new LinkedList<String>();
+		List<Double> resultList = new LinkedList<Double>();
+		double result = 0.0;
 
+		// tag list
+		tagList.add("highway=bus_stop");
+		tagList.add("highway=crossing");
+		tagList.add("highway=traffic_signals");
+		tagList.add("highway=steps");
+		tagList.add("highway=cycleway");
+		tagList.add("bridge=yes");
+		tagList.add("power=pole");
+		// tagList.add("building=house");
+		// tagList.add("building=residential");
+		tagList.add("building=garage");
+		// tagList.add("building=apartments");
+		tagList.add("landuse=farmland");
+		tagList.add("landuse=cemetery");
+		tagList.add("amenity=parking");
+		tagList.add("amenity=school");
+		tagList.add("amenity=place_of_worship");
+		tagList.add("shop=supermarket");
+		tagList.add("shop=bakery");
+		tagList.add("natural=water");
+		tagList.add("natural=tree");
+		tagList.add("natural=wood");
+		tagList.add("natural=grassland");
+		// tagList.add("shop");
+		// tagList.add("building");
+		// tagList.add("amenity");
+
+		// GH setup
+		
+		// setup
 		EncodingManager em = new EncodingManager("FOOT");
 
 		GraphHopper gh = new GraphHopper().forServer();
@@ -38,37 +64,47 @@ public class Main {
 		gh.setCHShortcuts("fastest");
 
 		GraphHopper tgh = gh.importOrLoad();
-
-		// Initialization for the API to be used on a desktop or server pc
-		// GraphHopperAPI ghapi = new GraphHopper().forServer();
-		// // if you use example configuration you need to enable CH shortcuts
-		// // ((GraphHopper) gh).setCHShortcuts(true, true);
-		//
-		// ghapi.load("./data");
-		// // Offline API on Android
-		// GraphHopperAPI gh = new GraphHopper().forMobile();
-		// gh.load("graph-hopper-folder");
-
-		// // Online: Connect to your own hosted graphhopper web service, for
-		// GraphHopperWeb see the 'web' sub project
-		// GraphHopperAPI gh = new GraphHopperWeb();
-		// gh.load("http://your-graphhopper-service.com/api");
-
-		double fromLat = 49.90439;
-		double fromLon = 10.85892;
-		double toLat = 49.90288;
-		double toLon = 10.87301;
 		
-		long start = System.currentTimeMillis();
-		for (int i = 0; i < 1000; i++) {
-			GHRequest request = new GHRequest(fromLat, fromLon, toLat, toLon);
-			request.setAlgorithm("dijkstrabi");
-			request.setVehicle("FOOT");			
-			GHResponse response = tgh.route(request);
+		// basic setup
+
+		Evaluator eval = new Evaluator();
+
+		GeoCoordinate zuhause = new GeoCoordinate(49.90429, 10.85929);
+
+		BoundingBox bbox = new BoundingBox(zuhause, BBOX_MIN_RADIUS);
+
+		System.out.println("BBOX: [" + bbox + "]");
+
+
+		for (String tag : tagList) {
+			
+			while(activeThreads>=Helper.getCPUCount()){ //Helper.getCPUCount()
+				try {
+					Thread.sleep(500);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+			
+			System.out.println("Starting THread with tag: ["+tag+"]");
+			
+			new Thread(new EvaluatorTask(tgh, activeThreads, bbox, tag)).start();;
+			activeThreads++;
+//			result = eval.evaluateBoundingBox(bbox, tag);
+//			resultList.add(result);
+	
 		}
-		long stop = System.currentTimeMillis();
-		//System.out.print(response.getDistance() + "m " + (stop - start) + "ms");
-		System.out.print("Eval 1k: "+ (stop - start) + "ms");
+		
+		
+
+		// print results
+
+//		for (int i = 0; i < tagList.size(); i++) {
+//			Helper.msgLog(TAG, "[" + tagList.get(i) + "]@[" + resultList.get(i)
+//					+ "]");
+//		}
+
 
 	}
 
