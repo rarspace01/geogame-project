@@ -32,7 +32,7 @@ public class Main {
 
 		gh.setEncodingManager(em);
 
-		gh.setOSMFile("./data/europe_germany_bayern_oberfranken.pbf");
+		gh.setOSMFile("./data/germany-latest.osm.pbf");
 		gh.setGraphHopperLocation("./data");
 
 		gh.setCHShortcuts("fastest");

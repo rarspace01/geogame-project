@@ -1,7 +1,9 @@
 package edu.unibamberg.hamann.evalTags;
 
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 
 import com.graphhopper.GHRequest;
 import com.graphhopper.GHResponse;
@@ -85,6 +87,21 @@ public class Evaluator {
 	}
 
 	public double evaluateBoundingBox(BoundingBox bbox, String tag) {
+		
+		// setup
+		EncodingManager em = new EncodingManager("FOOT");
+
+		GraphHopper gh = new GraphHopper().forServer();
+
+		gh.setEncodingManager(em);
+
+		gh.setOSMFile("./data/germany-latest.osm.pbf");
+		gh.setGraphHopperLocation("./data");
+
+		gh.setCHShortcuts("fastest");
+
+		GraphHopper tgh = gh.importOrLoad();
+		
 		double resultValue = 0.0;
 
 		List<Long> resultList = new LinkedList<Long>();
@@ -109,7 +126,7 @@ public class Evaluator {
 			// System.out.println(gc);
 			long startWatch = System.currentTimeMillis();
 
-			currentResult = getNodesCountInReachGraphhopper(gcListToBeUsed, gc);
+			currentResult = getNodesCountInReachGraphhopper(gcListToBeUsed, gc,tgh);
 			// currentResult = getNodesCountInReachTimeGraph(osmNodeList,
 			// currentNode);
 
@@ -125,12 +142,25 @@ public class Evaluator {
 
 		// calc AVG
 
+		Map<Long,Long> distributionMap = new HashMap<Long,Long>();
+		
 		for (long element : resultList) {
+			
+			if(distributionMap.containsKey(element)){
+				distributionMap.put(element,distributionMap.get(element)+1);
+			}else{
+				distributionMap.put(element, (long) 1);
+			}
+			
 			resultValue += element;
 		}
 
 		resultValue /= resultList.size();
 
+		for(long currentKey :distributionMap.keySet()){
+			System.out.println("currentKey: c["+currentKey+"]["+distributionMap.get(currentKey)+"]");
+		}
+		
 		return resultValue;
 	}
 
@@ -185,25 +215,13 @@ public class Evaluator {
 	}
 
 	private long getNodesCountInReachGraphhopper(
-			List<GeoCoordinate> osmNodeList, GeoCoordinate currentNode) {
+			List<GeoCoordinate> osmNodeList, GeoCoordinate currentNode, GraphHopper tgh) {
 
 		// start on -1 as A->A is included
 		long count = 0;
 		// 10min walk distance @ 4km/h ~ 700meters
 
-		// setup
-		EncodingManager em = new EncodingManager("FOOT");
 
-		GraphHopper gh = new GraphHopper().forServer();
-
-		gh.setEncodingManager(em);
-
-		gh.setOSMFile("./data/europe_germany_bayern_oberfranken.pbf");
-		gh.setGraphHopperLocation("./data");
-
-		gh.setCHShortcuts("fastest");
-
-		GraphHopper tgh = gh.importOrLoad();
 
 		// loaded
 		GeoCoordinate currentNodeGeo = currentNode;
