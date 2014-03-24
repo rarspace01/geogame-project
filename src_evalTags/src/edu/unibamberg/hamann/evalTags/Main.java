@@ -11,7 +11,7 @@ public class Main {
 	final static double BBOX_MIN_RADIUS = 2500.0;
 	public static final String TAG = "Main";
 	
-	private static int activeThreads =0;
+	public static int activeThreads =0;
 	
 	public static void main(String[] args) {
 
@@ -89,7 +89,7 @@ public class Main {
 			
 			System.out.println("Starting THread with tag: ["+tag+"]");
 			
-			new Thread(new EvaluatorTask(tgh, activeThreads, bbox, tag)).start();;
+			new Thread(new EvaluatorTask(tgh, bbox, tag)).start();;
 			activeThreads++;
 //			result = eval.evaluateBoundingBox(bbox, tag);
 //			resultList.add(result);

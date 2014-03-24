@@ -98,6 +98,8 @@ public class Evaluator {
 					+ distributionMap.get(currentKey) + "]");
 		}
 
+		Helper.msgLog(TAG, "[" + tag + "] Result["+resultValue+"]");
+		
 		return resultValue;
 	}
 
@@ -227,11 +229,21 @@ public class Evaluator {
 					if (localResult > 700)
 						localValue = 0;
 
+				}else{
+					
+					localValue = -1;
+					if(localResult<50){
+						localValue = -2;
+					}
+					
 				}
 
 				count += localValue;
 
 			}
+		}
+		if(count<0){
+			count = 0;
 		}
 		return count;
 	}
