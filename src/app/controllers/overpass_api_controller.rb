@@ -21,7 +21,8 @@ class OverpassApiController < ApplicationController
     puts "falling back to default tag"
 
     #locationtype = "building=garage"
-    locationtype = "highway=bus_stop"
+    #locationtype = "highway=bus_stop"
+    locationtype = getDefaultTag()
     else
     locationtype = tag
     end
@@ -30,6 +31,4 @@ class OverpassApiController < ApplicationController
 
   end
 
-  def checkID
-  end
 end

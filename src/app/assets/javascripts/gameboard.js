@@ -7,6 +7,9 @@ var debugvar;
 var location_lat = 49;
 var location_lng = 10;
 
+var refreshData = function (){
+};
+
 function buy(vendorid, itemid){
 
 var buyurl = '/vendors/buyItem/'+vendorid+'/'+itemid+'.json';
@@ -163,7 +166,7 @@ function showPosition(position)
 	
 }
 
-function refreshData(){
+refreshData = function refreshData(){
 
 	currentMapBounds = map.getBounds();
 
