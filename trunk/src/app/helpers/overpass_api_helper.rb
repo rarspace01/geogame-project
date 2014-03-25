@@ -235,7 +235,10 @@ module OverpassApiHelper
 						if(current_user.id == user_id)
 						
 							properties["user_id"] = "owner"
+						elsif (prestige == 0)
 						
+							properties["user_id"] = "neutral"
+							
 						else
 						
 							properties["user_id"] = "foe"
