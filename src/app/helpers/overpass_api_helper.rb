@@ -3,9 +3,7 @@ require 'open-uri'
 module OverpassApiHelper
 
 	def getDefaultTag()
-	
 	return "public_transport=stop_area"
-	
 	end
 
 	def get_geojson(geolocation, locationtype)
@@ -14,9 +12,7 @@ module OverpassApiHelper
 		access_url = "http://overpass-api.de/api/interpreter?data="+URI.escape("[out:json];(node(#{geolocation[0]},#{geolocation[1]},#{geolocation[2]},#{geolocation[3]})[#{locationtype}];way(#{geolocation[0]},#{geolocation[1]},#{geolocation[2]},#{geolocation[3]})[#{locationtype}];._;>;rel(#{geolocation[0]},#{geolocation[1]},#{geolocation[2]},#{geolocation[3]})[#{locationtype}];._;>;);out body;")
 		
 		puts(access_url) #debug
-
 		pageresult = open(access_url).read
-
 		jsondom = JSON.parse(pageresult)
 
 		#transform overpass
@@ -30,35 +26,22 @@ module OverpassApiHelper
 	
 	    locationtype = getDefaultTag()
 	
-	
 		# check which coding
 		typer = ((id.to_i>>51) & 1) #relation
 		typew = ((id.to_i>>50) & 1) #way
-
-		
-		
-		
 
 		if(typer == 1 && typew == 0)
 		# retrieve coded id
 		idr = ((id.to_i) ^ ((id.to_i)>>51)<<51)
 		
 		access_url = "http://overpass-api.de/api/interpreter?data="+URI.escape("[out:json];relation(#{idr});(._;>;);out;")
-
 		elsif (typer == 0 && typew == 1)
-		
 		# retrieve coded id
 		idr = ((id.to_i) ^ ((id.to_i)>>50)<<50)
-
 		access_url = "http://overpass-api.de/api/interpreter?data="+URI.escape("[out:json];way(#{idr});>;out;")
-
 		else
-		
 		access_url = "http://overpass-api.de/api/interpreter?data="+URI.escape("[out:json];node(#{idr});out;")
-
 		end
-		
-		
 		
 		puts(access_url) #debug
 
@@ -196,15 +179,13 @@ module OverpassApiHelper
     
     #retrieve matched flags
 		matchedFlags = Flag.where(id: virtualNodesList.keys)
-
 		matchedNodeList = Hash.new
-
+		
 		matchedFlags.each do |flag|
 		
 		matchedNodeList.store(flag.id, flag)
 
 		end
-
 
 		featureList = Hash.new
 
@@ -231,24 +212,15 @@ module OverpassApiHelper
 				prestige = matchedFlag.prestige
 
 					if(current_user != nil)
-
 						if(current_user.id == user_id)
-						
 							properties["user_id"] = "owner"
 						elsif (prestige == 0)
-						
 							properties["user_id"] = "neutral"
-							
 						else
-						
 							properties["user_id"] = "foe"
-						
 						end
-					
 					else
-					
 						properties["user_id"] = "foe"
-								
 					end
 				
 				properties["prestige"] = "#{prestige}"
@@ -259,7 +231,6 @@ module OverpassApiHelper
 				properties["prestige"] = 0
 			
 			end
-
 			
 			feature["geometry"] = geometry
 			feature["properties"] = properties
