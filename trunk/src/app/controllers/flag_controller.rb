@@ -138,9 +138,9 @@ class FlagController < ApplicationController
 
   #save currentFlag to db
   
-  if(@currentFlag.user_id != nil)
+  #if(@currentFlag.user_id != nil)
 	@currentFlag.save
-	end
+	#end
 	#@currentFlag.update_attributes(:id => @currentFlag.id, :prestige => @currentFlag.prestige, :user_id => @currentFlag.user_id)
   end
 
