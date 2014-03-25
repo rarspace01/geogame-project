@@ -2,68 +2,92 @@ require 'open-uri'
 
 module OverpassApiHelper
 
+	def getDefaultTag()
+	
+	return "public_transport=stop_area"
+	
+	end
+
 	def get_geojson(geolocation, locationtype)
 
 		# build request url
-		access_url = "http://overpass-api.de/api/interpreter?data="+URI.escape("[out:json];(node(#{geolocation[0]},#{geolocation[1]},#{geolocation[2]},#{geolocation[3]})[#{locationtype}];way(#{geolocation[0]},#{geolocation[1]},#{geolocation[2]},#{geolocation[3]})[#{locationtype}];._;>;);out body;")
+		access_url = "http://overpass-api.de/api/interpreter?data="+URI.escape("[out:json];(node(#{geolocation[0]},#{geolocation[1]},#{geolocation[2]},#{geolocation[3]})[#{locationtype}];way(#{geolocation[0]},#{geolocation[1]},#{geolocation[2]},#{geolocation[3]})[#{locationtype}];._;>;rel(#{geolocation[0]},#{geolocation[1]},#{geolocation[2]},#{geolocation[3]})[#{locationtype}];._;>;);out body;")
 		
-		puts(access_url)
+		puts(access_url) #debug
 
 		pageresult = open(access_url).read
 
 		jsondom = JSON.parse(pageresult)
 
-		result = ""
+		#transform overpass
+        virtualNodesList= transformOverpass(jsondom,locationtype)
+
+		# result = JSON.generate(featureList)
+		result = JSON.parse(buildGeoJSON(virtualNodesList).to_json)
+	end
+
+	def get_geojson_byid(id)
+	
+	    locationtype = getDefaultTag()
+	
+	
+		# check which coding
+		typer = ((id.to_i>>51) & 1) #relation
+		typew = ((id.to_i>>50) & 1) #way
+
 		
-		featureList = Hash.new
+		
+		
 
-		featureList["type"] = "FeatureCollection"
-		featureList["features"] = Array.new 
+		if(typer == 1 && typew == 0)
+		# retrieve coded id
+		idr = ((id.to_i) ^ ((id.to_i)>>51)<<51)
+		
+		access_url = "http://overpass-api.de/api/interpreter?data="+URI.escape("[out:json];relation(#{idr});(._;>;);out;")
 
-		nodesList = Hash.new
+		elsif (typer == 0 && typew == 1)
+		
+		# retrieve coded id
+		idr = ((id.to_i) ^ ((id.to_i)>>50)<<50)
 
-		nodesBlacklist = Array.new
+		access_url = "http://overpass-api.de/api/interpreter?data="+URI.escape("[out:json];way(#{idr});>;out;")
 
-		# get nodes and save them in a hash
-		jsondom["elements"].each do |element|
-			# save nodes in nodesList
-			if(element["type"] == "node")
-			location = [element["lat"],element["lon"]]
-			nodesList.store(element["id"],location)
-			end
-	      	end
+		else
+		
+		access_url = "http://overpass-api.de/api/interpreter?data="+URI.escape("[out:json];node(#{idr});out;")
 
-		# get ways and bulid nodes
-		jsondom["elements"].each do |element|
-			# save nodes in nodesList
-			if(element["type"] == "way")
+		end
+		
+		
+		
+		puts(access_url) #debug
 
-			id = element["id"].to_i
-			type = 1
+		pageresult = open(access_url).read
 
-			id = (id | type<<61)
+		jsondom = JSON.parse(pageresult)
 
-			#id = 123456789
-			#type = 1
-			#coded = (id | type<<61)
-			#idr = (coded ^ ((coded>>61)<<61))
-			#typer = (coded>>61)
+		#transform overpass
+        virtualNodesList= transformOverpass(jsondom,locationtype)
 
-			nodes = element["nodes"]
-			
-			#minlat, maxlat, minlon, maxlon
-			
-			firstelement = nodesList[nodes.first]
+		# result = JSON.generate(featureList)
+		result = JSON.parse(buildGeoJSON(virtualNodesList).to_json)
+		
+		result = result["features"].first
+		
+	end
+
+	# merges a given list of nodes
+    def mergeNodeList(nodeList)
+    
+			firstelement = nodeList.first
 
 			minlat=firstelement[0]
 			maxlat=firstelement[0]
 			minlon=firstelement[1]
 			maxlon=firstelement[1]
-
-			#binding.pry
-
-			nodes.each do |node|
-				currentnode = nodesList[node]
+    
+		    nodeList.each do |node|
+			currentnode = node
 				#binding.pry
 				if(currentnode != nil)
 					if(currentnode[0]<minlat) then minlat=currentnode[0] end
@@ -81,33 +105,115 @@ module OverpassApiHelper
 			#round to 7 decimals
 			middlelat = middlelat.round(7)
 			middlelon = middlelon.round(7)
+    
+            return [middlelat,middlelon]
+    end
+    
+    # handles the transformation on all objects
+    def transformOverpass(jsondom,locationtype)
+    
+		nodesList = Hash.new
+		waysList = Hash.new
 
-			# blacklist nodes from List
-			nodes.each do |node|
-				nodesBlacklist.push(node)
+		virtualNodesList = Hash.new
+
+		# get nodes & ways and save them in a hash
+		jsondom["elements"].each do |element|
+			# save nodes in nodesList
+			if(element["type"] == "node")
+			location = [element["lat"],element["lon"]]
+			nodesList.store(element["id"],location)
 			end
-
-			# create node with way id
-			nodesList.store(id, [middlelat,middlelon])
-
+			if(element["type"] == "way")
+			waysList.store(element["id"],element["nodes"])
 			end
-	      	end						
+		end
 
-		#retrieve matched flags
-		matchedFlags = Flag.where(id: nodesList.keys)
+		# handle each type
+		
+		jsondom["elements"].each do |element|
+		
+		if(element["tags"])
+		
+			# handle a relation
+			if(element["type"] == "relation" && element["tags"].include?(locationtype.split("=",2)[0]) && element["tags"][locationtype.split("=",2)[0]].include?(locationtype.split("=",2)[1]))
+			localNodeList = Array.new
+				#on each member element do:
+				element["members"].each do |member|
+				
+					# if node
+					if(member["type"] == "node")
+					localNodeList.push(nodesList[member["ref"]])
+					end
+					
+					# if way
+					if(member["type"] == "way")
+						waysList[member["ref"]].each do |nodeid|
+						localNodeList.push(nodesList[nodeid])
+						end
+					end
+				
+				end
+				
+				#merge localNodelist
+				relationNode = mergeNodeList(localNodeList)
+				id = (element["id"] | 1<<51) # bit shift for identification
+				virtualNodesList.store(id ,relationNode)
+			end
+			
+			# handle a way
+			if(element["type"] == "way" && element["tags"].include?(locationtype.split("=",2)[0]) && element["tags"][locationtype.split("=",2)[0]].include?(locationtype.split("=",2)[1]))
+				localNodeList = Array.new
+				
+				#on each node element do:
+				element["nodes"].each do |nodeid|
+						localNodeList.push(nodesList[nodeid])
+				end
+				
+				#merge localNodelist
+				relationNode = mergeNodeList(localNodeList)
+				id = (element["id"] | 1<<50) # bit shift for identification
+				virtualNodesList.store(id ,relationNode)
+			end
+			
+			
+			# handle a node
+			if(element["type"] == "node" && element["tags"].include?(locationtype.split("=",2)[0]) && element["tags"][locationtype.split("=",2)[0]].include?(locationtype.split("=",2)[1]))
+			
+			virtualNodesList.store(element["id"] ,[element["lat"],element["long"]])
+			
+			end
+		
+		end
+		
+		end
+    
+    return(virtualNodesList)
+    
+    end
+    
+    def buildGeoJSON(virtualNodesList)
+    
+    #retrieve matched flags
+		matchedFlags = Flag.where(id: virtualNodesList.keys)
 
 		matchedNodeList = Hash.new
 
 		matchedFlags.each do |flag|
 		
 		matchedNodeList.store(flag.id, flag)
-		
+
 		end
 
-		# on each node
-		nodesList.each do |nodeid,location|
-			if(!nodesBlacklist.include?(nodeid))
 
+		featureList = Hash.new
+
+		featureList["type"] = "FeatureCollection"
+		featureList["features"] = Array.new 
+
+		# on each node - build json dom
+		virtualNodesList.each do |nodeid,location|
+			
 			feature = Hash.new
 			feature["type"] = "Feature"
 			geometry = Hash.new
@@ -121,36 +227,33 @@ module OverpassApiHelper
 
 			if(matchedFlag != nil)
 
-			user_id =  matchedFlag.user_id
-            prestige = matchedFlag.prestige
+				user_id =  matchedFlag.user_id
+				prestige = matchedFlag.prestige
 
-			if(current_user != nil)
+					if(current_user != nil)
 
-			if(current_user.id == user_id)
-			
-			properties["user_id"] = "owner"
-			
-			else
-			
-			properties["user_id"] = "foe"
-			
-			end
-			
-			else
-			
-			properties["user_id"] = "foe"
+						if(current_user.id == user_id)
 						
-			end
-			
-			properties["prestige"] = "#{prestige}"
+							properties["user_id"] = "owner"
+						
+						else
+						
+							properties["user_id"] = "foe"
+						
+						end
+					
+					else
+					
+						properties["user_id"] = "foe"
+								
+					end
+				
+				properties["prestige"] = "#{prestige}"
 			
 			else
 			
-			properties["user_id"] = "neutral"
-			
-
-			
-			properties["prestige"] = 0
+				properties["user_id"] = "neutral"
+				properties["prestige"] = 0
 			
 			end
 
@@ -158,105 +261,10 @@ module OverpassApiHelper
 			feature["geometry"] = geometry
 			feature["properties"] = properties
 			featureList["features"].push(feature)
-			end
 	       end
-		# bulid json dom
-
-		# result = JSON.generate(featureList)
-		result = JSON.parse(featureList.to_json)
-	end
-
-	def get_geojson_byid(id)
-
-		# check if is coded way
-		idr = ((id.to_i) ^ ((id.to_i)>>61)<<61)
-		typer = (id.to_i>>61)
-
-		if(typer == 0)
-		access_url = "http://overpass-api.de/api/interpreter?data="+URI.escape("[out:json];node(#{idr});out;")
-
-		elsif (typer == 1)
-
-		access_url = "http://overpass-api.de/api/interpreter?data="+URI.escape("[out:json];way(#{idr});>;out;")
-
-		end
-		
-		puts(access_url)
-
-		pageresult = open(access_url).read
-
-		jsondom = JSON.parse(pageresult)
-
-		result = ""
-		feature = Hash.new
-
-		# build virtual or real node
-
-		if(jsondom["elements"].length >1)
-
-			firstelement = jsondom["elements"].first
-
-			minlat=firstelement["lat"]
-			maxlat=firstelement["lat"]
-			minlon=firstelement["lon"]
-			maxlon=firstelement["lon"]
-
-
-			jsondom["elements"].each do |element|
-
-					if(element != nil)
-					if(element["lat"]<minlat) then minlat=element["lat"] end
-					if(element["lat"]>maxlat) then maxlat=element["lat"] end
-					if(element["lon"]<minlon) then minlon=element["lon"] end
-					if(element["lon"]>maxlon) then maxlon=element["lon"] end
-				end			
-
-			end
-
-			# calc middle
-			middlelat = (maxlat+minlat)/2
-			middlelon = (maxlon+minlon)/2
-
-			#round to 7 decimals
-			middlelat = middlelat.round(7)
-			middlelon = middlelon.round(7)
-			# bulid json
-
-			feature["type"] = "Feature"
-			geometry = Hash.new
-			geometry["type"] = "Point"
-			geometry["coordinates"] = [middlelon,middlelat]
-			properties = Hash.new
-			properties["popupContent"] = "Test"
-			feature["geometry"] = geometry
-			feature["properties"] = properties
-			feature["id"] = id
-
-
-		else	
-
-			jsondom["elements"].each do |element|
-				if(element["type"] == "node")
-			
-				feature["type"] = "Feature"
-				geometry = Hash.new
-				geometry["type"] = "Point"
-				geometry["coordinates"] = [element["lon"],element["lat"]]
-				properties = Hash.new
-				properties["popupContent"] = "Test"
-				feature["geometry"] = geometry
-				feature["properties"] = properties
-				feature["id"] = id
-				end
-       			end
-			
-
-		end
-
-
-		# result = JSON.generate(featureList)
-		result = feature
-
-	end
+    
+    return(featureList)
+    
+    end
 
 end
