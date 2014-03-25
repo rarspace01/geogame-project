@@ -115,6 +115,11 @@ function onEachFeatureVendor(feature, layer) {
                 innerHtml = innerHtml + "</ul>";
 		//replace div here
 		document.getElementById("vendoritems").innerHTML = innerHtml;
+		//feature.properties.popupContent = innerHtml;
+		
+		layer._popup._updateLayout();
+		layer._popup._updatePosition();
+		
 	});
 
 	});
