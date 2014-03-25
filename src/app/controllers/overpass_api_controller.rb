@@ -20,6 +20,7 @@ class OverpassApiController < ApplicationController
 
     puts "falling back to default tag"
 
+    #locationtype = "building=garage"
     locationtype = "highway=bus_stop"
     else
     locationtype = tag

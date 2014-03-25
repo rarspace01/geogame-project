@@ -44,6 +44,33 @@ var geoJsonVendorList;;
 var currentGeoJson;
 var currentGeoJsonVendor;
 
+// define icons
+
+var FlagIcon = L.Icon.extend({
+    options: {
+        iconSize:     [46, 64],
+        iconAnchor:   [6, 61],
+        popupAnchor:  [0, -61]
+    }
+});
+
+var VendorIcon = L.Icon.extend({
+    options: {
+        iconSize:     [64, 52],
+        iconAnchor:   [32, 26],
+        popupAnchor:  [-32, 0]
+    }
+});
+
+var greenFlag = new FlagIcon({iconUrl: '/assets/flag_icon_green.png'}),
+    redFlag = new FlagIcon({iconUrl: '/assets/flag_icon_red.png'}),
+    whiteFlag = new FlagIcon({iconUrl: '/assets/flag_icon_white.png'}),
+    compFlag = new FlagIcon({iconUrl: '/assets/flag_icon_comp.png'});
+    
+var vendorFlag = new VendorIcon({iconUrl: '/assets/vendor.png'});
+
+// define functions
+
 function onEachFeature(feature, layer) {
 
 		layer.bindPopup("Prestige: <span id='flaginfoprestige'>"+feature.properties.prestige+"</span><br/><a href='#' onClick='attack("+feature.properties.id+");' data-no-turbolink>Attack</a>");
@@ -180,30 +207,24 @@ function loadGeoJsonData(){
 
 			pointToLayer: function (feature, latlng) {
 				
-				neutralMarker = L.circleMarker(latlng, {
-					radius: 8,
-					fillColor: "#696969",
-					color: "#000",
+				neutralMarker = L.marker(latlng, {
+					icon: whiteFlag,
 					weight: 1,
 					opacity: 1,
 					fillOpacity: 0.8,
 					riseOnHover: true
 				});
 						
-				ownerMarker = L.circleMarker(latlng, {
-					radius: 8,
-					fillColor: "#00FF00",
-					color: "#000",
+				ownerMarker = L.marker(latlng, {
+					icon: greenFlag,
 					weight: 1,
 					opacity: 1,
 					fillOpacity: 0.8,
 					riseOnHover: true
 				});
 				
-				foeMarker = L.circleMarker(latlng, {
-					radius: 8,
-					fillColor: "#FF0000",
-					color: "#000",
+				foeMarker = L.marker(latlng, {
+					icon: redFlag,
 					weight: 1,
 					opacity: 1,
 					fillOpacity: 0.8,
@@ -236,10 +257,8 @@ function loadGeoJsonVendorData(){
 			onEachFeature: onEachFeatureVendor,
 
 			pointToLayer: function (feature, latlng) {
-				return L.circleMarker(latlng, {
-					radius: 8,
-					fillColor: "#FF00FF",
-					color: "#000",
+				return L.marker(latlng, {
+					icon: vendorFlag,
 					weight: 1,
 					opacity: 1,
 					fillOpacity: 0.8,
