@@ -409,6 +409,13 @@ Hierbei wird unterschieden zwischen Low-Level-Tests und High-Level-Tests\cite{Po
 Unter Low-Level-Tests sind solche Test zu verstehen, die während der Implementierung an Teilen des Systems stattfinden. Bei High-Level-Tests wird das komplette System getestet. Einer der Low-Level-Tests ist der Modultest. Bei diesem werden einzelne Module im Programm getestet.  
 
 Für das Gameframework wurden die einzelnen Module unabhängig voneinander getestet. Zunächst wurden speziell die Schnittstellen zu OSM und Overpass getestet. Hierbei wurde vor allem kontrolliert, dass die Übergabeparameter, sowie das Datenformat korrekt ist und die Interpretation der Daten korrekt vorgenommen wird.
+Nachdem die die GameAPI mit ihrer Transformation der OSM Elemenete in Spielelemente implementiert wurde, ist das Beispielspiel entsprechend darauf aufgebaut worden. Hierzu wurde die korrekte Transformation der Elemente anhand von speziellen Tags manuell überprüft. Hierzu wurde \url{http://taginfo.openstreetmap.org} verwendet. Dies Seite bietet einen statistischen Überblick aller tags in OSM sowie die Verteilung auf die Elemente Relation, Way und Nodes. Der Test erfolge anhand von Key-Value Paaren die jeweils explizit nur als einer der drei Typen bevorzugt gemappt werden.
+
+Das Spiel selbst musste ebenfalls getestet werden. Da ein ortsbezogenes Spiel als Grundlage die Position de Spielers verwendet und ein Debugging unterwegs sich als schwierig gestaltet, ist es am besten die GPS-Koordinate zu simulieren. Hierfür gibt es entsprechende Plugins für die am weitesten verbreiteten Browser, wie Chrome oder Firefox. mit Hilfe von diesen kann die Position welche die HTML5  Geo API zurückliefert entsprechend verändert werden. Darüber hinaus ist es auch möglich die Genauigkeit der GPS Position, sowie das Bewegungs-Event zu triggern. Mit Hilfe von diesem können alle ortbezogenen Funktionen des Beispielspiels auch dirke twährend der Entwicklung getestet werden.
+Für die Nutzung des Spieles auf Smartphones eignet sich darüberhinaus der Einsatz von entsprechenden Emulatoren. Für Android und FirefoxOS sind diese frei verfügbar. Für iOS fallen jährliche Gebühren an und der Emulator inkl. SDK ist nur unter der neusten Mac OS X Version verfügbar.
+
+Tests für das Evaluationstool wurden vorwiegend für die Performance und den Werten durchgeführt.
+Konkrete Unit-Tests wurden für das Framework aus Zeitgründen nicht entwickelt, sollten aber als nächster wichtiger Punkt entsprechend implementiert werden.
 
 \subsection*{Probleme}
 -geojson
