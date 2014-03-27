@@ -417,8 +417,33 @@ Für die Nutzung des Spieles auf Smartphones eignet sich darüberhinaus der Eins
 Tests für das Evaluationstool wurden vorwiegend für die Performance und den Werten durchgeführt.
 Konkrete Unit-Tests wurden für das Framework aus Zeitgründen nicht entwickelt, sollten aber als nächster wichtiger Punkt entsprechend implementiert werden.
 
+Als High-Level bzw. Blackbox Test wurden die in den Usecase Diagramm beschriebenen Anwendungsfälle getestet. D.h. die Funktionen die den jeweiligen Akteuren zur Verfügung stehen wurden ohne Betrachtung.
+
 \subsection*{Probleme}
--geojson
--turbolinks
--back button
--js 64 bit kein long
+
+Während der Umsetzung sind auf einige Besonderheiten gestoßen, welche eine spezielle Anpassung oder Überlegung erfordert haben. Im nachfolgenden soll kurz auf diese eingegangen werden um die Erkenntnisse festzuhalten. Idealerweise können diese in zukünftigen Untersuchungen und Implementierungen entsprechend vermieden bzw. umgangen werden.
+
+Ein erster Aspekt der von Relevanz, ist die Spezifikation der GeoJSON. Standardmäßig werden Koordinaten in der Reihenfolge Latitude, Longitude angegeben \cite{Schoeneberger.2002,Barzegar.1996,Maling.1991,}. Die GeoJSON Spezifikation hingegen sieht im Kontrast zum de facto Standard vor, dass zuerst die Longitude und dann die Latitude genannt wird \cite{Butler.2008}. Ist dies nicht bekannt, kann dies zu einigem Aufwand führen, der vermeiden werden kann.
+
+Ein weiteres Problematik die im Zuge des Transformationsprozesses der Relations und Ways zu virtuellen Nodes mit einer mit Bitmasken codierten Eigenschaft, führte dazu, dass im Zuge der Verwendung mit Javascript Probleme auftraten. Dies äußerte sich darin, dass die Ids nach der Interpreation plötzlich auf unerklärlicher weise veränderte Werte annahmen. So kamen Abweichungen von bis zu 100 zu Stande. Nach längeren Debug Aufwänden wurde herausgefunden, dass die implizite Typisierung in JavaScript den Ganzzahlenwert der Id intern als Gleitkommazahl transferiert und dadurch unbewussterweise die 51Bit überschreitet nach denen die Mantisse der Gleitkommazahl beginnt. Durch diese Verschiebung wurden die hinteren Bits beim auslesen des long Wertes vernachlässigt. Um dieses Problem zu umgehen gibt es zwei Möglichkeiten. Entweder man teilt die Zahl auf Basis des 64bit long Wertes in zwei 32bit Integer Werte und legt diese in zwei Zahlen in JS ab. Sollten keine arithmetischen Operationen auf der Id durchgeführt werden sollen im JavaScript Code, dann empfiehlt es sich die Id explizit als String auszugeben, damit JavaScript diese nicht als Zahl interpretiert und versucht entsprechend umzuwandeln.
+
+Ein weiterer Punkt stellt Turbolinks dar. Turbolinks ist ein Gem, welches Standardmäßig in Rails aktiv ist. Es sorgt dafür, dass bei einer Interaktion mit der Seite nicht die komplette Seite neu geladen wird, sondern nur die Teile des Html Codes, welcher sich geändert hat \cite{Gamble.2013}. Die Problematik die damit einhergeht sind Ajax Requests, welche über normale href links angestoßen werden. Eine typische Verwendung ist z.B.:
+\lstset{
+   language=Html
+}
+
+\begin{lstlisting}[caption=a href HTML Code, label=code:ch5:html01]
+<a href='#' onClick="saveItem(1);">Save</a>
+\end{lstlisting}
+
+Allerdings für der Klick auf "Save" in diesem Fall zu einem Neuladen der Seite durch Turbolinks. Befindet sich an dieser Stelle aber ein Javascriptcode mit Ajax request, passiert es, dass die Seite neu geladen wird anstatt den Code auszuführen, welcher z.B. eine Aktualisierung einer Zahl auf der Seite zur Folge hätte.
+Um diese zu vermeiden muss Turbolinks explizit angewiesen werden, bei a href Links nicht aktiv zu werden. Dies kann man pro Link individuell setzten:
+
+\begin{lstlisting}[caption=a href HTML Code - Turbolinks deaktiviert, label=code:ch5:html01]
+<a href='#' data-no-turbolink onClick="saveItem(1);">Save</a>
+\end{lstlisting}
+
+Dadurch wird sichergestellt, dass der entsprechende JavaScript Code ausgeführt wird und nicht einfach die Seite neugeladen wird.
+
+Ein letzter Punkt, der zu Problemen führen kann ist der "Zurück"-Button im Browser.
+Durch diesen wird die vorherige Seite wieder aufgerufen, allerdings deren Javascriptcode nicht nocheinmal 1:1 getriggert wie beim laden der Seite. D.h. diverse Eventlistener welche auf "OnDocumentReady" z.B. mittels JQuery warten, werden nicht noch einmal aufgerufen. Wird dies nicht entsprechend in der Entwicklung berücksichtigt, kann es dazu führen, dass die Seite sich in einem nicht definierten Zustand befindet.
