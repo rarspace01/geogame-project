@@ -8,6 +8,10 @@ Masterarbeit.pdf:  $(TEXFILES)
 	pdflatex Masterarbeit
 	pdflatex Masterarbeit
 
+printpdf:
+	gs -o cmyk.pdf -sDEVICE=pdfwrite -sColorConversionStrategy=CMYK -sProcessColorModel=DeviceCMYK -sOutputICCProfile=local.icc -sColorImageDownsampleThreshold=2 -sColorImageDownsampleType=Bicubic -sColorImageResolution=300 -sGrayImageDownsampleThreshold=2 -sGrayImageDownsampleType=Bicubic -sGrayImageResolution=300 -sMonoImageDownsampleThreshold=2 -sMonoImageDownsampleType=Bicubic -sMonoImageResolution=1200 -dSubsetFonts=true -dEmbedAllFonts=true -sCannotEmbedFontPolicy=Error -c ".setpdfwrite<</NeverEmbed[ ]>> setdistillerparams" -f Masterarbeit.pdf 
+
+
 showpdf:
 	gnome-open Masterarbeit.pdf
 

@@ -46,15 +46,30 @@ Hierbei zeigt sich, dass die Anforderung für die Flexibilität des Frameworks h
 
 \subsection*{Relokalisierbarkeit}
 
-Der nächste essentielle Aspekt der Problemstellung war die Relokalisierbarkeit. Ziel war es im Zuge des einfachen Stagings dem Spielleiter entsprechend eine Möglichkeit an die Hand zu geben, welche im auch ein Spielen außerhalb eines festen Bereiches ermöglicht. Hierzu wurden entsprechende OSM-Daten verwendet die durch eine Transformation zu Spielelementen umgewandelt wurden. Durch die entsprechende Evaluation der OSM Tags im Voraus wird sichergestellt, dass der jeweilige beste Tag für die getesteten Umgebungen ausgewählt wurde. 
+Der nächste essentielle Aspekt der Problemstellung war die Relokalisierbarkeit. Ziel war es im Zuge des zu vereinfachenden Stagings dem Spielleiter entsprechend eine Möglichkeit an die Hand zu geben, welche im auch ein Spielen außerhalb eines festen Bereiches ermöglicht. Hierzu wurden entsprechende OSM-Daten verwendet die durch eine Transformation zu Spielelementen umgewandelt wurden. Durch die entsprechende Evaluation der OSM-Tags im Voraus wird sichergestellt, dass der jeweils beste Tag für die getesteten Umgebungen ausgewählt wurde.
+Die Transformation der OSM-Elemente funktioniert problemlos, speziell auch mit Relationen und Ways, wie in Abbildung \ref{img:ch6_img02_transform} zu erkennen ist. Auf der linken Seite sind die Daten aus OSM respektive Overpass zu sehen. Auf der rechten Seite sind hingegen die vom Framework erzeugen Spielelemente ersichtlich.
 
--Verarbeitung von Geodaten
--Einbindung der lokalen Händlern
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width=150mm]{images/ch6_img02_transform.png}
+\caption{OSM-Daten im Vergleich zu den transformierten Spielelementen}
+\label{img:ch6_img02_transform}
+\end{center}
+\end{figure}
+
+Sofern eine entsprechende Evaluierung sichergestellt wurde im Voraus, sind die Spielfelder entsprechend nutzbar.
+Einen Nachteil der die Fokusierung auf ein einzelnes Key-Value Paar in OSM mit sich bringt, ist die Möglichkeit, dass es z.B. in Regionen in denen eine geringere Mapping Qualität vorliegt, im Extremfall keine Spielelemente zur Verfügung stehen könnten. Diese Problematik könnte in dem Fall durch eine einfache Anpassung des Frameworks gelöst werden. Hierzu müsste intern eine Liste vorgehalten werden mit alternativen Tags. Diese Liste könnte auch dynamisch auf Basis von \url{http://taginfo.openstreetmap.ch/tags} gefüllt werden. Beim Request müsste das Framework nur die vorhandene Zahl der Spielelemente prüfen und bei einer Unterschreitung eines vordefinierten Wertes automatisch der nächste alternative Tag verwendet werden. Zwar führt das dazu, dass potentiell die Auswahl der Spielelemente für den Spieler schwerer nachvollziehbar ist, jedoch würde dies sicherstellen, dass auch im Worst Case Szenario entsprechende Spielelemente generiert werden.
+
+Somit lässt sich feststellen, dass die Relokalisierung problemlos funktioniert und auch entsprechend für den Einsatz mit Pervsaive Games geeignet ist. Ein offener Punkt ist eine weitere Optimierung für das Worst Case Szenario für den Fall, dass der optimale Tag im lokalen Bereich keine Spielfelder liefern kann.
 
 \subsection*{Verwendbarkeit von OSM Daten}
--OSM-Daten Transformation/Aufbereitung
 
--vergleich zu den anforderungen
+Eine Fragestellung zu Beginn der Arbeit war die Verwendbarkeit von OSM Daten im Zuge von Pervasive Games.
+Die Anforderungen an die Daten im Vergleich zu einer Navigationssoftware sind beim Framework vergleichsweise gering.
+Es muss eine korrekte Klassifikation stattfinden und die Abweichung der Position sollte vorzugsweise nicht mehr als der Aktionsradius des Spielers betragen. Dadurch wird erreicht, dass alle Spielelemente auch entsprechend von den Spielern physikalisch erreichbar sind.
+Fehler bei der Klassifikation können vorkommen, da es immer der Fall sein kann, dass die Daten nicht entsprechend korrekt gemappt wurden.
+Dies ist aber im Zusammenhang des Frameworks nicht weiter tragisch, da deswegen maximal das entsprechende Element/Objekt nicht auf dem Spielfeld erscheinen wird. Dadurch wird aber die Funktionalität des jeweiligen Spieles selbst nicht berührt. Hierdurch wird lediglich die Verteilung auf dem Spielfeld beeinflusst. Probleme mit dem Spielfeld bei zu wenig Elementen wurden bereits angesprochen und mögliche Lösungen aufgezeigt.
 
 
 Für den Spielleiter lässt sich daher festhalten, dass die Anforderung für ein einfaches Staging erfüllt wird. Darüberhinaus findet auch die geforderte Modularisierung der einzelnene Funktionen statt.
