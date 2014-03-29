@@ -22,6 +22,9 @@
 \usepackage{lscape}
 \usepackage{datetime}
 
+%% appendix
+%%\usepackage[toc]{appendix}
+
 %% source code stuff
 
 \usepackage{listings}
@@ -180,15 +183,19 @@ keywords={break, case, catch, continue, debugger, default, delete, do, else, fin
 \newpage
 \input{chapter/7_diskussion}
 \newpage
-\input{chapter/8_glossar}
+\begin{appendix}
+\input{chapter/8_appendix}
 \newpage
+\input{chapter/9_glossar}
+\newpage
+\end{appendix}
 %% - alphadin
 %%\bibliography{references}
 \nocite{*} 
 \printbibliography[heading=bibintoc]
 \newpage
 
-\input{chapter/9_code_of_conduct}
+\input{chapter/10_code_of_conduct}
 \newpage
 
 \end{document}

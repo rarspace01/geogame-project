@@ -446,4 +446,4 @@ Um diese zu vermeiden muss Turbolinks explizit angewiesen werden, bei a href Lin
 Dadurch wird sichergestellt, dass der entsprechende JavaScript Code ausgeführt wird und nicht einfach die Seite neugeladen wird.
 
 Ein letzter Punkt, der zu Problemen führen kann ist der "Zurück"-Button im Browser.
-Durch diesen wird die vorherige Seite wieder aufgerufen, allerdings deren Javascriptcode nicht nocheinmal 1:1 getriggert wie beim laden der Seite. D.h. diverse Eventlistener welche auf "OnDocumentReady" z.B. mittels JQuery warten, werden nicht noch einmal aufgerufen. Wird dies nicht entsprechend in der Entwicklung berücksichtigt, kann es dazu führen, dass die Seite sich in einem nicht definierten Zustand befindet.
+Durch diesen wird die vorherige Seite wieder aufgerufen, allerdings deren Javascriptcode nicht nocheinmal 1:1 getriggert wie beim laden der Seite. D.h. diverse Event-Listener welche auf "OnDocumentReady" z.B. mittels JQuery warten, werden nicht noch einmal aufgerufen. Wird dies nicht entsprechend in der Entwicklung berücksichtigt, kann es dazu führen, dass die Seite sich in einem nicht definierten Zustand befindet.
