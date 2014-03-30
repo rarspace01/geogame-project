@@ -70,12 +70,47 @@ Die Anforderungen an die Daten im Vergleich zu einer Navigationssoftware sind be
 Es muss eine korrekte Klassifikation stattfinden und die Abweichung der Position sollte vorzugsweise nicht mehr als der Aktionsradius des Spielers betragen. Dadurch wird erreicht, dass alle Spielelemente auch entsprechend von den Spielern physikalisch erreichbar sind.
 Fehler bei der Klassifikation können vorkommen, da es immer der Fall sein kann, dass die Daten nicht entsprechend korrekt gemappt wurden.
 Dies ist aber im Zusammenhang des Frameworks nicht weiter tragisch, da deswegen maximal das entsprechende Element/Objekt nicht auf dem Spielfeld erscheinen wird. Dadurch wird aber die Funktionalität des jeweiligen Spieles selbst nicht berührt. Hierdurch wird lediglich die Verteilung auf dem Spielfeld beeinflusst. Probleme mit dem Spielfeld bei zu wenig Elementen wurden bereits angesprochen und mögliche Lösungen aufgezeigt.
+Die Transformation der OSM-Daten wurde so vorgenommen, dass auch bei Mapping Fehlern, z.B. das rekursive Verweisen von Relations, keine Probleme verursachen. Es wird sichergestellt, dass in jedem Fall die Transformation stattfindet.
+Dadurch, dass die Ergebnisse in der Literatur OSM eine ausreichende Datenqualität zusprechen und OSM auch für kommerzielle Produkte verwendet wird und bei allen Tests mit dem Gameframework gute Ergebnisse lieferte ist abschließend festzuhalten, dass OSM ohne Einschränkungen nutzbar ist.
 
+\subsection*{Abschließendes Ergebnis}
 
-Für den Spielleiter lässt sich daher festhalten, dass die Anforderung für ein einfaches Staging erfüllt wird. Darüberhinaus findet auch die geforderte Modularisierung der einzelnene Funktionen statt.
+Für den Spielleiter lässt sich daher festhalten, dass die Anforderungen für ein einfaches Staging erfüllt werden. Darüberhinaus findet auch die geforderte Modularisierung der einzelne Funktionen statt. Die einzelnen Komponenten ermöglichen es mithilfe von OSM-Daten entsprechende Spiefelder zu erzeugen, welche unter Einbindung der virtuellen Händler und entsprechender Gamification Elemente des Beispielspiels zu einer Lösung der in Kapitel XX vorgestellten Probleme führt.
 
-Was ist noch zu tun?
 
 \section{Qualität der Spielfelder}
 \label{ch:CH6_qualtiy_of_gameboards}
 
+-qualität der spielfelder
+
+-idealfall 2D: fläche mit punkten gleicher abstand
+
+-aber bewegung nur auf wegen möglich
+
+--> zu komplexes problem
+
+--> evaluation der abstände notwendig zwischen den Spielelementen
+
+-verwendung OSM
+
+-offline routing
+
+-inner und outter bounding box
+
+-Zeigraphisches Netzwerk (Fußweg 10min)
+
+ist punkt auf Netzwerk?
+
+--> zu langsam
+
+--> direktes routing ---> graphopper
+
+-kNN bzw. cNN
+
+-harte abgernzung unvorteilhaft
+
+--> zeitgraphisches netzwerk nciht verwendbar
+
+--> bewerteter graph
+
+--> fuzzy, funktion 2. ordnung
