@@ -75,41 +75,70 @@ Dadurch, dass die Ergebnisse in der Literatur OSM eine ausreichende Datenqualit�
 
 \subsection*{Abschließendes Ergebnis}
 
-Für den Spielleiter lässt sich daher festhalten, dass die Anforderungen für ein einfaches Staging erfüllt werden. Darüberhinaus findet auch die geforderte Modularisierung der einzelne Funktionen statt. Die einzelnen Komponenten ermöglichen es mithilfe von OSM-Daten entsprechende Spiefelder zu erzeugen, welche unter Einbindung der virtuellen Händler und entsprechender Gamification Elemente des Beispielspiels zu einer Lösung der in Kapitel XX vorgestellten Probleme führt.
+Für den Spielleiter lässt sich daher festhalten, dass die Anforderungen für ein einfaches Staging erfüllt werden. Darüberhinaus findet auch die geforderte Modularisierung der einzelne Funktionen statt. Die einzelnen Komponenten ermöglichen es mithilfe von OSM-Daten entsprechende Spiefelder zu erzeugen, welche unter Einbindung der virtuellen Händler und entsprechender Gamification Elemente des Beispielspiels zu einer Lösung der in Kapitel \ref{ch2:Problemstellunug} vorgestellten Probleme führt.
 
 
 \section{Qualität der Spielfelder}
 \label{ch:CH6_qualtiy_of_gameboards}
 
--qualität der spielfelder
+Ein wichtiger Aspekt für die Nutzung des Frameworks stellt die Qualität der Spielfelder dar.
+Wie bereits angedeutet wird für die Auswahl der Spielelemente das jeweilige OSM-Tag verwendet und auf Basis des Tags die OSM-Elemente zu Spielelementen transformiert. Um die jeweiligen Tags bewerten zu können muss daher eine Evaluations-Methode der Spielfelder definiert werden.
+Das Ziel ist es somit durch den Vergleich mehrerer Lokalitäten den optimalen Tag für alle Spielfelder zu finden. Somit wird ein Tag gesucht, der möglichst an allen Standorten zu einem bestmöglichen Ergebnis führt.
+Um die Qualität eines Spielfeldes beurteilen zu können muss zunächst näher definiert werden, welche Kriterien ein gutes Spielfeld ausmachen. 
+Betrachtet man zunächst Punkte auf einer normalen zweidimensionalen Fläche so lassen sich nachfolgende Kriterien festlegen.
+Zum einen muss sichergestellt werden, dass der Abstand aller Punkte gleich zu den jeweils anderen Punkten ist. Gleichzeitig muss vermieden werden, dass es zu einem clustern der Punkte kommt. Ein ideales Feld für eine zweidimensionale Fläche ist in Abbildung \ref{img:ch6_img03_ideal2d} zu sehen.
 
--idealfall 2D: fläche mit punkten gleicher abstand
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width=100mm]{images/ch6_img03_ideal2d.png}
+\caption{Ideale Verteilung von Elementen auf einer zweidimensionalen Fläche}
+\label{img:ch6_img03_ideal2d}
+\end{center}
+\end{figure}
 
--aber bewegung nur auf wegen möglich
+Für den Transfer dieser Kriterien auf den Anwendungsfall, muss berücksichtigt werden, dass die Spieler sich nicht per Luftlinie fortbewegen können. Diese können auf Grund der ortsbezogenen Affordanzen sich nur über die üblichen Wege fortbewegen. Diese Problematik betrifft auch die Fälle, in denen es geografische Hindernisse gibt. Beispielsweise wenn zwei Stadtteile zwar direkt nebeneinander liegen, diese aber durch einen Fluss getrennt sind. Diese Einschränkungen spiegeln sich alle im Wegenetz wieder. Daher muss untersucht werden, wie die optimale Verteilung der Spielelemente auf Basis der nächstgelegenen Wege stattfinden kann. Da die Punkte allerdings nicht selbst ausgewählt werden sondern aus OSM stammen und das finden der besten Punkte ein zu komplexes Optimierungsproblem darstellen würde, muss ein anderer Ansatz verfolgt werden. Es ist somit notwendig die Abstände zwischen den einzelnen Spielelementen  zu bestimmen. Hierzu ist es notwendig die kürzeste Route zwischen zwei Punkten zu finden.
+Da die meisten Routinglösungen reine Straßen bevorzugen aber selten auch umfangreich Fußwege aufweisen, soll in diesem Fall wiederum auf OSM gesetzt werden.
+Ziel soll es sein die Distanz zwischen den Spielelementen durch ein Offline Routing unter Verwendung von OSM zwischen den einzelnen Punkten zu bestimmen.
+Zunächst muss aber bestimmt werden, welche der Spielelemente begutachtet werden. Hierfür werden dem entwickelten Evaluationstool jeweils ein OSM-Tag für die Auswahl der Spielelemente, sowie eine entsprechende Koordinate übergeben. Anhand dieser Information baut das Evaluationstool zwei Boundingboxen. Diese werden unterschieden in die innere und äußere Boundingbox. Erstere enthält alle Punkte die untersucht werden sollen und letztere alle Punkte die zur Beurteilung herangezogen werden. Dieses Vorgehen ist nötigt, da ansonsten die Punkte an den Ecken der inneren Boundingbox bei einer Bewertung benachteiligt werden würden.
+Die Anordnung der Bouding Boxen ist in Abbildung \ref{img:ch6_img04_bbox} zu sehen.
+Die innere Bounding Box (schwarz) wurde im konkreten Fall auf 2,5km Breite und Länge 6,25km($^2$) festgesetzt. Im Gegensatz dazu steht die äußere Bounding Box (rot), welche um die innere um die maximale Evaluationsdistanz erweitert wurde. Im konkreten Fall soll diese Distanz 700 Meter darstellen, welches die Distanz von 10 Minuten Fußweg widerspiegelt. Die Wahl ist auf 10 Minuten gefallen um eine ausreichende Dichte der Spielfelder zu erreichen und die Spieler zudem zur Fortbewegung zu motivieren.
 
---> zu komplexes problem
 
---> evaluation der abstände notwendig zwischen den Spielelementen
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width=100mm]{images/ch6_img04_bbox.png}
+\caption{Inner und äußere Bounding Box zur Evaluation}
+\label{img:ch6_img04_bbox}
+\end{center}
+\end{figure}
 
--verwendung OSM
+Zur Evaluation wurde eine Abwandlung der k-Nearest Neighbours Methode, konkret count Nearest Neighbours.
+Es soll nicht die Entfernung der 10 nächsten Spielelemente ausgelesen werden, sondern die Anzahl der Spielelemente die im  Umkreis von k Metern sind. Die Idee dahinter ist eine Art geografische Dichte bestimmen zu können, welche wiederum eine Aussage für den Spielleiter machen kann.
+Zunächst wurde die Idee eines zeitgeografischen Netzwerks verfolgt. Hierbei sollten ausgehend von einem Element alle Wege als Netzwerk aufgebaut werden, welche In den Umkreis von 700 Metern fallen. Nach der ersten Evaluation wurde eine durchschnittliche Zeit von 40 Sekunden gemessen für die Aufbereitung des Netzwerks. Die Prüfung ob ein Element auf den besagten Wege-Netzwerk liegt dagegen läuft in wenigen ms ab.
+Im Anbetracht der verwendeten Tags die im im Schnitt 150 Elemente in der inneren Bounding box haben, sind dies für die Evaluation eines Tags  
+bereits 75 Minuten. Sollen eine ganze Liste von Tags Tags überprüft werden, so steigt die Evaluationszeit für eine Koordinate mit mehreren Tags schnell auf mehrere Tage.
+Aus diesem Grund wurde eine Alternative für die zeitaufwendige Methode gesucht.
+Durch die Verwendung des Graphhopper-Tools ist es möglich ein sehr schnelles und effizientes Routing zwischen zwei Punkten durchzuführen.
+Diverse Tests haben ergeben, dass eine Route deutlich unter 100ms ermittelt werden kann. Die Idee ist es daher den lgoisch aufwändigeren Weg zu gehen und die Distanz zu allen bestehenden Punkten zu berechnen. Somit muss für jedes Element der inneren Bounding Box die Entfernung zu jedem Element innerhalb der äußeren Bounding Box bestimmt werden. Zwar nimmt die Laufzeit quadratisch zu im Vergleich zur zeitgeografischen Variante, jedoch liegt diese deutlich niedriger. Bei 167 inneren Elementen und 263 äußeren lag die Evaluationszeit pro Spielelement bei ca. 1,5 Sekunden. D.h. um den Faktor 26 kleiner als per zeitgeografisches Netzwerk. Dadurch gibt sich ein Punkt an dem sinnvoller ist von der einfachen Methode auf die zeitgeografische zu wechseln.
+Dieser Punkt liegt, wie sich in Abbildung \ref{img:ch6_img05_eval_match} erkennen lässt bei ungefähr 4100 Elementen.
 
--offline routing
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width=150mm]{images/ch6_img05_eval_match.png}
+\caption{Gegenüberstellung der cNN Methoden}
+\label{img:ch6_img05_eval_match}
+\end{center}
+\end{figure}
 
--inner und outter bounding box
+Allerdings muss beachtet werden, dass bei 4100 Spielelementen auf 6,25km$^2$ eine extrem hohe Dichte erreicht wird, die dazu führt, dass es im Schnitt es weniger als 40 Meter bis zum nächsten Spielelement sind. Bei einem Aktionsradius von 40 Metern, wäre das Spielfeld somit voller Spielelemente. Daraus folgern sich zwei Dinge:
+Die ideale Spielementzahl sollte einen Flächen zu Spielemement Index größer als 1524m$^2$ aufweisen.
+Darüber hinaus macht der Einsatz der zeitgeografische Methode keinen Sinn.
+Nachdem die Berechnugnsmethode festgelegt wurde und die Werte für verschiedene Punkte berechnet wurde, wurde festgestellt. Dass ein Clustering sich nicht negativ auf die Ergebnisse auswirkt.
+Der Grund hierfür liegt in der Bewertungsfukntion. Jedes Spielelement im Bereich von 0 bis 700 Meter wird als 1 nächster Nachbar gezählt.
 
--Zeigraphisches Netzwerk (Fußweg 10min)
 
-ist punkt auf Netzwerk?
 
---> zu langsam
 
---> direktes routing ---> graphopper
-
--kNN bzw. cNN
-
--harte abgernzung unvorteilhaft
-
---> zeitgraphisches netzwerk nciht verwendbar
 
 --> bewerteter graph
 
