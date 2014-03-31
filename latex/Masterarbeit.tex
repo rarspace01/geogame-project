@@ -1,4 +1,12 @@
+%plastex stuff
+\newif\ifplastex
+\plastexfalse
+\ifplastex
+\documentclass{book}
+\else
 \documentclass[pdftex, a4paper, 12pt]{scrreprt}
+\fi
+
 \usepackage[ngerman]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
