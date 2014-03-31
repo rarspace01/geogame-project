@@ -134,12 +134,36 @@ Allerdings muss beachtet werden, dass bei 4100 Spielelementen auf 6,25km$^2$ ein
 Die ideale Spielementzahl sollte einen Flächen zu Spielemement Index größer als 1524m$^2$ aufweisen.
 Darüber hinaus macht der Einsatz der zeitgeografische Methode keinen Sinn.
 Nachdem die Berechnugnsmethode festgelegt wurde und die Werte für verschiedene Punkte berechnet wurde, wurde festgestellt. Dass ein Clustering sich nicht negativ auf die Ergebnisse auswirkt.
-Der Grund hierfür liegt in der Bewertungsfukntion. Jedes Spielelement im Bereich von 0 bis 700 Meter wird als 1 nächster Nachbar gezählt.
+Der Grund hierfür liegt in der Bewertungsfunktion. Jedes Spielelement im Bereich von 0 bis 700 Meter wird als 1 nächster Nachbar gezählt.
+Die Ursprüngliche VOrgehensweise hatte als Bewertungsfunktion der einzelnen Tags:
 
+\begin{equation}
+score = \frac{ \sum\limits_{i=1}^n c_n }{n}
+\end{equation}
 
+Um dieses Problem zu umgehen muss eine Bewertungsfunktion für die unterschiedlichen Entfernungen erstellt werden. Ein erster Ansatz die Verwendung einer Gleichung zweiter Ordnung wie in Abbildung \ref{img:ch6_img06_valued2} zu erkennen. Nach einem ersten Problelauf hat sich allerdings herausgestellt, dass die Elemente im Bereich von unter 1000 Metern allerdings zu gering negativ bewertet werden.
 
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width=150mm]{images/ch6_img06_valued2.png}
+\caption{Berwertungsfunktion für Distanzen}
+\label{img:ch6_img06_valued2}
+\end{center}
+\end{figure}
 
+\begin{equation}
+weighted score = \frac{ \sum\limits_{i=1}^n cv_n }{n}
+\end{equation}
 
---> bewerteter graph
+Aus diesem Grund wurde auf eine abgestufte Bewertung gewechselt, welche das Ergebnis für die entsprechenden Tags besser normalisiert hat.
+Allerdings ist das Ergebnis welches in Abbildung \ref{img:ch6_img07_result1} zu sehen ist noch nicht das Optimum. Es wird daher vorgeschlagen, die Bewertungfunktion weiter zu optimieren und Ansätze aus der Fuzzy Logic zu verfolgen, da diese eine deutlich bessere Steuerung der einzelnen Attribute und Entfernungen ermöglichen. Eine Vollständige Grafik aller ist im Anhang zu finden. Die in Abbildung \ref{img:ch6_img07_result1} gezeigte Darstellung zeigt die Tags die weniger als 70 Nachbar-Elemente im Umkreis von 700 Metern haben.
+Es lässt sich erkennen, dass Elemente, welche durch die Infrastruktur bedingt verteilt gelegen sind wie z.B: Bushaltestellen, Bäckereien und Ampel eine bessere Verteilung haben wie zum Beispiel Schulen. Allerdings muss beachtet werden, dass allein durch ein höheren Wert nicht sichergestellt ist, dass der Tag überall gut funktioniert. Viel wichtiger dabei ist der Abgleich der Werte mit anderen Regionen. Erst mit dem Vergleich der Ergebnisse der einzelnen Tags an unterschiedlichen Orten, an denen ein Staging stattfinden soll, ermöglicht eine Auswahl.
+Der Tag, welcher bei allen Überprüften Lokalitäten den ausgeglichensten Wert hat, sollte verwendet werden. Gibt es mehrere Tags die im Schnitt wenig voneinander Abweichen, sollte der Tag mit dem höchsten Wert verwendet werden. 
 
---> fuzzy, funktion 2. ordnung
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width=150mm]{images/ch6_img07_result1.png}
+\caption{Berwertungsfunktion für Distanzen}
+\label{img:ch6_img07_result1}
+\end{center}
+\end{figure}
