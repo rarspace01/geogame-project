@@ -119,8 +119,9 @@ Im Anbetracht der verwendeten Tags die im im Schnitt 150 Elemente in der inneren
 bereits 75 Minuten. Sollen eine ganze Liste von Tags Tags überprüft werden, so steigt die Evaluationszeit für eine Koordinate mit mehreren Tags schnell auf mehrere Tage.
 Aus diesem Grund wurde eine Alternative für die zeitaufwendige Methode gesucht.
 Durch die Verwendung des Graphhopper-Tools ist es möglich ein sehr schnelles und effizientes Routing zwischen zwei Punkten durchzuführen.
-Diverse Tests haben ergeben, dass eine Route deutlich unter 100ms ermittelt werden kann. Die Idee ist es daher den lgoisch aufwändigeren Weg zu gehen und die Distanz zu allen bestehenden Punkten zu berechnen. Somit muss für jedes Element der inneren Bounding Box die Entfernung zu jedem Element innerhalb der äußeren Bounding Box bestimmt werden. Zwar nimmt die Laufzeit quadratisch zu im Vergleich zur zeitgeografischen Variante, jedoch liegt diese deutlich niedriger. Bei 167 inneren Elementen und 263 äußeren lag die Evaluationszeit pro Spielelement bei ca. 1,5 Sekunden. D.h. um den Faktor 26 kleiner als per zeitgeografisches Netzwerk. Dadurch gibt sich ein Punkt an dem sinnvoller ist von der einfachen Methode auf die zeitgeografische zu wechseln.
+Diverse Tests haben ergeben, dass eine Route deutlich unter 100ms ermittelt werden kann. Die Idee ist es daher den logisch aufwändigeren Weg zu gehen und die Distanz zu allen bestehenden Punkten zu berechnen. Somit muss für jedes Element der inneren Bounding Box die Entfernung zu jedem Element innerhalb der äußeren Bounding Box bestimmt werden. Zwar nimmt die Laufzeit quadratisch zu im Vergleich zur zeitgeografischen Variante, jedoch liegt diese deutlich niedriger. Bei 167 inneren Elementen und 263 äußeren lag die Evaluationszeit pro Spielelement bei ca. 1,5 Sekunden. D.h. um den Faktor 26 kleiner als per zeitgeografisches Netzwerk. Dadurch gibt sich ein Punkt an dem sinnvoller ist von der einfachen Methode auf die zeitgeografische zu wechseln.
 Dieser Punkt liegt, wie sich in Abbildung \ref{img:ch6_img05_eval_match} erkennen lässt bei ungefähr 4100 Elementen.
+Darüber hinaus wurde die Analyse der Tags Parallelisiert um die volle Rechenkapazität des jeweiligen Rechners auszunutzen um schneller zum Ergebnis zu kommen. Bei aktuellen 4-8 Kern Prozessoren findet eine nicht zu vernachlässigende Geschwindigkeitssteigerung statt.
 
 \begin{figure}[H]
 \begin{center}
@@ -133,7 +134,7 @@ Dieser Punkt liegt, wie sich in Abbildung \ref{img:ch6_img05_eval_match} erkenne
 Allerdings muss beachtet werden, dass bei 4100 Spielelementen auf 6,25km$^2$ eine extrem hohe Dichte erreicht wird, die dazu führt, dass es im Schnitt es weniger als 40 Meter bis zum nächsten Spielelement sind. Bei einem Aktionsradius von 40 Metern, wäre das Spielfeld somit voller Spielelemente. Daraus folgern sich zwei Dinge:
 Die ideale Spielementzahl sollte einen Flächen zu Spielemement Index größer als 1524m$^2$ aufweisen.
 Darüber hinaus macht der Einsatz der zeitgeografische Methode keinen Sinn.
-Nachdem die Berechnugnsmethode festgelegt wurde und die Werte für verschiedene Punkte berechnet wurde, wurde festgestellt. Dass ein Clustering sich nicht negativ auf die Ergebnisse auswirkt.
+Nachdem die Berechnungsmethode festgelegt wurde und die Werte für verschiedene Punkte berechnet wurde, wurde festgestellt, dass ein Clustering sich nicht negativ auf die Ergebnisse auswirkt.
 Der Grund hierfür liegt in der Bewertungsfunktion. Jedes Spielelement im Bereich von 0 bis 700 Meter wird als 1 nächster Nachbar gezählt.
 Die Ursprüngliche VOrgehensweise hatte als Bewertungsfunktion der einzelnen Tags:
 
