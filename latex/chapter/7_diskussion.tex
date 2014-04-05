@@ -1,7 +1,7 @@
 \chapter{Diskussion}
 \label{sec:S7_Diskussion}
 
-\section*{Relokalisierbarkeit geobasierter Gamification-Ansätze}
+\section{Relokalisierbarkeit geobasierter Gamification-Ansätze}
 
 Nach der Evaluation des Frameworks und des Beispielspiels kann festgehalten werden, dass die zuvor in der Problemstellung geschilderten Anforderungen mit Hilfe des beschriebenen Frameworks gelöst werden können. Um der Echtzeitanforderung gerecht zu werden, wurde die Auswahl der Spielelemente anhand von OSM-Daten auf eine zweistufiges Verfahren ausgelegt. Der ressourcenaufwendigere Part wurde ausgegliedert und vor das Pervasive Game gestellt. Hierzu wurde ein Evaluationstool entwickelt welches anhand einer gegebenen Position und eines Key-Value Paars die Spielfläche automatisch bewertet und für einen Vergleich mit anderen Spielfeldern herangezogen werden kann.
 Die Auswahl wiederum kann im Framework entsprechend festgehalten werden. Es wurde festgestellt, dass gewisse Stellen weiter einer Optimierung bedürfen um noch bessere Ergebnisse zu erzielen. Hierunter fällt die Bewertung der Entfernungsmatrix welche für die einzelnen Spielelemente der Transformation erzeugt wird. Erste Ansätze und Ergebnisse wurden entsprechend geschildert, sowie weitere Vorgehensweisen präsentiert.
@@ -10,10 +10,11 @@ Basierend auf der Transformation wurde eine entsprechende Schnittstelle entworfe
 \\\\
 Die Untersuchungen haben ergeben, dass eine Realisierbarkeit mit Hilfe von OSM-Daten möglich ist. Hierfür muss im gewählten Fall eine Vorselektion anhand der Tags stattfinden, um die Evaluation der Spielfelder auszulagern. Mit dem Transformationsprozess in Kombination des vorgestellten Frameworks konnte gezeigt werden, dass OSM Daten Problemlos nutzbar sind. Durch den beschriebenen Lösungsansatz wird ein entsprechender Beitrag zur Untersuchung von Möglichkeiten zur automatischen/unterstützen Erstellung von Spielfeldern geleistet. Dadurch ist es möglich auf Basis der vorgestellten Lösung weitere Optimierungen der Ansätze durchzuführen. 
 
-\section*{Ausblick}
+\section{Ausblick}
 
 Durch die Untersuchung haben sich mehrere Punkte ergeben die zu hinterfragen und zu evaluieren sind. Zunächst ist die Evaluation der Spielfelder zu nennen. Hierbei wurden erste Ansätze aufgezeigt und entsprechend optimiert. Durch die Vorausstellung der Evaluation der OSM-Tags und der damit verbundenen Spielfelder bietet diese den Kompromiss der Echtzeit Generierung der Spielfelder. Nichtsdestotrotz ist eine weitere Verbesserung der Bewertung der Spielfelder erstrebenswert um noch besser auf die Effekte des Clusterings eingehen zu können. Oder im Idealfall diese zu vermeiden. Hierbei sollte dem Spielleiter auch mehr Flexibilität an die Hand gelegt werden, um auch die gewünschten Abstände einzustellen. Im Moment ist die maximale Entfernung bei der Bewertung bei 700 Meter und es wird eine mindest- Entfernung von 150 Metern  mathematisch bevorzugt. Hierbei handelt es sich nicht um wissenschaftlich untersuchte Werte sondern um eine erste festgelegte Kenngröße.
-Damit verbunden ist eine Evaluation der Spielfelder bei realen Spielern. Dieses Feedback ist unerlässlich für eine weitere Optimierung des Frameworks. Dies könnte auf Basis einer optisch aufgewertete Version des Beispielspiels passieren, wordurch der Aufwand für eine Evaluation gering gehalten wird.
-
--Framework untersuchen/optimieren auf Hochskalierbarkeit
--reales Spielfeedback, iterativ
+Damit verbunden ist eine Evaluation der Spielfelder bei realen Spielern. Dieses Feedback ist unerlässlich für eine weitere Optimierung des Frameworks. Dies könnte auf Basis einer optisch aufgewertete Version des Beispielspiels passieren, wodurch der Aufwand für eine Evaluation gering gehalten wird.
+Hierbei ist es zu empfehlen eine iterative Vorgehensweise zu nutzen um entsprechendes Feedback in den Tests entsprechend in das Framework einfließen zu lassen.
+Ein weiterer offener Punkt stellt die Skalierbarkeit des Frameworks dar. Zwar wurden die Abfrage Zeiten entsprechend Optimiert, genauere Untersuchungen im Hinblick auf Last und konkreter Ressourcenverbrauch stehen allerdings aus. Interssant wäre hierbei zu untersuchen, wie viele Spieler maximal bedient werden können mit einer festen Größe an Ressourcen. Hierbei sollte auch untersucht werden, inwiefern ein entsprechendes Caching der Transformation von Nöten ist. In Kapitel XX wurde das Caching bereits angesprochen. Sofern dies im Zuge der Skalierbarkeit angegangen wird, muss ein detaillierter Ansatz für das Caching entworfen und umgesetzt werden. 
+Diese Untersuchungen sind essentiell für den Einsatz eines solchen Frameworks für den Produktivbetrieb.
+Der Aspekt der Händler Integration wirft ebenfalls eine Frage auf. Es gibt bisher keine fundierten Untersuchungen bezüglich der Interaktion von (online) Spielern mit der physischen Welt. Es wurden verschiedenen Lösungen zur Interaktion vorgestellt (Coupon, QR-Code, NFC, iBeacon), allerdings gilt es zu untersuchen, welche der Methoden für einen konkreten Einsatz geeignet sind. Hierbei spielen Zielgruppe und die Verbreitung der Technologien eine entscheidende Rolle.
