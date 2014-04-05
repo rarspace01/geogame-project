@@ -26,7 +26,7 @@ In der Literatur wurden zunächst die rudimentären Elemente eines Gamification 
 Durch eine entsprechende Kombination der Gamification Elemente und der Tatsache, dass das Framework auf Basis von Informationen aus der Umgebung Spielelemente aufbereitet und lokale Händler integriert wird auch das Maß der Immersion entsprechend für die Spieler erhöht und der Effekt der Gamification verstärkt.
 Für den Aspekt der Gamification lässt sich daher abschließend festhalten, dass die aufgezeigte Lösung einen Beitrag zur Lösung der Problematik der Gamification von Neukundenbesuchen bei regionalen Händlern liefern kann.
 
-\subsection*{Pervasive Games  - Anforderungen an ein Gameframework}
+\subsection*{Pervasive Games  -- Anforderungen an ein Gameframework}
 
 Im Zuge der Erstellung eines Frameworks zum Staging von Pervasive Games müssen mehrere Aspekte behandelt werden. Zunächst muss sichergestellt werden, dass die definierten Grenzen des Magic Circle überschritten werden können. Im Zuge dieser Arbeit ging es darum die Dimension Ort und Zeit zu lösen. Das bedeutet, dass Spiel soll sowohl ortsunabhängig als auch zeitunabhängig gespielt werden kann. Die Ortsunabhängigkeit der vorgestellten Lösung wird durch die Relokalisierung mit Hilfe von OSM-Daten sichergestellt, auf die später im Detail eingegangen wird. Die zeitliche Unabhängigkeit ist dadurch sichergestellt, dass jeder Spieler sich individuell am Beispielspiel anmelden kann und es keine fest definierten Uhrzeiten oder Termine gibt um das Spiel zu spielen. Im Vergleich zu typischen Geogames ist es daher möglich auch über feste Uhrzeiten und Geografische Gebiete hinaus das Spiel zu spielen. Durch die entsprechende Formulierung der Anforderungen in Kapitel \ref{ch2:Problemstellunug} und \ref{ch4:s:Lösungen} und der Ausrichtung des Frameworks an diesen wurde sichergestellt, dass das Framework diese Anforderungen erfüllt. Da es sich in der Problemstellung um ein Echzeitspiel handelt muss auch entsprechend im Framework sichergestellt werden, dass die Interaktion mit dem Spiel in Echtzeit erfolgen kann.
 Durch die Modularisierung und Auskopplung der Evaluation der OSM Tags, ist es möglich geworden die zeitintensiven Bewertungs-Funktionalitäten unabhängig von der Spielfeldgenerierung durchzuführen. Dadurch ist wird es ermöglicht, lediglich die relativ einfachen Prozesse zur Transformation der OSM-Elemente während der Laufzeit durchzuführen. Vergleicht man die Antwortzeit der Requests , welche abhängig sind von der Anzahl der OSM-Elemente in der Bouding Box und der Antwortzeit des Overpass API Servers, so liegen diese im Schnitt bei ca. 400ms. Die Varianz ist wie in Abbildung \ref{img:ch6_img01_response_time} erkenntlich zu vernachlässigen. Die Evaluationsfunktion hingegen liegt bei 2-3 Minuten für ein Tag mit ca. 200 Elementen. Für ein Feld mit 1200 Elementen liegt diese bereits bei über 30 Minuten.
@@ -147,7 +147,7 @@ Um dieses Problem zu umgehen muss eine Bewertungsfunktion für die unterschiedli
 \begin{figure}[H]
 \begin{center}
 \includegraphics[width=150mm]{images/ch6_img06_valued2.png}
-\caption{Berwertungsfunktion für Distanzen}
+\caption{Bewertungsfunktion für Distanzen}
 \label{img:ch6_img06_valued2}
 \end{center}
 \end{figure}
@@ -164,7 +164,7 @@ Der Tag, welcher bei allen Überprüften Lokalitäten den ausgeglichensten Wert 
 \begin{figure}[H]
 \begin{center}
 \includegraphics[width=150mm]{images/ch6_img07_result1.png}
-\caption{Berwertungsfunktion für Distanzen}
+\caption{Bewertung der verschiedenen Tags}
 \label{img:ch6_img07_result1}
 \end{center}
 \end{figure}
