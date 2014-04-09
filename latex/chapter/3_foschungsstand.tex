@@ -124,28 +124,27 @@ Eine Spezifizierung der ortsbezogenen Spiele stellen die sogenannten Geogames da
 
 \subsection*{Pervasive Games}
 
-Unter Pervasive Games sind Spiele zu verstehen, welche den in diesem Kapitel beschriebenen Magic Circle in seinen beschriebenen Dimensionen erweitern.
-Konkret werden die definierten Grenzen typischer Spiele überschritten. \cite{Montola.2005}
-Hierbei geht es um die Expandierung der ortsspezifischen, zeitlichen und sozialen Grenzen. \cite{Montola.2009}
-Darüberhinaus gibt es in der Literatur bei Nieuwdorp(TODO) und Björk(TODO) eine weitere Dimension, welche als \glqq ambiguity 
-of interaction or interface\grqq{} definiert wird. Hierbei geht es um Unklarheit bzw. Eindeutigkeit der Interaktion.
-Eine Vielzahl von Pervasive Games wurde in der Literatur behandelt und entsprechend untersucht.
-Beispiele hierfür sind Can You See Me Now (Flintham et al., 2003a), GeoTicTacToe, CityPoker, Neocartographer von (Schlieder et al. 2005a, Schlieder 2005b), Human Pacman (Choetek et al. 2004) Feed my Yoshi.
-Anhand dieser Spieler wurden Erketnisse in der Praxis gewonnen, welche sich in Teilen mit der Gamification Literatur in Kapitel \ref{sec:S3_Gamification} decken.
-Eine Sammlung interssanter Spielkonzepte stellt die Sammlung von (Hinske et al., 2007) dar.
+Unter Pervasive Games sind Spiele zu verstehen, welche den Magic Circle in seinen abgrenzenden Dimensionen erweitern.
+Konkret werden die definierten Grenzen typischer Spiele überschritten.\cite{Montola.2005}
+Hierbei geht es um die Expandierung der ortsspezifischen, zeitlichen und sozialen Grenzen.\cite{Montola.2009}
+Darüberhinaus gibt es in der Literatur bei \textcite{Nieuwdorp.2007} und \textcite{Bjork.2007} eine weitere Dimension, welche als \glqq ambiguity 
+of interaction or interface\grqq{} definiert wird. Hierbei handelt es sich um die Unklarheit bzw. Eindeutigkeit der Interaktion.
+Eine Vielzahl von Pervasive Games wurde in der Literatur behandelt und die Spielerinteraktion entsprechend untersucht.
+Beispiele hierfür sind Can You See Me Now,\cite{Flintham.2003} GeoTicTacToe, CityPoker, Neocartographer von \textcite{Schlieder.2005}, Human Pacman \cite{Cheok.2003} und Feed my Yoshi \cite{Bell.2006}.
+Anhand dieser Spieler wurden Erkenntnisse in der Praxis gewonnen, welche sich in Teilen mit der Gamification Literatur in Kapitel \ref{sec:S3_Gamification} decken.
+Eine Sammlung weiterer interessanter Spielkonzepte stellt die Sammlung von \textcite{Hinske.2007} dar, welche Ideen für eigene Spielideen liefern kann.
+Für die Umsetzung des Frameworks ist es wichtig einen Überblick und Einordnung über die aktuell existierenden Pervasive Games zu haben. Aufgrund dieser Informationen können bewusst bessere Entscheidungen im Entwurf getroffen werden, welche somit dem Spielleiter und dem darauf aufbauenden Spiel zugute kommen.
 
-Beispiele für weitere Ansätze sind Parallel Kingdom oder Ingress vom Google Startup Niantic Project.
-
-Unterscheidung zwischen LBG, AR MR etc?
 
 \section{Relokalisierungsansätze}
 \label{ch3:s:Relokalisierung}
 
 Ein wichtiger Aspekt im Zuge von Pervasive Games ist der Gamecontent. Soll ein Spiel außerhalb eines fest definierten Geografischen Raums durchgeführt werden, ist es notwendig entsprechende fremde Umgebungen mit Inhalt zu füllen. \cite{Montola.2005} 
 Bei der ortsbezogenen Relokation von Spielinhalten gibt es unterschiedliche Ansätze.
-Zunächst müssen die ortsbezogenen Affordanzen beachtet werden. Hierbei handelt es sich um die lokalen Gegebenheiten, welche einen Einfluss auf das Spielgeschehen haben.
-
-muss bei der Durchführung des GeoTicTacToe Spiels in Bamberg überlegt werden, inwiefern die Anordnung der 9 Spielpunkte einen Einfluss auf das Spielgeschehen hat. Brücken, Gebäude und Wege sind nicht strikt linear oder in Quadraten wie in vielen amerikanischen Städten oder z.\,B. in der Mannheimer Innenstadt. Da eine perfekte Ausgeglichenheit der Spielfelder dazu führen würde, dass jegliche Informationen über Entfernungen, Fußgängerampeln Steigung des Wegs, körperliche Verfassung des jeweiligen Spielers, sowie dessen spatiale Fähigkeiten vorhanden sein müssten, würde ein extrem komplexes Modell ohne Ideale Lösung entstehen. werden die ortsbezogenen Affordanzen als gegeben hingenommen bzw. in das Spiel als Herausforderung bzw. Spielelement integriert.
+Zunächst müssen die ortsbezogenen Affordanzen beachtet werden. Hierbei handelt es sich um die lokalen Gegebenheiten, welche einen Einfluss auf das Spielgeschehen haben. Ein Beispiel hierfür sind Flüsse die ein Spielfeld teilen und damit die Distanz zwischen zwei einzelnen Spielelementen unvorhergesehen beeinflussen.
+\\\\
+Es gibt in der Literatur einen ersten Ansatz für die Relokalisierbarkeit von Spielfeldern.
+\textcite{Kiefer.2005} beschreiben die Überlegungen bei der Durchführung des GeoTicTacToe Spiels in Bamberg. Bei der die Anordnung der 9 Spielpunkte einen Einfluss auf das Spielgeschehen hat. Brücken, Gebäude und Wege sind nicht strikt linear oder in Quadraten wie in vielen amerikanischen Städten oder z.\,B. in der Mannheimer Innenstadt. Da eine perfekte Ausgeglichenheit der Spielfelder dazu führen würde, dass jegliche Informationen über Entfernungen, Fußgängerampeln Steigung des Wegs, körperliche Verfassung des jeweiligen Spielers, sowie dessen spatiale Fähigkeiten vorhanden sein müssten, würde ein extrem komplexes Modell ohne Ideale Lösung entstehen. Daher wurden die ortsbezogenen Affordanzen als gegeben hingenommen bzw. in das Spiel als Herausforderung bzw. Spielelement integriert.
 
 Generell gibt es drei Ansätze zur Relokation der Spielemente auf einer Karte.
 
@@ -155,12 +154,14 @@ Generell gibt es drei Ansätze zur Relokation der Spielemente auf einer Karte.
 \item Hybride/teilweise Anpassung -- Spiel durch Eingriffe spielbar
 \end{itemize}
 
-In der Literatur werden die Probleme von Spielen wie dem Rexplorer\cite{Ballagas.2007} angesprochen, keine keine Lösungsansätze vorgeschlagen. Rexplorer enthält keine Anpassungen und ist in der Stadt Regensburg spielbar. Neben dem zugeschnittenen Geolocation Content ist der Controller explizit auf die Umgebung angepasst.
-Hierbei handelt es sich um einen Art Zauberstab mit dem der Spieler mit den Elementen in der Umgebung interagieren kann. Dieser stellt ein Gehäuse dar, in dem ein Nokia E65 sowie in GPS Empfänger verbaut wurde.
+In der Literatur werden die Probleme von ortsbezogenen Spielen öfters angesprochen, jedoch keine konkreten Lösungsansätze angesprochen.
+Die erste Möglichkeit stellen Spiele dar, welche keinerlei Anpassung enthalten.
+Ein Beispiel hierfür ist REXplorer.\cite{Ballagas.2007} REXplorer ist nur in der Stadt Regensburg spielbar. Neben dem zugeschnittenen Geolocation Content ist der Controller explizit auf die Umgebung angepasst.
+Hierbei handelt es sich um eine Art Zauberstab mit dem der Spieler mit den Elementen in der Umgebung interagieren kann. Diese Elemente sind jedoch explizit nur für die Stadt Regensburg erstellt worden und somit ist eine Funktion außerhalb nicht möglich.
 
-Dazu gibt es im Gegensatz Spiele welche komplett ortsunabhängig gespielt werden können.
-Dies kann entweder durch ein Algorithmus bewerkstelligt werden oder durch die Tatsache, dass die Spielelemente keinen direkte Anpassung benötigen.
-Spiele wie Feed my Yoshi, welche keine direkte Anpassung benötigen, haben deutliche Unterschiede im Hinblick ihrer Spielbarkeit abhängig von ihrer Umgebung. Die Autoren stellten fest, dass die Korrelation zwischen Bevölkerungsdichte und Anzahl der Wifis nicht den unterschiedlichen Teams unterschiedliche Vorteile verschaffte, sondern dies die Motivation der anderen Teams beinflusst, aufgrund des Vorteils der gegnerischen Teams.
+Im Gegensatz dazu steht die zweite Möglichkeit, Spiele welche komplett ortsunabhängig gespielt werden können.
+Dies kann entweder durch einen Algorithmus sicher gestellt werden oder durch die Tatsache, dass die Spielelemente keinen direkte Anpassung benötigen.
+Spiele wie Feed my Yoshi, welche keine direkte Anpassung benötigen, haben deutliche Unterschiede im Hinblick ihrer Spielbarkeit abhängig von ihrer Umgebung. Die Autoren stellten fest, dass es eine Korrelation zwischen Bevölkerungsdichte und Spielbarkeit gibt, da die Spielelemente von WLAN-Accessspoints generiert wurden.\cite{Bell.2006}
 
 Die letzte Möglichkeit stellt ein hybrider Ansatz dar. Bei diesem werden bestehende Spielfelder von einem gewissen geografischen Kontext auf eine andere Location übertragen. Hierbei wird unter optionaler Hilfenahme von Algorithmen ein Transfer der bestehenden Daten auf ein neues Spielfeld bewerkstelligt. Sofern
 
