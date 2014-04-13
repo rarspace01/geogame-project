@@ -241,7 +241,7 @@ Hier zeigt sich die Flexibilität und Einfachheit die sich durch die Kombination
 Für die Erstellung des Quellcodes kommen entsprechende IDE zum Einsatz sowie eine Softwareversionskontrolle. Dies ist hilfreich um durch die Verwendung von Code Snippets sowie einer visualisierte Fehler-Erkennung und Lösung sicherzustellen.
 Für das Schreiben des Java-Quellcodes des Evaluationstools wurde auf Eclipse zurückgegriffen. Eclipse ist ein bewärtes Tool und dem Autor bestens vertraut. Eclipse bietet auch eine ausreichende Modularität durch die Installation von Erweiterungen über eine integrierte Verwaltung.
 Für die Entwicklung des Ruby on Rails-Codes wurde der grafische Text-Editor Geany verwendet. Da ein reiner Texteditor mit Syntax Highlighting und Code Completion keine Debugging Möglichkeiten bietet, wurde auf spezielle Rails Gems zurückgegriffen.
-Zunächst wurde das bewerte \glqq Pry\grqq{} Gem verwendet um ein einfaches Binding an entsprechender Code Stelle zu ermöglichen. Eine Parallele Rails Console ermöglicht dase das Überprüfen von entsprechender Active Record Abfragen, wie z.\,B. das Erfassen aller Punkte eines Spielers für die Status Übersicht. Für das direkte Debuggen von Fehlern zur Laufzeit  wurde das Gem \glqq better\_errors\grqq{} in Verbindung mit \glqq binding\_of\_caller\grqq{} verwendet. Dies ermöglicht es, ähnlich wie bei dem Debugmodus in Eclipse, direkt an der Stelle eines unbehandelter Fehler in den Code einzusteigen. Somit kann einfach die Stelle des Fehlers und die Werte der Variablen untersucht werden. Zudem kann mit einer interaktiven Konsole aktiv das Programm debuggt werden. Eine Darstellung ist in Abbildung \ref{img:ch5_img08_livebinding} zu sehen. Dadurch ist es möglich, ohne den Rails Prozess zu stoppen, direkt Befehle zu testen und somit schneller die Ursache des Fehlers aufzufinden. Dies war vor allem im Zusammenhang der in Kapitel \ref{ch5:s:Implementierung} erläuterten Probleme bei der Entwicklung besonders hilfreich.
+Zunächst wurde das bewährte \glqq Pry\grqq{} Gem verwendet um ein einfaches Binding an entsprechender Code Stelle zu ermöglichen. Eine Parallele Rails Console ermöglicht dase das Überprüfen von entsprechender Active Record Abfragen, wie z.\,B. das Erfassen aller Punkte eines Spielers für die Status-Leiste. Für das direkte Debuggen von Fehlern zur Laufzeit  wurde das Gem \glqq better\_errors\grqq{} in Verbindung mit \glqq binding\_of\_caller\grqq{} verwendet. Dies ermöglicht es, ähnlich wie bei dem Debugmodus in Eclipse, direkt an der Stelle eines unbehandelter Fehler in den Code einzusteigen. Somit kann einfach die Stelle des Fehlers und die Werte der Variablen untersucht werden. Zudem kann mit einer interaktiven Konsole aktiv das Programm debuggt werden. Eine Darstellung ist in Abbildung \ref{img:ch5_img08_livebinding} zu sehen. Dadurch ist es möglich, ohne den Rails Prozess zu stoppen, direkt Befehle zu testen und somit schneller die Ursache des Fehlers aufzufinden. Dies war vor allem im Zusammenhang der in Kapitel \ref{ch5:s:Implementierung} erläuterten Probleme bei der Entwicklung besonders hilfreich.
 
 \begin{figure}[H]
 \begin{center}
@@ -252,11 +252,11 @@ Zunächst wurde das bewerte \glqq Pry\grqq{} Gem verwendet um ein einfaches Bind
 \end{figure}
 
 Für die Entwicklung von Software ist es essentiell beliebig den Code wiederherstellen zu können und einfach neue Funktionen auszuprobieren. Diese Anforderung bedienen Software Systeme zur Versionsverwaltung. 
-Die Auswahl wurde auf ein Open-Source System gelegt. Am weitesten verbreitet sind zur Zeit Subversion und Git. Letzteres bietet Möglichkeit einer nicht linearen Entwicklung \cite{Bird.2009}.
-Die Wahl fiel speziell auf Subversion, da es im Gegenzug zu CVS das Versionsschema nicht auf einzelne Dateien sondern auf das ganze Projekt bezieht.
-Das hat den Vorteil, dass das Hinzufügen einer neuen Funktion nicht in der Hauptklasse Version 50 und in der Methodenklasse Version 70 gespeichert wird, sondern in einer gemeinsamen Version.
+Die Auswahl wurde auf ein Open-Source System gelegt. Am weitesten verbreitet sind zur Zeit Subversion und Git. Letzteres bietet Möglichkeit einer nicht linearen Entwicklung.\cite{Bird.2009}
+Die Wahl fiel speziell auf Subversion, da es im Gegenzug zu CVS das Versionsschema nicht auf einzelne Dateien, sondern auf das ganze Projekt bezieht.
+Dies hat den Vorteil, dass das Hinzufügen einer neuen Funktion nicht in der Hauptklasse Version 50 und in der Methodenklasse Version 70 gespeichert wird, sondern in einer gemeinsamen Version.
 Somit ist es für den Entwickler möglich den Zusammenhang zwischen den einzelnen Dateien direkt zu erkennen, da die neue Funktion z.\,B. in der Revision 60 in beiden Dateien erkennbar ist.
-Die Verwendung von Git wurde in Erwägung gezogen, aber Aufgrund der Tatsache, dass das Projekt nur einen Entwickler besitzt, wurde dies als unproblematisch angesehen. Ein späterer Transfer in ein Git-Projekt ist problemlos mit \glqq git-svn clone\grqq{} und weiteren Anpassungen möglich. Der Transfer ist in jedem Fall zu empfehlen, gerade wenn das Framework später mit mehreren Entwicklern weiterentwickelt wird.
+Die Verwendung von Git wurde in Erwägung gezogen, aber Aufgrund der Tatsache, dass das Projekt nur einen Entwickler besitzt verworfen.  Ein späterer Transfer in ein Git-Projekt ist problemlos mit \glqq git-svn clone\grqq{} ohne weiteren Anpassungen möglich. Der Transfer ist in jedem Fall zu empfehlen, gerade wenn das Framework später mit mehreren Entwicklern weiterentwickelt werden sollte.
 
 \section{Implementierung des Geogameframeworks}
 \label{ch5:s:Implementierung}
@@ -264,7 +264,7 @@ Die Verwendung von Git wurde in Erwägung gezogen, aber Aufgrund der Tatsache, d
 \subsection*{Realisierung}
 
 Nachdem alle Anforderungen, Schnittstellen und Werkzeuge des Frameworks festgelegt wurden, konnte mit der Umsetzung begonnen werden.
-Wie bereits in Kapitel XX beschrieben lässt sich das Framework in drei Module unterteilen auf die im nachfolgenden jeweils entsprechend eingegangen werden soll.
+Wie bereits in Kapitel \ref{ch5:s:Entwurf} beschrieben lässt sich das Framework in drei Module unterteilen auf die im nachfolgenden jeweils entsprechend eingegangen werden soll.
 
 \begin{itemize}
 
@@ -277,14 +277,16 @@ Wie bereits in Kapitel XX beschrieben lässt sich das Framework in drei Module u
 \subsubsection*{GameAPI}
 
 Die GameAPI stellt die API des GameFrameworks dar. Sie wird dazu verwendet um die Spielfelder entsprechend aufzubauen.
-Generell gibt es X unterschiedliche Funktionen die zur Verfügung gestellt werden.
-Es wird unterschieden zwischen den Locations (im Beispiel Spiel Flaggen) sowie den lokalen Händlern.
-Der Aufruf der Schnittstelle erfolgt mittels eines RestFULL Request mit folgenden Parametern:
+Es gibt diverse Funktionen die nach außen zur Verfügung gestellt werden.
+Dabei wird unterschieden zwischen den POIs (im Beispiel Spiel: Flaggen) sowie den lokalen Händlern.
+Der Aufruf der Schnittstelle erfolgt mittels REST mit nachfolgenden Parametern:
 \\\\
 \url{SITE\_URL/overpass\_api/getLocation.json?s=49&w=10&n=50&e=11&tag=highway=bus\_stop}
 \\\\
-Der Aufruf kann sowohl als GET als auch als POST Request durchgeführt werden. Die Parameter s,n,w,e sind essentiell und der Parameter tag ist optional.
-Die Parameter sind zwei Werte. Die ersten vier Parameter beschreiben die angefragte Bounding Box ab. S steht hierbei für South (Bounding Box Minimum Latitude), N für North (Bounding Box Maximum Latitude), W für West (Bounding Box Minimum Longitude) und E für East (Bounding Box maximum Longitude). Der Letzte Parameter tag beschreibt den zu verwendenden OSM Tag. Wird der entsprechende Tag nicht angegeben so wird der im Framework hinterlegte Default tag verwendet. Ziel ist es hierbei den Standard Wert für das darauf aufbauende Beispiel Spiel zu verwenden und den optionalen Parameter tag für die Evaluation einzelner Tags -- konkret der jeweiligen key-value-Paare zu ermöglichen. Nachdem der entsprechende Aufruf erfolgt ist. Wird das Ergebnis als GeoJSON mit entsprechender Properties zurückgeliefert.
+Der Aufruf kann sowohl als GET als auch als POST Request durchgeführt werden. Die Parameter s, n, w und e sind sind Pflicht und beschreiben die angefragte Bounding Box.
+S steht hierbei für South (Bounding Box -- Minimum Latitude), N für North (Bounding Box -- Maximum Latitude), W für West (Bounding Box -- Minimum Longitude) und E für East (Bounding Box -- maximum Longitude).
+
+Der letzte Parameter tag ist optional und beschreibt den zu verwendenden OSM Tag. Wird der entsprechende Tag nicht angegeben, so wird der im Framework hinterlegte Standard tag verwendet. Ziel ist es hierbei den Standard Wert für das darauf aufbauende Beispiel Spiel zu verwenden. Der optionalen Parameter tag soll für die Evaluation einzelner Tags genutzt werden. Nachdem der entsprechende Aufruf erfolgt ist, wird das Ergebnis als GeoJSON mit entsprechender Properties zurückgeliefert.
 \\\\ %% settings for current code
 \lstset{
    language=JavaScript,
@@ -327,12 +329,13 @@ Die Parameter sind zwei Werte. Die ersten vier Parameter beschreiben die angefra
 }
 \end{lstlisting}
 
-Wie in Code \ref{code:ch5:geojson01} zu sehen ist die Antwort der API analog zur GeoJSON Spezifikation \cite{Butler.2008}.
-In jedem Fall enthält ein GeoJSON ein Objekt. Enthält das GeoJSON mehr als ein Objekt so sind diese in einer FeatureCollection gesammelt. Diese wiederum enhält entsprechende Objekte.
-Jedes Objekt nimmt einen der nachfolgenden Objekttypen an:
- \glqq Point\grqq, \glqq MultiPoint\grqq, \glqq LineString\grqq, \glqq MultiLineString\grqq, \glqq Polygon\grqq, \glqq MultiPolygon\grqq{} oder \glqq FeatureCollection\grqq. Für die Implementierung des Frameworks wird allerdings nur Point und FeatureCollection genutzt. Reduzierung auf Points ist der Tatsache geschuldet, dass durch die Transformation in Virtuelel Nodes lediglich feste einzelne Spielelemente existieren die auf einen Punkt reduziert wurden. Daher ist das passendste Element im GeoJSON ebenfalls der Point. Neben den Koordinaten des Punktes können zusätzlich weitere Attribute frei definiert werden. Diese für das Gameframework unter anderem id, user\_id und prestige. Ersteres beschreibt die virtuelle Node Id des OSM Objekte von dem das Node abstammt. In diesem Fall lässt sich anhand der Zahl erkenne, dass es sich um ein Node handelt und kein Way oder Relation von dem der Punkt abstammt. Das Attribut user\_id beschreibt den Besitzer des Eleements. Für das Beispiel Spiel wurde hier keie konkreten Ids sondern die Stati \glqq neutral\grqq,\glqq owner\grqq,\glqq foe\grqq{} bestimmt. Mit einer einfachen Anpassung einer Zeile im Framework können hier auch direkt die Userid ausgegeben werden. Sofern die Schnittstelle ohne Session von extern aufgerufen wird, gibt es nur den Zustand \glqq neutral\grqq{} oder \glqq foe", da ein Anonymer Zugriff keinem eingeloggtem User zugeordnet wird. Ist hingegen ein User authentifiziert über das Beispiel Spiel so erhält er zusätzlich die Information ob die aktuelle Flagge in seinem Besitz ist.
-Das Attribut Prestige gibt ganz normal den aktuelle n Prestige Wert der Flagge zurück. In diesem Fall handelt es sich um ein neutrales nicht bisher eingenommene Flagge die daher automatisch den Wert 0 hat und noch nicht in der Datenbank persistiert wurde. Eine Aussgae ob ein Objekt entsprechend persistiert wurde oder nicht kann derjenige der die API verwendet nicht erkennen. Dies ist aber auch nicht notwendig, da 
-die Persistierung transparent\footnote{im englischen Sinne} vor dem Spieler und gegenüber dem Schnittstellenbenutzer ist.
+Wie in Code \ref{code:ch5:geojson01} zu sehen ist die Antwort der API analog zur GeoJSON Spezifikation.\cite{Butler.2008}
+In jedem Fall enthält ein GeoJSON ein Objekt. Enthält das GeoJSON mehr als ein Objekt, so sind diese in einer FeatureCollection gesammelt. Diese wiederum enthält entsprechende Objekte.
+Jedes Objekt nimmt einen der nachfolgenden Typen an:
+ \glqq Point\grqq{}, \glqq MultiPoint\grqq{}, \glqq LineString\grqq{}, \glqq MultiLineString\grqq{}, \glqq Polygon\grqq{}, \glqq MultiPolygon\grqq{} oder \glqq FeatureCollection\grqq{}.
+Für die Implementierung des Frameworks wurde allerdings nur Point und FeatureCollection genutzt. Die Reduzierung auf Points ist der Tatsache geschuldet, dass durch die Transformation in virtuelle Nodes und die Spielelemente als solche nur als Punkt existieren. Daher ist das passendste Element im GeoJSON ebenfalls ein Point. Neben den Koordinaten des Punktes können zusätzlich weitere Attribute frei definiert werden. Diese sind für das Gameframework id, user\_id und prestige. Die id beschreibt die virtuelle Node Id des OSM Objektes. Diese enthält die Information von welchem Node das Objekt abstammt. In diesem Fall lässt sich anhand der Zahl erkennen, dass es sich hierbei um ein Node handelt, da die Bitmaske nicht verändert wurde. Das Attribut user\_id beschreibt den Besitzer des Elementes. Für das Beispiel Spiel wurde hier keine Ids sondern die Stati \glqq neutral\grqq{},\glqq owner\grqq{} und \glqq foe\grqq{} bestimmt. Mit einer einfachen Anpassung einer Zeile im Framework könnte auch direkt die Id des Spielers ausgegeben werden. Sofern die Schnittstelle ohne Session von extern aufgerufen wird, gibt es nur den Zustand \glqq neutral\grqq{} oder \glqq foe", da ein Anonymer Zugriff keinem eingeloggten User zugeordnet wird. Ist hingegen ein User über das Beispiel Spiel authentifiziert, so erhält er zusätzlich die Information, ob die aktuelle Flagge in seinem Besitz ist.
+Das Attribut Prestige gibt den aktuellen Prestige-Wert der Flagge zurück. Im Codebeispiel handelt es sich um eine neutrale Flagge, die daher den Wert 0 hat. Eine Aussage ob ein Objekt entsprechend persistiert wurde oder nicht, kann bei Verwendung der API nicht gemacht werden. Dies ist aber auch nicht notwendig, da 
+die Persistierung transparent\footnote{im englischen Sinne} vor dem Spieler und der Schnittstelle ist.
 
 Die nächste Schnittstelle stellt die Händlerschnittstelle dar. Über diese können die Händler in einer vorgegebenen Bounding Box abgefragt werden, analog zu den Flaggen.
 \\\\
