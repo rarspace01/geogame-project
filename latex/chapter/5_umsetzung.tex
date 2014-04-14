@@ -428,11 +428,13 @@ Als High-Level bzw. Blackbox Test wurden die in den Usecase Diagramm beschrieben
 
 Während der Umsetzung wurde auf einige Besonderheiten gestoßen, welche eine spezielle Anpassung oder Überlegung erfordert haben. Im Nachfolgenden soll kurz auf diese eingegangen werden, um die Erkenntnisse festzuhalten. Idealerweise können diese in zukünftigen Untersuchungen und Implementierungen entsprechend vermieden bzw. umgangen werden.
 
-Ein erster Aspekt ist die Spezifikation der GeoJSON. Standardmäßig werden Koordinaten in der Reihenfolge Latitude, Longitude angegeben \cite{Schoeneberger.2002,Barzegar.1996,Maling.1991,}. Die GeoJSON Spezifikation hingegen sieht im Kontrast zum de facto Standard vor, dass zuerst die Longitude und dann die Latitude genannt wird \cite{Butler.2008}. Ist dies nicht bekannt, kann dies zu einigem Aufwand führen, der vermeiden werden kann.
+Ein erster Aspekt ist die Spezifikation der GeoJSON. Standardmäßig werden Koordinaten in der Reihenfolge Latitude, Longitude angegeben.\cite{Schoeneberger.2002,Barzegar.1996,Maling.1991,}
+Die GeoJSON Spezifikation hingegen sieht im Kontrast zum de facto Standard vor, dass zuerst die Longitude und dann die Latitude genannt wird.\cite{Butler.2008} Ist dies nicht bekannt, kann dies zu einigem Aufwand führen, der vermieden werden kann.
 
-Ein weitere Problematik stellten die Bitmasken im Zuge des Transformationsprozesses der Relations und Ways zu virtuellen Nodes dar. Die Verwendung einer 64Bit Maske führte im Zuge der Verwendung von Javascript zu Problemen. Dies äußerte sich darin, dass die Ids nach der Interpreation auf unerklärlicher Weise veränderte Werte annahmen. So kamen Abweichungen im Wert von bis zu 100 Einheiten zu Stande. Nach längeren Debug Aufwänden wurde herausgefunden, dass die implizite Typisierung in JavaScript den Ganzzahlenwert der Id intern als Gleitkommazahl transferiert und dadurch unbewusster Weise die 51Bit überschreitet nach denen die Mantisse der Gleitkommazahl beginnt. Durch diese Verschiebung wurden die hinteren Bits beim Auslesen des long Wertes vernachlässigt. Um dieses Problem zu umgehen gibt es zwei Möglichkeiten. Entweder man teilt die Zahl auf Basis des 64bit long Wertes in zwei 32bit Integer Werte und legt diese in zwei Zahlen in JS ab. Sollten keine arithmetischen Operationen auf der Id durchgeführt werden sollen im JavaScript Code, dann empfiehlt es sich die Id explizit als String auszugeben, damit JavaScript diese nicht als Zahl interpretiert und versucht entsprechend umzuwandeln.
+Ein weitere Problematik stellten die Bitmasken im Zuge des Transformationsprozesses der Relations und Ways zu virtuellen Nodes dar. Die Verwendung einer 64Bit Maske führte im Zuge der Verwendung von Javascript zu Problemen. Dies äußerte sich darin, dass die Ids nach der Interpreation auf unerklärlicher Weise veränderte Werte annahmen. So kamen Abweichungen im Wert von bis zu 100 Einheiten zu Stande. Nach längeren Debug Aufwänden wurde herausgefunden, dass die implizite Typisierung in JavaScript den Ganzzahlenwert der Id intern als Gleitkommazahl transferiert und dadurch unbewusster Weise die 51Bit überschreitet nach denen die Mantisse der Gleitkommazahl beginnt. Durch diese Verschiebung wurden die hinteren Bits beim Auslesen des long Wertes vernachlässigt. Um dieses Problem zu umgehen gibt es zwei Möglichkeiten. Entweder man teilt die Zahl auf Basis des 64bit long Wertes in zwei 32bit Integer Werte und legt diese in zwei Zahlen in JS ab. Da in diesem Fall in JavaScript keine arithmetischen Operationen auf der Id durchgeführt werden sollen empfiehlt es sich die Id explizit als String auszugeben. Dadurch interpretiert JavaScript diese nicht als Zahl und versucht diese nicht umzuwandeln.
 
-Ein weiterer Punkt stellt Turbolinks dar. Turbolinks ist ein Gem, welches Standardmäßig in Rails aktiv ist. Es sorgt dafür, dass bei einer Interaktion mit der Seite nicht die komplette Seite neu geladen wird, sondern nur die Teile des Html Codes, welcher sich geändert hat \cite{Gamble.2013}. Die Problematik die damit einhergeht sind Ajax Requests, welche über normale href links angestoßen werden. Eine typische Verwendung ist z.\,B.:
+Ein weiterer Punkt stellt Turbolinks dar. Turbolinks ist ein Gem, welches Standardmäßig in Rails aktiv ist. Es sorgt dafür, dass bei einer Interaktion mit der Seite nicht die komplette Seite neu geladen wird, sondern nur die Teile des Html Codes, welcher sich geändert hat.\cite{Gamble.2013} Die Problematik die damit einhergeht sind Ajax Requests, welche über normale href links angestoßen werden. Eine typische Verwendung ist z.\,B.:
+\\
 \lstset{
    language=Html
 }
@@ -441,14 +443,14 @@ Ein weiterer Punkt stellt Turbolinks dar. Turbolinks ist ein Gem, welches Standa
 <a href='#\grqq{} onClick="saveItem(1);">Save</a>
 \end{lstlisting}
 
-Allerdings für der Klick auf \glqq Save\grqq{} in diesem Fall zu einem Neuladen der Seite durch Turbolinks. Befindet sich an dieser Stelle aber ein Javascriptcode mit Ajax request, passiert es, dass die Seite neu geladen wird anstatt den Code auszuführen, welcher z.\,B. eine Aktualisierung einer Zahl auf der Seite zur Folge hätte.
-Um diese zu vermeiden muss Turbolinks explizit angewiesen werden, bei a href Links nicht aktiv zu werden. Dies kann man pro Link individuell setzten:
-
+Allerdings führt der Klick auf \glqq Save\grqq{} in diesem Fall zu einem Neuladen der Seite durch Turbolinks. Befindet sich an dieser Stelle aber ein Javascriptcode mit einem Ajax Request, dann wird die Seite neu geladen anstatt dass der Code ausgeführt wird. Dies ist speziell bei Skripten unvorteilhaft, die z.\,B. eine Aktualisierung von Werten auf der Seite vornehmen.
+Um dies zu vermeiden muss Turbolinks explizit angewiesen werden, bei \glqq a href\grqq{}-Links nicht aktiv zu werden. Dies kann pro Link individuell gesetzt werden:
+\\
 \begin{lstlisting}[caption=a href HTML Code - Turbolinks deaktiviert, label=code:ch5:html01]
 <a href='#\grqq{} data-no-turbolink onClick="saveItem(1);">Save</a>
 \end{lstlisting}
 
-Dadurch wird sichergestellt, dass der entsprechende JavaScript Code ausgeführt wird und nicht einfach die Seite neugeladen wird.
+Dadurch wird sichergestellt, dass der entsprechende JavaScript Code ausgeführt wird und nicht einfach die Seite neu geladen wird.
 
-Ein letzter Punkt, der zu Problemen führen kann ist der \glqq Zurück"-Button im Browser.
-Durch diesen wird die vorherige Seite wieder aufgerufen, allerdings deren Javascriptcode nicht nocheinmal 1:1 getriggert wie beim laden der Seite. D.h. diverse Event-Listener welche auf \glqq OnDocumentReady\grqq{} z.\,B. mittels JQuery warten, werden nicht noch einmal aufgerufen. Wird dies nicht entsprechend in der Entwicklung berücksichtigt, kann es dazu führen, dass die Seite sich in einem nicht definierten Zustand befindet.
+Ein letzter Punkt, der zu Problemen führen kann ist der \glqq Zurück\grqq{}-Button im Browser.
+Durch diesen wird die vorherige Seite wieder aufgerufen, allerdings deren Javascriptcode nicht noch einmal ausgeführt, wie beim laden der Seite. Als Resultat werden diverse Event-Listener welche auf \glqq OnDocumentReady\grqq{} z.\,B. mittels JQuery warten, nicht aufgerufen. Wird dies nicht entsprechend in der Entwicklung berücksichtigt, kann es dazu führen, dass die Seite sich in einem nicht definierten Zustand befindet.
