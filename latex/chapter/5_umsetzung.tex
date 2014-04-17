@@ -246,7 +246,7 @@ Zunächst wurde das bewährte \glqq Pry\grqq{} Gem verwendet um ein einfaches Bi
 \begin{figure}[H]
 \begin{center}
 \includegraphics[width=155mm]{images/ch5_img08_livebinding.png}
-\caption{Interaktives Debugging mit \glqq better\_errors\grqq{} und \glqq binding\_of\_caller'}
+\caption{Interaktives Debugging mit \glqq better\_errors\grqq{} und \glqq binding\_of\_caller\grqq{}}
 \label{img:ch5_img08_livebinding}
 \end{center}
 \end{figure}
@@ -440,14 +440,14 @@ Ein weiterer Punkt stellt Turbolinks dar. Turbolinks ist ein Gem, welches Standa
 }
 
 \begin{lstlisting}[caption=a href HTML Code, label=code:ch5:html01]
-<a href='#\grqq{} onClick="saveItem(1);">Save</a>
+<a href="#" onClick="saveItem(1);">Save</a>
 \end{lstlisting}
 
 Allerdings führt der Klick auf \glqq Save\grqq{} in diesem Fall zu einem Neuladen der Seite durch Turbolinks. Befindet sich an dieser Stelle aber ein Javascriptcode mit einem Ajax Request, dann wird die Seite neu geladen anstatt dass der Code ausgeführt wird. Dies ist speziell bei Skripten unvorteilhaft, die z.\,B. eine Aktualisierung von Werten auf der Seite vornehmen.
 Um dies zu vermeiden muss Turbolinks explizit angewiesen werden, bei \glqq a href\grqq{}-Links nicht aktiv zu werden. Dies kann pro Link individuell gesetzt werden:
 \\
 \begin{lstlisting}[caption=a href HTML Code - Turbolinks deaktiviert, label=code:ch5:html01]
-<a href='#\grqq{} data-no-turbolink onClick="saveItem(1);">Save</a>
+<a href="#" data-no-turbolink onClick="saveItem(1);">Save</a>
 \end{lstlisting}
 
 Dadurch wird sichergestellt, dass der entsprechende JavaScript Code ausgeführt wird und nicht einfach die Seite neu geladen wird.
