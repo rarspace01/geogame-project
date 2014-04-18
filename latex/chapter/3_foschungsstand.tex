@@ -58,10 +58,10 @@ Eine Einordnung und Abgrenzung der Terminologie ist in \ref{img:ch3_img02_gamifi
 
 In der Literatur werden die Elemente Points, Badges und Leaderboards (PBL) angesprochen. Diese dienen als Mittel um eine Gamification durchführen zu können. 
 Points stellen Punkte dar, die verwendet werden um einen Fortschritt des einzelnen Spielers darzustellen. Dies sind zum Beispiel Meilen in Vielfliegerprogrammen oder Statuspunkte beim Bonus Programm der Deutschen Bahn.
-Bei Badges handelt es sich um Abzeichen, welche für bestimmte Errungenschaften an den Spieler vergeben werden. Ein Beispiel hierfür ist das Trainspotter Badge bei Foursquare, welches ausgestellt wird, wenn der Spieler in eine gewisse Anzahl von Bahnhöfen eingecheckt hat. Die Badges sollen einen gewissen Status gegenüber den restlichen Spielern suggerieren.
+Bei Badges handelt es sich um Abzeichen, welche für bestimmte Errungenschaften an den Spieler vergeben werden. Ein Beispiel hierfür ist das Trainspotter Badge bei Foursquare, welches ausgestellt wird, wenn der Spieler in eine gewisse Anzahl von Bahnhöfen besucht hat. Die Badges sollen einen gewissen Status gegenüber den restlichen Spielern suggerieren.
 Leaderboards sind klassische Ranglisten. Diese dienen dazu einen Wettbewerb unter den Spielern zu erzeugen. Hierbei wird empfohlen nicht auf die klassische Top10 Liste, wie bei vielen Spielhallen Automaten zurückzugreifen. Stattdessen soll der Spieler zwischen Anderen platziert werden. Hierbei sind im Idealfall die Ränge über und unter dem Spieler dessen Freunde (vgl. Foursquare). Dies verhindert, dass der Spieler von überhöhten Punktzahlen abgeschreckt wird.
 
-\cite{Zichermann.2011} erweitern das Modell in dem Sie es um weitere Aspekte ergänzen und Ihm mehr Struktur verleihen.
+\textcite{Zichermann.2011} erweitern das Modell in dem Sie es um weitere Aspekte ergänzen und Ihm mehr Struktur verleihen.
 Sie verwenden den Begriff SAPS. Dieser unterteilt sich in Status, Access, Power und Stuff (SAPS).
 Das bekannte Points, Badges Leaderboards der Literatur wird unter Status zusammengefasst wie in nachfolgender Aufzählung zu sehen.
 
@@ -268,6 +268,26 @@ Auf Basis der Literaturrecherche lässt sich daher schlussfolgern, dass OSM eine
 \section{Bewertung von Spielfeldern}
 \label{ch3:s:geostatistik}
 
-Kapitel wird passend zum Evaluationskapitel gefüllt
--kNN
--cNN
+Für die spätere Bewertung der Spielfelder ist es notwendig entsprechende Verfahren zu nutzen.
+Hierfür eignen sich Verfahren der Geostatistik. Geostatistische Methoden haben ihren Ursprung in der Hydrologie.\cite{Bloschl.2006}
+Das Ziel in der Geostatistik ist es geografische Daten zu analysieren und im besten Fall Interpolationen für unbekannte geografische Positionen zu bestimmen.\cite{Liebhold.1993}
+Die Verwendung von Geoinformationssystemen (GIS) ermöglicht es hierbei Geodaten zu sammeln, speichern und entsprechend abzurufen. Gleichzeitig ist es möglich entsprechende Daten zu Transformieren und zu analysieren.\cite{Kitanidis.1997}
+\textcite{Bailey.1995} definieren die Statistische Analyse von Räumlichen Daten genauer und unterscheiden zwischen spatialen und nicht spatialen Analysen. Vergleicht man die Anforderung, dass eine Verteilung von Spiefeldern bzw. Spielelementen untersucht werden soll, so lässt sich feststellen, dass in der klassischen Literatur der Geostatistik weniger Ansätze zur Untersuchung von der Verteilung von Elementen auf einer Karte finden lassen.
+
+Für die Evaluation der Spielfelder muss untersucht werden, wie die Spielelemente optimal verteilt werden müssen.
+Da die Fortbewegung der Spieler sich auf Wege begrenzt muss daher die weitere Literaturrecherche den Fokus auf die optimale Verteilung von Punkten in einem (Wege-) Netzwerk richten.
+In der klassischen geostatistischen Literatur werden Verteilungen zunächst per Dichte unter Einfluss einer Zufallsvariablen beschrieben.\cite{Heinrich.1992}
+
+Um ähnliche Aussagen über gewichtete Netzwerke müssen die Methoden auf Netzwerke übertragen werden.
+\textcite{Goovaerts.1997} beschreibt bei die Verteilung von Ressourcen in einfachen Histogrammen und Streudiagrammen, welche die Konzentration der Ressourcen beschreiben. Darüber hinaus besteht die Möglichkeit mit einem Kreisdiagramm die gewichtete Verteilung zu visualisieren.\cite{Diggle.2007}
+Für die Visualisierung von Netzwerken zeigt \textcite{Okabe.2006} wie ein farbiges Voronoi Diagramm erstellt werden kann, welches als Charakteristik die nächsten entfernen Punkte beschreibt. \textcite{Spooner.2004} gehen einen Schritt weiter und definieren eine K-Funktion auf Basis von \textcite{Okabe.2001}, welche die Anzahl der Punkte in einem vorgegebenen Radius zu einem festen Punkt beschreiben.
+Die Formel ist wiefolgt definiert:
+
+\begin{equation}
+K(t) = \frac{1}{p}E(n_{pit})
+\end{equation}
+\\
+E stellt der Erwartungswert in Hinblick auf p$_n$ dar. P beschreibt die Anzahl der zu untersuchenden Punkte und $n_{pit}$ beschreibt die Anzahl der Punkte die innerhalb der vorgegebenen Netzwerkdistanz t zum prüfenden Punkt p$_i$ stehen.
+Dieser Ansatz soll als erste Evaluationsansatz der Spielfelder dienen, da er einfach zu berechnen ist und später entsprechend angepasst werden.
+
+
