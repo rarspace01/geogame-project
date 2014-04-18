@@ -446,7 +446,7 @@ Ein weiterer Punkt stellt Turbolinks dar. Turbolinks ist ein Gem, welches Standa
 Allerdings führt der Klick auf \glqq Save\grqq{} in diesem Fall zu einem Neuladen der Seite durch Turbolinks. Befindet sich an dieser Stelle aber ein Javascriptcode mit einem Ajax Request, dann wird die Seite neu geladen anstatt dass der Code ausgeführt wird. Dies ist speziell bei Skripten unvorteilhaft, die z.\,B. eine Aktualisierung von Werten auf der Seite vornehmen.
 Um dies zu vermeiden muss Turbolinks explizit angewiesen werden, bei \glqq a href\grqq{}-Links nicht aktiv zu werden. Dies kann pro Link individuell gesetzt werden:
 \\
-\begin{lstlisting}[caption=a href HTML Code - Turbolinks deaktiviert, label=code:ch5:html01]
+\begin{lstlisting}[caption=a href HTML Code - Turbolinks deaktiviert, label=code:ch5:html02]
 <a href="#" data-no-turbolink onClick="saveItem(1);">Save</a>
 \end{lstlisting}
 
