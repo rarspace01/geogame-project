@@ -177,26 +177,17 @@ Der von \textcite{Kiefer.2007} gewählte Ansatz zielt darauf ab ein Vergleich vo
 \end{itemize}
 
 Eine gewisse Heterogenität der Spielfelder macht die Herausforderung für die Spieler interessanter. Zu große Unterschiede führen hingegen zu einem unfairen und damit weniger gutem Spielerlebnis.
+
 Generell gibt es zwei Arten von ortsbezogenen Spielen. Zum einen örtlich begrenzte (spatial discrete) Spiele und zum anderen örtlich fortsetzende (spatial
 continuous) Spiele.
-Bei Ersterem handelt es sich um Spiele die auf einem abgegrenzte Spielfeld durchgeführt werden und die Position des Geocontents fest auf der Karte definiert ist. Letztere sind Spielfelder, welche unbegrenzte Spielfelder haben und die Spielinteraktion zu jeder Position stattfinden kann.
+Bei Ersterem handelt es sich um Spiele die auf einem abgegrenzte Spielfeld durchgeführt werden und die Position des Geocontents fest auf der Karte definiert ist. Letztere sind Spielfelder, welche unbegrenzte Spielfelder haben und die Spielinteraktion in jeder Position stattfinden kann.
 Im Falle der spatial continuous Spiele ist ein bijectives Mapping der Orte nötig.
-Bei einer Bijektion findet eine vollständige Paarbildung zwischen den Elementen von Ursprungsspielfeld und Zielspielfeld statt.\cite{Athanasiadis.1999}
-Dies funktioniert gut bei offenen Flächen. Bei der Verwendung von Straßen und innerhalb von Städten führt dies zu einer starken Verzerrung der Spielfelder und zu einem Diskrepanz zwischen Spielerfortbewegung und Lokomotion im Spiel.
+Bei einer Bijektion findet eine vollständige Paarbildung zwischen den Elementen vom Ursprungsspielfeld und Zielspielfeld statt.\cite{Athanasiadis.1999}
+Dies funktioniert gut bei offenen Flächen. Bei der Verwendung von Straßen und innerhalb von Städten führt dies zu einer starken Verzerrung der Spielfelder und zu einer Diskrepanz zwischen Spielerfortbewegung und Lokomotion im Spiel.
+
 Dies war der Grund, dass \textcite{Kiefer.2005b} spatial discrete Spiele im Detail untersucht haben.
-Konkret wurde das Spiel CityPoker\cite{Kiefer.2005b} in zwei verschiedenen Städten gleichzeitig gespielt. Dabei konnten beide Teams der jeweiligen Städte über vordefinierte POIs miteinander interagieren. Untersucht wurde die optimale Gestaltung der Spielfelder, damit diese zwischen den Städten den kleinsten Unterschied zueinander darstellen. Zunächst wurden die POIs für beide Städte manuell nach eigenem Ermessen ausgewählt. Im Anschluss auf die Spielsitzung wurde untersucht, wie die unterschiedlichen Spielfelder ausgewählt werden müssten um ein optimales Feld zu erhalten. Hierbei ist zu beachten, dass die Reihenfolge der POIs bei Citypoker eine Rolle spielt.
+Es wurde das Spiel CityPoker\cite{Kiefer.2005b} in zwei verschiedenen Städten gleichzeitig gespielt. Dabei konnten beide Teams der jeweiligen Städte über vordefinierte POIs miteinander interagieren. Untersucht wurde die optimale Gestaltung der Spielfelder zwischen den Städten. Zunächst wurden die POIs für beide Städte manuell nach eigenem Ermessen ausgewählt. Im Anschluss auf die Spielsitzung wurde untersucht, wie die unterschiedlichen Spielfelder ausgewählt werden müssten um ein optimales Feld zu erhalten. Hierbei ist zu beachten, dass die Reihenfolge der POIs bei Citypoker eine Rolle spielt.
 Abbildung \ref{img:ch3_img03b_distributed} beschreibt ein ausgewähltes Spielfeld, sowie Distanzen zwischen den einzelnen Punkten.
-Am Punkt 1 können Karten getauscht werden, welche beim anderen Team ebenfalls auf 1 liegen. \cite{Kiefer.2007} stellt für den Vergleich eine Entfernungsmatrix auf, welche über ein Ähnlichkeitsmaß gegenüber gestellt werden.
-Für die Berechnung der Ähnlichkeit wird nachfolgendes Maß angewandt:
-
-\begin{equation}
-similarity = \frac{1}{n} \sum_{row=1}^{n} \sqrt{ \sum_{col=1}^{n} (c_{1,row,col} - c_{2,row,col})^2 }
-\end{equation}
-
-Hierbei stellen $c_1$ und $c_2$ jeweils die Entfernungsmatrizen der jeweiligen Spielfelder dar.
-Row und col adressieren hierbei die Zeile und Spalte.
-Zu beachten ist, dass die Entfernungen als direkte euklidische Luftlinie gemessen werden. Etwaige Höhenunterschiede, sowie örtliche Gegebenheiten werden hierbei aus Gründen der Vereinfachung nicht beachtet. Anschließend wird das arithmetische Mittel der Durchschnittswerte der einzelnen Reihen gebildet.
-Als Ergebnis wird angenommen, dass spatial discrete Spiele eine einfachere Konfiguration erlauben wie unter anderem \textcite{Benford.2005} angemerkt hat.
 
 \begin{figure}[H]
 \begin{center}
@@ -206,6 +197,17 @@ Als Ergebnis wird angenommen, dass spatial discrete Spiele eine einfachere Konfi
 \end{center}
 \end{figure}
 
+Am Punkt 1 können Karten getauscht werden, welche beim anderen Team ebenfalls auf 1 liegen. \textcite{Kiefer.2007} stellen für den Vergleich  mehrere Entfernungsmatrizen auf, welche über ein Ähnlichkeitsmaß gegenüber gestellt werden.
+Für die Berechnung der Ähnlichkeit wird nachfolgendes Maß angewandt:
+
+\begin{equation}
+similarity = \frac{1}{n} \sum_{row=1}^{n} \sqrt{ \sum_{col=1}^{n} (c_{1,row,col} - c_{2,row,col})^2 }
+\end{equation}
+\\
+Hierbei stellen $c_1$ und $c_2$ jeweils die Entfernungsmatrizen der Spielfelder dar.
+Row und col adressieren die Zeile und Spalte.
+Zu beachten ist, dass die Entfernungen als direkte euklidische Luftlinie gemessen werden. Etwaige Höhenunterschiede, sowie örtliche Gegebenheiten werden hierbei aus Gründen der Vereinfachung nicht beachtet. Anschließend wird das arithmetische Mittel der Durchschnittswerte der einzelnen Reihen gebildet.
+Als Ergebnis wird angenommen, dass spatial discrete Spiele eine einfachere Konfiguration erlauben wie unter anderem \textcite{Benford.2005} angemerkt haben.
 \textcite{Benford.2005} identifizieren mehrere Herausforderungen im Bezug auf spatial continous games.
 
 \begin{itemize}
@@ -214,13 +216,13 @@ Als Ergebnis wird angenommen, dass spatial discrete Spiele eine einfachere Konfi
 \item Orchestration
 \end{itemize}
 
-Hefting domains stellen die Problematik dar, dass Spielelemente in Computerspielen auf die virtuellen Spielwelt fokussiert sind. Bei Pervasive Games muss dagegen ein besonderer Wert auf die Designentscheidungen bezüglich der virtuellen, reellen und hybriden Spielelemente gelegt werden.
+Hefting domains stellen die Problematik dar, dass Spielelemente in Computerspielen auf die virtuelle Spielwelt fokussiert sind. Bei Pervasive Games muss dagegen ein besonderer Wert auf die Designentscheidungen bezüglich der virtuellen, reellen und hybriden Spielelemente gelegt werden.
 
-Unter der Configuration ist die Adaption von Pervasive Games an verschiedene lokale Gegebenheiten zu sehen, d.h. die (generierte) Erstellung von Spielfeldern an anderen Orten.
+Unter der Configuration ist die Adaption von Pervasive Games an verschiedene lokale Gegebenheiten zu verstehen. Darunter ist eine  (generierte) Erstellung von Spielfeldern an anderen Orten zu verstehen.
 
 Die Orchestration stellt das Management des Spiels während der Laufzeit dar. Hierbei soll sichergestellt werden, dass ein Eingriff in das Spielgeschehen zu Gunsten der Sicherheit der Spieler als des Spielerlebnisses möglich ist.
 
-Ein erster Ansatz für die automatisierte Relokalisierung von Spielfelder lässt sich in der Literatur bei \textcite{Mannara.2012} finden. Dieser entwirft eine DSL\footnote{domain-specific language} zur Nutzung von OSM Daten für das Auffinden von Spielelemente des gleichen Typs am Beispiel von Uni Campi.
+Ein erster Ansatz für die automatisierte Relokalisierung von Spielfelder lässt sich in der Literatur bei \textcite{Mannara.2012} finden. Dieser entwirft am Beispiel von Uni Campi eine DSL\footnote{domain-specific language} zur Nutzung von OSM Daten für das Auffinden von Spielelemente des gleichen Typs.
 \\\\
 Abschließend lässt sich feststellen, dass in der Literatur keine konkrete Lösung für die (teil-)automatisierte Erstellung von Spielfeldern existiert.
 An dieser Stelle soll die Arbeit des Autors ansetzten und eine Lösungsmöglichkeit präsentieren.
@@ -232,7 +234,8 @@ Die daraus gewonnen Erkenntnisse sollen eine weitere Diskussion der Thematik erm
 Zunächst ist der Begriff offene (Geo-)Daten zu definieren.
 Unter offenen Daten sind im folgenden Daten zu verstehen, welche unter freier Lizenz zur Verfügung stehen und somit ohne Lizenzgebühren verwendet werden können. Hierbei soll im Idealfall sowohl eine kommerzielle Nutzung als eine private Verwendung erfolgen können.
 Es lassen sich generell zwei verschiedene Quellen von öffentlichen Geodaten identifizieren.
-Als erste Möglichkeit sind es Daten von öffentlichen Behörden. Hierbei gibt es aktuell im Zuge der Open Data Bewegung \cite{Oreilly.2007} den Anspruch Daten diverser Behörden den Bürgern zur Verfügung zu stellen. Der Grund liegt in der Argumentation, dass diese Daten mit Hilfe von Steuergeldern erstellt wurden. Erste Ansätze lassen sich sowohl in Großstädten wie Wien \cite{Wien.2014}, Hamburg \cite{Hamburg.2014} und Berlin \cite{Berlin.2014} finden. Als Beispiel für ganze Länder ist Dänemark \cite{Denmark.2014} zu nennen.\footnote{Eine Übersicht ist unter \url{http://www.engagedata.eu/opendatasites} (Abgerufen am 11.02.2014) zu finden. } Die Art, Qualität, sowie Umfang der Daten unterscheiden sich . 
+Als erste Möglichkeit gibt es Daten von öffentlichen Behörden. Hierbei gibt es aktuell im Zuge der Open Data Bewegung \cite{Oreilly.2007} den Anspruch Daten diverser Behörden den Bürgern zur Verfügung zu stellen. Der Grund liegt in der Argumentation, dass diese Daten mit Hilfe von Steuergeldern erstellt wurden. Erste Ansätze lassen sich sowohl in Großstädten wie Wien \cite{Wien.2014}, Hamburg \cite{Hamburg.2014} und Berlin \cite{Berlin.2014} finden. Als Beispiel für ganze Länder ist Dänemark \cite{Denmark.2014} zu nennen.\footnote{Eine Übersicht ist unter \url{http://www.engagedata.eu/opendatasites} (Abgerufen am 11.02.2014) zu finden. } Die Art, Qualität, sowie Umfang der Daten unterscheiden sich.
+ 
 Die zweite Option sind offene (Geo-)Datenbanken, welche von privaten Personen durch manuelles Mapping oder externe lizenzierte Quellen zusammen getragen werden.
 Beispiele entsprechender Datenbanken sind OpenStreetMap (OSM)\footnote{\url{http://OpenStreetMap.org}} und Wikimapia\footnote{\url{http://wikimapia.org}}.
 Hierbei stellt sich vor allem die Frage der Qualität der Daten im Vergleich zu kommerziellen bzw. Daten von Behörden.
@@ -248,22 +251,22 @@ Hierbei stellt sich vor allem die Frage der Qualität der Daten im Vergleich zu 
 Da für die Umsetzung des Frameworks OSM zum Einsatz kommen soll, ist eine Einschätzung im Hinblick auf die Anforderungen notwendig.
 In Abbildung \ref{img:ch03_img03_OSM1} sind ein Teil der Standard Elemente von OSM zu sehen.
 Generell werden alle Kartendaten durch Nodes, Ways und Relations dargestellt. Ways sind miteinander verbundene Nodes und Relations enthalten Relations, Ways, Nodes.
-Für jeder der drei Typen können entsprechende Tags definiert werden. Damit können jedem Objekt mehrere Key-Value paare zugewiesen werden, welche als Attribute zur Beschreibung der Objekte dienen.
+Für jeder der drei Typen können entsprechende Tags definiert werden. Damit können jedem Objekt mehrere Key-Value Paare zugewiesen werden, welche als Attribute zur Beschreibung der Objekte dienen.
 
 In der Literatur haben sich viele Autoren mit der Qualität von OSM beschäftigt.
 \textcite{Haklay.2010}, \textcite{Flanagin.2008} und \textcite{Goodchild.2007} beschreiben die Motivation der Personen die Kartenmaterial pflegen. Darüber hinaus wird auf die Probleme in offenen Datenbanken eingegangen. Es wird angemerkt, dass je nach Ziel des Mappers eine unterschiedliche Qualitätsstufe erreicht wird.
-\textcite{Girres.2010} beschreiben in einem Vergleich von französischer Daten, dass die Qualität der Daten von OSM seit dem Start 2004 deutlich zugenommen hat. Auf dem Land gibt es im Vergleich zu Städten unterschiedliche Abdeckungsraten. Zudem haben Naturkatastrophen einen Einfluss auf die Qualität der Daten.\cite{Zook.2010}
-Zur Zeit gibt es bei OSM ca. 25.000 aktive Mapper \cite{OSM.2013}. Die Autoren stellen eine Korrelation zwischen Einwohnerdichte und Datenqualität fest.
+\textcite{Girres.2010} beschreiben in einem Vergleich von französischer Daten, dass die Qualität der Daten von OSM seit dem Beginn des Projektes in 2004 deutlich zugenommen hat. Auf dem Land gibt es im Vergleich zu Städten unterschiedliche Abdeckungsraten. Zudem haben Naturkatastrophen einen Einfluss auf die Qualität der Daten.\cite{Zook.2010}
+Zur Zeit gibt es bei OSM ca. 25.000 aktive Mapper.\cite{OSM.2013} Die Autoren stellen eine Korrelation zwischen Einwohnerdichte und Datenqualität fest.
 Die durchschnittliche Abweichung der Position beim Vergleich von OSM zu kommerziellen Kartenherstellern beträgt zwischen 1 und 30 Metern.
 Darüber hinaus gibt es eine Ungenauigkeit bei Namen von Objekten. Diese entstehen unter anderem durch die Nutzung unterschiedlicher Sprachen und durch lokale Besonderheiten.
 Die Einfachheit von OSM durch die Reduktion der Daten auf Nodes, Ways und Relations mit den dazugehörigen Tags hat den Nachteil, dass im Modell keine logische Konsistenz sichergestellt wird. Dies muss in der Verarbeitung der Daten berücksichtigt werden.
-\textcite{Hecht.2013} beschreibt, dass eine geringe Abdeckungsrate im Vergleich zu professionellen Daten gibt. Dies wird ebenfalls von \textcite{Pfoser.2013} angemerkt. Dieser weist allerdings darauf hing, dass OSM eine hohe Klassifikationsrate besitzt. Zwar stellt der Autor eine hohe Fehlerrate von bis zu 23\% fest, diese ist aber für den konkreten Anwendungsfall als Nutzung für Spielfelder  zu vernachlässigen.
+\textcite{Hecht.2013} beschreiben, dass eine geringe Abdeckungsrate im Vergleich zu professionellen Daten gibt. Dies wird ebenfalls von \textcite{Pfoser.2013} angemerkt. Diese weisen allerdings darauf hing, dass OSM eine hohe Klassifikationsrate besitzt. Zwar stellen die Autoren eine hohe Fehlerrate von bis zu 23\% fest, diese ist aber für den konkreten Anwendungsfall als Nutzung für Spielfelder  zu vernachlässigen.
 \\\\
 Für OSM gibt es im Vergleich zu Wikmapia ausgereifte Schnittstellen. Konkret sind zwei von Relevanz, die für eine Abfrage von Daten in Frage kommen.
 Die erste Möglichkeit stellt die OSM API dar. Sie ermöglicht den Export der Geoinformatioenen bezogen auf eine Bounding Box. Eine detaillierte Filterung darüber hinaus ist nicht möglich.
 Als zweite Möglichkeit gibt es die OSM XAPI (Extended Api). Hierbei ist es möglich Abfragen in Verbindung mit den zugehörigen Tags zu erstellen.\cite{Meyer.2013} Die Ergebnisse der Abfrage werden als XML-Dokument zusammengefasst.
 
-Auf Basis der Literaturrecherche lässt sich daher schlussfolgern, dass OSM eine ausreichende Qualität für die Erstellung von Spielfeldern besitzt. Die Anforderung sieht nicht vor, dass 100\% der Elemente erfasst werden, sondern nur sichergestellt wird, dass genügend Spielelemente vorhanden sind.
+Auf Basis der Literaturrecherche lässt sich daher schlussfolgern, dass OSM eine ausreichende Qualität für die Erstellung von Spielfeldern besitzt. Die Anforderung sieht nicht vor, dass alle Elemente erfasst werden, sondern nur sichergestellt wird, dass genügend Spielelemente vorhanden sind.
 
 
 
@@ -273,14 +276,14 @@ Auf Basis der Literaturrecherche lässt sich daher schlussfolgern, dass OSM eine
 Für die spätere Bewertung der Spielfelder ist es notwendig entsprechende Verfahren zu nutzen.
 Hierfür eignen sich Verfahren der Geostatistik. Geostatistische Methoden haben ihren Ursprung in der Hydrologie.\cite{Bloschl.2006}
 Das Ziel in der Geostatistik ist es geografische Daten zu analysieren und im besten Fall Interpolationen für unbekannte geografische Positionen zu bestimmen.\cite{Liebhold.1993}
-Die Verwendung von Geoinformationssystemen (GIS) ermöglicht es hierbei Geodaten zu sammeln, speichern und entsprechend abzurufen. Gleichzeitig ist es möglich entsprechende Daten zu Transformieren und zu analysieren.\cite{Kitanidis.1997}
-\textcite{Bailey.1995} definieren die Statistische Analyse von Räumlichen Daten genauer und unterscheiden zwischen spatialen und nicht spatialen Analysen. Vergleicht man die Anforderung, dass eine Verteilung von Spiefeldern bzw. Spielelementen untersucht werden soll, so lässt sich feststellen, dass in der klassischen Literatur der Geostatistik weniger Ansätze zur Untersuchung von der Verteilung von Elementen auf einer Karte finden lassen.
+Die Verwendung von Geoinformationssystemen (GIS) ermöglicht es hierbei Geodaten zu sammeln, speichern und entsprechend abzurufen. Gleichzeitig ist es möglich entsprechende Daten zu transformieren und zu analysieren.\cite{Kitanidis.1997}
+\textcite{Bailey.1995} definieren die statistische Analyse von Räumlichen Daten genauer und unterscheiden zwischen spatialen und nicht spatialen Analysen. Vergleicht man die Anforderung, dass eine Verteilung von Spiefeldern bzw. Spielelementen untersucht werden soll, so lässt sich feststellen, dass in der klassischen Literatur der Geostatistik weniger Ansätze zur Untersuchung von der Verteilung von Elementen auf einer Karte finden lassen.
 
 Für die Evaluation der Spielfelder muss untersucht werden, wie die Spielelemente optimal verteilt werden müssen.
-Da die Fortbewegung der Spieler sich auf Wege begrenzt muss daher die weitere Literaturrecherche den Fokus auf die optimale Verteilung von Punkten in einem (Wege-) Netzwerk richten.
+Da die Fortbewegung der Spieler sich auf Wege begrenzt muss daher die Literaturrecherche den Fokus auf die optimale Verteilung von Punkten in einem (Wege-) Netzwerk richten.
 In der klassischen geostatistischen Literatur werden Verteilungen zunächst per Dichte unter Einfluss einer Zufallsvariablen beschrieben.\cite{Heinrich.1992}
 
-Um ähnliche Aussagen über gewichtete Netzwerke müssen die Methoden auf Netzwerke übertragen werden.
+Um ähnliche Aussagen über gewichtete Netzwerke machen zu könne, müssen die Methoden auf Netzwerke übertragen werden.
 \textcite{Goovaerts.1997} beschreibt bei die Verteilung von Ressourcen in einfachen Histogrammen und Streudiagrammen, welche die Konzentration der Ressourcen beschreiben. Darüber hinaus besteht die Möglichkeit mit einem Kreisdiagramm die gewichtete Verteilung zu visualisieren.\cite{Diggle.2007}
 Für die Visualisierung von Netzwerken zeigt \textcite{Okabe.2006} wie ein farbiges Voronoi Diagramm erstellt werden kann, welches als Charakteristik die nächsten entfernen Punkte beschreibt. \textcite{Spooner.2004} gehen einen Schritt weiter und definieren eine K-Funktion auf Basis von \textcite{Okabe.2001}, welche die Anzahl der Punkte in einem vorgegebenen Radius zu einem festen Punkt beschreiben.
 Die Formel ist wie folgt definiert:
@@ -290,6 +293,6 @@ K(t) = \frac{1}{p}E(n_{pit})
 \end{equation}
 \\
 E stellt der Erwartungswert in Hinblick auf p$_n$ dar. P beschreibt die Anzahl der zu untersuchenden Punkte und $n_{pit}$ beschreibt die Anzahl der Punkte die innerhalb der vorgegebenen Netzwerkdistanz t zum prüfenden Punkt p$_i$ stehen.
-Dieser Ansatz soll als erste Evaluationsansatz der Spielfelder dienen, da er einfach zu berechnen ist und später entsprechend angepasst werden.
+Dieser Ansatz soll als erste Evaluationsansatz der Spielfelder dienen, da er einfach zu berechnen ist und später entsprechend angepasst und verbessert werden.
 
 
