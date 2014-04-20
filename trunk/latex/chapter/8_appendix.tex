@@ -53,7 +53,7 @@
 
 \section{Quellcode}
 
-Aufgrund des Umfangs und des Entwicklungsvorgehens wurde der Quellcode des Frameworks nicht als optisches Medium beigelegt sondern befindet sich in einem Subversion Repository.
+Aufgrund des Umfangs und des Entwicklungsvorgehens wurde der Quellcode des Frameworks nicht als optisches Medium beigelegt. Er befindet sich in einem Subversion Repository.
 Somit kann das Framework offen von jedem verwendet werden, der ein Interesse daran hat. Soweit nicht anders angegeben steht der Quellcode des Autors unter der GNU GPL v2.
 Der Quellcode des Frameworks, Evaluationstools und der Latex Quellcode dieser Arbeit findet sich auf dem Subversion Server von Google Code.
 Mit nachfolgender URL kann die entsprechende Version ausgecheckt werden:\\\\
@@ -68,8 +68,8 @@ Die Struktur des Repositorys ist wie folgt:
 
 \section{Installation}
 
-Für die Ausführung des Frameworks wird Ruby in Version 2.0 und Rails in Version 4.0 benötigt. Letzteres wird automatishc per Bundler installiert.
-Darüber hinaus muss sichergestellt werden, dass der Server/Rechner eine aktive Verbindung zum Internet hat, damit die OSM -Daten abgerufen werden können.
+Für die Ausführung des Frameworks wird Ruby in Version 2.0 und Rails in Version 4.0 benötigt. Letzteres wird automatisch per Bundler installiert.
+Darüber hinaus muss sichergestellt werden, dass der Server/Rechner eine aktive Verbindung zum Internet hat, damit die OSM-Daten abgerufen werden können.
 
 Für die Installation des Frameworks ist es ausreichend das Ruby on Rails Projekt per svn auszuchecken:\\\\
 
@@ -86,3 +86,9 @@ Danach kann die Anwendung einfach im Projekt-Verzeichnis gestartet werden:\\\\
 \begin{lstlisting}[caption=CLI-Befehl für Start des Frameworks, label=code:ch8:bash02]
 bundle install;rails s
 \end{lstlisting}
+
+\subsection*{Konfiguration}
+
+Die Einstellung des Standard Tags für das Framework erfolgt über den Quellcode.
+In der Datei \url{./src/app/helpers/overpass_api_helper.rb} existiert die Methode getDefaultTag() im Modul OverpassApiHelper.
+Der dort festgelegte Wert kann nach belieben verändert werden. Durch wenige Zeilen Code kann der Tag auch aus der lokalen Datenbank oder einer anderen Quelle ausgelesen werden.
