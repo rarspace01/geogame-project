@@ -16,7 +16,7 @@ showpdf:
 	gnome-open Masterarbeit.pdf
 
 clean:
-	rm *.aux *.bbl *.blg *.log *.toc *.out *.lot *.lof *.bcf Masterarbeit.pdf
-	del *.aux *.bbl *.blg *.log *.toc *.out *.lot *.lof *.bcf Masterarbeit.pdf
+	rm *.aux *.bbl *.blg *.log *.toc *.out *.lot *.lof *.bcf *.4ct *.4tc Masterarbeit.pdf
+	del *.aux *.bbl *.blg *.log *.toc *.out *.lot *.lof *.bcf *.4ct *.4tc Masterarbeit.pdf
 
 
