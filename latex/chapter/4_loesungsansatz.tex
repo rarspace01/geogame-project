@@ -28,7 +28,7 @@ Andere Ansätze sind kooperative Quests, Handel von Spielitems, sowie das Förde
 Ein weiterer Aspekt sind neue Bekanntschaften, die durch ortsbezogene Spiele gemacht werden. In einer Umfrage von 6400 Ingress Spielern gaben dabei 84\% an neue Leute kennen gelernt zu haben. Dies zählten sie zu einem der wichtigsten Faktoren des Spiels.\cite{Ingress.2014}
 Explorer-Spieler untersuchen Ihre Umgebung und möchten neue Dinge entdecken. Sie fragen nach zusätzlichen Informationen. Für diese Spieler ist es z.\,B. interessant neue unbekannte Orte innerhalb des Spiels zu entdecken.
 
-Dass die einzelnen Spielertypen nicht zu vernachlässigen sind, wird in \textcite{Bromley.2013} deutlich. Hierbei stellen die Autoren am Beispiel von GoPets fest, dass durch die Orientierung an konkrete Spielertypen ein beachtliche Umsatzsteigerung erzielt werden kann. Allerdings ist es wichtig für den Erfolg eines Spieles, dass alle Spielertypen adressiert werden.\cite{Bethke.2007}
+Dass die einzelnen Spielertypen nicht zu vernachlässigen sind, wird in \textcite{Bromley.2013} deutlich. Hierbei stellen die Autoren am Beispiel von GoPets fest, dass durch die Orientierung an konkrete Spielertypen ein beachtliche Umsatzsteigerung erzielt werden kann. Allerdings ist es wichtig für den Erfolg eines Spiels, dass alle Spielertypen adressiert werden.\cite{Bethke.2007}
 \\\\
 Nachdem die (Spiel-)Elemente der Gamification selbst identifiziert wurden, muss untersucht werden, wie die Interaktion der Spieler mit dem lokalen Einzelhandel aussehen kann.
 Der Unterschied des Einzelhandels im Vergleich zum Onlinehandel ist der physische Besuch vor Ort. Der Kunde muss vor Ort sein, um eine Dienstleistung wahrzunehmen oder ein Produkt zu kaufen. Daher ist es für den jeweiligen Händler von besonderem Interesse, dass ein potentieller Kunde sein Geschäft betritt.
@@ -62,7 +62,7 @@ Für die Umsetzung eines Geogameframeworks muss zunächst untersucht werden welc
 Im Hinblick auf die in Kapitel~\ref{ch2:Problemstellunug} beschriebene Problemstellung sollen die Anforderungen  identifiziert und im Anschluss analysiert werden.
 Im Nachfolgenden soll auf die Aspekte eines Geogameframeworks eingegangen, sowie Lösungen für die Problemstellung aufgezeigt werden.
 \\\\
-Ziel ist es ein ortbezogenes Spiel zu entwickeln, welches dazu führt, dass die Spieler lokale Dienstleister/Einzelhändler vermehrt aufsuchen. Das Gameframework soll in diesem Fall einem Spielleiter bei der Durchführung eines Spieles unterstützen. Dadurch soll der Aufwand um ein vielfaches reduziert werden.
+Ziel ist es ein ortbezogenes Spiel zu entwickeln, welches dazu führt, dass die Spieler lokale Dienstleister/Einzelhändler vermehrt aufsuchen. Das Gameframework soll in diesem Fall einem Spielleiter bei der Durchführung eines Spiels unterstützen. Dadurch soll der Aufwand um ein vielfaches reduziert werden.
 Dem Spielleiter sollen die Arbeitsschritte für die Selektion der Spielelemente anhand von Geodaten und der Durchführung abgenommen werden. Ziel ist es, dass der Spielleiter selbst mit möglichst geringen technischen Kenntnissen ein Spiel durchführen kann. Daher lässt sich als ersten Aspekt das einfache Durchführen der Spiele festhalten.
 \\\\
 Für die Steigerung der Interaktion von potentieller Kunden wurde die Gamification und letztendlich die konkrete Spielmechanik in Kapitel \ref{ch3:s:Gamification} identifiziert.
@@ -86,14 +86,14 @@ x_{bb} = \frac{max_{i>0; i<=N}(x_i) + min_{i>0; i<=N}(x_i)}{2}
 \begin{equation}
 y_{bb} = \frac{max_{i>0; i<=N}(y_i) + min_{y>0; i<=N}(y_i)}{2}
 \end{equation}
-
-Eine weitere Methode die diese Unzulänglichkeit behebt stellt der geometrische Schwerpunkt dar.
+\\
+Eine weitere Methode die diese Unzulänglichkeit behebt, stellt der geometrische Schwerpunkt dar.
 Bei diesem wird der Massenmittelpunkt des Körpers bestimmt.\cite{Papula.2006} Hierfür ist zunächst die Berechnung der Fläche nötig:
 
 \begin{equation}
 A = \frac{1}{2}\sum_{i=0}^{N-1} (x_i\ y_{i+1} - x_{i+1}\ y_i)
 \end{equation}
-
+\\
 Dieses kann wiederum verwendet werden um das geometrische Gewicht zu ermitteln:
 
 \begin{equation}
@@ -103,9 +103,9 @@ x_s = \frac{1}{6A}\sum_{i=0}^{N-1}(x_i+x_{i+1})(x_i\ y_{i+1} - x_{i+1}\ y_i)
 \begin{equation}
 y_s = \frac{1}{6A}\sum_{i=0}^{N-1}(y_i+y_{i+1})(x_i\ y_{i+1} - x_{i+1}\ y_i)
 \end{equation}
-
+\\
 Die jeweiligen x- und y-Koordinaten liefern damit die Koordinate auf dem Spielfeld.
-\\\\
+\\
 Der Gedanke eines Frameworks zielt auf eine einfache Erweiterbarkeit, Pflege und Wiederverwendbarkeit ab. Daher ist die Erweiterbarkeit für weitere Spiele und Spielmechaniken ein wichtiger Aspekt.
 Ziel ist es daher ein Grundgerüst zu entwickeln, welches durch Anpassungen einfach modifiziert werden kann.
 Je nach Fokus auf Flexibilität und Umfang des Frameworks, müssen Funktionen und Methoden generischer oder spezifischer implementiert werden.
@@ -118,7 +118,7 @@ Diese haben einen deutlich größeren Einfluss auf die passende Zielgruppe. Alle
 \textcite{Chen.2001} und \textcite{Dahl.2009} beschreiben, dass jüngere Personen bis zu 100 mal mehr spielen als ältere.
 Der Kunde nimmt die Marke durch Advergames deutlich mehr wahr im Vergleich zu anderer Werbung.
 Die Möglichkeiten für die Integration von Produkten sind vielfältig. Neben der passiven Einbindung des Produktes in die Spielumgebung, kann das Produkt auch selbst als Spielelement dienen (Beispiel: Colgate 1992: Harald Hårtand -- kampen om de rene tænder).
-Darüber hinaus könnte im Fall eines ortsbezogenen Spieles der Händler/Dienstleister im Spiel selbst als Pendant seines Händlers in der Realität auftreten. D.h. ein Händler stellt im Spiel selbst einen Händler für Spielitems dar.
+Darüber hinaus könnte im Fall eines ortsbezogenen Spiels der Händler/Dienstleister im Spiel selbst als Pendant seines Händlers in der Realität auftreten. D.h. ein Händler stellt im Spiel selbst einen Händler für Spielitems dar.
 Somit lässt sich die Einbindung generell in zwei Arten unterteilen. Einmal als aktiv für den Spielausgang entscheidendes Element (z.B: als POI für TicTacToe) oder aber als Händler, welchen der Spieler aufsuchen kann.
 Im Hinblick auf die Spielitems sollten diese vorzugsweise im Zusammenhang mit dem Händler und der Spielthematik stehen. Je besser sich diese in das Spiel integrieren, desto eher werden sie vom Spieler als plausibel wahrgenommen. Dies hat wiederum einen positiven Effekt auf die Wahrnehmung.
 Ein Beispiel für die Integration könnte z.\,B. ein Supermarkt sein, welcher Essen anbietet. Dieses kann wiederum vom Spieler zur Auffrischung der Energie verwendet werden. Ein anderes Item könnte eine Schaufel darstellen, welche beim lokalen Baumarkt gekauft und im Spiel zum Bauen von eigenen Gebäuden verwendet werden kann.
@@ -130,7 +130,7 @@ Ein Vergleich zeigt Abbildung \ref{img:ch4_img02_marketshare}, welche die aktuel
 \begin{figure}[H]
 \begin{center}
 \includegraphics[width=140mm]{images/ch4_img02_marketshare.png}
-\caption{Globale Verteilung mobiler Betriebssysteme auf Basis von \textcite{Gartner.2013} -- Bild: \cite{Wikipedia.2014}}
+\caption{Globale Verteilung mobiler Betriebssysteme auf Basis von \textcite{Gartner.2013} -- Bildquelle: \cite{Wikipedia.2014}}
 \label{img:ch4_img02_marketshare}
 \end{center}
 \end{figure}
@@ -169,7 +169,7 @@ Für die Relokalisierbarkeit von Spiefeldern wurden in Kapitel \ref{ch3:s:Reloka
 Generell erfolgt die Unterteilung in die zuvor identifizierten Möglichkeiten.
 Es kann entweder keine Anpassung, eine vollständige Anpassung oder ein Hybrid Ansatz erfolgen. Der ideale Fall stellt eine vollständige Anpassung und damit Relokalisierbarkeit eines Spiels ohne das manuelle Anpassen durch einen Spielleiter dar. Hier für gibt es in der Literatur allerdings keine konkreten Ansätze. Vielmehr werden konkrete Spiele wie REXplorer \cite{Ballagas.2007} oder GeoTicTacToe \cite{Kiefer.2007} durch eine vorgegebene Liste an POIs adaptiert. Hierzu wird zu einem optimalen Spielfeld in einer Stadt das jeweils beste der anderen Stadt gefunden.
 Einen nutzbaren Ansatz für die automatisierte evaluierte Relokalisierung gibt es hierbei allerdings nicht.
-Ein Ansatz der sich aus der Hypothese herausbildet, ist der Versuch Aufgrund bestehender Geodatenbanken -- konkret OpenStreetMap -- eine Relokalisierung zu erreichen. Es müssen allerdings neben der bereits angesprochenen Transformation der Relationen, Ways und Nodes auch eine Auswahl der Spielelemente stattfinden. Denkbar sind zwei Ansätze. Um ein \glqq gutes Spielfeld\grqq{} zu identifizieren und somit eine Relokalisierung für gut zu befinden, muss ein Evaluationsansatz existieren. Ansätze zur Evaluation von Spielfeldern sollen im Kapitel \ref{ch:S6_Evaluierung} näher betrachtet werden. Generell kann zwischen einer Echtzeit-Evaluation und einer Offline-Evaluation unterschieden werden. Jede Form hat ihre eigenen Vor- und Nachteile.
+Ein Ansatz der sich aus der Hypothese herausbildet, ist der Versuch Aufgrund bestehender Geodatenbanken -- hier OpenStreetMap -- eine Relokalisierung zu erreichen. Es müssen allerdings neben der bereits angesprochenen Transformation der Relationen, Ways und Nodes auch eine Auswahl der Spielelemente stattfinden. Denkbar sind zwei Ansätze. Um ein \glqq gutes Spielfeld\grqq{} zu identifizieren und somit eine Relokalisierung für gut zu befinden, muss ein Evaluationsansatz existieren. Ansätze zur Evaluation von Spielfeldern sollen im Kapitel \ref{ch:S6_Evaluierung} näher betrachtet werden. Generell kann zwischen einer Echtzeit-Evaluation und einer Offline-Evaluation unterschieden werden. Jede Form hat ihre eigenen Vor- und Nachteile.
 
 Bei einer Echzeitevaluation der Spielfelder liegt der Vorteil in der völligen Automatisierung der Auswahl der Spielelemente. Diese führt zu weniger Aufwand für den Spielleiter, der ein Spiel ausrichten möchte. Allerdings muss gleichzeitig der zu verwendende Algorithmus in Echtzeit zu einem Ergebnis für die Auswahl der Spielelemente kommen. Da Pervasive Games in Echtzeit gespielt werden, kann ein Algorithmus keine größere Komplexität aufweisen. Die Echzeitanforderung begrenzt daher die Laufzeit des Algorithmus und führt somit zu einer eingeschränkten Qualität der Spielfelder.
 
@@ -182,7 +182,7 @@ Eine andere Möglichkeit stellt ein hybrider Ansatz dar. Dabei wird ein Teil der
 In Kapitel \ref{ch3:s:offeneGeodaten} wurden öffentliche Geodatenbanken identifiziert welche Geodaten enthalten, die für eine Nutzung für ein ortsbezogenes Spiel in Frage kommen. Von diesen hat sich lediglich OSM als brauchbar und mit ausreichender Daten-Qualität erwiesen. Untersucht man OpenStreetMap bezüglich seiner Lizenz für die Verwendung in kommerziellen Projekten, so lässt sich zunächst der Wechsel der Lizenz im Jahre 2012 auf ODbl erkennen.\cite{Ramthun.2012}
 
 Vergleicht man die Anforderungen eines Gameframeworks an die Geodaten, so ist der Aspekt der Lizenzierung wichtig. Im Vergleich zu anderen Open Source Lizenzen ist eine kommerzielle Nutzung möglich ist, ohne den Quellcode des Programmes oder zusätzliche externe Datenquellen zu veröffentlichen.
-Die ODbl in Version 1.0 beschreibt hierbei, dass ein Auszug aus der Datenbank selbst als Derivative Database anzusehen ist.\cite{ODbl.2014} D.h. konkret in Verbindung mit OSM, dass das Ergebnis einer Abfrage an den OSM Server als Datenbank anzusehen ist, welche nach ODbl zu behandeln ist. Der Nutzer, hier: Betreiber, ist verpflichtet, wenn die OSM-Daten selbst modifiziert werden oder in irgend einer Weise aufgewertet/aufbereitet und der Öffentlichkeit (über das Internet) zur Verfügung gestellt werden, diese ebenfalls öffentlich zu machen. Eine private Verwendung muss nicht veröffentlicht werden. Gleiches gilt für die zusätzlichen externen Datenquellen welche mit den OSM-Daten vermengt werden. Dies können zum Beispiel kommerziell eingekaufte Höhenprofile oder Landschaftsaufnahmen sein. Diese bleiben somit davon unberührt.
+Die ODbl in Version 1.0 beschreibt hierbei, dass ein Auszug aus der Datenbank selbst als Derivative Database anzusehen ist.\cite{Odbl.2014} D.h. in Verbindung mit OSM ist das Ergebnis einer Abfrage an den OSM Server als Datenbank anzusehen, welche nach ODbl zu behandeln ist. Der Nutzer, hier: der Betreiber, ist verpflichtet die modifizierten oder in irgend einer Weise aufgewerteten OSM-Daten der Öffentlichkeit (über das Internet) wieder zur Verfügung zu stellen. Eine private Verwendung muss nicht veröffentlicht werden. Gleiches gilt für die zusätzlichen externen Datenquellen welche mit den OSM-Daten vermengt werden. Dies können zum Beispiel kommerziell eingekaufte Höhenprofile oder Landschaftsaufnahmen sein. Diese bleiben somit davon unberührt.
 
 Nach einer Untersuchung der Pflichten, die durch die Nutzung der ODbl in Verbindung mit OSM entstehen, lässt sich feststellen, dass eine Nutzung der OSM-Daten juristisch unbedenklich ist. 
 Die Anforderungen des Gameframeworks sind mit der Lizenz vereinbar.
@@ -217,6 +217,11 @@ Das Framework selbst wird als webbasiertes Framework umgesetzt.
 Zwar ist dann der Einsatz diverser Hardware Funktionen auf Seiten der Smartphones nicht möglich, aber der Entwicklungsaufwand wird erheblich reduziert. Zudem ist die Anwendung auf alle aktuellen Mobilen Betriebssystemen verwendbar.
 \\\\
 Für die Interaktion mit dem Händler ist vorgesehen, dass der Spieler geografisch in die Nähe kommt. Er soll die jeweiligen Läden der Händler explizit besuchen. Da durch die Nutzung einer webbasierten Lösung die Hardware wie Bluetooth, NFC oder Kamera des Smartphones nicht zu Verfügung stehen, muss auf die GPS Daten zurückgegriffen werden.
-Hierbei stellt sich allerdings die Herausforderung, dass der GPS Empfang in Gebäuden je nachdem nur schlecht oder gar nicht vorhanden ist. Gleiches gilt für die mobile Datenverbindung. Daher bietet es sich als Option an, mit Coupon-Code zu arbeiten. Der Spieler erhält diesen vom Händler, welchen er dann später, sobald er wieder mobilen Datenempfang hat, in das Spiel eingeben kann. Danach erhält er das jeweilige Item. Darüber hinaus funktioniert diese Methode auch ohne Probleme mit älteren Smartphones. Die Coupon-Codes kann der Händler gegen eine Gebühr vom Spielbetreiber erhalten. Vorstellbar wäre z.\,B. 100€ für 100 Interaktionen. Vergleicht man diese Preise mit den üblichen Kosten für Cost-Per-Click (CPC) Werbung wie z.\,B. bei Google Adwords, so bietet sich dem Spielbetreiber hier eine kostengünstige und effektive Möglichkeit die Spielinfrastruktur und den operativen Betrieb zu refinanzieren.\cite{Guerini.2010} Für den Begriff Supermarkt im Raum Hamburg sind CPC von 1-2€ der Durchschnitt. Auch im Raum Bamberg fallen Kosten von 0,5€ an.\footnote{Abruf 05.03.2014 -- Google Adwords Keyword Planer} Im Gegenzug erhält der Händler eine physische Interaktion des Spielers mit dem Framework. Diese ist wertvoller, als der Aufruf seiner Homepage. Ein direkter Kontakt des Spielers mit dem Point of Sales wird eher zu einem Kauf führen als der Besuch einer Homepage. Hier wird auch die Problematik zwischen Online und Offline bewusst aufgegriffen. Der offline Händler kann somit aktiv vom Internet profitieren und dem Internet affinen Nutzer einen Mehrwert bieten. Beispielsweise könnte  der Händler die Coupon Codes z.\,B. auf dem Kassenzettel unterbringen. Damit gibt sich dem Händler zusätzlich die Möglichkeit direkte Käufer zu belohnen.
+Hierbei stellt sich allerdings die Herausforderung, dass der GPS Empfang in Gebäuden je nachdem nur schlecht oder gar nicht vorhanden ist.
+Gleiches gilt für die mobile Datenverbindung. Daher bietet es sich als Option an, mit Coupon-Code zu arbeiten.
+Der Spieler erhält diesen vom Händler, welchen er dann später, sobald er wieder mobilen Datenempfang hat, in das Spiel eingeben kann. Danach erhält er das jeweilige Item.
+Darüber hinaus funktioniert diese Methode auch ohne Probleme mit älteren Smartphones. Die Coupon-Codes kann der Händler gegen eine Gebühr vom Spielbetreiber erhalten. Vorstellbar wäre z.\,B. 100~€ für 100 Interaktionen.
+Vergleicht man diese Preise mit den üblichen Kosten für Cost-Per-Click (CPC) Werbung wie z.\,B. bei Google Adwords, so bietet sich dem Spielbetreiber hier eine kostengünstige und effektive Möglichkeit die Spielinfrastruktur und den operativen Betrieb zu refinanzieren.\cite{Guerini.2010}
+Für den Begriff Supermarkt im Raum Hamburg sind CPC von 1-2~€ der Durchschnitt. Auch im Raum Bamberg fallen Kosten von 0,5~€ an.\footnote{Google Adwords Keyword Planer -- Abruf am: 05.03.2014} Im Gegenzug erhält der Händler eine physische Interaktion des Spielers mit dem Framework. Diese ist wertvoller, als der Aufruf seiner Homepage. Ein direkter Kontakt des Spielers mit dem Point of Sales wird eher zu einem Kauf führen als der Besuch einer Homepage. Hier wird auch die Problematik zwischen Online und Offline bewusst aufgegriffen. Der offline Händler kann somit aktiv vom Internet profitieren und dem Internet affinen Nutzer einen Mehrwert bieten. Beispielsweise könnte  der Händler die Coupon Codes z.\,B. auf dem Kassenzettel unterbringen. Damit gibt sich dem Händler zusätzlich die Möglichkeit direkte Käufer zu belohnen.
 
 Für das Beispiel Spiel werden die Itemtypen nicht näher festgelegt. Testweise wird ein Itemtyp eingeführt werden, welcher die maximalen Aktionspunkte temporär um 10 anhebt. Dies soll dem Spieler ein taktisches Vorgehen ermöglichen.
