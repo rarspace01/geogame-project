@@ -1,8 +1,6 @@
 package edu.unibamberg.hamann.evalTags;
 
-import java.io.BufferedReader;
 import java.io.DataOutputStream;
-import java.io.FileReader;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -165,25 +163,25 @@ public class OSMWrapperAPI {
 		return docBuilder.parse(connection.getInputStream());
 	}
 
-	/**
-	 * 
-	 * @param filePath
-	 * @return
-	 * @throws java.io.IOException
-	 */
-	private static String readFileAsString(String filePath) throws java.io.IOException {
-		StringBuffer fileData = new StringBuffer(1000);
-		BufferedReader reader = new BufferedReader(new FileReader(filePath));
-		char[] buf = new char[1024];
-		int numRead = 0;
-		while ((numRead = reader.read(buf)) != -1) {
-			String readData = String.valueOf(buf, 0, numRead);
-			fileData.append(readData);
-			buf = new char[1024];
-		}
-		reader.close();
-		return fileData.toString();
-	}
+//	/**
+//	 * 
+//	 * @param filePath
+//	 * @return
+//	 * @throws java.io.IOException
+//	 */
+//	private static String readFileAsString(String filePath) throws java.io.IOException {
+//		StringBuffer fileData = new StringBuffer(1000);
+//		BufferedReader reader = new BufferedReader(new FileReader(filePath));
+//		char[] buf = new char[1024];
+//		int numRead = 0;
+//		while ((numRead = reader.read(buf)) != -1) {
+//			String readData = String.valueOf(buf, 0, numRead);
+//			fileData.append(readData);
+//			buf = new char[1024];
+//		}
+//		reader.close();
+//		return fileData.toString();
+//	}
 
 	/**
 	 * main method that simply reads some nodes

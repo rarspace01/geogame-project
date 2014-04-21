@@ -23,6 +23,11 @@ public class BoundingBox {
 		this.e = e;
 	}
 
+	/**
+	 * builds a Bounding Box on a given {@link GeoCoordinate} and a distance in meters
+	 * @param middle
+	 * @param distance
+	 */
 	public BoundingBox(GeoCoordinate middle, double distance) {
 		double[] result = getBoundingBox(middle.getLatitude(),
 				middle.getLongitude(), (int) distance);
@@ -36,7 +41,7 @@ public class BoundingBox {
 	}
 
 	/**
-	 * internal method to bulid a bounding box based on a Lat & Lon value and a
+	 * internal method to build a bounding box based on a Lat & Lon value and a
 	 * radius
 	 * 
 	 * @param pLatitude

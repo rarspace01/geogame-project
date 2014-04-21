@@ -12,7 +12,7 @@ import java.util.Calendar;
 import java.util.Locale;
 
 /**
- * Old Helper Class from 2010
+ * Old Helper Class from 2010 based on: {@link https://code.google.com/p/snmptrack/source/browse/trunk/src/org/dh/usertrack/HelperClass.java}
  * 
  * @author denis
  * 
@@ -23,6 +23,10 @@ public class Helper {
 	public static String sWorkpath = "";
 	private static String FILENAME = "eval_log.txt";
 
+	/**
+	 * returns the logical CPU count
+	 * @return
+	 */
 	public static int getCPUCount() {
 
 		OperatingSystemMXBean osBean = ManagementFactory

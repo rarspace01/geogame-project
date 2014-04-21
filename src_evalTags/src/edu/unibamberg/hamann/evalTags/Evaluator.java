@@ -8,7 +8,6 @@ import java.util.Map;
 import com.graphhopper.GHRequest;
 import com.graphhopper.GHResponse;
 import com.graphhopper.GraphHopper;
-import com.graphhopper.routing.util.EncodingManager;
 import com.vividsolutions.jts.geom.Coordinate;
 
 /**
@@ -23,6 +22,13 @@ public class Evaluator {
 	public static final String TAG = "Evaluator";
 	
 
+	/**
+	 * evaluates a given {@link BoundingBox} with a tag in connectino with a {@link GraphHopper} Object for routing
+	 * @param tgh
+	 * @param bbox
+	 * @param tag
+	 * @return
+	 */
 	public double evaluateBoundingBox(GraphHopper tgh, BoundingBox bbox, String tag) {
 
 
@@ -31,7 +37,8 @@ public class Evaluator {
 
 		List<Double> resultList = new LinkedList<Double>();
 		double currentResult = 0;
-
+		
+		// generate inner and outter Boundign box (see thesis for details)
 		List<GeoCoordinate> gcListToBeChecked = GeogameAPI
 				.getCoordinatesFromGeoJson(bbox, tag);
 		List<GeoCoordinate> gcListToBeUsed = GeogameAPI
@@ -64,6 +71,7 @@ public class Evaluator {
 
 			resultList.add(currentResult);
 
+			// print status on every 50th iteration
 			if(iteratecur % 50 == 0){
 			
 			System.out.println("[" + iteratecur + "/" + iteratemax + "]@"
@@ -80,6 +88,7 @@ public class Evaluator {
 
 		Map<Double, Long> distributionMap = new HashMap<Double, Long>();
 
+		// get sum for AVG
 		for (double element : resultList) {
 
 			if (distributionMap.containsKey(element)) {
@@ -91,6 +100,7 @@ public class Evaluator {
 			resultValue += element;
 		}
 
+		// calc avg
 		resultValue /= resultList.size();
 
 		for (double currentKey : distributionMap.keySet()) {
@@ -154,6 +164,15 @@ public class Evaluator {
 
 	}
 
+	/**
+	 * used for timebasednetworkgraph - isn't used see thesis for the corresponding reasons
+	 * @param osmNodeList
+	 * @param currentNode
+	 * @param tgh
+	 * @return
+	 */
+	@SuppressWarnings("unused") // we don't care if it isn't used. it was used for testing purposes only
+	@Deprecated
 	private double getNodesCountInReachGraphhopper(
 			List<GeoCoordinate> osmNodeList, GeoCoordinate currentNode,
 			GraphHopper tgh) {
@@ -188,6 +207,13 @@ public class Evaluator {
 		return count;
 	}
 
+	/**
+	 * the function to retrieve the value for one inner Bounding box Element
+	 * @param osmNodeList
+	 * @param currentNode
+	 * @param tgh
+	 * @return
+	 */
 	private double getValueInReachGraphhopper(List<GeoCoordinate> osmNodeList,
 			GeoCoordinate currentNode, GraphHopper tgh) {
 
@@ -198,12 +224,14 @@ public class Evaluator {
 		// loaded
 		GeoCoordinate currentNodeGeo = currentNode;
 
+		// iterate over all outer Nodes
 		for (GeoCoordinate listNode : osmNodeList) {
 
 			if (listNode.equals(currentNode)) {
 				// System.out.println("found myself");
 			} else {
 
+				// build Graphhipper Request
 				GeoCoordinate toNode = listNode;
 
 				GHRequest request = new GHRequest(currentNodeGeo.getLatitude(),
@@ -213,9 +241,11 @@ public class Evaluator {
 				request.setVehicle("FOOT");
 				GHResponse response = tgh.route(request);
 
+				// retrieve result
 				double localResult = response.getDistance();
 				double localValue = 0;
 
+				// hardcoded values, see thesis why there isn't a traditional function
 				if (localResult >= 150) {
 					localValue = 0.25;
 					if (localResult > 200)
