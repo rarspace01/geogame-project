@@ -10,7 +10,7 @@ Für die Softwaretechnische Umsetzung wurden zunächst die Anforderungen an das 
 \begin{figure}[H]
 \begin{center}
 \includegraphics[width=140mm]{images/ch5_img01_framework_progress.png}
-\caption{Prozess: Von OSM zum Spielelement}
+\caption{Prozess -- Von OSM zum Spielelement}
 \label{img:ch5_img01_framework_progress}
 \end{center}
 \end{figure}
@@ -97,7 +97,9 @@ Zur Verdeutlichung wird an dieser Stelle die Entscheidung für eine Technologie 
 \end{figure}
 
 Die Wahl des Formats für den Export der Spielelemente und Händlerdaten ist auf GeoJSON gefallen.
-Dies ist mit den Daten von OSM und Overpass, welche als JSON im Framework ausgelesen werden begründet. Darüber hinaus verwendet eine Vielzahl der aktuellen Frameworks und Tools dieses Format. Während das offene Format WKT für die reine Repräsentation von Geodaten dient,\cite{Stolze.2003} bietet das GeoJSON Format zusätzlich die Möglichkeit Properties in einem Geo Objekt zu speichern.\cite{Butler.2008} Über diese kann wiederum das Framework Informationen wie z.\,B. die codierte OSM ID und Informationen zum Spielelement übertragen.
+Dies ist mit den Daten von OSM und Overpass, welche als JSON im Framework ausgelesen werden begründet. Darüber hinaus verwendet eine Vielzahl der aktuellen Frameworks und Tools dieses Format.
+Während das offene Format WKT für die reine Repräsentation von Geodaten dient,\cite{Stolze.2003} bietet das GeoJSON Format zusätzlich die Möglichkeit Properties in einem Geo Objekt zu speichern.\cite{Butler.2008}
+Über diese kann das Framework wiederum Informationen, wie z.\,B. die codierte OSM ID und Informationen zum Spielelement, übertragen.
 \\\\
 Generell werden die Informationen des Frameworks für drei verschiedene Module benötigt.
 Zunächst einmal gibt es den Spielclient bzw. dessen Oberfläche. Dieser benötigt die Daten für das Staging des Spiels selbst.
@@ -422,7 +424,7 @@ Für das Gameframework wurden die einzelnen Module unabhängig voneinander getes
 Nachdem die die GameAPI mit ihrer Transformation der OSM Elemenete in Spielelemente implementiert wurde, ist das Beispiel Spiel darauf aufgebaut worden. Hierzu wurde die korrekte Transformation der Elemente anhand von speziellen Tags manuell überprüft. Für die Tags wurde auf \url{http://taginfo.openstreetmap.org} zurückgegriffen. Die Seite bietet einen statistischen Überblick aller Tags in OSM sowie die Verteilung auf die Elemente Relation, Way und Nodes. Der Test erfolge anhand von Key-Value Paaren, die jeweils explizit nur als einer der drei Typen bevorzugt gemappt werden.
 
 Das Beispiel Spiel selbst musste ebenfalls getestet werden. Da ein ortsbezogenes Spiel als Grundlage die Position des Spielers verwendet, ist ein Debugging unterwegs schwierig. Aufgrund dessen ist es am besten die GPS-Koordinate zu simulieren. Hierfür gibt es Plugins für die am weitesten verbreiteten Browser, wie Chrome oder Firefox. Mit deren Hilfe kann die Position, welche die HTML5 Geo-API zurück liefert, verändert werden. Darüber hinaus ist es auch möglich die Genauigkeit der GPS Position, sowie das Bewegungs-Event zu triggern. Mit Hilfe von diesen können alle ortbezogenen Funktionen des Beispiel Spiels auch direkt während der Entwicklung getestet werden.
-Für die Nutzung des Spieles auf Smartphones eignet sich darüberhinaus der Einsatz von Emulatoren. Für Android und FirefoxOS sind diese frei verfügbar. Für iOS fallen jährliche Gebühren an und der Emulator inkl. SDK ist nur unter der neusten Mac OS X Version verfügbar.
+Für die Nutzung des Spiels auf Smartphones eignet sich darüberhinaus der Einsatz von Emulatoren. Für Android und FirefoxOS sind diese frei verfügbar. Für iOS fallen jährliche Gebühren an und der Emulator inkl. SDK ist nur unter der neusten Mac OS X Version verfügbar.
 
 Tests für das Evaluationstool wurden vorwiegend für die Laufzeit sowie der Bewertung von Spielfeldern durchgeführt.
 Konkrete Unit-Tests wurden für das Framework aus Zeitgründen nicht entwickelt, sollten aber als nächster wichtiger Punkt implementiert werden.

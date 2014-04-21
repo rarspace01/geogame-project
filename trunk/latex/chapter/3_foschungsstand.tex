@@ -135,7 +135,7 @@ of interaction or interface\grqq{} definiert wird. Dabei handelt es sich um die 
 Eine Vielzahl von Pervasive Games wurde in der Literatur behandelt und die Spielerinteraktion untersucht.
 Beispiele hierfür sind Can You See Me Now \cite{Flintham.2003}, GeoTicTacToe, CityPoker, Neocartographer von \textcite{Schlieder.2005}, Human Pacman \cite{Cheok.2003} und Feed my Yoshi \cite{Bell.2006}.
 Anhand dieser Spieler wurden Erkenntnisse in der Praxis gewonnen, welche sich mit der Gamification Literatur in Kapitel \ref{ch3:s:Gamification} decken.
-Eine Sammlung weiterer interessanter Spielkonzepte stellt die Sammlung von \textcite{Hinske.2007} dar, welche Ideen für eigene Spielideen liefern kann.
+Eine Sammlung weiterer interessanter Spielkonzepte stellt die Sammlung von \textcite{Hinske.2007} dar, welche Ideen für eigene Spiele liefern kann.
 Für die Umsetzung des Frameworks ist es wichtig einen Überblick und Einordnung über die aktuell existierenden Pervasive Games zu haben. Aufgrund dieser Informationen können bewusst bessere Entscheidungen im Entwurf getroffen werden, welche somit dem Spielleiter und dem darauf aufbauenden Spiel zugute kommen.
 
 
@@ -236,10 +236,10 @@ Die daraus gewonnen Erkenntnisse sollen eine weitere Diskussion der Thematik erm
 Zunächst ist der Begriff offene (Geo-)Daten zu definieren.
 Unter offenen Daten sind im folgenden Daten zu verstehen, welche unter freier Lizenz zur Verfügung stehen und somit ohne Lizenzgebühren verwendet werden können. Hierbei soll im Idealfall sowohl eine kommerzielle Nutzung als eine private Verwendung erfolgen können.
 Es lassen sich generell zwei verschiedene Quellen von öffentlichen Geodaten identifizieren.
-Als erste Möglichkeit gibt es Daten von öffentlichen Behörden. Es gibt aktuell im Zuge der Open Data Bewegung \cite{Oreilly.2007} den Anspruch Daten diverser Behörden den Bürgern zur Verfügung zu stellen. Der Grund liegt in der Argumentation, dass diese Daten mit Hilfe von Steuergeldern erstellt wurden. Erste Ansätze lassen sich sowohl in Großstädten wie Wien \cite{Wien.2014}, Hamburg \cite{Hamburg.2014} und Berlin \cite{Berlin.2014} finden. Als Beispiel für ganze Länder ist Dänemark \cite{Denmark.2014} zu nennen.\footnote{Eine Übersicht ist unter \url{http://www.engagedata.eu/opendatasites} (Abgerufen am 11.02.2014) zu finden. } Die Art, Qualität, sowie Umfang der Daten unterscheiden sich.
+Als erste Möglichkeit gibt es Daten von öffentlichen Behörden. Es gibt aktuell im Zuge der Open Data Bewegung \cite{Oreilly.2007} den Anspruch Daten diverser Behörden den Bürgern zur Verfügung zu stellen. Der Grund liegt in der Argumentation, dass diese Daten mit Hilfe von Steuergeldern erstellt wurden. Erste Ansätze lassen sich sowohl in Großstädten wie Wien \cite{Wien.2014}, Hamburg \cite{Hamburg.2014} und Berlin \cite{Berlin.2014} finden. Als Beispiel für ganze Länder ist Dänemark \cite{Denmark.2014} zu nennen.\footnote{Eine Übersicht ist unter \url{http://www.engagedata.eu/opendatasites} zu finden. (Abgerufen am: 11.02.2014)} Die Art, Qualität, sowie Umfang der Daten unterscheiden sich.
  
 Die zweite Option sind offene (Geo-)Datenbanken, welche von privaten Personen durch manuelles Mapping oder externe lizenzierte Quellen zusammen getragen werden.
-Beispiele für die Datenbanken sind OpenStreetMap (OSM)\footnote{\url{http://OpenStreetMap.org}} und Wikimapia\footnote{\url{http://wikimapia.org}}.
+Beispiele für die Datenbanken sind OpenStreetMap (OSM)\footnote{\url{http://openstreetmap.org}} und Wikimapia\footnote{\url{http://wikimapia.org}}.
 Hierbei stellt sich vor allem die Frage der Qualität der Daten im Vergleich zu kommerziellen bzw. Daten von Behörden.
 
 \begin{figure}[H]
@@ -262,9 +262,9 @@ Zur Zeit gibt es bei OSM ca. 25.000 aktive Mapper.\cite{OSM.2013} Die Autoren st
 Die durchschnittliche Abweichung der Position beim Vergleich von OSM zu kommerziellen Kartenherstellern beträgt zwischen 1 und 30 Metern.
 Darüber hinaus gibt es eine Ungenauigkeit bei Namen von Objekten. Diese entstehen unter anderem durch die Nutzung unterschiedlicher Sprachen und durch lokale Besonderheiten.
 Die Einfachheit von OSM durch die Reduktion der Daten auf Nodes, Ways und Relations mit den dazugehörigen Tags hat den Nachteil, dass im Modell keine logische Konsistenz sichergestellt wird. Dies muss in der Verarbeitung der Daten berücksichtigt werden.
-\textcite{Hecht.2013} beschreiben, dass eine geringe Abdeckungsrate im Vergleich zu professionellen Daten gibt. Dies wird ebenfalls von \textcite{Pfoser.2013} angemerkt. Diese weisen allerdings darauf hing, dass OSM eine hohe Klassifikationsrate besitzt. Zwar stellen die Autoren eine hohe Fehlerrate von bis zu 23\% fest, diese ist aber für den konkreten Anwendungsfall als Nutzung für Spielfelder  zu vernachlässigen.
+\textcite{Hecht.2013} beschreiben, dass eine geringe Abdeckungsrate im Vergleich zu professionellen Daten gibt. Dies wird ebenfalls von \textcite{Pfoser.2013} angemerkt. Diese weisen allerdings darauf hing, dass OSM eine hohe Klassifikationsrate besitzt. Zwar stellen die Autoren eine hohe Fehlerrate von bis zu 23\% fest, diese ist aber für den Anwendungsfall als Nutzung für Spielfelder zu vernachlässigen.
 \\\\
-Für OSM gibt es im Vergleich zu Wikmapia ausgereifte Schnittstellen. Konkret sind zwei von Relevanz, die für eine Abfrage von Daten in Frage kommen.
+Für OSM gibt es im Vergleich zu Wikmapia ausgereifte Schnittstellen. Dabei sind zwei von Relevanz, die für eine Abfrage von Daten in Frage kommen.
 Die erste Möglichkeit stellt die OSM API dar. Sie ermöglicht den Export der Geoinformatioenen bezogen auf eine Bounding Box. Eine detaillierte Filterung darüber hinaus ist nicht möglich.
 Als zweite Möglichkeit gibt es die OSM XAPI (Extended Api). Hierbei ist es möglich Abfragen in Verbindung mit den zugehörigen Tags zu erstellen.\cite{Meyer.2013} Die Ergebnisse der Abfrage werden als XML-Dokument zusammengefasst.
 

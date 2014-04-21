@@ -69,7 +69,7 @@ Eine Fragestellung zu Beginn der Arbeit war die Verwendbarkeit von OSM-Daten im 
 Die Anforderungen an die Daten im Vergleich zu einer Navigationssoftware sind beim Framework vergleichsweise gering.
 Es muss eine korrekte Klassifikation stattfinden und die Abweichung der Position sollte vorzugsweise nicht mehr als der Aktionsradius des Spielers betragen. Dadurch wird erreicht, dass alle Spielelemente auch von den Spielern physisch erreichbar sind.
 Fehler bei der Klassifikation können vorkommen, da es immer der Fall sein kann, dass die Daten nicht korrekt gemappt wurden.
-Dies ist aber im Zusammenhang des Frameworks nicht weiter relevant, da deswegen maximal das Element/Objekt nicht auf dem Spielfeld erscheinen wird. Durch das Fehlen wird aber die Funktionalität des jeweiligen Spieles selbst nicht beeinträchtigt. Hierdurch wird lediglich die Verteilung auf dem Spielfeld beeinflusst. Probleme mit dem Spielfeld bei zu wenig Elementen wurden angesprochen und mögliche Lösungen aufgezeigt.
+Dies ist aber im Zusammenhang des Frameworks nicht weiter relevant, da deswegen maximal das Element/Objekt nicht auf dem Spielfeld erscheinen wird. Durch das Fehlen wird aber die Funktionalität des jeweiligen Spiels selbst nicht beeinträchtigt. Hierdurch wird lediglich die Verteilung auf dem Spielfeld beeinflusst. Probleme mit dem Spielfeld bei zu wenig Elementen wurden angesprochen und mögliche Lösungen aufgezeigt.
 Die Transformation der OSM-Daten stellt sicher, dass auch Mapping Fehler, z.\,B. das rekursive Verweisen von Relations, keine Probleme entstehen. Es wird sichergestellt, dass in jedem Fall die Transformation stattfindet.
 Abschließend ist festzuhalten, dass OSM ohne Einschränkungen nutzbar ist.
 Gründe hierfür sind die Ergebnisse in der Literatur, welche OSM eine ausreichende Datenqualität zusprechen und OSM auch hinsichtlich der Lizenz für kommerzielle Produkte verwendbar ist. Darüber hinaus lieferten allen Tests mit dem Gameframework gute Ergebnisse. 
@@ -144,7 +144,7 @@ Die ursprüngliche Bewertungsfunktion analog zur K-Funktion eines einzelnen Tags
 \begin{equation}
 score = \frac{ \sum\limits_{i=1}^n c_n }{n}
 \end{equation}
-
+\\
 Um dieses Problem zu umgehen muss eine Bewertungsfunktion für die unterschiedlichen Entfernungen erstellt werden. Ein erster Ansatz die Verwendung einer Gleichung zweiter Ordnung wie in Abbildung \ref{img:ch6_img06_valued2} zu erkennen. Nach einem ersten Probelauf hat sich allerdings herausgestellt, dass die Elemente im Bereich von unter 1000 Metern zu schwach negativ ins Gewicht fallen.
 
 \begin{figure}[H]
@@ -158,7 +158,7 @@ Um dieses Problem zu umgehen muss eine Bewertungsfunktion für die unterschiedli
 \begin{equation}
 weighted score = \frac{ \sum\limits_{i=1}^n cv_n }{n}
 \end{equation}
-
+\\
 Aus diesem Grund wurde auf eine abgestufte Bewertung gewechselt, welche das Ergebnis für die Tags besser normalisiert hat.
 Allerdings ist das Ergebnis welches in Abbildung \ref{img:ch6_img07_result1} zu sehen ist noch nicht das Optimum. Es wird daher vorgeschlagen, die Bewertungsfunktion weiter zu optimieren und Ansätze aus der Fuzzy Logic zu verfolgen, da diese eine deutlich bessere Steuerung der einzelnen Attribute und Entfernungen ermöglichen. Eine vollständige Grafik aller Werte ist im Anhang in Abbildung \ref{img:ch8_valued3} zu finden. Die in Abbildung \ref{img:ch6_img07_result1} gezeigte Darstellung zeigt die Tags die weniger als 70 Nachbar-Elemente im Umkreis von 700 Metern haben.
 Es lässt sich erkennen, dass Elemente der Infrastruktur besser verteilt sind. Hierzu zählen z.B: Bushaltestellen, Bäckereien und Briefkästen. Diese besitzen eine bessere Verteilung zum Beispiel Bänke. Allerdings muss beachtet werden, dass allein durch ein höheren Wert nicht sichergestellt ist, dass der Tag überall gut funktioniert. Viel wichtiger dabei ist der Abgleich der Werte aus verschiedenen Regionen. Erst mit dem Vergleich der Ergebnisse der einzelnen Tags an unterschiedlichen Orten, an denen ein Spiel stattfinden soll, ermöglicht eine optimale Auswahl.
