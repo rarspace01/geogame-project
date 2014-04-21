@@ -11,11 +11,12 @@ class FlagController < ApplicationController
   currentFlag.id = cid
   currentFlag.prestige = 0
 
-  #get owner
+  # get flag data from db if present
   dbflag = Flag.find_by_id(cid)
   if(dbflag != nil)
   currentFlag = dbflag
   
+  # get owner
   @owner = User.find_by_id(currentFlag.user_id)
   if(@owner != nil)
   @ownerName = @owner.email
@@ -28,6 +29,7 @@ class FlagController < ApplicationController
 
   @prestige = currentFlag.prestige
 
+  # get geojson based on flag id
   currentgeojson = get_geojson_byid(cid)
 
   @id = params[:id]
@@ -59,10 +61,9 @@ class FlagController < ApplicationController
   end
 
   end
-
+ 
+  # attack function
   def attack
-
-  #check for interaction distance
 
   #is user logged in?
   if(signed_in? && (cid = params[:id]))
@@ -86,7 +87,7 @@ class FlagController < ApplicationController
   @flaglat = currentgeojson["geometry"]["coordinates"][1]
   @flaglng = currentgeojson["geometry"]["coordinates"][0]
 
-  #check for distance
+  # parameters for distance check
   @userlat = params[:lat]
   @userlng = params[:lng]
 

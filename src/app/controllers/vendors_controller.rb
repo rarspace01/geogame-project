@@ -10,29 +10,34 @@ class VendorsController < ApplicationController
   # GET /vendors/getVendors.json
   def getVendors
 
+  # bounding box
   n = params[:n]
   s = params[:s]
   w = params[:w]
   e = params[:e]
 
+  # get vendors in bounding box
   @vendors = Vendor.where(location_lat: (s..n)).where(location_lng: (w..e))
+
+  # build GeoJSON
   featureList = Hash.new
 
   featureList["type"] = "FeatureCollection"
   featureList["features"] = Array.new 
 
+  # iterate over the vendors from db
   @vendors.each do |vendor|
-  feature = Hash.new
-  feature["type"] = "Feature"
-  geometry = Hash.new
-  geometry["type"] = "Point"
-  geometry["coordinates"] = [vendor.location_lng,vendor.location_lat]
-  properties = Hash.new
-  properties["popupContent"] = vendor.name
-  feature["geometry"] = geometry
-  feature["properties"] = properties
-  feature["id"] = vendor.id
-  featureList["features"].push(feature)
+	  feature = Hash.new
+	  feature["type"] = "Feature"
+	  geometry = Hash.new
+	  geometry["type"] = "Point"
+	  geometry["coordinates"] = [vendor.location_lng,vendor.location_lat]
+	  properties = Hash.new
+	  properties["popupContent"] = vendor.name
+	  feature["geometry"] = geometry
+	  feature["properties"] = properties
+	  feature["id"] = vendor.id
+	  featureList["features"].push(feature)
   end
   @vendors_geojson = JSON.parse(featureList.to_json)
 
@@ -55,11 +60,11 @@ class VendorsController < ApplicationController
   def buyItem
   @itemToBeBuyed = Item.find_by_id(params[:itemid])
 
-  # check if use is in range
+  # check if use is in range - disbaled. see thesis for details
 
-  #check if use has enough money
+  # check if use has enough money
   if(current_user.ap >= @itemToBeBuyed.price)
-  #push & remove
+  # push to user & remove from vendor
   current_user.items.push(@itemToBeBuyed)
   @vendor.items.delete(@itemToBeBuyed)
 

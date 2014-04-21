@@ -20,6 +20,7 @@
 //= require bootstrap
 //= require turbolinks
 
+// Item Dialog
 function showItems(){
 
 $( "#dialog-items" ).dialog({
@@ -28,6 +29,7 @@ $( "#dialog-items" ).dialog({
     });
 }
 
+// use a given Item
 function useItem(itemid){
 console.log("used item:"+itemid);
 

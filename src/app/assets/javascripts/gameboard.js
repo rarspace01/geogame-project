@@ -7,9 +7,11 @@ var debugvar;
 var location_lat = 49;
 var location_lng = 10;
 
+// function gets written from inside the anonymous block. its utterly ugly but works as a hotfix
 var refreshData = function (){
 };
 
+// buys a given item
 function buy(vendorid, itemid){
 
 var buyurl = '/vendors/buyItem/'+vendorid+'/'+itemid+'.json';
@@ -22,6 +24,7 @@ var buyurl = '/vendors/buyItem/'+vendorid+'/'+itemid+'.json';
 
 }
 
+// attack a given flag
 function attack(id){
 
 var url = '/flag/attack.json?id='+id+"&lat="+location_lat+"&lng="+location_lng;
@@ -35,12 +38,13 @@ var url = '/flag/attack.json?id='+id+"&lat="+location_lat+"&lng="+location_lng;
 
 }
 
+// anonymous block, gets called on document ready
 $(document).ready(function(){
 
 console.log("gamboard code executed");
 
 var curMarker;
-var lastUpdate=0;
+var lastUpdate=0; // last Update on Position
 
 var geoJsonList;
 var geoJsonVendorList;;
@@ -74,8 +78,10 @@ var vendorFlag = new VendorIcon({iconUrl: '/assets/vendor.png'});
 
 // define functions
 
+// on each game element
 function onEachFeature(feature, layer) {
 
+		// create popup on click for Prestige and attack Button
 		layer.bindPopup("Prestige: <span id='flaginfoprestige'>"+feature.properties.prestige+"</span><br/><a href='#' onClick='attack("+feature.properties.id+");' data-no-turbolink>Attack</a>");
 
     	layer.on('click', function (e) {
@@ -92,31 +98,34 @@ function onEachFeature(feature, layer) {
 	
 }
 
+// on each Vendor element
 function onEachFeatureVendor(feature, layer) {
 
+	// buld an empty Popup with a div
 	layer.bindPopup(feature.properties.popupContent+"<br/><div id='vendoritems'></div>");
 
 
     	layer.on('click', function (e) {
-	// load vendoritems onto vendoritem div
+	// load vendoritems into vendoritem div
         var vendorurl = '/vendors/'+feature.id+'.json';
 	$.getJSON(vendorurl,
 	function(data){
                 console.log("got json:"+data);
                 vendoritems = data['items'];
-		//build html here
-                innerHtml = "<ul>";
+		// build html
+		innerHtml = "<ul>";
 		$.each(vendoritems, function(index, item) {
-                //innerHtml = innerHtml + "<li>"+item['name']+" - Price: "+item['price']+" - <a href='/vendors/buyItem/"+feature.id+"/"+item['id']+"'>Buy</a></li>";
+		//innerHtml = innerHtml + "<li>"+item['name']+" - Price: "+item['price']+" - <a href='/vendors/buyItem/"+feature.id+"/"+item['id']+"'>Buy</a></li>";
 		innerHtml = innerHtml + "<li>"+item['name']+" - Price: "+item['price']+" - <a href='#' onClick='buy("+feature.id+","+item['id']+");' data-no-turbolink>Buy</a></li>";
 		console.log("ID: "+item['id']+" "+item['name']);
                 
 		});
-                innerHtml = innerHtml + "</ul>";
+		innerHtml = innerHtml + "</ul>";
 		//replace div here
 		document.getElementById("vendoritems").innerHTML = innerHtml;
 		//feature.properties.popupContent = innerHtml;
 		
+		// updates Layout, fixes wrong boxsize
 		layer._popup._updateLayout();
 		layer._popup._updatePosition();
 		
@@ -126,7 +135,7 @@ function onEachFeatureVendor(feature, layer) {
 
 }
 
-
+// starts the location listener
 function getLocation()
 {
   console.log("getLocation()");
@@ -134,18 +143,20 @@ function getLocation()
     {
     console.log("setting callback function");
     //navigator.geolocation.getCurrentPosition(showPosition,null,{ maximumAge: 500, timeout: 6000, enableHighAccuracy: true});
-    // enable permanent watching
+    // enable permanent watching on location
     navigator.geolocation.watchPosition(showPosition,null, { maximumAge: 500, timeout: 6000, enableHighAccuracy: true});
     }
   else
   {
   console.log("no geolocation supported");
-  x.innerHTML="Geolocation is not supported by this browser.";
+  alert("Geolocation is not supported by this browser.");
   }
 }
 
+// callback functin on changed position
 function showPosition(position)
 {
+	// wait at least x seconds for next location update on screen
 	var minWaitSec = 10;
 	if(lastUpdate + (minWaitSec*1000)< new Date().getTime())
 	{
@@ -161,23 +172,27 @@ function showPosition(position)
 		map.removeLayer(curMarker);
 		}
 		
+		// set current location layer
 		curMarker = L.marker(latlng, {clickable: false}).addTo(map);
 
 		map.setView(latlng, 16);
 
+		// refresh Map Content
 		refreshData();
 	    lastUpdate = new Date().getTime();
 	}	
 	
 }
 
+// refresh Map Content
 refreshData = function refreshData(){
 
 	currentMapBounds = map.getBounds();
 
+	// extension of the inner Bounding box at 100% scale
 	paddedMapBounds = currentMapBounds.pad(1);
 
-	//The first is minimum latitude. The second is the minimum longitude. The third is the maximum latitude. The last is the maximum longitude
+	// The first is minimum latitude. The second is the minimum longitude. The third is the maximum latitude. The last is the maximum longitude
 
 	var bburl = "/overpass_api/getLocation.json?s="+paddedMapBounds.getSouth()+"&w="+paddedMapBounds.getWest()+"&n="+paddedMapBounds.getNorth()+"&e="+paddedMapBounds.getEast();
         var bbvendorurl = "/vendors/getVendors.json?s="+paddedMapBounds.getSouth()+"&w="+paddedMapBounds.getWest()+"&n="+paddedMapBounds.getNorth()+"&e="+paddedMapBounds.getEast();
@@ -197,6 +212,7 @@ refreshData = function refreshData(){
 
 }
 
+// load the flag GeoJSON Data
 function loadGeoJsonData(){
 		console.log("loading Flag Data");
 		
@@ -205,6 +221,8 @@ function loadGeoJsonData(){
 		map.removeLayer(currentGeoJson);
 		}
 
+
+		// build shapes and function on Leaflet Layer
 		currentGeoJson = L.geoJson(geoJsonList, {
 
 			style: function (feature) {
@@ -249,6 +267,7 @@ function loadGeoJsonData(){
 		currentGeoJson.addTo(map);
 }
 
+// fcuntion to load the vendor data
 function loadGeoJsonVendorData(){
 		console.log("loading Vendor Data");
 		if(currentGeoJsonVendor != null)
@@ -256,6 +275,7 @@ function loadGeoJsonVendorData(){
 		map.removeLayer(currentGeoJsonVendor);
 		}
 
+		// build shapes and function on Leaflet Layer
 		currentGeoJsonVendor = L.geoJson(geoJsonVendorList, {
 
 			style: function (feature) {
@@ -277,20 +297,24 @@ function loadGeoJsonVendorData(){
 		currentGeoJsonVendor.addTo(map);
 }
 
-
+// make sure that the map on the site is the game map, because every asset JS code gets called on all pages
 if (typeof game_map != 'undefined') {
 console.log("game map found");
 
+// set the map size dynamiclly to prevent scrollbars
 $("#game_map").height($(window).height()*0.85).width($(window).width()*0.99);
 
 map.invalidateSize();
 
+// start the location updates
 getLocation();
 console.log("got location");
 /* setting the max/min zoom */
 
+// restrict zoom to encourage the player to move around and explore the map
 map._layersMinZoom=15;
 map._layersMaxZoom=19;
+// event listener on map drag and drop
 map.on('moveend',function(){
 //alert('test');
 //check here if new bounds exeed the "safe zone"
