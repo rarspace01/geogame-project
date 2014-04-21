@@ -2,6 +2,11 @@ package edu.unibamberg.hamann.evalTags;
 
 import com.graphhopper.GraphHopper;
 
+/**
+ * Thread for a given Tag. Uses the {@link Evaluator}
+ * @author denis
+ *
+ */
 public class EvaluatorTask implements Runnable {
 
 	private BoundingBox bbox;

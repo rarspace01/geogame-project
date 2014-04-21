@@ -30,7 +30,7 @@ public class GeogameAPI {
 
 	/**
 	 * generates the geoCordinates from a given Site url, boundingbox and osm
-	 * tag
+	 * tag. Instead of parsing the whoel JSON DOM we use a regex matcher. Because we can in the given format and its faster.
 	 * 
 	 * @param url
 	 * @param bbox
@@ -45,13 +45,13 @@ public class GeogameAPI {
 		String tmpSite = "";
 		String tmpMatch = "";
 
+		// build access URL
 		accessUrl += url + "?s=" + bbox.getSS() + "&w=" + bbox.getSW() + "&n="
 				+ bbox.getSN() + "&e=" + bbox.getSE() + "&tag=" + tag;
-		System.out.println(accessUrl);
+		// DEBUG System.out.println(accessUrl);
 
+		// retrieve page
 		tmpSite = HttpHelper.getPage(accessUrl);
-
-		System.out.println(tmpSite);
 
 		Pattern basePattern = Pattern
 				.compile("\\[([0-9.]*),([0-9.]*)\\][0-9a-zA-Z\"{},:]*id\":\"([0-9]*)\",");
@@ -63,9 +63,11 @@ public class GeogameAPI {
 		double lat = 0.0, lon = 0.0;
 		long nodeId = 0;
 
+		// for each match (aka Node)
 		while (matcher.find()) {
 			tmpMatch = matcher.group();
 
+			// retrieve the attributes
 			lat = Double.parseDouble(tmpMatch.substring(
 					tmpMatch.indexOf(",") + 1, tmpMatch.indexOf("]")));
 			lon = Double.parseDouble(tmpMatch.substring(
@@ -83,6 +85,7 @@ public class GeogameAPI {
 				}
 			}
 
+			// build GeoCoordinate on retrieved values
 			GeoCoordinate gc = new GeoCoordinate(nodeId, lat, lon);
 
 			returnList.add(gc);
@@ -106,6 +109,6 @@ public class GeogameAPI {
 				tag);
 	}
 
-	// http://localhost:3000/overpass_api/getLocation.json?s=49.88674368396232&w=10.799689292907715&n=49.921777822392315&e=10.917878150939941&tag=highway=bus_stop
+	//DEBUG:  http://localhost:3000/overpass_api/getLocation.json?s=49.88674368396232&w=10.799689292907715&n=49.921777822392315&e=10.917878150939941&tag=highway=bus_stop
 
 }

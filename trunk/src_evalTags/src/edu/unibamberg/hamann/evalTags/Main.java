@@ -6,21 +6,31 @@ import java.util.List;
 import com.graphhopper.GraphHopper;
 import com.graphhopper.routing.util.EncodingManager;
 
+/**
+ * 
+ * @author denis
+ *
+ */
 public class Main {
 
 	final static double BBOX_MIN_RADIUS = 2500.0;
 	public static final String TAG = "Main";
-	
-	public static int activeThreads =0;
-	
+
+	public static int activeThreads = 0;
+
+	/**
+	 * main method for the evaluation of tags
+	 * 
+	 * @param args
+	 */
 	public static void main(String[] args) {
 
-		long heapsize=Runtime.getRuntime().totalMemory();
-	    System.out.println("heapsize is::"+heapsize);
-		
+		long heapsize = Runtime.getRuntime().totalMemory();
+		System.out.println("heapsize is::" + heapsize);
+
 		List<String> tagList = new LinkedList<String>();
-		List<Double> resultList = new LinkedList<Double>();
-		double result = 0.0;
+		// List<Double> resultList = new LinkedList<Double>();
+		// double result = 0.0;
 
 		// tag list
 		tagList.add("highway=bus_stop");
@@ -50,24 +60,25 @@ public class Main {
 		// tagList.add("amenity");
 
 		// GH setup
-		
-		// setup
+
+		// setup routing defaults
 		EncodingManager em = new EncodingManager("FOOT");
 
 		GraphHopper gh = new GraphHopper().forServer();
 
 		gh.setEncodingManager(em);
 
+		// use the germany file
 		gh.setOSMFile("./data/germany-latest.osm.pbf");
 		gh.setGraphHopperLocation("./data");
 
 		gh.setCHShortcuts("fastest");
 
 		GraphHopper tgh = gh.importOrLoad();
-		
+
 		// basic setup
 
-		Evaluator eval = new Evaluator();
+		// Evaluator eval = new Evaluator();
 
 		GeoCoordinate zuhause = new GeoCoordinate(49.90429, 10.85929);
 
@@ -75,10 +86,11 @@ public class Main {
 
 		System.out.println("BBOX: [" + bbox + "]");
 
-
+		// iterate over the tags. Each tags starts a thread. a maximum of n is
+		// active at runtime. where n is the logical CPU count of the os
 		for (String tag : tagList) {
-			
-			while(activeThreads>=Helper.getCPUCount()){ //Helper.getCPUCount()
+
+			while (activeThreads >= Helper.getCPUCount()) { // Helper.getCPUCount()
 				try {
 					Thread.sleep(500);
 				} catch (InterruptedException e) {
@@ -86,25 +98,15 @@ public class Main {
 					e.printStackTrace();
 				}
 			}
-			
-			System.out.println("Starting THread with tag: ["+tag+"]");
-			
-			new Thread(new EvaluatorTask(tgh, bbox, tag)).start();;
+
+			System.out.println("Starting Thread with tag: [" + tag + "]");
+
+			new Thread(new EvaluatorTask(tgh, bbox, tag)).start();
 			activeThreads++;
-//			result = eval.evaluateBoundingBox(bbox, tag);
-//			resultList.add(result);
-	
+			// result = eval.evaluateBoundingBox(bbox, tag);
+			// resultList.add(result);
+
 		}
-		
-		
-
-		// print results
-
-//		for (int i = 0; i < tagList.size(); i++) {
-//			Helper.msgLog(TAG, "[" + tagList.get(i) + "]@[" + resultList.get(i)
-//					+ "]");
-//		}
-
 
 	}
 
