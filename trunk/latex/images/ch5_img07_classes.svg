@@ -11,9 +11,9 @@
   <g>
     <rect style="fill: #ffffff" x="47" y="79" width="312" height="439"/>
     <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="47" y="79" width="312" height="439"/>
-    <rect style="fill: #ffffff" x="47" y="59" width="88.7" height="20"/>
-    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="47" y="59" width="88.7" height="20"/>
-    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="49" y="73">OverpassApi</text>
+    <rect style="fill: #ffffff" x="47" y="59" width="57.9" height="20"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="47" y="59" width="57.9" height="20"/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="49" y="73">GameAPI</text>
   </g>
   <g>
     <rect style="fill: #ffffff" x="208" y="415" width="140.9" height="28"/>
@@ -84,14 +84,14 @@
     <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="59" y="149">+getLocation(): GeoJSON</text>
   </g>
   <g>
-    <rect style="fill: #ffffff" x="558" y="205" width="74.125" height="28"/>
-    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="558" y="205" width="74.125" height="28"/>
-    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="595.062" y="224">Vendor</text>
-    <rect style="fill: #ffffff" x="558" y="233" width="74.125" height="20"/>
-    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="558" y="233" width="74.125" height="20"/>
+    <rect style="fill: #ffffff" x="558" y="205" width="74.15" height="28"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="558" y="205" width="74.15" height="28"/>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="595.075" y="224">Vendor</text>
+    <rect style="fill: #ffffff" x="558" y="233" width="74.15" height="20"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="558" y="233" width="74.15" height="20"/>
     <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="561" y="247">+items</text>
-    <rect style="fill: #ffffff" x="558" y="253" width="74.125" height="8"/>
-    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="558" y="253" width="74.125" height="8"/>
+    <rect style="fill: #ffffff" x="558" y="253" width="74.15" height="8"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="558" y="253" width="74.15" height="8"/>
   </g>
   <g>
     <rect style="fill: #ffffff" x="569" y="391" width="51.1" height="28"/>
@@ -117,7 +117,7 @@
     <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="528.1,154.236 520.1,138.236 512.1,154.236 "/>
   </g>
   <g>
-    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="520.1,155.242 520.1,178.499 595.062,178.499 595.062,203.993 "/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="520.1,155.242 520.1,178.499 595.075,178.499 595.075,203.993 "/>
     <polygon style="fill: #ffffff" points="528.1,155.242 520.1,139.242 512.1,155.242 "/>
     <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="528.1,155.242 520.1,139.242 512.1,155.242 "/>
   </g>
@@ -180,11 +180,11 @@
     <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="974.15,285.638 979.15,301.638 984.15,285.638 "/>
   </g>
   <g>
-    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="595.062,287.179 595.062,333.001 594.55,333.001 594.55,389.994 "/>
-    <polygon style="fill: #ffffff" points="595.062,262.007 599.862,276.007 595.062,290.007 590.262,276.007 "/>
-    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="595.062,262.007 599.862,276.007 595.062,290.007 590.262,276.007 "/>
-    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:monospace;font-style:normal;font-weight:normal" x="594.806" y="329.001"/>
-    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="606.062" y="274.007"/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="595.075,287.179 595.075,333.001 594.55,333.001 594.55,389.994 "/>
+    <polygon style="fill: #ffffff" points="595.075,262.007 599.875,276.007 595.075,290.007 590.275,276.007 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="595.075,262.007 599.875,276.007 595.075,290.007 590.275,276.007 "/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:monospace;font-style:normal;font-weight:normal" x="594.812" y="329.001"/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="606.075" y="274.007"/>
     <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="598.55" y="385.994"/>
   </g>
   <g>
