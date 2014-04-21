@@ -12,6 +12,7 @@ class OverpassApiController < ApplicationController
 
     tag = params[:tag]
 
+	# bounding box
     swne = [s,w,n,e]
 
     #locationtype = ("\"highway\"=\"bus_stop\"")
@@ -20,8 +21,7 @@ class OverpassApiController < ApplicationController
 
     puts "falling back to default tag"
 
-    #locationtype = "building=garage"
-    #locationtype = "highway=bus_stop"
+    # set default tag
     locationtype = getDefaultTag()
     else
     locationtype = tag

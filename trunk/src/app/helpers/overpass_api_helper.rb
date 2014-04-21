@@ -1,17 +1,21 @@
 require 'open-uri'
 
+# here happens the framework magic
+# the OSM data gets retrieved and converted to game elements
 module OverpassApiHelper
 
+    # default fallback tag for the game board
 	def getDefaultTag()
 	return "public_transport=stop_area"
 	end
 
+    # get all Elements on a given location and tag
 	def get_geojson(geolocation, locationtype)
 
 		# build request url
 		access_url = "http://overpass-api.de/api/interpreter?data="+URI.escape("[out:json];(node(#{geolocation[0]},#{geolocation[1]},#{geolocation[2]},#{geolocation[3]})[#{locationtype}];way(#{geolocation[0]},#{geolocation[1]},#{geolocation[2]},#{geolocation[3]})[#{locationtype}];._;>;rel(#{geolocation[0]},#{geolocation[1]},#{geolocation[2]},#{geolocation[3]})[#{locationtype}];._;>;);out body;")
 		
-		puts(access_url) #debug
+		#puts(access_url) #debug
 		pageresult = open(access_url).read
 		jsondom = JSON.parse(pageresult)
 
@@ -22,6 +26,7 @@ module OverpassApiHelper
 		result = JSON.parse(buildGeoJSON(virtualNodesList).to_json)
 	end
 
+    # get a given Element based on the coded id
 	def get_geojson_byid(id)
 	
 	    locationtype = getDefaultTag()
@@ -64,6 +69,7 @@ module OverpassApiHelper
     
 			firstelement = nodeList.first
 
+			# bulid internal bounding box for merging
 			minlat=firstelement[0]
 			maxlat=firstelement[0]
 			minlon=firstelement[1]
@@ -71,7 +77,6 @@ module OverpassApiHelper
     
 		    nodeList.each do |node|
 			currentnode = node
-				#binding.pry
 				if(currentnode != nil)
 					if(currentnode[0]<minlat) then minlat=currentnode[0] end
 					if(currentnode[0]>maxlat) then maxlat=currentnode[0] end
@@ -175,16 +180,16 @@ module OverpassApiHelper
     
     end
     
+    # buld the GeoJSON on a given NodesList
     def buildGeoJSON(virtualNodesList)
     
-    #retrieve matched flags
+    #retrieve matched flags from DB
 		matchedFlags = Flag.where(id: virtualNodesList.keys)
 		matchedNodeList = Hash.new
 		
+		# push DBFLags into hashmap for better datamerging
 		matchedFlags.each do |flag|
-		
 		matchedNodeList.store(flag.id, flag)
-
 		end
 
 		featureList = Hash.new
@@ -205,12 +210,13 @@ module OverpassApiHelper
 			properties["id"] = "#{nodeid}"
 
 			matchedFlag = matchedNodeList[nodeid]
-
+			
+			# set values for a matched element from db
 			if(matchedFlag != nil)
 
 				user_id =  matchedFlag.user_id
 				prestige = matchedFlag.prestige
-
+					# is the user logged in? if not behave like a normal RESTful request
 					if(current_user != nil)
 						if(current_user.id == user_id)
 							properties["user_id"] = "owner"

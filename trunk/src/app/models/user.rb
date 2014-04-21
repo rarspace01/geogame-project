@@ -34,12 +34,10 @@ include Clearance::User
     timeNow = Time.now.to_i
     timeLast = self.aplastupdate
 
-    # calc 
+    # calc current ap
     deltaAp = ((timeNow-timeLast)/updateintervall).to_i
     self.aplastupdate = timeLast+(deltaAp)*updateintervall
     self.ap = [(deltaAp+self.ap),24].min if(self.ap<=24)
-     
-    #binding.of_caller()
 
     self.save
 
