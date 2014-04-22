@@ -39,6 +39,10 @@ $.getJSON(useItemurl,
 		function(data){
 			//set prestige span to prestige result
 			$( "#dialog-items" ).dialog("close");
+			item_count=document.getElementById("item_count").innerHTML;
+			item_count--;
+			document.getElementById("item_count").innerHTML = item_count;
+			
 		});
 
 }
