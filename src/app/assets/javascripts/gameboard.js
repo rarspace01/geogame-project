@@ -18,7 +18,6 @@ var buyurl = '/vendors/buyItem/'+vendorid+'/'+itemid+'.json';
 
 	$.getJSON(buyurl,
 		function(data){
-			//set prestige span to prestige result
 			refreshData();
 		});
 
