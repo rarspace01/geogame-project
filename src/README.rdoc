@@ -1,28 +1,20 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* Installation
 
-Things you may want to cover:
+Für die Ausführung des Frameworks wird Ruby in Version 2.0 und Rails in Version 4.0 benötigt. Letzteres wird automatisch per Bundler installiert.
+Darüber hinaus muss sichergestellt werden, dass der Server/Rechner eine aktive Verbindung zum Internet hat, damit die OSM-Daten abgerufen werden können.
 
-* Ruby version
+Für die Installation des Frameworks ist es ausreichend das Ruby on Rails Projekt per svn auszuchecken:
 
-* System dependencies
+svn checkout http://geogame-project.googlecode.com/svn/trunk/src/
 
-* Configuration
+Danach kann die Anwendung einfach im Projekt-Verzeichnis gestartet werden:
 
-* Database creation
+bundle install;rails s
 
-* Database initialization
+* Konfiguration
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Die Einstellung des Standard Tags für das Framework erfolgt über den Quellcode.
+In der Datei \url{./src/app/helpers/overpass_api_helper.rb} existiert die Methode getDefaultTag() im Modul OverpassApiHelper.
+Der dort festgelegte Wert kann nach belieben verändert werden. Durch wenige Zeilen Code kann der Tag auch aus der lokalen Datenbank oder einer anderen Quelle ausgelesen werden.
