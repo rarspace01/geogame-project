@@ -1,0 +1,1186 @@
+- [[[Athanasiadis.1999]]]
+  Title                    A simple bijection for the regions of the Shi arrangement of hyperplanes
+  Author                   Athanasiadis, Christos A and Linusson, Svante
+  Journal                  Discrete mathematics
+  Year                     1999
+  Number                   1
+  Pages                    27--39
+  Volume                   204
+  Publisher                Elsevier
+
+- [[[Atkin.1999]]]
+  Title                    Capture the Flag: Military simulation meets computer games
+  Author                   Atkin, Marc S and Westbrook, David L and Cohen, Paul R
+  Booktitle                Proceedings of AAAI Spring Symposium Series on AI and Computer Games
+  Year                     1999
+  Pages                    1--5
+
+- [[[Bachle.2007]]]
+  Title                    Ruby on Rails.
+  Author                   Bächle, Michael and Kirchberg, Paul
+  Journal                  IEEE Software
+  Year                     2007
+  Number                   6
+  Pages                    105--108
+  Volume                   24
+
+- [[[Bailey.1995]]]
+  Title                    Interactive spatial data analysis
+  Author                   Bailey, Trevor C and Gatrell, Anthony C
+  Publisher                Longman Scientific \& Technical Essex
+  Year                     1995
+  Volume                   413
+
+- [[[Ballagas.2007]]]
+  Title                    REXplorer: a mobile, pervasive spell-casting game for tourists
+  Author                   Ballagas, Rafael A and Kratz, Sven G and Borchers, Jan and Yu, Eugen and Walz, Steffen P and Fuhr, Claudia O and Hovestadt, Ludger and Tann, Martin
+  Booktitle                CHI'07 extended abstracts on Human factors in computing systems
+  Year                     2007
+  Organization             ACM
+  Pages                    1929--1934
+
+- [[[Bartle.2004]]]
+  Title                    Designing virtual worlds
+  Author                   Bartle, Richard A
+  Publisher                New Riders
+  Year                     2004
+
+- [[[Barzegar.1996]]]
+  Title                    Wireless information system for acquiring location related information
+  Nationality              US
+  Number                   5,559,520
+  Year                     1996
+  Yearfiled                1996
+  Author                   Barzegar, Farhad and Gerszberg, Irwin and McGowan III, Martin J and Schroeder, Robert E
+  Day                      24
+  Language                 English
+  Month                    September
+  Note                     US Patent 5,559,520
+  Publisher                Google Patents
+
+- [[[Bateman.2011]]]
+  Title                    Target assistance for subtly balancing competitive play
+  Author                   Bateman, Scott and Mandryk, Regan L and Stach, Tadeusz and Gutwin, Carl
+  Booktitle                Proceedings of the SIGCHI Conference on Human Factors in Computing Systems
+  Year                     2011
+  Organization             ACM
+  Pages                    2355--2364
+
+- [[[Bell.2006]]]
+  Title                    Interweaving mobile games with everyday life
+  Author                   Bell, Marek and Chalmers, Matthew and Barkhuus, Louise and Hall, Malcolm and Sherwood, Scott and Tennent, Paul and Brown, Barry and Rowland, Duncan and Benford, Steve and Capra, Mauricio and others
+  Booktitle                Proceedings of the SIGCHI conference on Human Factors in computing systems
+  Year                     2006
+  Organization             ACM
+  Pages                    417--426
+
+- [[[Benford.2003]]]
+  Title                    Coping with uncertainty in a location-based game
+  Author                   Benford, Steve and Drozd, Adam and Crabtree, Andy and Anastasi, Rob and Flintham, Martin and Row-Farr, Ju and Greenhalgh, Chris and Adams, Matt and Tandavanitj, Nick
+  Journal                  IEEE pervasive computing
+  Year                     2003
+  Number                   3
+  Pages                    34--41
+  Volume                   2
+  Publisher                IEEE Computer Society
+
+- [[[Benford.2005]]]
+  Title                    Bridging the physical and digital in pervasive gaming
+  Author                   Benford, Steve and Magerkurth, Carsten and Ljungstrand, Peter
+  Journal                  Communications of the ACM
+  Year                     2005
+  Number                   3
+  Pages                    54--57
+  Volume                   48
+  Publisher                ACM
+
+- [[[Berendt.1999]]]
+  Title                    Representation and Processing of Knowledge about Distances in Environmental Space
+  Author                   Berendt, Bettina
+  Publisher                Citeseer
+  Year                     1999
+
+- [[[Berlin.2014]]]
+  Title                    Berlin Open Data
+  Author                   Stadt Berlin
+  Note                     Abegrufen am: 11.02.2014
+  Year                     2014
+  Url                      http://daten.berlin.de/
+
+- [[[Bethke.2007]]]
+  Title                    MMO goal structures as a panacea
+  Author                   E. Bethke
+  Booktitle                Proceedings of the Austin Game Developers Conference 2007
+  Year                     2007
+  Address                  Austin, Texas
+
+- [[[Bird.2009]]]
+  Title                    The promises and perils of mining git
+  Author                   Bird, Christian and Rigby, Peter C and Barr, Earl T and Hamilton, David J and German, Daniel M and Devanbu, Prem
+  Booktitle                Mining Software Repositories, 2009. MSR'09. 6th IEEE International Working Conference on
+  Year                     2009
+  Organization             IEEE
+  Pages                    1--10
+
+- [[[Bjork.2007]]]
+  Title                    Changing Urban Perspectives
+  Author                   Björk, Staffan
+  Journal                  Space Time Play
+  Year                     2007
+  Pages                    276--279
+  Publisher                Springer
+
+- [[[Bloschl.2006]]]
+  Title                    Geostatistische Methoden bei der hydrologischen Regionalisierung
+  Author                   Blöschl, Günter
+  Journal                  Wiener Mitteilungen
+  Year                     2006
+  Pages                    21--39
+  Volume                   197
+
+- [[[Breuer.2011]]]
+  Title                    Was ist Gamification?
+  Author                   Breuer, Markus
+  Year                     2011
+  Url                      http://intelligent-gamification.de/2011/05/11/was-ist-gamification/
+
+- [[[Brinkhoff.2005]]]
+  Title                    Geodatenbanksysteme in Theorie und Praxis
+  Author                   Brinkhoff, Thomas
+  Publisher                Wichmann Heidelberg
+  Year                     2005
+
+- [[[Bromley.2013]]]
+  Title                    14 Playing to Win?
+  Author                   Bromley, Steve and Mirza-Babaei, Pejman and McAllister, Graham and Napier, Jonathan
+  Journal                  Multiplayer: The Social Aspects of Digital Gaming
+  Year                     2013
+  Pages                    172
+  Publisher                Routledge
+
+- [[[Burleson.1994]]]
+  Title                    OODBMSs gaining MIS ground but RDBMSs still own the road
+  Author                   Burleson, Donald
+  Journal                  Software Magazine
+  Year                     1994
+  Number                   11
+  Pages                    63--68
+  Volume                   14
+  Publisher                Wiesner Publishing, LLC
+
+- [[[Butler.2008]]]
+  Title                    The GeoJSON Format Specification
+  Author                   Butler, Howard and Daly, Martin and Doyle, Allan and Gillies, Sean and Schaub, Tim and Schmidt, Christopher
+  Note                     Abgerufen am: 13.03.2014
+  Year                     2008
+  Url                      http://www.geojson.org/geojson-spec.html
+
+- [[[Caon.2013]]]
+  Title                    A Pervasive Game to Promote Social Offline Interaction
+  Author                   Caon, Maurizio and Mugellini, Elena and Abou Khaled, Omar
+  Booktitle                Proceedings of the 2013 ACM Conference on Pervasive and Ubiquitous Computing Adjunct Publication
+  Year                     2013
+  Address                  New York, NY, USA
+  Pages                    1381--1384
+  Publisher                ACM
+  Series                   UbiComp 13 Adjunct
+  Keywords                 offline interaction, pervasive games, social interaction, ubiquitous computing
+  Location                 Zurich, Switzerland
+  Numpages                 4
+
+- [[[Cattell.1991]]]
+  Title                    Next-generation database systems
+  Author                   Cattell, RGG
+  Journal                  Communications of the ACM
+  Year                     1991
+  Number                   10
+  Pages                    30--33
+  Volume                   34
+  Publisher                ACM
+
+- [[[Celino.2013]]]
+  Title                    Location-Based Games for Citizen Computation
+  Author                   Celino, Irene
+  Booktitle                Handbook of Human Computation
+  Publisher                Springer New York
+  Year                     2013
+  Editor                   Michelucci, Pietro
+  Pages                    297-316
+  Language                 English
+
+- [[[Celtek.2010]]]
+  Title                    {M}obile advergames in tourism marketing
+  Author                   Celtek, E.
+  Journal                  Journal of Vacation Marketing
+  Year                     2010
+  Number                   4
+  Pages                    267--281
+  Volume                   16
+
+- [[[Charland.2011]]]
+  Title                    Mobile application development: web vs. native
+  Author                   Charland, Andre and Leroux, Brian
+  Journal                  Communications of the ACM
+  Year                     2011
+  Number                   5
+  Pages                    49--53
+  Volume                   54
+  Publisher                ACM
+
+- [[[Chen.2001]]]
+  Title                    {Can Advergaming be the Future of Interactive Advertising?}
+  Author                   Chen, J. and Ringel, M.
+  Note                     Abgerufen am 13.03.2014
+  Year                     2001
+  Citeulike-article-id     1245486
+  Keywords                 bibtex-import
+  Posted-at                2007-04-23 14:43:00
+  Priority                 2
+  Url                      http://www.locz.com.br/loczgames/advergames.pdf
+
+- [[[Cheok.2010]]]
+  Title                    {A}rt and technology of entertainment computing and communication: {A}dvances in interactive new media for entertainment computing
+  Author                   Cheok, Adrian David
+  Publisher                Springer
+  Year                     2010
+  Address                  London and New York
+
+- [[[Cheok.2003]]]
+  Title                    Human Pacman: a sensing-based mobile entertainment system with ubiquitous computing and tangible interaction
+  Author                   Cheok, Adrian David and Fong, Siew Wan and Goh, Kok Hwee and Yang, Xubo and Liu, Wei and Farzbiz, Farzam
+  Booktitle                Proceedings of the 2nd workshop on Network and system support for games
+  Year                     2003
+  Organization             ACM
+  Pages                    106--117
+
+- [[[Odbl.2014]]]
+  Title                    Open Database License (ODbL) v1.0
+  Author                   Open Data Commons
+  Year                     2014
+  Url                      http://opendatacommons.org/licenses/odbl/1.0/
+
+- [[[Consalvo.2005]]]
+  Title                    Gaining Advantage: How Videogame Players Define and Negotiate Cheating.
+  Author                   Consalvo, Mia
+  Booktitle                DIGRA Conf.
+  Year                     2005
+
+- [[[Coulton.2006]]]
+  Title                    Experiencing ‘touch’in mobile mixed reality games
+  Author                   Coulton, Paul and Rashid, Omer and Bamford, Will
+  Booktitle                International Conference in Computer Game Design and Technology
+  Year                     2006
+
+- [[[Csikszentmihalyi.1991]]]
+  Title                    Flow, The Psychology of Optimal Experience, Steps towards enchancing the quality of life.
+  Author                   Csikszentmihalyi, M
+  Publisher                Harper\&Row, Publishers
+  Year                     1991
+
+- [[[Dahl.2009]]]
+  Title                    Analyzing advergames: active diversions or actually deception. An exploratory study of online advergames content
+  Author                   Dahl, Stephan and Eagle, Lynne and Báez, Carlos
+  Journal                  Young Consumers: Insight and Ideas for Responsible Marketers
+  Year                     2009
+  Number                   1
+  Pages                    46-59
+  Volume                   10
+
+- [[[Deitel.2008]]]
+  Title                    Deitel\&\#174; Developer Series Ajax, Rich Internet Applications, and Web Development for Programmers
+  Author                   Deitel, Paul and Deitel, Harvey
+  Publisher                Prentice Hall Press
+  Year                     2008
+  Address                  Upper Saddle River, NJ, USA
+  Edition                  First
+
+- [[[Derrough.2013]]]
+  Title                    Instant Interactive Map Designs with Leaflet Javascript Library How-To
+  Author                   Derrough, Jonathan
+  Publisher                Packt Publishing
+  Year                     2013
+
+- [[[Deterding.2011]]]
+  Title                    From game design elements to gamefulness: defining gamification
+  Author                   Deterding, Sebastian and Dixon, Dan and Khaled, Rilla and Nacke, Lennart
+  Booktitle                Proceedings of the 15th International Academic MindTrek Conference: Envisioning Future Media Environments
+  Year                     2011
+  Organization             ACM
+  Pages                    9--15
+
+- [[[Diggle.2007]]]
+  Title                    Model-based geostatistics
+  Author                   Diggle, Peter and Ribeiro, Paulo Justiniano
+  Publisher                Springer
+  Year                     2007
+
+- [[[Denmark.2014]]]
+  Title                    Denmark Open Data
+  Author                   Center for Digitization
+  Note                     abgerufen am: 11.02.2014
+  Year                     2014
+  Url                      http://digitaliser.dk/ressourcer
+
+- [[[Djuknic.2001]]]
+  Title                    Geolocation and Assisted GPS
+  Author                   Djuknic, Goran M. and Richton, Robert E.
+  Journal                  Computer
+  Year                     2001
+  Month                    = feb,
+  Number                   2
+  Pages                    123--125
+  Volume                   34
+  Issue_date               February 2001
+  Numpages                 3
+  Publisher                IEEE Computer Society Press
+
+- [[[Do.2013]]]
+  Title                    Human interaction discovery in smartphone proximity networks
+  Author                   Do, Trinh Minh Tri and Gatica-Perez, Daniel
+  Journal                  Personal and Ubiquitous Computing
+  Year                     2013
+  Number                   3
+  Pages                    413--431
+  Volume                   17
+  Publisher                Springer
+
+- [[[Ducheneaut.2006]]]
+  Title                    Alone together?: exploring the social dynamics of massively multiplayer online games
+  Author                   Ducheneaut, Nicolas and Yee, Nicholas and Nickell, Eric and Moore, Robert J
+  Booktitle                Proceedings of the SIGCHI conference on Human Factors in computing systems
+  Year                     2006
+  Organization             ACM
+  Pages                    407--416
+
+- [[[Edery.2008]]]
+  Title                    Changing the game: how video games are transforming the future of business
+  Author                   Edery, David and Mollick, Ethan
+  Publisher                Ft Press
+  Year                     2008
+
+- [[[Flanagin.2008]]]
+  Title                    The credibility of volunteered geographic information
+  Author                   Flanagin, Andrew J and Metzger, Miriam J
+  Journal                  GeoJournal
+  Year                     2008
+  Number                   3-4
+  Pages                    137--148
+  Volume                   72
+  Publisher                Springer
+
+- [[[Flintham.2003]]]
+  Title                    Where on-line meets on the streets: experiences with mobile mixed reality games
+  Author                   Flintham, Martin and Benford, Steve and Anastasi, Rob and Hemmings, Terry and Crabtree, Andy and Greenhalgh, Chris and Tandavanitj, Nick and Adams, Matt and Row-Farr, Ju
+  Booktitle                Proceedings of the SIGCHI conference on Human factors in computing systems
+  Year                     2003
+  Organization             ACM
+  Pages                    569--576
+
+- [[[Forman.2009]]]
+  Title                    Competition between local and electronic markets: How the benefit of buying online depends on where you live
+  Author                   Forman, Chris and Ghose, Anindya and Goldfarb, Avi
+  Journal                  Management Science
+  Year                     2009
+  Number                   1
+  Pages                    47--57
+  Volume                   55
+  Publisher                INFORMS
+
+- [[[FOSSGIS.2013]]]
+  Title                    {A}nwenderkonferenz für {F}reie und {O}pen {S}ource {S}oftware für {G}eoinformationssysteme
+  Author                   FOSSGIS
+  Journal                  Tagungsband der FOSSGIS 2013
+  Year                     2013
+
+- [[[Gamble.2013]]]
+  Title                    JavaScript and CSS
+  Author                   Gamble, Adam and Carneiro, Cloves and Al Barazi, Rida
+  Booktitle                Beginning Rails 4
+  Publisher                Springer
+  Year                     2013
+  Pages                    191--201
+
+- [[[Gartner.2013]]]
+  Title                    Gartner Says Annual Smartphone Sales Surpassed Sales of Feature Phones for the First Time in 2013
+  Author                   Gartner
+  Note                     Abegrufen am: 05.03.2014
+  Year                     2013
+  Url                      http://www.gartner.com/newsroom/id/2665715
+
+- [[[Gfk.2009]]]
+  Title                    Handelsklima
+  Author                   Gfk
+  Note                     Abegrufen am: 11.02.2014
+  Year                     2009
+  Url                      http://www.gfk-geomarketing.de/fileadmin/gfkgeomarketing/de/gfk_geomarketing_magazin/0309_gfk_geomarketing_magazin.pdf
+
+- [[[Girres.2010]]]
+  Title                    {Q}uality {A}ssessment of the {F}rench {O}pen{S}treet{M}ap {D}ataset
+  Author                   Girres, Jean-Fran{\c{c}}ois and Touya, Guillaume
+  Journal                  Transactions in GIS
+  Year                     2010
+  Number                   4
+  Pages                    435--459
+  Volume                   14
+
+- [[[Golle.2005]]]
+  Title                    Preventing bots from playing online games
+  Author                   Golle, Philippe and Ducheneaut, Nicolas
+  Journal                  Computers in Entertainment (CIE)
+  Year                     2005
+  Number                   3
+  Pages                    3--3
+  Volume                   3
+  Publisher                ACM
+
+- [[[Goodchild.2007]]]
+  Title                    Citizens as sensors: the world of volunteered geography
+  Author                   Goodchild, Michael F
+  Journal                  GeoJournal
+  Year                     2007
+  Number                   4
+  Pages                    211--221
+  Volume                   69
+  Publisher                Springer
+
+- [[[Goovaerts.1997]]]
+  Title                    Geostatistics for natural resources evaluation
+  Author                   Goovaerts, Pierre
+  Publisher                Oxford university press
+  Year                     1997
+
+- [[[Grafarend.1995]]]
+  Title                    The Optimal Universal Transverse Mercator Projection
+  Author                   Grafarend, E.
+  Booktitle                Geodetic Theory Today
+  Publisher                Springer Berlin Heidelberg
+  Year                     1995
+  Editor                   Sansò, Fernando
+  Pages                    51-51
+  Series                   International Association of Geodesy Symposia
+  Volume                   114
+  Language                 English
+
+- [[[Grafarend.1998]]]
+  Title                    Transformation of conformai coordinates of type Mercator from a global datum (WGS 84) to a local datum (Regional, national)
+  Author                   Grafarend, E and Okeke, F
+  Journal                  Marine Geodesy
+  Year                     1998
+  Number                   3
+  Pages                    169--180
+  Volume                   21
+  Publisher                Taylor \& Francis
+
+- [[[Guerini.2010]]]
+  Title                    Evaluation Metrics for Persuasive NLP with Google AdWords.
+  Author                   Guerini, Marco and Strapparava, Carlo and Stock, Oliviero
+  Booktitle                LREC
+  Year                     2010
+
+- [[[Gutwin.2004]]]
+  Title                    Revealing delay in collaborative environments
+  Author                   Gutwin, Carl and Benford, Steve and Dyck, Jeff and Fraser, Mike and Vaghi, Ivan and Greenhalgh, Chris
+  Booktitle                Proceedings of the SIGCHI conference on Human factors in computing systems
+  Year                     2004
+  Organization             ACM
+  Pages                    503--510
+
+- [[[Haklay.2010]]]
+  Title                    How good is volunteered geographical information? A comparative study of OpenStreetMap and Ordnance Survey datasets
+  Author                   Haklay, Mordechai
+  Journal                  Environment and planning. B, Planning \& design
+  Year                     2010
+  Number                   4
+  Pages                    682
+  Volume                   37
+
+- [[[Haklay.2008]]]
+  Title                    Openstreetmap: User-generated street maps
+  Author                   Haklay, Mordechai and Weber, Patrick
+  Journal                  Pervasive Computing, IEEE
+  Year                     2008
+  Number                   4
+  Pages                    12--18
+  Volume                   7
+  Publisher                IEEE
+
+- [[[Hamburg.2014]]]
+  Title                    Hamburg Open Data
+  Author                   Stadt Hamburg
+  Note                     Abegrufen am: 11.02.2014
+  Year                     2014
+  Url                      http://daten.hamburg.de/
+
+- [[[He.2011]]]
+  Title                    Location cheating: A security challenge to location-based social network services
+  Author                   He, Wenbo and Liu, Xue and Ren, Mai
+  Booktitle                Distributed Computing Systems (ICDCS), 2011 31st International Conference on
+  Year                     2011
+  Organization             IEEE
+  Pages                    740--749
+
+- [[[Hecht.2013]]]
+  Title                    {M}easuring {C}ompleteness of {B}uilding {F}ootprints in {O}pen{S}treet{M}ap over {S}pace and {T}ime
+  Author                   Hecht, Robert and Kunze, Carola and Hahmann, Stefan
+  Journal                  ISPRS International Journal of Geo-Information
+  Year                     2013
+  Number                   4
+  Pages                    1066--1091
+  Volume                   2
+
+- [[[Heinemann.2014]]]
+  Title                    Location Based Services als Basisfaktor Nr. 2 des SoLoMo
+  Author                   Heinemann, Gerrit
+  Booktitle                SoLoMo - Always-on im Handel
+  Publisher                Springer Fachmedien Wiesbaden
+  Year                     2014
+  Pages                    65-118
+  Language                 German
+
+- [[[Heinrich.1992]]]
+  Title                    Zur Methodik der räumlichen Interpolation mit geostatistischen Verfahren
+  Author                   Heinrich, Uwe
+  Publisher                Springer
+  Year                     1992
+
+- [[[Hinske.2007]]]
+  Title                    Classifying pervasive games: on pervasive computing and mixed reality
+  Author                   Hinske, Steve and Lampe, Matthias and Magerkurth, Carsten and Röcker, Carsten
+  Journal                  Concepts and technologies for Pervasive Games-A Reader for Pervasive Gaming Research
+  Year                     2007
+  Pages                    20
+  Volume                   1
+
+- [[[Holdener.2011]]]
+  Title                    HTML5 Geolocation
+  Author                   Holdener, Anthony T
+  Publisher                O'Reilly Media, Inc.
+  Year                     2011
+
+- [[[Jeannerod.2003]]]
+  Title                    The mechanism of self-recognition in humans
+  Author                   Jeannerod, Marc
+  Journal                  Behavioural brain research
+  Year                     2003
+  Number                   1
+  Pages                    1--15
+  Volume                   142
+  Publisher                Elsevier
+
+- [[[Kapp.2012]]]
+  Title                    The Gamification of Learning and Instruction. Game-Based Methods and Strategies for Training and Education
+  Author                   Kapp, Karl
+  Publisher                Pfeiffer
+  Year                     2012
+  Adress                   USA, San Francisco
+
+- [[[Karich.2014]]]
+  Title                    GraphHopper Maps: Fast Road Routing in 100-Percent Java
+  Author                   Peter Karich
+  Journal                  Java Magazine
+  Year                     2014
+  Number                   1/2014
+  Pages                    71-73
+  Publisher                Oracle
+
+- [[[Neeb.2013]]]
+  Title                    {H}ochschullehre in der {G}eographiedidaktik: {W}ie kann die {A}usbildung zukünftiger {L}ehrerinnen und {L}ehrer optimiert werden?
+  Author                   Kerstin Neeb, Ulrike Ohl, Johanna Schockemöhle
+  Editor                   Neeb, Kerstin
+  Publisher                Shaker
+  Year                     2013
+  Address                  Aachen
+  Series                   {G}ie{\ss}ener geographische {M}anuskripte
+  Volume                   7
+
+- [[[Kiefer.2005]]]
+  Title                    The Geogames Tool: Balancing spatio-temporal design parameters in location-based games
+  Author                   Kiefer, Peter and Matyas, Sebastian
+  Booktitle                Conference on Computer Games (CGAMES 2005), Angoul{\^e}me, France
+  Year                     2005
+
+- [[[Kiefer.2007]]]
+  Title                    Playing Location-based Games on Geographically Distributed Game Board
+  Author                   Kiefer, Peter and Matyas, Sebastian and Schlieder, Christoph
+  Booktitle                Magerkurth et al.(eds.): 4th Inernational Symposium on Pervasive Gaming Applications (PerGames 2007)
+  Year                     2007
+
+- [[[Kiefer.2007b]]]
+  Title                    Playing on a line: location-based games for linear trips
+  Author                   Kiefer, Peter and Matyas, Sebastian and Schlieder, Christoph
+  Booktitle                Proceedings of the international conference on Advances in computer entertainment technology
+  Year                     2007
+  Organization             ACM
+  Pages                    250--251
+
+- [[[Kiefer.2006]]]
+  Title                    Systematically exploring the design space of location-based games
+  Author                   Kiefer, Peter and Matyas, Sebastian and Schlieder, Christoph
+  Booktitle                Pervasive 2006 Workshop Proceedings, Poster presented at PerGames2006
+  Year                     2006
+  Pages                    183--190
+  Volume                   7
+
+- [[[Kiefer.2005b]]]
+  Title                    State space analysis as a tool in the design of a smart opponent for a location-based game
+  Author                   Kiefer, Peter and Matyas, Sebastian and Schlieder, Christoph
+  Booktitle                Proceedings of the Games Convention Developer Conference “Computer Science and Magic”, Leipzig, Germany
+  Year                     2005
+
+- [[[Kitanidis.1997]]]
+  Title                    Introduction to geostatistics: applications in hydrogeology
+  Author                   Kitanidis
+  Publisher                Cambridge University Press
+  Year                     1997
+
+- [[[Leigh.2012]]]
+  Title                    Smart Insurers turn to Gamification as a way to Change Agent Behavior
+  Author                   Steven Leigh
+  Note                     Abegrufen am: 11.02.2014
+  Year                     2012
+  Publisher                Infosys
+  Url                      http://www.infosysbpo.com/offerings/industries/insurance/Documents/insurance-journal-2012.pdf
+
+- [[[Liebhold.1993]]]
+  Title                    Geostatistics and geographic information systems in applied insect ecology
+  Author                   Liebhold, Andrew M and Rossi, Richard E and Kemp, William P
+  Journal                  Annual review of entomology
+  Year                     1993
+  Number                   1
+  Pages                    303--327
+  Volume                   38
+  Publisher                Annual Reviews
+
+- [[[Lindqvist.2011]]]
+  Title                    I'm the mayor of my house: examining why people use foursquare-a social-driven location sharing application
+  Author                   Lindqvist, Janne and Cranshaw, Justin and Wiese, Jason and Hong, Jason and Zimmerman, John
+  Booktitle                Proceedings of the SIGCHI Conference on Human Factors in Computing Systems
+  Year                     2011
+  Organization             ACM
+  Pages                    2409--2418
+
+- [[[Livshits.2007]]]
+  Title                    Using web application construction frameworks to protect against code injection attacks
+  Author                   Livshits, Benjamin and Erlingsson, {\'U}lfar
+  Booktitle                Proceedings of the 2007 workshop on Programming languages and analysis for security
+  Year                     2007
+  Organization             ACM
+  Pages                    95--104
+
+- [[[Loh.2012]]]
+  Title                    Informationskompetenz in der Schule: ein informationswissenschaftlicher Ansatz
+  Author                   von Loh, Sonja Gust and Stock, Wolfgang G
+  Publisher                Walter de Gruyter
+  Year                     2012
+
+- [[[Ingress.2014]]]
+  Title                    Ingress Survey 2014
+  Author                   Lui
+  Note                     Abegrufen am: 04.03.2014
+  Year                     2014
+  Url                      http://goo.gl/ljQkqx
+
+- [[[Magerkurth.2007b]]]
+  Title                    {P}ervasive gaming applications
+  Author                   Magerkurth, Carsten
+  Publisher                Shaker
+  Year                     2007
+  Address                  Aachen
+  Series                   {A} reader for pervasive gaming research
+  Volume                   2
+  ISBN                     9783832262242
+
+- [[[Magerkurth.2007a]]]
+  Title                    {C}oncepts and {T}echnologies for {P}ervasive {G}ames: {A} reader for pervasive gaming research vol. 2
+  Author                   Magerkurth, Carsten and Röcker, Carsten
+  Publisher                Shaker
+  Year                     2007
+  Address                  Aachen
+  Series                   {A} reader for pervasive gaming research
+  Volume                   1
+
+- [[[Maling.1991]]]
+  Title                    Coordinate systems and map projections for GIS
+  Author                   Maling, DH
+  Journal                  Geographical Information Systems: Principles and Applications. John Wiley \& sons
+  Year                     1991
+  Pages                    135--146
+
+- [[[Mallinckrodt.2007]]]
+  Title                    The effects of playing an advergame on young children's perceptions, preferences, and requests
+  Author                   Mallinckrodt, Victoria and Mizerski, Dick
+  Journal                  Journal of Advertising
+  Year                     2007
+  Number                   2
+  Pages                    87--100
+  Volume                   36
+  Publisher                Taylor \& Francis
+
+- [[[Mannara.2012]]]
+  Title                    Location-based games and the use of GIS information: Design of a DSL for (re)locating a pervasive game
+  Author                   Mannara, Andrea
+  School                   Norwegian University of Science and Technology, Department of Computer and Information Science
+  Year                     2012
+  Institution              Norwegian University of Science and Technology, Department of Computer and Information Science
+  Pages                    70
+  Publisher                Institutt for datateknikk og informasjonsvitenskap
+
+- [[[Manns.2012]]]
+  Title                    {G}amification zur {S}teigerung der {M}itarbeitermotivation
+  Author                   Manns, Claudia
+  Year                     2012
+
+- [[[Marczewski.2013]]]
+  Title                    Gamification: A Simple Introduction
+  Author                   Marczewski, A.
+  Publisher                Andrzej Marczewski
+  Year                     2013
+
+- [[[Matyas.2011]]]
+  Title                    Gemeinschaftliche qualitätsgesicherte Erhebung und semantische Integration von raumbezogenen Daten
+  Author                   Matyas, Sebastian
+  Publisher                University of Bamberg Press
+  Year                     2011
+  Volume                   7
+
+- [[[SebastianMatyas.2008]]]
+  Title                    CityExplorer-A Geogame Extending the Magic Circle.
+  Author                   Matyas, Sebastian and Matyas, Christian and Schlieder, Christoph and Kiefer, Peter
+  Booktitle                GI Jahrestagung (1)
+  Year                     2008
+  Pages                    503--504
+
+- [[[Maybury.2005]]]
+  Title                    {I}ntelligent technologies for interactive entertainment
+  Author                   Maybury, Mark and Stock, Oliviero and Wahlster, Wolfgang
+  Booktitle                {F}irst international conference, {I}{N}{T}{E}{T}{A}{I}{N}
+  Year                     2005
+  Address                  Berlin
+  Publisher                Springer
+  Series                   {L}ecture notes in computer science {L}ecture notes in artificial intelligence
+  Volume                   1
+  Institution              INTETAIN and {INTETAIN 2005} and {International Conference on Intelligent Technologies for Interactive Entertainment}
+
+- [[[Mayra.2010]]]
+  Title                    {A}n introduction to game studies: {G}ames in culture
+  Author                   Frans Mayra
+  Publisher                SAGE
+  Year                     2010
+  Address                  Los Angeles
+  Edition                  Repr.
+
+- [[[Meyer.2013]]]
+  Title                    Using crowdsourced geographic information from OpenStreetMap for discrete event simulation of logistic systems
+  Author                   Meyer, Torben and Trojahn, Matthias and Strassburger, Steffen
+  Booktitle                Proceedings of the 46th Annual Simulation Symposium
+  Year                     2013
+  Organization             Society for Computer Simulation International
+  Pages                    2
+
+- [[[Montola.2005]]]
+  Title                    {E}xploring the edge of the magic circle: {D}efining pervasive games
+  Author                   Montola, Markus
+  Booktitle                {P}roceedings of {D}{A}{C}
+  Year                     2005
+  Pages                    103
+
+- [[[Montola.2009]]]
+  Title                    {P}ervasive games: {T}heory and design ; [experiences on the boundary between life and play]
+  Author                   Montola, Markus and Stenros, Jaakko and Waern, Annika
+  Publisher                Elsevier/Morgan Kaufmann
+  Year                     2009
+  Address                  Amsterdam
+  Series                   {M}organ {K}aufmann game design books
+
+- [[[DWN.2012]]]
+  Title                    Einzelhandel mit stärkstem Umsatzeinbruch seit vier Jahren
+  Author                   Deutsche Wirtschafts Nachrichten
+  Note                     Abegrufen am: 11.02.2014
+  Year                     2012
+  Publisher                Deutsche Wirtschafts Nachrichten
+  Url                      http://deutsche-wirtschafts-nachrichten.de/2012/11/30/einzelhandel-mit-staerkstem-umsatzeinbruch-seit-vier-jahren-2/
+
+- [[[Neis.2011]]]
+  Title                    The street network evolution of crowdsourced maps: OpenStreetMap in Germany 2007--2011
+  Author                   Neis, Pascal and Zielstra, Dennis and Zipf, Alexander
+  Journal                  Future Internet
+  Year                     2011
+  Number                   1
+  Pages                    1--21
+  Volume                   4
+  Publisher                Molecular Diversity Preservation International
+
+- [[[Nelson.2002]]]
+  Title                    Recall of brand placements in computer/video games
+  Author                   Nelson, Michelle R
+  Journal                  Journal of advertising research
+  Year                     2002
+  Number                   2
+  Pages                    80--92
+  Volume                   42
+  Publisher                Advertising Research Foundation
+
+- [[[Nelson.2004]]]
+  Title                    Advertainment or adcreep game players’ attitudes toward advertising and product placements in computer games
+  Author                   Nelson, Michelle R and Keum, Heejo and Yaros, Ronald A
+  Journal                  Journal of Interactive Advertising
+  Year                     2004
+  Number                   1
+  Pages                    3--21
+  Volume                   5
+  Publisher                Taylor \& Francis
+
+- [[[Nieuwdorp.2007]]]
+  Title                    The pervasive discourse: an analysis
+  Author                   Nieuwdorp, Eva
+  Journal                  Computers in Entertainment (CIE)
+  Year                     2007
+  Number                   2
+  Pages                    13
+  Volume                   5
+  Publisher                ACM
+
+- [[[Nurseitov.2009]]]
+  Title                    Comparison of JSON and XML Data Interchange Formats: A Case Study.
+  Author                   Nurseitov, Nurzhan and Paulson, Michael and Reynolds, Randall and Izurieta, Clemente
+  Journal                  Caine
+  Year                     2009
+  Pages                    157--162
+  Volume                   9
+
+- [[[Oreilly.2007]]]
+  Title                    What is Web 2.0: Design patterns and business models for the next generation of software.
+  Author                   O'reilly, Tim
+  Journal                  Communications \& strategies
+  Year                     2007
+  Number                   65
+
+- [[[Odobasic.2013]]]
+  Title                    Gamification of geographic data collection
+  Author                   Odoba{\v{s}}i{\'c}, Dra{\v{z}}en and Medak, Damir and Miler, Mario
+  Booktitle                Creating the GISociety – Conference Proceedings
+  Year                     2013
+  Publisher                Verlag der österreichischen Akademie der Wissenschaften
+  Series                   GI\_Forum 2013
+
+- [[[Ohloh.2014]]]
+  Title                    Comparision of OpenLayers and Leaflet
+  Author                   Ohloh
+  Note                     Abegrufen am: 20.03.2014
+  Year                     2014
+  Url                      http://www.ohloh.net/p/compare?project_0=OpenLayers&project_1=Leaflet
+
+- [[[Okabe.2006]]]
+  Title                    SANET: a toolbox for spatial analysis on a network
+  Author                   Okabe, Atsuyuki and Okunuki, Kei-ichi and Shiode, Shino
+  Journal                  Geographical Analysis
+  Year                     2006
+  Number                   1
+  Pages                    57--66
+  Volume                   38
+  Publisher                Wiley Online Library
+
+- [[[Okabe.2001]]]
+  Title                    The K-function method on a network and its computational implementation
+  Author                   Okabe, Atsuyuki and Yamada, Ikuho
+  Journal                  Geographical Analysis
+  Year                     2001
+  Number                   3
+  Pages                    271--290
+  Volume                   33
+  Publisher                Wiley Online Library
+
+- [[[Olbricht.2014]]]
+  Title                    Overpass API Output Formats
+  Author                   Olbricht, Roland
+  Note                     Abegrufen am: 18.03.2014
+  Year                     2014
+  Url                      http://overpass-api.de/output_formats.html
+
+- [[[OSM.2013]]]
+  Title                    Active Contributors until 2013-12
+  Author                   Openstreemaps
+  Note                     Abegrufen am: 03.03.2014
+  Year                     2013
+  Url                      http://wiki.openstreetmap.org/wiki/File:Active_contributors_month_201312.png
+
+- [[[OSM.2013b]]]
+  Title                    64-bit Identifiers
+  Author                   Openstreemaps
+  Note                     Abegrufen am: 03.03.2014
+  Year                     2013
+  Url                      http://wiki.openstreetmap.org/wiki/64-bit_Identifiers
+
+- [[[Oxford.2013]]]
+  Title                    Oxford Dictionary 2013
+  Author                   Oxford
+  Publisher                Oxford University Press
+  Year                     2013
+
+- [[[Papula.2006]]]
+  Title                    Mathematische Formelsammlung für Ingenieure und Naturwissenschaftler
+  Author                   Papula, Lothar
+  Publisher                Springer
+  Year                     2006
+  Volume                   7
+
+- [[[Pelling.2011]]]
+  Title                    The (short) prehistory of gamification
+  Author                   Pelling, Nick
+  Note                     Abegrufen am: 20.03.2014
+  Year                     2011
+  Url                      http://nanodome.wordpress.com/2011/08/09/the-short-prehistory-of-gamification/
+
+- [[[Pfoser.2013]]]
+  Title                    {E}xploratory analysis of {O}pen{S}treet{M}ap for land use classification
+  Author                   Pfoser, Dieter and Voisard, Agn{\`e}s and Estima, Jacinto and Painho, Marco
+  Booktitle                the {S}econd {A}{C}{M} {S}{I}{G}{S}{P}{A}{T}{I}{A}{L} {I}nternational {W}orkshop
+  Year                     2013
+  Pages                    39--46
+
+- [[[Pol.2002]]]
+  Title                    Software testing: a guide to the TMap approach
+  Author                   Pol, Martin and Teunissen, Ruud and Van Veenendaal, Erik
+  Publisher                Pearson Education
+  Year                     2002
+
+- [[[Poslad.2011]]]
+  Title                    Ubiquitous computing: smart devices, environments and interactions
+  Author                   Poslad, Stefan
+  Publisher                John Wiley \& Sons
+  Year                     2011
+  Edition                  2
+
+- [[[Qiuhui.2002]]]
+  Title                    Study on mvc model2 and struts framework
+  Author                   Qiuhui, HC
+  Journal                  Computer Engineering
+  Year                     2002
+  Pages                    109
+  Volume                   6
+
+- [[[Ramthun.2012]]]
+  Title                    Offene Geodaten durch OpenStreetMap
+  Author                   Ramthun, Roland
+  Journal                  Open Initiatives: Offenheit in der digitalen Welt und Wissenschaft
+  Year                     2012
+  Pages                    159
+  Publisher                Ulrich Herb
+
+- [[[Rashid.2006b]]]
+  Title                    PAC-LAN: mixed-reality gaming with RFID-enabled mobile phones
+  Author                   Rashid, Omer and Bamford, Will and Coulton, Paul and Edwards, Reuben and Scheible, Jurgen
+  Journal                  Computers in Entertainment (CIE)
+  Year                     2006
+  Number                   4
+  Pages                    4
+  Volume                   4
+  Publisher                ACM
+
+- [[[Rashid.2006a]]]
+  Title                    Extending cyberspace: location based games using cellular phones
+  Author                   Rashid, Omer and Mullins, Ian and Coulton, Paul and Edwards, Reuben
+  Journal                  Computers in Entertainment (CIE)
+  Year                     2006
+  Number                   1
+  Pages                    4
+  Volume                   4
+  Publisher                ACM
+
+- [[[Roesl.2005]]]
+  Title                    Regionalwährungen in Deutschland
+  Author                   Rösl, Gerhard
+  Journal                  Wirtschaftsdienst
+  Year                     2005
+  Number                   3
+  Pages                    182-190
+  Volume                   85
+  Language                 German
+  Publisher                Springer-Verlag
+
+- [[[Salen.2004]]]
+  Title                    Rules of play: Game design fundamentals
+  Author                   Salen, Katie and Zimmerman, Eric
+  Publisher                MIT Press
+  Year                     2004
+
+- [[[Salt.2011]]]
+  Title                    Social Location Marketing: Erreichen Sie Ihre Kunden mit Lokalisierungsdiensten
+  Author                   Salt, Simon
+  Publisher                Pearson Deutschland
+  Year                     2011
+  Address                  München
+
+- [[[Schlieder.2013]]]
+  Title                    Geogames -- Gestaltungsaufgaben und geoinformatische Lösungsansätze:
+  Author                   Schlieder, Christoph
+  Journal                  unveröffentlichtes Manuskript Universität Bamberg
+  Year                     2013
+
+- [[[Schlieder.2006]]]
+  Title                    Geogames: Designing location-based games from classic board games
+  Author                   Schlieder, Christoph and Kiefer, Peter and Matyas, Sebastian
+  Journal                  Intelligent Systems, IEEE
+  Year                     2006
+  Number                   5
+  Pages                    40--46
+  Volume                   21
+  Publisher                IEEE
+
+- [[[Schlieder.2005]]]
+  Title                    Geogames: A conceptual framework and tool for the design of location-based games from classic board games
+  Author                   Schlieder, Christoph and Kiefer, Peter and Matyas, Sebastian
+  Booktitle                Intelligent Technologies for Interactive Entertainment
+  Publisher                Springer
+  Year                     2005
+  Pages                    164--173
+
+- [[[Schmitt.2001]]]
+  Title                    Chancen für Loyalitätsprogramme durch das Internet: das Beispiel Lufthansa Miles \& More
+  Author                   Schmitt, Christina
+  Booktitle                Effektives Customer Relationship Management
+  Publisher                Gabler Verlag
+  Year                     2001
+  Editor                   Helmke, Stefan and Dangelmaier, Wilhelm
+  Pages                    85-99
+  Language                 German
+
+- [[[Schoeneberger.2002]]]
+  Title                    Field Book for Describing and Sampling Soils, Version 3. 0
+  Author                   Schoeneberger, Philip J
+  Publisher                Government Printing Office
+  Year                     2002
+
+- [[[Schwabe.2001]]]
+  Title                    Engineering Web applications for reuse
+  Author                   Schwabe, D. and Esmeraldo, L. and Rossi, Gustavo and Lyardet, F.
+  Journal                  MultiMedia, IEEE
+  Year                     2001
+  Month                    Jan
+  Number                   1
+  Pages                    20-31
+  Volume                   8
+
+- [[[Simanowski.2008]]]
+  Title                    Digitale Medien in der Erlebnisgesellschaft
+  Author                   Simanowski, Roberto
+  Journal                  Kultur--Kunst--Utopien.
+  Year                     2008
+  Address                  Reinbek b. Hamburg
+  Publisher                Rowohlt
+
+- [[[Spooner.2004]]]
+  Title                    Spatial analysis of roadside Acacia populations on a road network using the network K-function
+  Author                   Spooner, Peter G and Lunt, Ian D and Okabe, Atsuyuki and Shiode, Shino
+  Journal                  Landscape ecology
+  Year                     2004
+  Number                   5
+  Pages                    491--499
+  Volume                   19
+  Publisher                Springer
+
+- [[[Stolze.2003]]]
+  Title                    SQL/MM Spatial-The Standard to Manage Spatial Data in a Relational Database System.
+  Author                   Stolze, Knut
+  Booktitle                BTW
+  Year                     2003
+  Pages                    247--264
+  Volume                   2003
+
+- [[[Tate.2006]]]
+  Title                    Ruby on Rails: Up and Running: Up and Running
+  Author                   Tate, Bruce A and Hibbs, Curt
+  Publisher                O'Reilly Media, Inc.
+  Year                     2006
+
+- [[[Tesco.2012]]]
+  Title                    Tesco Homeplus expands number of virtual stores
+  Author                   Tesco
+  Note                     Abegrufen: 05.03.2014
+  Year                     2012
+  Url                      http://www.tescoplc.com/index.asp?pageid=17&newsid=593
+
+- [[[Winkler.2006]]]
+  Title                    Receptiveness of gamers to embedded brand messages in advergames: Attitudes towards product placement
+  Author                   Tina, Winkler and Buckner, Kathy
+  Journal                  Journal of Interactive Advertising
+  Year                     2006
+  Number                   1
+  Pages                    3--32
+  Volume                   7
+  Publisher                Taylor \& Francis
+
+- [[[Van.2006]]]
+  Title                    Comparing the performance of object databases and ORM tools
+  Author                   Van Zyl, Pieter and Kourie, Derrick G and Boake, Andrew
+  Booktitle                Proceedings of the 2006 annual research conference of the South African institute of computer scientists and information technologists on IT research in developing countries
+  Year                     2006
+  Organization             South African Institute for Computer Scientists and Information Technologists
+  Pages                    1--11
+
+- [[[Wagner.2005]]]
+  Title                    Kundenbindung: Miles \& More — Kundenbindung in der Luft
+  Author                   Wagner, Oliver
+  Booktitle                Handbuch Kundenzufriedenheit
+  Publisher                Springer Berlin Heidelberg
+  Year                     2005
+  Pages                    135-153
+
+- [[[Weinberger.2011]]]
+  Title                    A systematic analysis of xss sanitization in web application frameworks
+  Author                   Weinberger, Joel and Saxena, Prateek and Akhawe, Devdatta and Finifter, Matthew and Shin, Richard and Song, Dawn
+  Booktitle                Computer Security--ESORICS 2011
+  Publisher                Springer
+  Year                     2011
+  Pages                    150--171
+
+- [[[Wien.2014]]]
+  Title                    Wien Open Data
+  Author                   Stadt Wien
+  Note                     Abegrufen am: 11.02.2014
+  Year                     2014
+  Url                      https://open.wien.at
+
+- [[[Wikipedia.2014]]]
+  Title                    World Wide Smartphone Sales Share - Diagram based on Gartner
+  Author                   Wikipedia
+  Note                     Abegrufen am: 05.03.2014
+  Year                     2014
+  Url                      http://en.wikipedia.org/wiki/File:World_Wide_Smartphone_Sales_Share.png
+
+- [[[WWWtechs.2014]]]
+  Title                    Usage of server-side programming languages for websites
+  Author                   WWWtechs
+  Note                     Abegrufen am: 20.03.2014
+  Year                     2014
+  Url                      http://w3techs.com/technologies/overview/programming_language/all
+
+- [[[Yan.2005]]]
+  Title                    A systematic classification of cheating in online games
+  Author                   Yan, Jeff and Randell, Brian
+  Booktitle                Proceedings of 4th ACM SIGCOMM workshop on Network and system support for games
+  Year                     2005
+  Organization             ACM
+  Pages                    1--9
+
+- [[[Zichermann.2011]]]
+  Title                    Gamification by design: Implementing game mechanics in web and mobile apps
+  Author                   Zichermann, Gabe and Cunningham, Christopher
+  Publisher                O'Reilly Media, Inc.
+  Year                     2011
+
+- [[[Zichermann.2013]]]
+  Title                    The Gamification Revolution: How Leaders Leverage Game Mechanics to Crush the Competition
+  Author                   Zichermann, Gabe and Linder, Joselin
+  Publisher                McGraw Hill Professional
+  Year                     2013
+
+- [[[Zook.2010]]]
+  Title                    Volunteered geographic information and crowdsourcing disaster relief: a case study of the Haitian earthquake
+  Author                   Zook, Matthew and Graham, Mark and Shelton, Taylor and Gorman, Sean
+  Journal                  World Medical \& Health Policy
+  Year                     2010
+  Number                   2
+  Pages                    7--33
+  Volume                   2
+  Publisher                Wiley Online Library
