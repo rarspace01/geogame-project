@@ -1524,7 +1524,7 @@ den 2. und 3. Bit eines 64 Bit long Wertes verwenden. Der 1. Bit wird
 nicht verwendet um negative Zahlen weiterhin zu erlauben. Der 2. Bit
 würde als Identifikator für Relations dienen und der 3. für Ways als
 Ursprungselement. Ein Beispiel für den transformierten Way mit der OSM
-ID 1 ist in Abbildung [img:ch5~i~mg03~b~itmask] zu sehen.
+ID 1 ist in nachfolgender Abbildung zu sehen.
 
 image:images/ch5_img03_bitmask.png[OSM ID: Bitmaskenkodierung im 64 Bit long Wert]
 OSM ID: Bitmaskenkodierung im 64 Bit long Wert
@@ -2359,7 +2359,7 @@ die Ressourcen eines Rechners/Servers vollständig auszunutzen. Dadurch
 kann die Laufzeit bei mehreren Tags je nach Anzahl der vorhandenen CPUs
 auf 1/lc verkürzt werden. Hierbei steht lc für die
 Anzahl der logischen CPUs. Bei einer Laufzeit von
-O = (n^2) ist dies unerlässlich. Da GraphHopper in
+O = (n^2^) ist dies unerlässlich. Da GraphHopper in
 Java realisiert wurde, wurde das Evaluationstool analog dazu ebenfalls
 in Java entwickelt.
 
@@ -2793,12 +2793,12 @@ image:images/ch6_img05_eval_match.png[Gegenüberstellung der cNN Methoden]
 Gegenüberstellung der cNN Methoden
 
 Allerdings muss beachtet werden, dass bei 4100 Spielelementen auf
-6,25km^2, eine extrem hohe Dichte erreicht wird. Diese
+6,25km^2^, eine extrem hohe Dichte erreicht wird. Diese
 führt dazu, dass es im Schnitt es weniger als 40 Meter bis zum nächsten
 Spielelement sind. Bei einem Aktionsradius von 40 Metern, wäre das
 Spielfeld somit voller Spielelemente. Daraus folgern sich zwei Dinge:
 Die ideale Spielelementzahl sollte einen Flächen zu Spielemement Index
-größer als 1524m^2 aufweisen. Es ist auch festzustellen,
+größer als 1524m^2^ aufweisen. Es ist auch festzustellen,
 dass der Einsatz der zeitgeographische Methode keinen Sinn macht.
 Nachdem die Berechnungsmethode festgelegt und die Werte für verschiedene
 Punkte berechnet wurden, ist festgestellt worden, dass ein Clustering
