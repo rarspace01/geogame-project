@@ -567,7 +567,7 @@ Maß angewandt:
 
 image:images/formular_001.png[]
 
-Hierbei stellen asciimath:[c_(1,row,col)] und asciimath:[c_(2,row,col)] jeweils die
+Hierbei stellen c1 und c2 jeweils die
 Entfernungsmatrizen der Spielfelder dar. Row und col adressieren die
 Zeile und Spalte. Zu beachten ist, dass die Entfernungen als direkte
 euklidische Luftlinie gemessen werden. Etwaige Höhenunterschiede, sowie
@@ -734,14 +734,14 @@ gehen einen Schritt weiter und definieren eine K-Funktion auf Basis von
 , welche die Anzahl der Punkte in einem vorgegebenen Radius zu einem
 festen Punkt beschreiben. Die Formel ist wie folgt definiert:
 
-//TODO
+
 
 image:images/formular_002.png[]
 
-E stellt der Erwartungswert in Hinblick auf platexmath:[$_n$] dar. P
+E stellt der Erwartungswert in Hinblick auf p dar. P
 beschreibt die Anzahl der zu untersuchenden Punkte und
-latexmath:[$n_{pit}$] beschreibt die Anzahl der Punkte die innerhalb der
-vorgegebenen Netzwerkdistanz t zum prüfenden Punkt platexmath:[$_i$]
+n beschreibt die Anzahl der Punkte die innerhalb der
+vorgegebenen Netzwerkdistanz t zum prüfenden Punkt p
 stehen. Dieser Ansatz soll als erste Evaluationsansatz der Spielfelder
 dienen, da er einfach zu berechnen ist und später angepasst und
 verbessert werden kann.
@@ -791,7 +791,7 @@ Achievers und Killers. Die Frage stellt sich hierbei, wie Socializers
 und Explorers erreicht werden können. Hierzu kann das von in Kapitel
 <<ch3:s:Gamification>> erweiterte Modell SAPS genutzt werden, welches auch
 auf die Interaktion unter den Menschen eingeht. Im konkreten Beispiel
-schlagen //TODO vor, den Spielern die Möglichkeit zu geben, bestimmte
+schlagen <<Zichermann.2011>> vor, den Spielern die Möglichkeit zu geben, bestimmte
 Positionen innerhalb eines Spiels einzunehmen. Durch diese sollen
 einzelne Spieler eine höhere Position erhalten als andere und damit auch
 eine Interaktion untereinander fördern. Damit können zu einem gewissen
@@ -2357,9 +2357,9 @@ durchzuführen. Da die GraphHopper Bibliothek selbst nicht für
 Parallelisierung ausgelegt ist, wurde das Evaluationstool optimiert um
 die Ressourcen eines Rechners/Servers vollständig auszunutzen. Dadurch
 kann die Laufzeit bei mehreren Tags je nach Anzahl der vorhandenen CPUs
-auf latexmath:[$\frac{1}{lc}$] verkürzt werden. Hierbei steht lc für die
+auf 1/lc verkürzt werden. Hierbei steht lc für die
 Anzahl der logischen CPUs. Bei einer Laufzeit von
-latexmath:[$\mathcal O(n^2)$] ist dies unerlässlich. Da GraphHopper in
+O = (n^2) ist dies unerlässlich. Da GraphHopper in
 Java realisiert wurde, wurde das Evaluationstool analog dazu ebenfalls
 in Java entwickelt.
 
@@ -2793,12 +2793,12 @@ image:images/ch6_img05_eval_match.png[Gegenüberstellung der cNN Methoden]
 Gegenüberstellung der cNN Methoden
 
 Allerdings muss beachtet werden, dass bei 4100 Spielelementen auf
-6,25kmlatexmath:[$^2$], eine extrem hohe Dichte erreicht wird. Diese
+6,25km^2, eine extrem hohe Dichte erreicht wird. Diese
 führt dazu, dass es im Schnitt es weniger als 40 Meter bis zum nächsten
 Spielelement sind. Bei einem Aktionsradius von 40 Metern, wäre das
 Spielfeld somit voller Spielelemente. Daraus folgern sich zwei Dinge:
 Die ideale Spielelementzahl sollte einen Flächen zu Spielemement Index
-größer als 1524mlatexmath:[$^2$] aufweisen. Es ist auch festzustellen,
+größer als 1524m^2 aufweisen. Es ist auch festzustellen,
 dass der Einsatz der zeitgeographische Methode keinen Sinn macht.
 Nachdem die Berechnungsmethode festgelegt und die Werte für verschiedene
 Punkte berechnet wurden, ist festgestellt worden, dass ein Clustering
