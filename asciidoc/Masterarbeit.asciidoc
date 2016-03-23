@@ -2736,7 +2736,7 @@ untersucht werden sollen und letztere alle Punkte die zur Beurteilung
 herangezogen werden. Dieses Vorgehen ist nötigt, da ansonsten die Punkte
 an den Ecken der inneren Bounding Box bei einer Bewertung benachteiligt
 werden würden. Die Anordnung der Bouding Boxen ist beispielhaft in
-Abbildung [img:ch6~i~mg04~b~box] zu sehen. Die innere Bounding Box
+der nachfolgenden Abbildung zu sehen. Die innere Bounding Box
 (schwarz) wurde im konkreten Fall auf 2,5 km Breite und 2,5 km Länge
 festgesetzt. Im Gegensatz dazu steht die äußere Bounding Box (rot).
 Dbaei wurde die Innere um die maximale Evaluationsdistanz erweitert. Im
