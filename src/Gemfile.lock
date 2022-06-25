@@ -63,7 +63,7 @@ GEM
     debugger-linecache (1.2.0)
     debugger-ruby_core_source (1.2.4)
     diff-lcs (1.2.5)
-    diffy (3.0.1)
+    diffy (3.4.2)
     email_validator (1.4.0)
       activemodel
     erubi (1.10.0)
